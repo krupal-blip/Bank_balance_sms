@@ -5,7 +5,7 @@
 
 ## 🎯 Current Status: READY FOR BATCH 3
 - **Last Evaluated Batch**: `usa_batch2.xml` (105 messages)
-- **Accuracy Achieved**: **87.6%**
+- **Accuracy Achieved**: **72.4%**
 - **System State**: Waiting for `samples/usa/usa_batch3.xml`
 
 ---

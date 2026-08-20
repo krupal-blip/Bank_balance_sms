@@ -35,7 +35,6 @@ from agent_bridge import AgentBridge
 
 bridge = AgentBridge()
 
-# Ignored filenames in samples/
 IGNORED_FILENAMES = ["processed", "NEXT_BATCH_REQUEST.md", "README.md", ".gitkeep"]
 
 def timestamp():
@@ -100,22 +99,34 @@ def parse_sample_file_lines(file_path):
     return messages
 
 def formulate_cognitive_ground_truth(sender, body):
-    lower = (sender + " " + body).lower()
+    sender_clean = sender.strip().upper()
+    lower = body.lower()
     
+    # Priority Bank Detection: Check body exact keywords first, then sender shortcodes
     bank = "Unknown"
-    if "24273" in sender or "chase" in lower:
-        bank = "Chase"
-    elif "73981" in sender or "322632" in sender or "bofa" in lower or "bank of america" in lower:
+    if "bank of america" in lower or "bofa" in lower:
         bank = "Bank of America"
-    elif "93557" in sender or "wells fargo" in lower or "wells" in lower:
+    elif "chase" in lower:
+        bank = "Chase"
+    elif "wells fargo" in lower or "wells" in lower:
         bank = "Wells Fargo"
-    elif "95686" in sender or "citi" in lower:
+    elif "citibank" in lower or "citi" in lower:
         bank = "Citibank"
-    elif "227898" in sender or "capital one" in lower:
+    elif "capital one" in lower:
+        bank = "Capital One"
+    elif sender_clean in ["73981", "322632", "34343", "BOFA"]:
+        bank = "Bank of America"
+    elif sender_clean in ["24273", "242731", "CHASE"]:
+        bank = "Chase"
+    elif sender_clean in ["93557", "93748"]:
+        bank = "Wells Fargo"
+    elif sender_clean in ["95686", "692484", "CITI"]:
+        bank = "Citibank"
+    elif sender_clean in ["227898", "227767", "227373"]:
         bank = "Capital One"
 
-    # Negative checks: 2FA, OTP, declined, ebills, updates
-    if any(w in lower for w in ["verification code", "security code", "safepass", "is your code", "passcode", "otp"]):
+    # Negative checks: 2FA, OTP, one-time code, declined, ebills, updates
+    if any(w in lower for w in ["verification code", "security code", "safepass", "is your code", "passcode", "one-time code", "otp"]):
         return {
             "is_transaction": False,
             "bank": bank,
@@ -164,7 +175,7 @@ def formulate_cognitive_ground_truth(sender, body):
     acc_m = re.search(r"(?:ending\s*(?:in)?|\.\.\.|acc|account|\*+)\s*([0-9]{3,4})", body, re.IGNORECASE)
     account = acc_m.group(1) if acc_m else None
 
-    is_credit = any(w in lower for w in ["deposit", "credited", "refund", "received", "payment of"])
+    is_credit = any(w in lower for w in ["deposit", "credited", "refund", "received", "payment of", "sent you"])
     is_card = "card" in lower or "charged" in lower or "purchase" in lower or "credit" in lower
 
     return {
@@ -237,7 +248,6 @@ def process_sample_file(file_path):
     test_runner_script = os.path.join(BASE_DIR, "Countries", "United_States", "tests", "run_us_sms_tests.py")
     result = subprocess.run([sys.executable, test_runner_script, temp_test_json], capture_output=True, text=True)
     
-    # Extract accuracy from stdout
     acc_match = re.search(r"FINAL RESULT:.*?([0-9\.]+)%", result.stdout)
     accuracy_str = f"{acc_match.group(1)}%" if acc_match else "100%"
 
@@ -286,11 +296,9 @@ def process_sample_file(file_path):
     )
     print(f"✅ [SCOOPER] Task {task_id} COMPLETED & Reported to Antigravity!\n")
 
-    # Determine batch number
     batch_num_match = re.search(r"batch(\d+)", filename, re.IGNORECASE)
-    next_batch_num = int(batch_num_match.group(1)) + 1 if batch_num_match else 2
+    next_batch_num = int(batch_num_match.group(1)) + 1 if batch_num_match else 3
 
-    # Update NEXT_BATCH_REQUEST.md for Claude
     signal_file = os.path.join(SAMPLES_DIR, "NEXT_BATCH_REQUEST.md")
     with open(signal_file, "w", encoding="utf-8") as f:
         f.write(f"""# Claude Next-Batch Instruction Signal
@@ -310,7 +318,6 @@ Generate the next batch of raw US bank SMS messages and push to:
 📁 **`samples/usa/usa_batch{next_batch_num}.xml`**
 """)
 
-    # Auto commit and push to GitHub so Claude can pull and see the signal!
     git_push_reports_and_signal(next_batch_num - 1, accuracy_str)
 
 def scan_samples_recursive():

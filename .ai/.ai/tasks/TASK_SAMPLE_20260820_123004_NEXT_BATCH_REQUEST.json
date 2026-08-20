@@ -1,0 +1,44 @@
+{
+  "task_id": "TASK_SAMPLE_20260820_123004_NEXT_BATCH_REQUEST",
+  "objective": "Process, parse, and verify external sample file: NEXT_BATCH_REQUEST.md",
+  "context": "Incoming raw sample file placed in samples/NEXT_BATCH_REQUEST.md",
+  "assigned_to": "opencode",
+  "status": "COMPLETED",
+  "created_at": "2026-08-20T12:30:04",
+  "updated_at": "2026-08-20T12:30:04",
+  "scope_files": [
+    "samples/NEXT_BATCH_REQUEST.md"
+  ],
+  "constraints": [
+    "Formulate human cognitive ground truth first",
+    "Execute against US/Region template parser",
+    "Report all discrepancies"
+  ],
+  "acceptance_criteria": [
+    "All lines parsed",
+    "Report generated in .ai/reports/",
+    "Task status updated to COMPLETED"
+  ],
+  "history": [
+    {
+      "timestamp": "2026-08-20T12:30:04",
+      "action": "CREATED",
+      "by": "antigravity",
+      "notes": "Task initialized"
+    },
+    {
+      "timestamp": "2026-08-20T12:30:04",
+      "status": "IN_PROGRESS",
+      "notes": "OpenCode executor scooping sample lines and testing",
+      "assigned_to": "opencode"
+    },
+    {
+      "timestamp": "2026-08-20T12:30:04",
+      "status": "COMPLETED",
+      "notes": "Task marked completed by orchestrator/executor",
+      "assigned_to": "opencode"
+    }
+  ],
+  "result": "Processed 7 messages from NEXT_BATCH_REQUEST.md. Report generated.",
+  "report_file": ".ai/reports/TASK_SAMPLE_20260820_123004_NEXT_BATCH_REQUEST_report.md"
+}
