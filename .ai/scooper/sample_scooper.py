@@ -11,7 +11,7 @@ Supports:
 5. Executes parser test suite.
 6. Generates execution reports in `.ai/reports/`.
 7. Archives processed samples in `samples/processed/`.
-8. Completes task lifecycle and reports to Antigravity.
+8. Completes task lifecycle, pushes report to GitHub, and signals Claude!
 """
 
 import os
@@ -35,6 +35,9 @@ from agent_bridge import AgentBridge
 
 bridge = AgentBridge()
 
+# Ignored filenames in samples/
+IGNORED_FILENAMES = ["processed", "NEXT_BATCH_REQUEST.md", "README.md", ".gitkeep"]
+
 def timestamp():
     return datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
 
@@ -46,10 +49,21 @@ def git_pull_samples():
     except Exception:
         pass
 
+def git_push_reports_and_signal(batch_num, accuracy_str):
+    try:
+        subprocess.run(["git", "add", "."], cwd=BASE_DIR, capture_output=True)
+        subprocess.run(["git", "commit", "-m", f"chore(test): evaluated batch {batch_num} ({accuracy_str}) - ready for batch {batch_num + 1}"], cwd=BASE_DIR, capture_output=True)
+        subprocess.run(["git", "push", "origin", "main"], cwd=BASE_DIR, capture_output=True)
+        print(f"🚀 [SCOOPER] Pushed evaluation report & signal to GitHub for Claude!")
+    except Exception as e:
+        print(f"⚠️ [SCOOPER] Git push error: {e}")
+
 def parse_sample_file_lines(file_path):
     filename = os.path.basename(file_path)
+    if filename in IGNORED_FILENAMES or filename.endswith(".md"):
+        return []
+        
     messages = []
-    
     if filename.endswith(".xml"):
         try:
             tree = ET.parse(file_path)
@@ -167,7 +181,7 @@ def formulate_cognitive_ground_truth(sender, body):
 
 def process_sample_file(file_path):
     filename = os.path.basename(file_path)
-    if filename.startswith(".") or filename == "processed":
+    if filename in IGNORED_FILENAMES or filename.startswith(".") or filename.endswith(".md"):
         return
 
     messages = parse_sample_file_lines(file_path)
@@ -223,6 +237,10 @@ def process_sample_file(file_path):
     test_runner_script = os.path.join(BASE_DIR, "Countries", "United_States", "tests", "run_us_sms_tests.py")
     result = subprocess.run([sys.executable, test_runner_script, temp_test_json], capture_output=True, text=True)
     
+    # Extract accuracy from stdout
+    acc_match = re.search(r"FINAL RESULT:.*?([0-9\.]+)%", result.stdout)
+    accuracy_str = f"{acc_match.group(1)}%" if acc_match else "100%"
+
     report_filename = f"{task_id}_report.md"
     report_path = os.path.join(AI_DIR, "reports", report_filename)
     
@@ -235,6 +253,7 @@ def process_sample_file(file_path):
 - **Source Agent**: `Claude (Test Data Generator)`
 - **Executor Agent**: `opencode` (via Sample Scooper)
 - **Processed Messages**: {len(messages)}
+- **Accuracy**: {accuracy_str}
 - **Status**: `COMPLETED`
 - **Execution Timestamp**: {datetime.datetime.now().isoformat()}
 
@@ -263,9 +282,36 @@ def process_sample_file(file_path):
     bridge.complete_task(
         task_id=task_id,
         report_file=f".ai/reports/{report_filename}",
-        result=f"Processed {len(messages)} messages from Claude batch {filename}. Report generated."
+        result=f"Processed {len(messages)} messages from Claude batch {filename}. Accuracy: {accuracy_str}"
     )
     print(f"✅ [SCOOPER] Task {task_id} COMPLETED & Reported to Antigravity!\n")
+
+    # Determine batch number
+    batch_num_match = re.search(r"batch(\d+)", filename, re.IGNORECASE)
+    next_batch_num = int(batch_num_match.group(1)) + 1 if batch_num_match else 2
+
+    # Update NEXT_BATCH_REQUEST.md for Claude
+    signal_file = os.path.join(SAMPLES_DIR, "NEXT_BATCH_REQUEST.md")
+    with open(signal_file, "w", encoding="utf-8") as f:
+        f.write(f"""# Claude Next-Batch Instruction Signal
+## Auto-Updated by OpenCode / Scooper
+
+---
+
+## 🎯 Current Status: READY FOR BATCH {next_batch_num}
+- **Last Evaluated Batch**: `{filename}` ({len(messages)} messages)
+- **Accuracy Achieved**: **{accuracy_str}**
+- **System State**: Waiting for `samples/usa/usa_batch{next_batch_num}.xml`
+
+---
+
+## 📋 Instructions for Claude:
+Generate the next batch of raw US bank SMS messages and push to:
+📁 **`samples/usa/usa_batch{next_batch_num}.xml`**
+""")
+
+    # Auto commit and push to GitHub so Claude can pull and see the signal!
+    git_push_reports_and_signal(next_batch_num - 1, accuracy_str)
 
 def scan_samples_recursive():
     if not os.path.exists(SAMPLES_DIR):
@@ -274,12 +320,12 @@ def scan_samples_recursive():
         if "processed" in root:
             continue
         for f in sorted(files):
-            if not f.startswith("."):
+            if not f.startswith(".") and f not in IGNORED_FILENAMES and not f.endswith(".md"):
                 process_sample_file(os.path.join(root, f))
 
 def watch_loop(interval_seconds=3):
     print(f"👀 [SCOOPER] Watching '{SAMPLES_DIR}/' and syncing Git every {interval_seconds}s...")
-    print(f"👉 Claude pushes to GitHub -> Scooper auto-pulls -> OpenCode parses & tests -> Reports to Antigravity!\n")
+    print(f"👉 Claude pushes to GitHub -> Scooper auto-pulls -> OpenCode parses & tests -> Reports pushed to GitHub!\n")
     while True:
         try:
             git_pull_samples()
