@@ -727,3 +727,316 @@ US_CORPUS_00725,1809061566000,22000,Google: A new device signed in to your accou
 US_CORPUS_00726,1809071969000,24273,Chase: Your card ending 7761 expires 06/29. A replacement card will arrive in 7-10 business days.,0,Chase,7761,,,OTHER,CARD
 US_CORPUS_00727,1809107969000,+14155550132,Thanks for dinner! Send me your half whenever,0,Unknown,,,,OTHER,NONE
 US_CORPUS_00728,1809127466000,24273,Chase: We updated the permissions used by the Chase Mobile app. Review them in Settings.,0,Chase,,,,OTHER,NONE
+US_CORPUS_00729,1815920183000,692484,"Citi: You're approved for the Citi Double Cash card ending 4310 with a $3,500.00 credit line. Your card ships in 5-7 days.",1,Citibank,4310,"3,500.00",,DEBIT,CARD
+US_CORPUS_00730,1815937823000,24273,Chase: Your one-time code is 337421. Don't share it. We'll never call to ask for it.,0,Chase,,,,OTHER,NONE
+US_CORPUS_00731,1815965856000,93557,Wells Fargo: Case WF-77410 has been decided. STREAMLYFE MEDIA honored $40.00 of the $76.40 disputed charge. The remaining $36.40 will be debited.,1,Wells Fargo,,40.00,,DEBIT,BANK
+US_CORPUS_00732,1815988246000,93557,"Wells Fargo: The unsupported portion of case WF-77410, $36.40, has been debited from account ending 4417 on 07/19. Available balance: $4,729.72.",1,Wells Fargo,4417,36.40,"4,729.72",DEBIT,BANK
+US_CORPUS_00733,1816039037000,93557,Wells Fargo: $40.00 of your case WF-77410 provisional credit is now permanent. No further action is needed.,1,Wells Fargo,,40.00,,DEBIT,BANK
+US_CORPUS_00734,1816064097000,24273,"Chase: Direct deposit of $2,400.00 from PRISHA APPS INC PAYROLL posted to acct ...9384 on 07/20. Avail bal: $39,732.08.",1,Chase,9384,"2,400.00","39,732.08",CREDIT,BANK
+US_CORPUS_00735,1816075374000,93557,"Wells Fargo: A direct deposit of $780.55 from PRISHA APPS INC PAYROLL posted to account ending 4417 on 07/20. Available balance: $5,510.27.",1,Wells Fargo,4417,780.55,"5,510.27",CREDIT,BANK
+US_CORPUS_00736,1816108048000,692484,Citi: Your Citi card ending 4310 is now active. Add it to your wallet in the Citi app.,0,Citibank,4310,,,OTHER,CARD
+US_CORPUS_00737,1816140611000,692484,Citi: Transfer a balance to card ending 4310 at 0% APR for 15 months. A 3% transfer fee applies.,0,Citibank,4310,,,OTHER,CARD
+US_CORPUS_00738,1816170099000,322632,"Bank of America: A balance transfer payment of $1,200.00 from CITIBANK was applied to your credit card ending 9111 on 07/21. Avail credit: $5,477.41.",1,Bank of America,9111,"1,200.00","5,477.41",CREDIT,CARD
+US_CORPUS_00739,1816206764000,692484,"Citi: Your balance transfer of $1,200.00 to card ending 4310 is complete on 07/21. Avail credit: $2,300.00.",1,Citibank,4310,"1,200.00","2,300.00",DEBIT,CARD
+US_CORPUS_00740,1816255754000,692484,"Citi: A balance transfer fee of $36.00 (3% of $1,200.00) was charged to card ending 4310 on 07/22. Avail credit: $2,264.00.",1,Citibank,4310,36.00,"2,264.00",DEBIT,CARD
+US_CORPUS_00741,1816270121000,37777,USPS: Your package 9400111899223197522104 is out for delivery.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00742,1816301013000,24273,"Chase: You made a $71.55 debit card purchase with card ending 7761 at EXXONMOBIL 4412 on 07/23. Avail bal: $39,660.53.",1,Chase,7761,71.55,"39,660.53",DEBIT,CARD
+US_CORPUS_00743,1816322202000,692484,"Citi: A purchase of $129.40 at BEST BUY #442 was charged to your Citi credit card ending 4310 on 07/23. Avail credit: $2,134.60.",1,Citibank,4310,129.40,"2,134.60",DEBIT,CARD
+US_CORPUS_00744,1816338356000,24273,"Chase: An ACH debit of $1,650.00 (SUNSTONE PROPERTY MGMT RENT) posted to acct ...9384 on 07/23. Avail bal: $38,010.53.",1,Chase,9384,"1,650.00","38,010.53",DEBIT,BANK
+US_CORPUS_00745,1816383439000,322632,Bank of America: Authorized user card ending 3040 has been REMOVED from your account ending 9111 at your request. The card can no longer be used.,0,Bank of America,3040,,,OTHER,CARD
+US_CORPUS_00746,1816438231000,89887,GEICO: You could save 15% in 15 minutes. geico.example/quote. Txt STOP to opt out.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00747,1816450680000,93557,"Wells Fargo: You made a purchase of $83.40 at WEGMANS 331 with debit card ending 9111 on 07/24. Available balance: $5,426.87.",1,Wells Fargo,9111,83.40,"5,426.87",DEBIT,CARD
+US_CORPUS_00748,1816481950000,692484,"Citi: A debit card purchase of $52.85 at H-E-B 331 posted to your account ending 6208 on 07/25. Available balance: $1,786.45.",1,Citibank,6208,52.85,"1,786.45",DEBIT,CARD
+US_CORPUS_00749,1816520261000,322632,Bank of America: A pending authorization of $71.20 at DELTA AIR LINES is on your credit card ending 9111.,1,Bank of America,9111,71.20,,DEBIT,CARD
+US_CORPUS_00750,1816530649000,322632,Bank of America: A purchase of $94.65 at KROGER #8812 was charged to your credit card ending in 9111 on 07/25.,1,Bank of America,9111,94.65,,DEBIT,CARD
+US_CORPUS_00751,1816565078000,24273,"Chase: You made a $238.90 debit card purchase with card ending 7761 at DELTA AIR LINES on 07/26. Avail bal: $37,771.63.",1,Chase,7761,238.90,"37,771.63",DEBIT,CARD
+US_CORPUS_00752,1816603896000,692484,Citi: 660281 is your Citi verification code. Do not share it with anyone.,0,Citibank,,,,OTHER,NONE
+US_CORPUS_00753,1816657419000,692484,"Citi: A purchase of $64.20 at CHIPOTLE 1187 was charged to your Citi credit card ending 4310 on 07/27. Avail credit: $2,070.40.",1,Citibank,4310,64.20,"2,070.40",DEBIT,CARD
+US_CORPUS_00754,1816703659000,24273,"Chase: You sent $95.00 to DEV PATEL with Zelle(R) from acct ending 9384 on 07/27. Avail bal: $37,676.63.",1,Chase,9384,95.00,"37,676.63",DEBIT,BANK
+US_CORPUS_00755,1816732244000,262966,Amazon: Your order of 3 items has shipped. Track: amzn.example/t/WQ7712.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00756,1816751634000,692484,"Citi: A Bill Pay payment of $94.00 to AUSTIN ENERGY was sent from account ending 6208 on 07/28. Available balance: $1,692.45.",1,Citibank,6208,94.00,"1,692.45",CREDIT,BANK
+US_CORPUS_00757,1816784769000,24273,"Chase: You made a $17.85 debit card purchase with card ending 7761 at PEETS COFFEE 118 on 07/28. Avail bal: $37,658.78.",1,Chase,7761,17.85,"37,658.78",DEBIT,CARD
+US_CORPUS_00758,1816809325000,54321,CreditKarma: A new credit card account was reported on your file. Review it now.,0,Unknown,,,,OTHER,CARD
+US_CORPUS_00759,1816832882000,93557,"Wells Fargo: You made a purchase of $126.75 at ACE HARDWARE 2211 with debit card ending 9111 on 07/29. Available balance: $5,300.12.",1,Wells Fargo,9111,126.75,"5,300.12",DEBIT,CARD
+US_CORPUS_00760,1816877212000,24273,"Chase: Your transfer of $3,000.00 from checking ...9384 to savings ...5520 is complete on 07/29. Checking avail bal: $34,658.78.",1,Chase,9384,"3,000.00","34,658.78",DEBIT,BANK
+US_CORPUS_00761,1816892903000,24273,"Chase: A transfer of $3,000.00 from checking ...9384 was deposited to savings ...5520 on 07/29. Savings bal: $9,862.10.",1,Chase,9384,"3,000.00","9,862.10",CREDIT,BANK
+US_CORPUS_00762,1816940175000,692484,"Citi: A purchase of $38.75 at DOORDASH was charged to your Citi credit card ending 4310 on 07/30. Avail credit: $2,031.65.",1,Citibank,4310,38.75,"2,031.65",DEBIT,CARD
+US_CORPUS_00763,1816972352000,22000,G-773905 is your Google verification code. Do not share it with anyone.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00764,1816986678000,322632,Bank of America: A purchase of $52.20 at PANERA BREAD 6612 was charged to your credit card ending in 9111 on 07/30.,1,Bank of America,9111,52.20,,DEBIT,CARD
+US_CORPUS_00765,1817012269000,24273,"Chase: You made a $146.30 debit card purchase with card ending 7761 at COSTCO WHSE #1189 on 07/31. Avail bal: $34,512.48.",1,Chase,7761,146.30,"34,512.48",DEBIT,CARD
+US_CORPUS_00766,1817037121000,+14155550132,New card came in the mail today,0,Unknown,,,,OTHER,CARD
+US_CORPUS_00767,1817069966000,692484,"Citi: A debit card purchase of $23.60 at SUBWAY 2210 posted to your account ending 6208 on 07/31. Available balance: $1,668.85.",1,Citibank,6208,23.60,"1,668.85",DEBIT,CARD
+US_CORPUS_00768,1817094416000,93557,"Wells Fargo: An ACH debit of $412.66 (SUMMIT AUTO FINANCE) posted to account ending 4417 on 08/01. Available balance: $4,887.46.",1,Wells Fargo,4417,412.66,"4,887.46",DEBIT,BANK
+US_CORPUS_00769,1817142563000,672566,Netflix: Your plan renews on 08/02. Manage your membership at netflix.com/account.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00770,1817177235000,24273,"Chase: You made a $24.99 debit card purchase with card ending 7761 at NETFLIX.COM on 08/02. Avail bal: $34,487.49.",1,Chase,7761,24.99,"34,487.49",DEBIT,CARD
+US_CORPUS_00771,1817191756000,692484,"Citi: A purchase of $211.45 at SOUTHWEST AIRLINES was charged to your Citi credit card ending 4310 on 08/02. Avail credit: $1,820.20.",1,Citibank,4310,211.45,"1,820.20",DEBIT,CARD
+US_CORPUS_00772,1817203434000,93557,Wells Fargo: 991204 is your access code. It expires in 10 minutes. Do not share it.,0,Wells Fargo,,,,OTHER,NONE
+US_CORPUS_00773,1817216889000,93557,"Wells Fargo: You made a purchase of $37.90 at TIM HORTONS 4471 with debit card ending 9111 on 08/02. Available balance: $4,849.56.",1,Wells Fargo,9111,37.90,"4,849.56",DEBIT,CARD
+US_CORPUS_00774,1817244069000,24273,"Chase: An ACH debit of $250.00 (HEALTHEQUITY HSA CONTRIB) posted to acct ...9384 on 08/02. Avail bal: $34,237.49.",1,Chase,9384,250.00,"34,237.49",DEBIT,BANK
+US_CORPUS_00775,1817264378000,86753,Venmo: Chris Doyle requested $24.00 from you for 'lunch'. Open Venmo to pay or decline.,1,Unknown,,24.00,,DEBIT,BANK
+US_CORPUS_00776,1817312004000,692484,"Citi: A debit card purchase of $108.30 at IKEA 0044 posted to your account ending 6208 on 08/03. Available balance: $1,560.55.",1,Citibank,6208,108.30,"1,560.55",DEBIT,CARD
+US_CORPUS_00777,1817352687000,24273,Chase: Your payment of $700.00 to BANK OF AMERICA CARD 9111 from acct ...9384 is scheduled for 08/06. No funds have been sent yet.,1,Chase,9384,700.00,,CREDIT,CARD
+US_CORPUS_00778,1817387623000,322632,Bank of America: A purchase of $77.85 at MACYS 0092 was charged to your credit card ending in 9111 on 08/04.,1,Bank of America,9111,77.85,,DEBIT,CARD
+US_CORPUS_00779,1817432376000,24273,"Chase: You made a $59.40 debit card purchase with card ending 7761 at TRADER JOES 552 on 08/05. Avail bal: $34,178.09.",1,Chase,7761,59.40,"34,178.09",DEBIT,CARD
+US_CORPUS_00780,1817448814000,55123,"CoinRush: BTC is moving. Deposit $100, get $100 bonus. coinrush.example/go. Txt STOP.",0,Unknown,,,,CREDIT,NONE
+US_CORPUS_00781,1817479445000,93557,"Wells Fargo: You made a purchase of $68.25 at AT&T WIRELESS with debit card ending 9111 on 08/05. Available balance: $4,781.31.",1,Wells Fargo,9111,68.25,"4,781.31",DEBIT,CARD
+US_CORPUS_00782,1817518777000,692484,"Citi: An ACH credit of $412.00 from AUSTIN ISD REBATE posted to your account ending 6208 on 08/06. Available balance: $1,972.55.",1,Citibank,6208,412.00,"1,972.55",DEBIT,BANK
+US_CORPUS_00783,1817528470000,692484,"Citi: A purchase of $45.90 at PETSMART 3311 was charged to your Citi credit card ending 4310 on 08/06. Avail credit: $1,774.30.",1,Citibank,4310,45.90,"1,774.30",DEBIT,CARD
+US_CORPUS_00784,1817551704000,37777,USPS: Your item was delivered to the front desk.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00785,1817586683000,24273,"Chase: Your online payment of $700.00 to BANK OF AMERICA CARD 9111 from acct ...9384 is complete on 08/06. Avail bal: $33,478.09.",1,Chase,9384,700.00,"33,478.09",CREDIT,CARD
+US_CORPUS_00786,1817627691000,322632,"Bank of America: We received your payment of $700.00 on credit card ending 9111 on 08/07. Thank you. Avail credit: $5,952.71.",1,Bank of America,9111,700.00,"5,952.71",CREDIT,CARD
+US_CORPUS_00787,1817681508000,24273,"Chase: You made a $88.60 debit card purchase with card ending 7761 at TARGET T-1043 on 08/07. Avail bal: $33,389.49.",1,Chase,7761,88.60,"33,389.49",DEBIT,CARD
+US_CORPUS_00788,1817723170000,692484,Citi: Your first statement for card ending 4310 will close on 08/05. Minimum payment will be due 09/01.,0,Citibank,4310,,,OTHER,CARD
+US_CORPUS_00789,1817753249000,692484,"Citi: A debit card purchase of $31.85 at CVS 2201 posted to your account ending 6208 on 08/08. Available balance: $1,940.70.",1,Citibank,6208,31.85,"1,940.70",DEBIT,CARD
+US_CORPUS_00790,1817798861000,24273,"Chase: Direct deposit of $2,400.00 from PRISHA APPS INC PAYROLL posted to acct ...9384 on 08/09. Avail bal: $35,789.49.",1,Chase,9384,"2,400.00","35,789.49",CREDIT,BANK
+US_CORPUS_00791,1817825618000,93557,"Wells Fargo: A direct deposit of $780.55 from PRISHA APPS INC PAYROLL posted to account ending 4417 on 08/09. Available balance: $5,561.86.",1,Wells Fargo,4417,780.55,"5,561.86",CREDIT,BANK
+US_CORPUS_00792,1817879580000,89887,"PLANET FITNESS: $1 down, $10/mo. Offer ends Sunday. Reply JOIN. Txt STOP to opt out.",0,Unknown,,,,OTHER,NONE
+US_CORPUS_00793,1817897751000,93557,"Wells Fargo: You made a purchase of $44.60 at KROGER #8812 with debit card ending 9111 on 08/10. Available balance: $5,517.26.",1,Wells Fargo,9111,44.60,"5,517.26",DEBIT,CARD
+US_CORPUS_00794,1817936191000,24273,"Chase: Interest of $23.71 was credited to your savings account ending 5520 on 08/10. Savings bal: $9,885.81.",1,Chase,5520,23.71,"9,885.81",CREDIT,BANK
+US_CORPUS_00795,1817957040000,24273,"Chase: You made a $33.40 debit card purchase with card ending 7761 at LYFT RIDE on 08/11. Avail bal: $35,756.09.",1,Chase,7761,33.40,"35,756.09",DEBIT,CARD
+US_CORPUS_00796,1817983830000,322632,Bank of America: Your statement for credit card ending 9111 is ready. Minimum payment due $25.00 by 08/14.,0,Bank of America,,,,OTHER,NONE
+US_CORPUS_00797,1818006429000,692484,"Citi: A purchase of $19.95 at AUDIBLE.COM was charged to your Citi credit card ending 4310 on 08/11. Avail credit: $1,754.35.",1,Citibank,4310,19.95,"1,754.35",DEBIT,CARD
+US_CORPUS_00798,1818021553000,24273,"Chase: An ACH debit of $96.40 (VERIZON WIRELESS) posted to acct ...9384 on 08/11. Avail bal: $35,659.69.",1,Chase,9384,96.40,"35,659.69",DEBIT,BANK
+US_CORPUS_00799,1818037438000,+14155550132,Dinner at 7 work for you?,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00800,1818054816000,692484,"Citi: A debit card purchase of $96.20 at SAMS CLUB #6612 posted to your account ending 6208 on 08/12. Available balance: $1,844.50.",1,Citibank,6208,96.20,"1,844.50",DEBIT,CARD
+US_CORPUS_00801,1818101299000,692484,Citi: You've earned $18.42 in cash back on card ending 4310. Redeem any time in the app.,1,Citibank,4310,18.42,,DEBIT,CARD
+US_CORPUS_00802,1818123459000,24273,"Chase: You made a $112.35 debit card purchase with card ending 7761 at HOME DEPOT #6641 on 08/13. Avail bal: $35,547.34.",1,Chase,7761,112.35,"35,547.34",DEBIT,CARD
+US_CORPUS_00803,1818171804000,93557,"Wells Fargo: You made a purchase of $58.95 at SPROUTS FARMERS MKT with debit card ending 9111 on 08/13. Available balance: $5,458.31.",1,Wells Fargo,9111,58.95,"5,458.31",DEBIT,CARD
+US_CORPUS_00804,1818213562000,93557,"Wells Fargo: To report a suspicious charge, text FRAUD to 93557 or call the number on your card.",0,Wells Fargo,,,,OTHER,CARD
+US_CORPUS_00805,1818240761000,322632,Bank of America: A purchase of $36.50 at DOORDASH was charged to your credit card ending in 9111 on 08/14.,1,Bank of America,9111,36.50,,DEBIT,CARD
+US_CORPUS_00806,1818286597000,55123,WELLS FARGO ALERT: Your account is restricted. Restore access at wf-secure-login.example/verify,0,Wells Fargo,,,,OTHER,NONE
+US_CORPUS_00807,1818307706000,692484,"Citi: A purchase of $27.30 at PEETS COFFEE 118 was charged to your Citi credit card ending 4310 on 08/15. Avail credit: $1,727.05.",1,Citibank,4310,27.30,"1,727.05",DEBIT,CARD
+US_CORPUS_00808,1818333220000,24273,"Chase: A refund of $71.55 from EXXONMOBIL 4412 (duplicate authorization) was credited to acct ...9384 on 08/15. Avail bal: $35,618.89.",1,Chase,9384,71.55,"35,618.89",CREDIT,BANK
+US_CORPUS_00809,1818374271000,24273,Chase: Your one-time code is 428170. Don't share it. We'll never call to ask for it.,0,Chase,,,,OTHER,NONE
+US_CORPUS_00810,1818418343000,93557,"Wells Fargo: You made a purchase of $22.40 at SUBWAY 2210 with debit card ending 9111 on 08/16. Available balance: $5,435.91.",1,Wells Fargo,9111,22.40,"5,435.91",DEBIT,CARD
+US_CORPUS_00811,1818429160000,262966,Amazon: Your package was delivered. View photo: amzn.example/p/WQ7712.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00812,1818464750000,24273,"Chase: You made a $41.70 debit card purchase with card ending 7761 at WALGREENS 1188 on 08/17. Avail bal: $35,577.19.",1,Chase,7761,41.70,"35,577.19",DEBIT,CARD
+US_CORPUS_00813,1818518773000,322632,Bank of America: 887201 is your Bank of America authorization code. Never share this code.,0,Bank of America,,,,OTHER,NONE
+US_CORPUS_00814,1818558025000,692484,"Citi: A debit card purchase of $14.85 at STARBUCKS #2214 posted to your account ending 6208 on 08/18. Available balance: $1,829.65.",1,Citibank,6208,14.85,"1,829.65",DEBIT,CARD
+US_CORPUS_00815,1818583942000,692484,Citi: Your account ending 6208 earned $2.14 in interest this statement period and it will post next cycle.,1,Citibank,6208,2.14,,DEBIT,BANK
+US_CORPUS_00816,1818631000000,24273,"Chase: You made a $76.80 debit card purchase with card ending 7761 at PUBLIX #1120 on 08/18. Avail bal: $35,500.39.",1,Chase,7761,76.80,"35,500.39",DEBIT,CARD
+US_CORPUS_00817,1818655531000,+14155550132,"Perfect, see you then",0,Unknown,,,,OTHER,NONE
+US_CORPUS_00818,1818689739000,692484,Citi: Your 0% APR promotional period on card ending 4310 ends 10/2028. Track it in the Citi app.,0,Citibank,4310,,,OTHER,CARD
+US_CORPUS_00819,1818715844000,322632,"Bank of America: Your credit line on card ending 9111 remains $6,000.00. No action needed.",1,Bank of America,9111,"6,000.00",,DEBIT,CARD
+US_CORPUS_00820,1818725554000,93557,Wells Fargo: Go paperless for account ending 4417 and get statements in the app.,0,Wells Fargo,4417,,,OTHER,NONE
+US_CORPUS_00821,1818748545000,37777,USPS Informed Delivery: 2 mailpieces are arriving today.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00822,1818765405000,55123,"QuickCash Loans: Up to $5,000 today, no credit check. qcloans.example/apply. Txt STOP to end.",0,Unknown,,,,OTHER,NONE
+US_CORPUS_00823,1818782658000,+14155550132,Can you send me the landlord's number?,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00824,1818829388000,22000,Google: New sign-in to your account from a Mac. Review activity if this wasn't you.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00825,1818846343000,672566,Netflix: Your payment method was updated successfully.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00826,1818873759000,692484,"Citi: A purchase of $88.40 at WHOLE FOODS MKT 229 was charged to your Citi credit card ending 4310 on 08/21. Avail credit: $1,638.65.",1,Citibank,4310,88.40,"1,638.65",DEBIT,CARD
+US_CORPUS_00827,1818913936000,24273,"Chase: You made a $21.45 debit card purchase with card ending 7761 at STARBUCKS #2214 on 08/22. Avail bal: $35,478.94.",1,Chase,7761,21.45,"35,478.94",DEBIT,CARD
+US_CORPUS_00828,1818958262000,93557,"Wells Fargo: You made a purchase of $91.30 at PUBLIX #1120 with debit card ending 9111 on 08/22. Available balance: $5,344.61.",1,Wells Fargo,9111,91.30,"5,344.61",DEBIT,CARD
+US_CORPUS_00829,1818983245000,692484,"Citi: A debit card purchase of $44.15 at DOORDASH posted to your account ending 6208 on 08/23. Available balance: $1,785.50.",1,Citibank,6208,44.15,"1,785.50",DEBIT,CARD
+US_CORPUS_00830,1809188466000,24273,Chase: Your one-time code is 550218. Don't share it. We'll never call to ask for it.,0,Chase,,,,OTHER,NONE
+US_CORPUS_00831,1809210240000,692484,Citi: Your checking application is approved. Account ending 6208 is open. Welcome to Citibank.,0,Citibank,6208,,,OTHER,NONE
+US_CORPUS_00832,1809239151000,692484,Citi: Your Citi debit card ending 8890 has shipped and arrives in 5-7 business days.,0,Citibank,8890,,,OTHER,CARD
+US_CORPUS_00833,1809257659000,24273,"Chase: Your external transfer of $2,500.00 to CITIBANK ...6208 was sent from acct ...9384 on 05/02. Avail bal: $27,164.12.",1,Chase,6208,"2,500.00","27,164.12",DEBIT,BANK
+US_CORPUS_00834,1809307936000,692484,"Citi: An opening deposit of $2,500.00 from CHASE ...9384 posted to your account ending 6208 on 05/03. Available balance: $2,500.00.",1,Citibank,9384,"2,500.00","2,500.00",CREDIT,BANK
+US_CORPUS_00835,1809325690000,692484,Citi: Earn a $200.00 bonus when a qualifying direct deposit posts to account ending 6208 within 60 days.,1,Citibank,6208,200.00,,CREDIT,BANK
+US_CORPUS_00836,1809346485000,692484,Citi: Your debit card ending 8890 is now active and ready to use.,0,Citibank,8890,,,OTHER,CARD
+US_CORPUS_00837,1809361933000,77958,IRS: Your amended 2026 return has been processed. Your refund will be deposited in 3-5 business days.,0,Unknown,,,,CREDIT,NONE
+US_CORPUS_00838,1809381742000,24273,"Chase: An ACH credit of $2,310.00 from IRS TREAS 310 TAX REF AMENDED posted to acct ...9384 on 05/03. Avail bal: $29,474.12.",1,Chase,9384,"2,310.00","29,474.12",DEBIT,BANK
+US_CORPUS_00839,1809423524000,55123,"IRS NOTICE: You have an unclaimed refund of $2,310.00 waiting. Claim it now at irs-refund-claim.example/verify",1,Unknown,,"2,310.00",,CREDIT,BANK
+US_CORPUS_00840,1809435419000,24273,"Chase: You made a $62.30 debit card purchase with card ending 7761 at EXXONMOBIL 4412 on 05/04. Avail bal: $29,411.82.",1,Chase,7761,62.30,"29,411.82",DEBIT,CARD
+US_CORPUS_00841,1809483919000,89887,"PLANET FITNESS: Summer deal, $1 down and $10/mo. Reply JOIN. Txt STOP to opt out.",0,Unknown,,,,OTHER,NONE
+US_CORPUS_00842,1809527852000,24273,"Chase: Direct deposit of $2,400.00 from PRISHA APPS INC PAYROLL posted to acct ...9384 on 05/05. Avail bal: $31,811.82.",1,Chase,9384,"2,400.00","31,811.82",CREDIT,BANK
+US_CORPUS_00843,1809537582000,93557,"Wells Fargo: A direct deposit of $780.55 from PRISHA APPS INC PAYROLL posted to account ending 4417 on 05/05. Available balance: $4,383.42.",1,Wells Fargo,4417,780.55,"4,383.42",CREDIT,BANK
+US_CORPUS_00844,1809566929000,692484,"Citi: A debit card purchase of $43.20 at H-E-B 331 posted to your account ending 6208 on 05/06. Available balance: $2,456.80.",1,Citibank,6208,43.20,"2,456.80",DEBIT,CARD
+US_CORPUS_00845,1809602849000,322632,Bank of America: Your AutoPay for card ending 9111 was CANCELLED because the funding account ending 9661 is closed. Make a payment to avoid a late fee.,0,Bank of America,9111,,,OTHER,CARD
+US_CORPUS_00846,1809647114000,322632,Bank of America: A purchase of $78.40 at KROGER #8812 was charged to your credit card ending in 9111 on 05/06.,1,Bank of America,9111,78.40,,DEBIT,CARD
+US_CORPUS_00847,1809656376000,37777,USPS: Your package 9400111899223197488210 is out for delivery today.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00848,1809706311000,93557,"Wells Fargo: You made a purchase of $88.10 at WEGMANS 331 with debit card ending 9111 on 05/07. Available balance: $4,295.32.",1,Wells Fargo,9111,88.10,"4,295.32",DEBIT,CARD
+US_CORPUS_00849,1809750083000,24273,"Chase: An ACH debit of $1,650.00 (SUNSTONE PROPERTY MGMT RENT) posted to acct ...9384 on 05/08. Avail bal: $30,161.82.",1,Chase,9384,"1,650.00","30,161.82",DEBIT,BANK
+US_CORPUS_00850,1809789720000,24273,"Chase: You made a $118.75 debit card purchase with card ending 7761 at WHOLE FOODS MKT 229 on 05/08. Avail bal: $30,043.07.",1,Chase,7761,118.75,"30,043.07",DEBIT,CARD
+US_CORPUS_00851,1809803954000,692484,Citi: 904113 is your Citi verification code. Do not share it with anyone.,0,Citibank,,,,OTHER,NONE
+US_CORPUS_00852,1809813901000,692484,"Citi: A $200.00 new account bonus was credited to your account ending 6208 on 05/08. Available balance: $2,656.80.",1,Citibank,6208,200.00,"2,656.80",CREDIT,BANK
+US_CORPUS_00853,1809832357000,+14155550132,Did the new bank card show up yet?,0,Unknown,,,,OTHER,CARD
+US_CORPUS_00854,1809860566000,692484,"Citi: A debit card purchase of $96.55 at IKEA 0044 posted to your account ending 6208 on 05/09. Available balance: $2,560.25.",1,Citibank,6208,96.55,"2,560.25",DEBIT,CARD
+US_CORPUS_00855,1809882700000,24273,"Chase: An incoming wire of $8,500.00 from MERIDIAN TITLE CO ESCROW REFUND was credited to acct ...9384 on 05/09. Avail bal: $38,543.07.",1,Chase,9384,"8,500.00","38,543.07",CREDIT,BANK
+US_CORPUS_00856,1809892259000,24273,Chase: An incoming wire is under review by our funds team and will post to your account today.,0,Chase,,,,OTHER,NONE
+US_CORPUS_00857,1809942711000,24273,"Chase: Your transfer of $2,000.00 from checking ...9384 to savings ...5520 is complete on 05/10. Checking avail bal: $36,543.07.",1,Chase,9384,"2,000.00","36,543.07",DEBIT,BANK
+US_CORPUS_00858,1809976148000,24273,"Chase: A transfer of $2,000.00 from checking ...9384 was deposited to savings ...5520 on 05/10. Savings bal: $6,826.38.",1,Chase,9384,"2,000.00","6,826.38",CREDIT,BANK
+US_CORPUS_00859,1810004582000,24273,"Chase: You made a $24.99 debit card purchase with card ending 7761 at NETFLIX.COM on 05/11. Avail bal: $36,518.08.",1,Chase,7761,24.99,"36,518.08",DEBIT,CARD
+US_CORPUS_00860,1810050713000,322632,Bank of America: A purchase of $141.20 at MACYS 0092 was charged to your credit card ending in 9111 on 05/11.,1,Bank of America,9111,141.20,,DEBIT,CARD
+US_CORPUS_00861,1810071177000,262966,Amazon: Your order of 4 items has shipped. Track: amzn.example/t/LP8841.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00862,1810114210000,93557,"Wells Fargo: You made a purchase of $21.60 at PANERA BREAD 6612 with debit card ending 9111 on 05/12. Available balance: $4,273.72.",1,Wells Fargo,9111,21.60,"4,273.72",DEBIT,CARD
+US_CORPUS_00863,1810155904000,692484,"Citi: A Bill Pay payment of $88.00 to AUSTIN ENERGY was sent from account ending 6208 on 05/12. Available balance: $2,472.25.",1,Citibank,6208,88.00,"2,472.25",CREDIT,BANK
+US_CORPUS_00864,1810188191000,93557,Wells Fargo: 220417 is your access code. It expires in 10 minutes. Do not share it.,0,Wells Fargo,,,,OTHER,NONE
+US_CORPUS_00865,1810229803000,24273,"Chase: You made a $41.85 debit card purchase with card ending 7761 at CHIPOTLE 1187 on 05/13. Avail bal: $36,476.23.",1,Chase,7761,41.85,"36,476.23",DEBIT,CARD
+US_CORPUS_00866,1810263904000,24273,"Chase: You sent $45.00 to MARIA SOTO with Zelle(R) from acct ending 9384 on 05/14. Avail bal: $36,431.23.",1,Chase,9384,45.00,"36,431.23",DEBIT,BANK
+US_CORPUS_00867,1810296378000,24273,"Chase: You sent $45.00 to DEV PATEL with Zelle(R) from acct ending 9384 on 05/14. Avail bal: $36,386.23.",1,Chase,9384,45.00,"36,386.23",DEBIT,BANK
+US_CORPUS_00868,1810313205000,24273,"Chase: You sent $45.00 to ANNA KIM with Zelle(R) from acct ending 9384 on 05/14. Avail bal: $36,341.23.",1,Chase,9384,45.00,"36,341.23",DEBIT,BANK
+US_CORPUS_00869,1810329245000,24273,Chase: Zelle(R): TOM BAKER is requesting $60.00 from you. Open the Chase app to send or decline.,1,Chase,,60.00,,DEBIT,BANK
+US_CORPUS_00870,1810377678000,692484,"Citi: A debit card purchase of $12.40 at PEETS COFFEE 118 posted to your account ending 6208 on 05/15. Available balance: $2,459.85.",1,Citibank,6208,12.40,"2,459.85",DEBIT,CARD
+US_CORPUS_00871,1810398500000,322632,Bank of America: An authorized user purchase of $174.60 at SEPHORA 0912 on card ending 3040 was charged to your account ending 9111 on 05/15.,1,Bank of America,3040,174.60,,DEBIT,CARD
+US_CORPUS_00872,1810448027000,322632,Bank of America: A pending authorization of $63.40 at DELTA AIR LINES is on your credit card ending 9111. Final amount may vary.,1,Bank of America,9111,63.40,,DEBIT,CARD
+US_CORPUS_00873,1810498175000,24273,"Chase: You made a $232.40 debit card purchase with card ending 7761 at DELTA AIR LINES on 05/16. Avail bal: $36,108.83.",1,Chase,7761,232.40,"36,108.83",DEBIT,CARD
+US_CORPUS_00874,1810511420000,93557,"Wells Fargo: An ACH debit of $412.66 (SUMMIT AUTO FINANCE) posted to account ending 4417 on 05/16. Available balance: $3,861.06.",1,Wells Fargo,4417,412.66,"3,861.06",DEBIT,BANK
+US_CORPUS_00875,1810535294000,54321,"CreditKarma: Your total tracked balances are now $6,208. See what changed this month.",0,Unknown,,,,OTHER,NONE
+US_CORPUS_00876,1810577745000,692484,"Citi: A debit card purchase of $128.90 at NORDSTROM RACK 55 posted to your account ending 6208 on 05/17. Available balance: $2,330.95.",1,Citibank,6208,128.90,"2,330.95",DEBIT,CARD
+US_CORPUS_00877,1810621777000,692484,Citi: A hold of $95.00 was placed by HERTZ RENT A CAR on your debit card ending 8890 pending the final rental total.,1,Citibank,8890,95.00,,DEBIT,CARD
+US_CORPUS_00878,1810655002000,692484,Citi: The $95.00 hold placed by HERTZ RENT A CAR on card ending 8890 has been released. No charge was made.,1,Citibank,8890,95.00,,DEBIT,CARD
+US_CORPUS_00879,1810671096000,24273,"Chase: You made a $15.60 debit card purchase with card ending 7761 at STARBUCKS #2214 on 05/18. Avail bal: $36,093.23.",1,Chase,7761,15.60,"36,093.23",DEBIT,CARD
+US_CORPUS_00880,1810699223000,692484,"Citi: An ATM cash deposit of $340.00 was credited to your account ending 6208 on 05/19. Available balance: $2,670.95.",1,Citibank,6208,340.00,"2,670.95",CREDIT,BANK
+US_CORPUS_00881,1810749475000,692484,"Citi: A non-Citi ATM fee of $5.00 was charged to your account ending 6208 on 05/19. Available balance: $2,665.95.",1,Citibank,6208,5.00,"2,665.95",DEBIT,CARD
+US_CORPUS_00882,1810796072000,93557,"Wells Fargo: You made a purchase of $74.99 at AT&T WIRELESS with debit card ending 9111 on 05/20. Available balance: $3,786.07.",1,Wells Fargo,9111,74.99,"3,786.07",DEBIT,CARD
+US_CORPUS_00883,1810826594000,22000,G-441907 is your Google verification code. Do not share it with anyone.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00884,1810863453000,322632,Bank of America: A purchase of $36.95 at PANERA BREAD 6612 was charged to your credit card ending in 9111 on 05/21.,1,Bank of America,9111,36.95,,DEBIT,CARD
+US_CORPUS_00885,1810889093000,24273,"Chase: An ACH debit of $250.00 (HEALTHEQUITY HSA CONTRIB) posted to acct ...9384 on 05/21. Avail bal: $35,843.23.",1,Chase,9384,250.00,"35,843.23",DEBIT,BANK
+US_CORPUS_00886,1810921558000,672566,Netflix: Your plan renews on 06/02. Manage your membership at netflix.com/account.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00887,1810943692000,692484,"Citi: A debit card purchase of $31.75 at DOORDASH posted to your account ending 6208 on 05/21. Available balance: $2,634.20.",1,Citibank,6208,31.75,"2,634.20",DEBIT,CARD
+US_CORPUS_00888,1810989459000,24273,Chase: Your payment of $900.00 to BANK OF AMERICA CARD 9111 from acct ...9384 is scheduled for 05/27. No funds have been sent yet.,1,Chase,9384,900.00,,CREDIT,CARD
+US_CORPUS_00889,1811022135000,24273,"Chase: You made a $87.90 debit card purchase with card ending 7761 at TARGET T-1043 on 05/22. Avail bal: $35,755.33.",1,Chase,7761,87.90,"35,755.33",DEBIT,CARD
+US_CORPUS_00890,1811037940000,93557,"Wells Fargo: You made a purchase of $33.15 at TIM HORTONS 4471 with debit card ending 9111 on 05/23. Available balance: $3,752.92.",1,Wells Fargo,9111,33.15,"3,752.92",DEBIT,CARD
+US_CORPUS_00891,1811092806000,86753,Venmo: Chris Doyle requested $18.00 from you for 'tacos'. Open Venmo to pay or decline.,1,Unknown,,18.00,,DEBIT,BANK
+US_CORPUS_00892,1811103337000,322632,"Bank of America: An interest charge of $41.55 was assessed on your credit card ending 9111 on 05/23. Avail credit: $3,093.01.",1,Bank of America,9111,41.55,"3,093.01",DEBIT,CARD
+US_CORPUS_00893,1811116313000,692484,"Citi: A debit card purchase of $67.30 at PETSMART 3311 posted to your account ending 6208 on 05/23. Available balance: $2,566.90.",1,Citibank,6208,67.30,"2,566.90",DEBIT,CARD
+US_CORPUS_00894,1811136258000,89887,GEICO: Bundle home and auto and save. Quote at geico.example/bundle. Txt STOP to opt out.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00895,1811169072000,24273,"Chase: You made a $54.20 debit card purchase with card ending 7761 at TRADER JOES 552 on 05/24. Avail bal: $35,701.13.",1,Chase,7761,54.20,"35,701.13",DEBIT,CARD
+US_CORPUS_00896,1811187967000,93557,Wells Fargo: Reminder - an ACH debit of $186.40 for CITY OF AUSTIN UTILITIES is scheduled to post on 05/26.,1,Wells Fargo,,186.40,,DEBIT,BANK
+US_CORPUS_00897,1811220203000,322632,Bank of America: A purchase of $92.10 at LOWES #01772 was charged to your credit card ending in 9111 on 05/25.,1,Bank of America,9111,92.10,,DEBIT,CARD
+US_CORPUS_00898,1811240992000,692484,"Citi: A debit card purchase of $22.15 at SUBWAY 2210 posted to your account ending 6208 on 05/25. Available balance: $2,544.75.",1,Citibank,6208,22.15,"2,544.75",DEBIT,CARD
+US_CORPUS_00899,1811276986000,+14155550132,"Running late, start without me",0,Unknown,,,,OTHER,NONE
+US_CORPUS_00900,1811321541000,93557,"Wells Fargo: An ACH debit of $186.40 (CITY OF AUSTIN UTILITIES) posted to account ending 4417 on 05/26. Available balance: $3,566.52.",1,Wells Fargo,4417,186.40,"3,566.52",DEBIT,BANK
+US_CORPUS_00901,1811349181000,24273,"Chase: You made a $199.99 debit card purchase with card ending 7761 at APPLE.COM/BILL on 05/26. Avail bal: $35,501.14.",1,Chase,7761,199.99,"35,501.14",DEBIT,CARD
+US_CORPUS_00902,1811394638000,93557,"Wells Fargo: You made a purchase of $127.80 at ACE HARDWARE 2211 with debit card ending 9111 on 05/27. Available balance: $3,438.72.",1,Wells Fargo,9111,127.80,"3,438.72",DEBIT,CARD
+US_CORPUS_00903,1811422980000,692484,"Citi: Your debit card ending 8890 was DECLINED at LUXE JEWELERS for $3,100.00 due to insufficient funds. No charge was made.",0,Citibank,,,,OTHER,NONE
+US_CORPUS_00904,1811445835000,24273,"Chase: Your online payment of $900.00 to BANK OF AMERICA CARD 9111 from acct ...9384 is complete on 05/27. Avail bal: $34,601.14.",1,Chase,9384,900.00,"34,601.14",CREDIT,CARD
+US_CORPUS_00905,1811499759000,322632,"Bank of America: We received your payment of $900.00 on credit card ending 9111 on 05/28. Thank you. Avail credit: $3,900.91.",1,Bank of America,9111,900.00,"3,900.91",CREDIT,CARD
+US_CORPUS_00906,1811517452000,692484,"Citi: A debit card purchase of $155.40 at BEST BUY #442 posted to your account ending 6208 on 05/28. Available balance: $2,389.35.",1,Citibank,6208,155.40,"2,389.35",DEBIT,CARD
+US_CORPUS_00907,1811568958000,37777,USPS: Your item was delivered to the front desk.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00908,1811605857000,24273,"Chase: You made a $33.10 debit card purchase with card ending 7761 at LYFT RIDE on 05/29. Avail bal: $34,568.04.",1,Chase,7761,33.10,"34,568.04",DEBIT,CARD
+US_CORPUS_00909,1811621281000,322632,Bank of America: An authorized user purchase of $49.90 at ULTA BEAUTY 220 on card ending 3040 was charged to your account ending 9111 on 05/29.,1,Bank of America,3040,49.90,,DEBIT,CARD
+US_CORPUS_00910,1811644954000,322632,Bank of America: 118344 is your Bank of America authorization code. Never share this code.,0,Bank of America,,,,OTHER,NONE
+US_CORPUS_00911,1811683208000,93557,"Wells Fargo: You made a purchase of $15.45 at SUBWAY 2210 with debit card ending 9111 on 05/30. Available balance: $3,423.27.",1,Wells Fargo,9111,15.45,"3,423.27",DEBIT,CARD
+US_CORPUS_00912,1811717767000,24273,"Chase: Direct deposit of $2,400.00 from PRISHA APPS INC PAYROLL posted to acct ...9384 on 05/30. Avail bal: $36,968.04.",1,Chase,9384,"2,400.00","36,968.04",CREDIT,BANK
+US_CORPUS_00913,1811753859000,93557,"Wells Fargo: A direct deposit of $780.55 from PRISHA APPS INC PAYROLL posted to account ending 4417 on 05/31. Available balance: $4,203.82.",1,Wells Fargo,4417,780.55,"4,203.82",CREDIT,BANK
+US_CORPUS_00914,1811763128000,692484,"Citi: A debit card purchase of $18.95 at CVS 2201 posted to your account ending 6208 on 05/31. Available balance: $2,370.40.",1,Citibank,6208,18.95,"2,370.40",DEBIT,CARD
+US_CORPUS_00915,1811781922000,24273,Chase: The APY on your savings account ending 5520 changed to 4.05%. No action needed.,0,Chase,5520,,,OTHER,NONE
+US_CORPUS_00916,1811795517000,24273,"Chase: Interest of $16.44 was credited to your savings account ending 5520 on 05/31. Savings bal: $6,842.82.",1,Chase,5520,16.44,"6,842.82",CREDIT,BANK
+US_CORPUS_00917,1811830549000,24273,"Chase: You made a $72.45 debit card purchase with card ending 7761 at SHELL OIL 1204 on 06/01. Avail bal: $36,895.59.",1,Chase,7761,72.45,"36,895.59",DEBIT,CARD
+US_CORPUS_00918,1811860934000,322632,Bank of America: A purchase of $58.30 at SPROUTS FARMERS MKT 118 was charged to your credit card ending in 9111 on 06/01.,1,Bank of America,9111,58.30,,DEBIT,CARD
+US_CORPUS_00919,1811898764000,55123,CoinRush: Deposit $100 in BTC and get $100 free. coinrush.example/go. Txt STOP to end.,0,Unknown,,,,CREDIT,NONE
+US_CORPUS_00920,1811949523000,93557,"Wells Fargo: You made a purchase of $58.20 at KROGER #8812 with debit card ending 9111 on 06/02. Available balance: $4,145.62.",1,Wells Fargo,9111,58.20,"4,145.62",DEBIT,CARD
+US_CORPUS_00921,1811977527000,24273,"Chase: An ACH debit of $96.40 (VERIZON WIRELESS) posted to acct ...9384 on 06/02. Avail bal: $36,799.19.",1,Chase,9384,96.40,"36,799.19",DEBIT,BANK
+US_CORPUS_00922,1811997092000,692484,"Citi: A debit card purchase of $84.60 at SAMS CLUB #6612 posted to your account ending 6208 on 06/03. Available balance: $2,285.80.",1,Citibank,6208,84.60,"2,285.80",DEBIT,CARD
+US_CORPUS_00923,1812006982000,692484,Citi: Your account ending 6208 is now linked to CHASE ...9384 for external transfers.,0,Citibank,6208,,,OTHER,NONE
+US_CORPUS_00924,1812053913000,24273,"Chase: You made a $26.80 debit card purchase with card ending 7761 at WALGREENS 1188 on 06/03. Avail bal: $36,772.39.",1,Chase,7761,26.80,"36,772.39",DEBIT,CARD
+US_CORPUS_00925,1812103673000,93557,"Wells Fargo: To report a suspicious charge, text FRAUD to 93557 or call the number on your card.",0,Wells Fargo,,,,OTHER,CARD
+US_CORPUS_00926,1812151314000,93557,"Wells Fargo: You made a purchase of $92.44 at SPROUTS FARMERS MKT with debit card ending 9111 on 06/04. Available balance: $4,053.18.",1,Wells Fargo,9111,92.44,"4,053.18",DEBIT,CARD
+US_CORPUS_00927,1812170896000,322632,Bank of America: Your statement for credit card ending 9111 is ready. Minimum payment due $96.00 by 06/14.,0,Bank of America,,,,OTHER,NONE
+US_CORPUS_00928,1812200351000,24273,"Chase: You made a $148.30 debit card purchase with card ending 7761 at HOME DEPOT #6641 on 06/05. Avail bal: $36,624.09.",1,Chase,7761,148.30,"36,624.09",DEBIT,CARD
+US_CORPUS_00929,1812249755000,262966,Amazon: Your package was delivered. View photo: amzn.example/p/LP8841.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00930,1812259856000,24273,Chase: Your one-time code is 731905. Don't share it. We'll never call to ask for it.,0,Chase,,,,OTHER,NONE
+US_CORPUS_00931,1812306394000,+14155550132,Dinner Saturday? My treat this time,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00932,1812336229000,692484,Citi: Mobile check deposit is now available on your account ending 6208. Deposit from anywhere in the app.,0,Citibank,6208,,,CREDIT,NONE
+US_CORPUS_00933,1812375181000,692484,Citi: Your Citi Online username was created. Sign in at citi.example to manage account ending 6208.,0,Citibank,6208,,,OTHER,NONE
+US_CORPUS_00934,1812419902000,89887,XFINITY: Get 400 Mbps for $35/mo for 12 months. Reply INFO. Txt STOP to opt out.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00935,1812462308000,24273,Chase: We updated the permissions used by the Chase Mobile app. Review them in Settings.,0,Chase,,,,OTHER,NONE
+US_CORPUS_00936,1812498155000,24273,Chase: Your statement for savings account ending 5520 is ready in the Chase app.,0,Chase,5520,,,OTHER,NONE
+US_CORPUS_00937,1812556155000,24273,Chase: Your one-time code is 604812. Don't share it. We'll never call to ask for it.,0,Chase,,,,OTHER,NONE
+US_CORPUS_00938,1812566038000,322632,Bank of America: A purchase of $412.90 at GADGETHUB ONLINE was charged to your credit card ending in 9111 on 06/09.,1,Bank of America,9111,412.90,,DEBIT,CARD
+US_CORPUS_00939,1812594510000,692484,"Citi: A debit card purchase of $189.55 at TRAVELNOW BOOKING posted to your account ending 6208 on 06/10. Available balance: $2,096.25.",1,Citibank,6208,189.55,"2,096.25",DEBIT,CARD
+US_CORPUS_00940,1812624783000,93557,"Wells Fargo: You made a purchase of $76.40 at STREAMLYFE MEDIA with debit card ending 9111 on 06/10. Available balance: $3,976.78.",1,Wells Fargo,9111,76.40,"3,976.78",DEBIT,CARD
+US_CORPUS_00941,1812675317000,89887,SPECTRUM: 1 Gig internet now in your area. Bundle and save $30/mo. Reply INFO. Txt STOP to opt out.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00942,1812709900000,24273,"Chase: Direct deposit of $2,400.00 from PRISHA APPS INC PAYROLL posted to acct ...9384 on 06/11. Avail bal: $39,024.09.",1,Chase,9384,"2,400.00","39,024.09",CREDIT,BANK
+US_CORPUS_00943,1812762112000,93557,"Wells Fargo: A direct deposit of $780.55 from PRISHA APPS INC PAYROLL posted to account ending 4417 on 06/12. Available balance: $4,757.33.",1,Wells Fargo,4417,780.55,"4,757.33",CREDIT,BANK
+US_CORPUS_00944,1812786173000,322632,Bank of America: We have received your dispute for the $412.90 charge from GADGETHUB ONLINE on card ending 9111. Case 8841207 is under review.,1,Bank of America,9111,412.90,,CREDIT,CARD
+US_CORPUS_00945,1812799183000,24273,"Chase: You made a $58.90 debit card purchase with card ending 7761 at EXXONMOBIL 9902 on 06/12. Avail bal: $38,965.19.",1,Chase,7761,58.90,"38,965.19",DEBIT,CARD
+US_CORPUS_00946,1812824994000,692484,Citi: Your dispute of the $189.55 charge from TRAVELNOW BOOKING on card ending 8890 has been opened. Case C-55190.,1,Citibank,8890,189.55,,DEBIT,CARD
+US_CORPUS_00947,1812862450000,322632,"Bank of America: A provisional credit of $412.90 has been applied to your credit card ending 9111 while we investigate case 8841207 on 06/13. Avail credit: $3,792.71.",1,Bank of America,9111,412.90,"3,792.71",DEBIT,CARD
+US_CORPUS_00948,1812911195000,37777,USPS: Your package 9400111899223197501166 arrives today by 8pm.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00949,1812950169000,692484,"Citi: A provisional credit of $189.55 was applied to your account ending 6208 while we investigate case C-55190 on 06/14. Available balance: $2,285.80.",1,Citibank,6208,189.55,"2,285.80",DEBIT,BANK
+US_CORPUS_00950,1812983656000,93557,Wells Fargo: Your dispute for the $76.40 STREAMLYFE MEDIA charge on debit card ending 9111 has been filed. Case WF-77410.,1,Wells Fargo,9111,76.40,,DEBIT,CARD
+US_CORPUS_00951,1812995748000,692484,"Citi: A debit card purchase of $46.75 at H-E-B 331 posted to your account ending 6208 on 06/14. Available balance: $2,239.05.",1,Citibank,6208,46.75,"2,239.05",DEBIT,CARD
+US_CORPUS_00952,1813011961000,93557,"Wells Fargo: A provisional credit of $76.40 was applied to account ending 4417 for case WF-77410 on 06/14. Available balance: $4,833.73.",1,Wells Fargo,4417,76.40,"4,833.73",DEBIT,BANK
+US_CORPUS_00953,1813043459000,24273,Chase: Zelle(R): TOM BAKER is requesting $35.00 from you. Open the Chase app to send or decline.,1,Chase,,35.00,,DEBIT,BANK
+US_CORPUS_00954,1813075486000,322632,Bank of America: A purchase of $83.15 at KROGER #8812 was charged to your credit card ending in 9111 on 06/15.,1,Bank of America,9111,83.15,,DEBIT,CARD
+US_CORPUS_00955,1813106678000,24273,"Chase: An ACH debit of $1,650.00 (SUNSTONE PROPERTY MGMT RENT) posted to acct ...9384 on 06/16. Avail bal: $37,315.19.",1,Chase,9384,"1,650.00","37,315.19",DEBIT,BANK
+US_CORPUS_00956,1813144199000,24273,"Chase: You made a $126.40 debit card purchase with card ending 7761 at COSTCO WHSE #1189 on 06/16. Avail bal: $37,188.79.",1,Chase,7761,126.40,"37,188.79",DEBIT,CARD
+US_CORPUS_00957,1813160173000,322632,Bank of America: GADGETHUB ONLINE has responded to case 8841207. We are reviewing the evidence and will decide within 10 days.,0,Bank of America,,,,OTHER,NONE
+US_CORPUS_00958,1813208660000,93557,"Wells Fargo: You made a purchase of $64.20 at WEGMANS 331 with debit card ending 9111 on 06/17. Available balance: $4,769.53.",1,Wells Fargo,9111,64.20,"4,769.53",DEBIT,CARD
+US_CORPUS_00959,1813253848000,692484,Citi: 771620 is your Citi verification code. Do not share it with anyone.,0,Citibank,,,,OTHER,NONE
+US_CORPUS_00960,1813292309000,692484,"Citi: An ATM cash deposit of $500.00 was credited to your account ending 6208 on 06/18. Available balance: $2,739.05.",1,Citibank,6208,500.00,"2,739.05",CREDIT,BANK
+US_CORPUS_00961,1813323351000,692484,"Citi: Your 06/xx ATM deposit was corrected after cash verification. An adjustment of $20.00 was debited from account ending 6208 on 06/18. Available balance: $2,719.05.",1,Citibank,6208,20.00,"2,719.05",CREDIT,BANK
+US_CORPUS_00962,1813334538000,692484,Citi: Cash deposits are verified by our team and the final credited amount may differ from the envelope total.,0,Citibank,,,,CREDIT,NONE
+US_CORPUS_00963,1813353610000,24273,"Chase: You made a $19.99 debit card purchase with card ending 7761 at AUDIBLE.COM on 06/18. Avail bal: $37,168.80.",1,Chase,7761,19.99,"37,168.80",DEBIT,CARD
+US_CORPUS_00964,1813378707000,262966,Amazon: Your order of 2 items has shipped. Track: amzn.example/t/RT2019.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00965,1813388993000,692484,"Citi: A debit card purchase of $112.35 at IKEA 0044 posted to your account ending 6208 on 06/19. Available balance: $2,606.70.",1,Citibank,6208,112.35,"2,606.70",DEBIT,CARD
+US_CORPUS_00966,1813425312000,322632,Bank of America: Case 8841207 has been RESOLVED IN YOUR FAVOR. The provisional credit of $412.90 is now permanent. No further action is needed.,1,Bank of America,,412.90,,DEBIT,BANK
+US_CORPUS_00967,1813460156000,24273,"Chase: A prorated refund of $8.33 from ADOBE CREATIVE CLOUD (cancelled mid-cycle) was credited to acct ...9384 on 06/20. Avail bal: $37,177.13.",1,Chase,9384,8.33,"37,177.13",CREDIT,BANK
+US_CORPUS_00968,1813469553000,672566,Netflix: We couldn't process your payment. Update your payment method at netflix.com/billing.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00969,1813521915000,93557,"Wells Fargo: You made a purchase of $28.80 at TIM HORTONS 4471 with debit card ending 9111 on 06/20. Available balance: $4,740.73.",1,Wells Fargo,9111,28.80,"4,740.73",DEBIT,CARD
+US_CORPUS_00970,1813533574000,93557,"Wells Fargo: An ACH debit of $412.66 (SUMMIT AUTO FINANCE) posted to account ending 4417 on 06/20. Available balance: $4,328.07.",1,Wells Fargo,4417,412.66,"4,328.07",DEBIT,BANK
+US_CORPUS_00971,1813575630000,692484,Citi: Case C-55190 has been decided NOT IN YOUR FAVOR. TRAVELNOW BOOKING provided proof of service. The provisional credit will be reversed.,0,Citibank,,,,OTHER,NONE
+US_CORPUS_00972,1813603599000,692484,"Citi: The provisional credit of $189.55 for case C-55190 has been REVERSED and debited from account ending 6208 on 06/21. Available balance: $2,417.15.",0,Citibank,,,,OTHER,NONE
+US_CORPUS_00973,1813633445000,24273,"Chase: You made a $214.60 debit card purchase with card ending 7761 at SOUTHWEST AIRLINES on 06/22. Avail bal: $36,962.53.",1,Chase,7761,214.60,"36,962.53",DEBIT,CARD
+US_CORPUS_00974,1813662108000,93557,Wells Fargo: Case WF-77410 is still under review. We will notify you when a decision is made. Your provisional credit remains available.,0,Wells Fargo,,,,OTHER,NONE
+US_CORPUS_00975,1813677120000,322632,Bank of America: A purchase of $147.30 at MACYS 0092 was charged to your credit card ending in 9111 on 06/22.,1,Bank of America,9111,147.30,,DEBIT,CARD
+US_CORPUS_00976,1813720365000,54321,CreditKarma: Your VantageScore rose 14 points. A disputed balance was removed.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00977,1813732479000,692484,"Citi: A debit card purchase of $24.90 at DOORDASH posted to your account ending 6208 on 06/23. Available balance: $2,392.25.",1,Citibank,6208,24.90,"2,392.25",DEBIT,CARD
+US_CORPUS_00978,1813750402000,24273,"Chase: You sent $120.00 to ANNA KIM with Zelle(R) from acct ending 9384 on 06/23. Avail bal: $36,842.53.",1,Chase,9384,120.00,"36,842.53",DEBIT,BANK
+US_CORPUS_00979,1813759426000,+14155550132,Did the bank ever refund that streaming charge?,0,Unknown,,,,CREDIT,NONE
+US_CORPUS_00980,1813803515000,24273,"Chase: You made a $37.45 debit card purchase with card ending 7761 at CHIPOTLE 1187 on 06/24. Avail bal: $36,805.08.",1,Chase,7761,37.45,"36,805.08",DEBIT,CARD
+US_CORPUS_00981,1813849689000,22000,G-208715 is your Google verification code. Do not share it with anyone.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00982,1813888392000,322632,Bank of America: An authorized user purchase of $88.20 at SEPHORA 0912 on card ending 3040 was charged to your account ending 9111 on 06/25.,1,Bank of America,3040,88.20,,DEBIT,CARD
+US_CORPUS_00983,1813942772000,93557,"Wells Fargo: You made a purchase of $133.90 at ACE HARDWARE 2211 with debit card ending 9111 on 06/25. Available balance: $4,194.17.",1,Wells Fargo,9111,133.90,"4,194.17",DEBIT,CARD
+US_CORPUS_00984,1813978777000,55123,FRESHCRATE: 5 meal kits for $29.99. Skip anytime. freshcrate.example/deal. Txt STOP to end.,1,Unknown,,29.99,,DEBIT,BANK
+US_CORPUS_00985,1814005907000,692484,"Citi: A Bill Pay payment of $92.00 to AUSTIN ENERGY was sent from account ending 6208 on 06/26. Available balance: $2,300.25.",1,Citibank,6208,92.00,"2,300.25",CREDIT,BANK
+US_CORPUS_00986,1814031422000,24273,"Chase: You made a $88.20 debit card purchase with card ending 7761 at TARGET T-1043 on 06/26. Avail bal: $36,716.88.",1,Chase,7761,88.20,"36,716.88",DEBIT,CARD
+US_CORPUS_00987,1814067862000,322632,Bank of America: A pending authorization of $55.10 at DELTA AIR LINES is on your credit card ending 9111. Final amount may vary.,1,Bank of America,9111,55.10,,DEBIT,CARD
+US_CORPUS_00988,1814101207000,692484,"Citi: A debit card purchase of $71.40 at PETSMART 3311 posted to your account ending 6208 on 06/27. Available balance: $2,228.85.",1,Citibank,6208,71.40,"2,228.85",DEBIT,CARD
+US_CORPUS_00989,1814129997000,24273,"Chase: An ACH debit of $250.00 (HEALTHEQUITY HSA CONTRIB) posted to acct ...9384 on 06/27. Avail bal: $36,466.88.",1,Chase,9384,250.00,"36,466.88",DEBIT,BANK
+US_CORPUS_00990,1814178100000,86753,Venmo: Priya Raman sent you $30.00 for 'movie night'. Funds are in your Venmo balance.,1,Unknown,,30.00,,DEBIT,BANK
+US_CORPUS_00991,1814224376000,93557,"Wells Fargo: You made a purchase of $19.85 at SUBWAY 2210 with debit card ending 9111 on 06/28. Available balance: $4,174.32.",1,Wells Fargo,9111,19.85,"4,174.32",DEBIT,CARD
+US_CORPUS_00992,1814271813000,322632,Bank of America: A purchase of $41.60 at PANERA BREAD 6612 was charged to your credit card ending in 9111 on 06/29.,1,Bank of America,9111,41.60,,DEBIT,CARD
+US_CORPUS_00993,1814292359000,24273,"Chase: Your payment of $1,000.00 to BANK OF AMERICA CARD 9111 from acct ...9384 is scheduled for 07/04. No funds have been sent yet.",1,Chase,9384,"1,000.00",,CREDIT,CARD
+US_CORPUS_00994,1814323930000,24273,"Chase: You made a $155.75 debit card purchase with card ending 7761 at PATAGONIA.COM on 06/30. Avail bal: $36,311.13.",1,Chase,7761,155.75,,DEBIT,CARD
+US_CORPUS_00995,1814373722000,93557,Wells Fargo: 448120 is your access code. It expires in 10 minutes. Do not share it.,0,Wells Fargo,,,,OTHER,NONE
+US_CORPUS_00996,1814397715000,692484,"Citi: A debit card purchase of $33.20 at PEETS COFFEE 118 posted to your account ending 6208 on 06/30. Available balance: $2,195.65.",1,Citibank,6208,33.20,"2,195.65",DEBIT,CARD
+US_CORPUS_00997,1814420657000,24273,"Chase: Direct deposit of $2,400.00 from PRISHA APPS INC PAYROLL posted to acct ...9384 on 07/01. Avail bal: $38,711.13.",1,Chase,9384,"2,400.00","38,711.13",CREDIT,BANK
+US_CORPUS_00998,1814461072000,93557,"Wells Fargo: A direct deposit of $780.55 from PRISHA APPS INC PAYROLL posted to account ending 4417 on 07/01. Available balance: $4,954.87.",1,Wells Fargo,4417,780.55,"4,954.87",CREDIT,BANK
+US_CORPUS_00999,1814502716000,89887,T-MOBILE: Upgrade your line free for 3 months. Reply YES. Txt STOP to opt out.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_01000,1814523009000,24273,"Chase: You made a $64.15 debit card purchase with card ending 7761 at PUBLIX #1120 on 07/02. Avail bal: $38,646.98.",1,Chase,7761,64.15,"38,646.98",DEBIT,CARD
+US_CORPUS_01001,1814565067000,24273,"Chase: Interest of $19.28 was credited to your savings account ending 5520 on 07/02. Savings bal: $6,862.10.",1,Chase,5520,19.28,"6,862.10",CREDIT,BANK
+US_CORPUS_01002,1814610518000,692484,Citi: Your statement for account ending 6208 is ready in Citi Online.,0,Citibank,6208,,,OTHER,NONE
+US_CORPUS_01003,1814643566000,692484,"Citi: A debit card purchase of $158.60 at BEST BUY #442 posted to your account ending 6208 on 07/03. Available balance: $2,037.05.",1,Citibank,6208,158.60,"2,037.05",DEBIT,CARD
+US_CORPUS_01004,1814659903000,24273,"Chase: Your online payment of $1,000.00 to BANK OF AMERICA CARD 9111 from acct ...9384 is complete on 07/04. Avail bal: $37,646.98.",1,Chase,9384,"1,000.00","37,646.98",CREDIT,CARD
+US_CORPUS_01005,1814694773000,322632,"Bank of America: We received your payment of $1,000.00 on credit card ending 9111 on 07/04. Thank you. Avail credit: $4,432.46.",1,Bank of America,9111,"1,000.00","4,432.46",CREDIT,CARD
+US_CORPUS_01006,1814730156000,93557,"Wells Fargo: You made a purchase of $95.30 at AT&T WIRELESS with debit card ending 9111 on 07/04. Available balance: $4,859.57.",1,Wells Fargo,9111,95.30,"4,859.57",DEBIT,CARD
+US_CORPUS_01007,1814783376000,37777,USPS: Delivery attempted. Your item is being held at your local post office.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_01008,1814815709000,24273,"Chase: You made a $45.90 debit card purchase with card ending 7761 at SHELL OIL 1204 on 07/05. Avail bal: $37,601.08.",1,Chase,7761,45.90,"37,601.08",DEBIT,CARD
+US_CORPUS_01009,1814861679000,322632,Bank of America: A purchase of $66.75 at LOWES #01772 was charged to your credit card ending in 9111 on 07/06.,1,Bank of America,9111,66.75,,DEBIT,CARD
+US_CORPUS_01010,1814877106000,322632,Bank of America: Your statement for credit card ending 9111 is ready. Minimum payment due $61.00 by 07/14.,0,Bank of America,,,,OTHER,NONE
+US_CORPUS_01011,1814902882000,692484,"Citi: A debit card purchase of $27.65 at CVS 2201 posted to your account ending 6208 on 07/06. Available balance: $2,009.40.",1,Citibank,6208,27.65,"2,009.40",DEBIT,CARD
+US_CORPUS_01012,1814927723000,24273,"Chase: An ACH debit of $96.40 (VERIZON WIRELESS) posted to acct ...9384 on 07/07. Avail bal: $37,504.68.",1,Chase,9384,96.40,"37,504.68",DEBIT,BANK
+US_CORPUS_01013,1814940345000,+14155550132,"Grabbing coffee, want one?",0,Unknown,,,,OTHER,NONE
+US_CORPUS_01014,1814979192000,93557,"Wells Fargo: You made a purchase of $52.10 at SPROUTS FARMERS MKT with debit card ending 9111 on 07/07. Available balance: $4,807.47.",1,Wells Fargo,9111,52.10,"4,807.47",DEBIT,CARD
+US_CORPUS_01015,1815008196000,692484,Citi: A hold of $40.00 was placed by SUNOCO 8871 on your debit card ending 8890 pending the pump total.,1,Citibank,8890,40.00,,DEBIT,CARD
+US_CORPUS_01016,1815018841000,692484,"Citi: Your debit card ending 8890 was charged the final amount of $28.55 at SUNOCO 8871 on 07/08. Available balance: $1,980.85.",1,Citibank,8890,28.55,"1,980.85",DEBIT,CARD
+US_CORPUS_01017,1815061027000,24273,"Chase: You made a $102.80 debit card purchase with card ending 7761 at HOME DEPOT #6641 on 07/08. Avail bal: $37,401.88.",1,Chase,7761,102.80,"37,401.88",DEBIT,CARD
+US_CORPUS_01018,1815092366000,24273,Chase: Your one-time code is 915043. Don't share it. We'll never call to ask for it.,0,Chase,,,,OTHER,NONE
+US_CORPUS_01019,1815138054000,692484,"Citi: A debit card purchase of $85.40 at SAMS CLUB #6612 posted to your account ending 6208 on 07/09. Available balance: $1,895.45.",1,Citibank,6208,85.40,"1,895.45",DEBIT,CARD
+US_CORPUS_01020,1815173895000,262966,Amazon: Your package was delivered to your front door.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_01021,1815228541000,24273,"Chase: You made a $31.20 debit card purchase with card ending 7761 at LYFT RIDE on 07/10. Avail bal: $37,370.68.",1,Chase,7761,31.20,"37,370.68",DEBIT,CARD
+US_CORPUS_01022,1815280564000,93557,Wells Fargo: Your June statement for account ending 4417 is now available.,0,Wells Fargo,4417,,,OTHER,NONE
+US_CORPUS_01023,1815333144000,93557,"Wells Fargo: You made a purchase of $41.35 at KROGER #8812 with debit card ending 9111 on 07/11. Available balance: $4,766.12.",1,Wells Fargo,9111,41.35,"4,766.12",DEBIT,CARD
+US_CORPUS_01024,1815351189000,55123,CHASE SECURITY: Unusual sign-in detected. Confirm your identity at chase-id-verify.example/secure,0,Chase,,,,OTHER,NONE
+US_CORPUS_01025,1815378647000,322632,Bank of America: A purchase of $29.40 at DOORDASH was charged to your credit card ending in 9111 on 07/12.,1,Bank of America,9111,29.40,,DEBIT,CARD
+US_CORPUS_01026,1815414666000,322632,Bank of America: 553108 is your Bank of America authorization code. Never share this code.,0,Bank of America,,,,OTHER,NONE
+US_CORPUS_01027,1815443274000,24273,"Chase: You made a $23.85 debit card purchase with card ending 7761 at WALGREENS 1188 on 07/13. Avail bal: $37,346.83.",1,Chase,7761,23.85,"37,346.83",DEBIT,CARD
+US_CORPUS_01028,1815462131000,672566,Netflix: Your Standard plan renews on 07/02. No action needed.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_01029,1815493233000,692484,"Citi: A debit card purchase of $16.30 at SUBWAY 2210 posted to your account ending 6208 on 07/13. Available balance: $1,879.15.",1,Citibank,6208,16.30,"1,879.15",DEBIT,CARD
+US_CORPUS_01030,1815542784000,+14155550132,Thanks! See you Sunday,0,Unknown,,,,OTHER,NONE
+US_CORPUS_01031,1815565052000,692484,Citi: Set up low-balance and large-purchase alerts for account ending 6208 in the Citi app.,0,Citibank,6208,,,OTHER,CARD
+US_CORPUS_01032,1815613297000,322632,Bank of America: Learn how disputes and chargebacks work at bofa.example/disputes. We never ask for codes by text.,0,Bank of America,,,,OTHER,NONE
+US_CORPUS_01033,1815645595000,93557,Wells Fargo: Your Zelle(R) recipient list was updated. Review it in Wells Fargo Online.,0,Wells Fargo,,,,OTHER,NONE
+US_CORPUS_01034,1815669094000,37777,USPS Informed Delivery: 3 mailpieces are arriving today.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_01035,1815717086000,89887,XFINITY: 400 Mbps for $35/mo for 12 months. Reply INFO. Txt STOP to opt out.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_01036,1815727775000,+14155550132,Are you free to look at the lease tomorrow?,0,Unknown,,,,OTHER,NONE
+US_CORPUS_01037,1815745317000,24273,Chase: A hold of $60.00 was placed by HERTZ RENT A CAR on card ending 7761 pending the final rental total.,1,Chase,7761,60.00,,DEBIT,CARD
+US_CORPUS_01038,1815781884000,24273,Chase: The $60.00 hold placed by HERTZ RENT A CAR on card ending 7761 has been released. No charge was made.,1,Chase,7761,60.00,,DEBIT,CARD
+US_CORPUS_01039,1815805712000,24273,"Chase: You made a $14.75 debit card purchase with card ending 7761 at PANERA BREAD 6612 on 07/17. Avail bal: $37,332.08.",1,Chase,7761,14.75,"37,332.08",DEBIT,CARD
+US_CORPUS_01040,1815830349000,692484,"Citi: A debit card purchase of $39.85 at WALGREENS 1188 posted to your account ending 6208 on 07/17. Available balance: $1,839.30.",1,Citibank,6208,39.85,"1,839.30",DEBIT,CARD
+US_CORPUS_01041,1815865183000,322632,Bank of America: A purchase of $58.90 at SPROUTS FARMERS MKT 118 was charged to your credit card ending in 9111 on 07/17.,1,Bank of America,9111,58.90,,DEBIT,CARD

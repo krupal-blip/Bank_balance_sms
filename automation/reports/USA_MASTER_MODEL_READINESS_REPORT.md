@@ -5,10 +5,10 @@
 ## 🎯 Executive Certification
 - **Region**: **USA (USD)**
 - **Audit Result**: **`🟢 100% PRODUCTION READY FOR MODEL TRAINING`**
-- **Evaluated Batches**: **7 Batches** (Batch 1 through Batch 7)
-- **Total Ingested Messages**: **728 Real-World SMS Samples**
-- **Positive Executed Transactions**: **528 (72.5%)**
-- **Negative Guardrail Samples (OTPs, Declines, Mandates, Noise)**: **200 (27.5%)**
+- **Evaluated Batches**: **10 Batches** (Batch 1 through Batch 10)
+- **Total Ingested Messages**: **1,041 Real-World SMS Samples**
+- **Positive Executed Transactions**: **742 (71.3%)**
+- **Negative Guardrail Samples (OTPs, Declines, Mandates, Noise)**: **299 (28.7%)**
 - **Generated Training Corpus**: [`Countries/United_States/sms_parser/us_training_corpus_v1.csv`](file:///Volumes/Extra/backup/R&D/Bank_balance/Countries/United_States/sms_parser/us_training_corpus_v1.csv)
 
 ---
@@ -23,6 +23,9 @@
 | `20260820_134224_usa_batch5.xml` | 98 | 72 | 26 | **100.0%** |
 | `20260820_135900_usa_batch6.xml` | 110 | 77 | 33 | **100.0%** |
 | `20260820_141758_usa_batch7.xml` | 109 | 75 | 34 | **100.0%** |
+| `20260820_144249_usa_batch10.xml` | 101 | 69 | 32 | **100.0%** |
+| `20260820_144251_usa_batch8.xml` | 107 | 73 | 34 | **100.0%** |
+| `20260820_144253_usa_batch9.xml` | 105 | 72 | 33 | **100.0%** |
 
 ---
 
