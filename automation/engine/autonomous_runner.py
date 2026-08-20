@@ -21,6 +21,7 @@ import shutil
 import datetime
 import subprocess
 import html
+import re
 import xml.etree.ElementTree as ET
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
