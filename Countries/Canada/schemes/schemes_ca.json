@@ -1,0 +1,72 @@
+{
+  "regionCode": "CA",
+  "taxYear": "2026",
+  "reviewedOn": "2026-08-20",
+  "currency": "CAD",
+  "currencySymbol": "$",
+  "schemes": [
+    {
+      "id": "ca_tfsa",
+      "titleRes": "scheme_ca_tfsa_title",
+      "descriptionRes": "scheme_ca_tfsa_desc",
+      "annualRatePercent": null,
+      "rateEffectiveFrom": "2026-01-01",
+      "sourceUrl": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/tax-free-savings-account.html",
+      "eligibility": { "minAge": 18, "maxAge": null, "notesRes": "scheme_ca_tfsa_eligibility" },
+      "lockInMonths": null,
+      "minContributionMinor": 0,
+      "maxContributionMinor": 700000,
+      "lifetimeCumulativeRoomMinor": 10900000,
+      "taxTreatmentRes": "scheme_ca_tfsa_tax",
+      "notes": "Tax-Free Savings Account. 2026 annual limit $7,000. Cumulative lifetime room $109,000 (since 2009). Unused room carries forward indefinitely. Withdrawals added back to room next January 1."
+    },
+    {
+      "id": "ca_rrsp",
+      "titleRes": "scheme_ca_rrsp_title",
+      "descriptionRes": "scheme_ca_rrsp_desc",
+      "annualRatePercent": null,
+      "rateEffectiveFrom": "2026-01-01",
+      "sourceUrl": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/rrsps-related-plans/registered-retirement-savings-plan-rrsp.html",
+      "eligibility": { "minAge": 18, "maxAge": 71, "notesRes": "scheme_ca_rrsp_eligibility" },
+      "lockInMonths": null,
+      "minContributionMinor": 0,
+      "maxContributionMinor": 3381000,
+      "earningsPercentCap": 18,
+      "taxTreatmentRes": "scheme_ca_rrsp_tax",
+      "notes": "Registered Retirement Savings Plan. 2026 annual dollar limit $33,810 or 18% of prior year earned income, whichever is less. Converts to RRIF at age 71. Unused room carries forward."
+    },
+    {
+      "id": "ca_fhsa",
+      "titleRes": "scheme_ca_fhsa_title",
+      "descriptionRes": "scheme_ca_fhsa_desc",
+      "annualRatePercent": null,
+      "rateEffectiveFrom": "2026-01-01",
+      "sourceUrl": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/first-home-savings-account.html",
+      "eligibility": { "minAge": 18, "maxAge": 71, "notesRes": "scheme_ca_fhsa_eligibility" },
+      "lockInMonths": null,
+      "minContributionMinor": 0,
+      "maxContributionMinor": 800000,
+      "maxCarryForwardMinor": 800000,
+      "maxInOneYearWithCarryForwardMinor": 1600000,
+      "lifetimeContributionLimitMinor": 4000000,
+      "taxTreatmentRes": "scheme_ca_fhsa_tax",
+      "notes": "First Home Savings Account. Annual limit $8,000. Carry forward up to $8,000 unused. Lifetime limit $40,000. For first-time home buyers only. Tax-deductible contributions, tax-free withdrawals for qualifying home purchase."
+    },
+    {
+      "id": "ca_resp",
+      "titleRes": "scheme_ca_resp_title",
+      "descriptionRes": "scheme_ca_resp_desc",
+      "annualRatePercent": null,
+      "rateEffectiveFrom": "2026-01-01",
+      "sourceUrl": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/registered-education-savings-plans-resps.html",
+      "eligibility": { "minAge": 0, "maxAge": 17, "notesRes": "scheme_ca_resp_eligibility" },
+      "lockInMonths": null,
+      "minContributionMinor": 0,
+      "maxContributionMinor": null,
+      "lifetimeContributionLimitMinor": 5000000,
+      "governmentGrantMinor": 50000,
+      "taxTreatmentRes": "scheme_ca_resp_tax",
+      "notes": "Registered Education Savings Plan. Lifetime limit $50,000 per beneficiary. Government adds CESG: 20% on first $2,500/yr (max $500/yr, lifetime max $7,200). For post-secondary education savings."
+    }
+  ]
+}

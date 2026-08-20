@@ -1,0 +1,70 @@
+{
+  "regionCode": "AU",
+  "financialYearStart": "2026-07-01",
+  "financialYearEnd": "2027-06-30",
+  "reviewedOn": "2026-08-20",
+  "currency": "AUD",
+  "currencySymbol": "$",
+  "schemes": [
+    {
+      "id": "au_super_concessional",
+      "titleRes": "scheme_au_super_cc_title",
+      "descriptionRes": "scheme_au_super_cc_desc",
+      "annualRatePercent": null,
+      "rateEffectiveFrom": "2026-07-01",
+      "sourceUrl": "https://www.ato.gov.au/individuals-and-families/super-for-individuals-and-families/super/growing-and-keeping-track-of-your-super/caps-on-super-contributions",
+      "eligibility": { "minAge": 0, "maxAge": 75, "notesRes": "scheme_au_super_cc_eligibility" },
+      "lockInMonths": null,
+      "minContributionMinor": 0,
+      "maxContributionMinor": 3250000,
+      "taxTreatmentRes": "scheme_au_super_cc_tax",
+      "notes": "Concessional (before-tax) Super Contributions cap FY2026-27: $32,500. Includes employer SG (11.5%), salary sacrifice, and personal deductible contributions. Carry-forward unused caps from prior 5 years if total super balance < $500,000."
+    },
+    {
+      "id": "au_super_non_concessional",
+      "titleRes": "scheme_au_super_ncc_title",
+      "descriptionRes": "scheme_au_super_ncc_desc",
+      "annualRatePercent": null,
+      "rateEffectiveFrom": "2026-07-01",
+      "sourceUrl": "https://www.ato.gov.au/individuals-and-families/super-for-individuals-and-families/super/growing-and-keeping-track-of-your-super/caps-on-super-contributions",
+      "eligibility": { "minAge": 0, "maxAge": 74, "notesRes": "scheme_au_super_ncc_eligibility" },
+      "lockInMonths": null,
+      "minContributionMinor": 0,
+      "maxContributionMinor": 13000000,
+      "bringForwardRuleMultiplier": 3,
+      "bringForwardMaxMinor": 39000000,
+      "totalSuperBalanceThresholdMinor": 210000000,
+      "taxTreatmentRes": "scheme_au_super_ncc_tax",
+      "notes": "Non-Concessional (after-tax) Super cap FY2026-27: $130,000/yr. Bring-forward rule allows up to $390,000 in one year if total super balance < $2.1M as of 30 June 2026."
+    },
+    {
+      "id": "au_fhss",
+      "titleRes": "scheme_au_fhss_title",
+      "descriptionRes": "scheme_au_fhss_desc",
+      "annualRatePercent": null,
+      "rateEffectiveFrom": "2026-07-01",
+      "sourceUrl": "https://www.ato.gov.au/individuals-and-families/super-for-individuals-and-families/super/withdrawing-and-using-your-super/first-home-super-saver-fhss-scheme",
+      "eligibility": { "minAge": 18, "maxAge": null, "notesRes": "scheme_au_fhss_eligibility" },
+      "lockInMonths": null,
+      "minContributionMinor": 0,
+      "maxAnnualCountedMinor": 1500000,
+      "lifetimeMaxReleaseMinor": 5000000,
+      "taxTreatmentRes": "scheme_au_fhss_tax",
+      "notes": "First Home Super Saver Scheme. Up to $15,000 of voluntary super contributions per year count toward FHSS. Lifetime max release $50,000 (combined with associated earnings). Must be first-home buyer, plan to live there ≥6 months. Apply to ATO before signing purchase contract."
+    },
+    {
+      "id": "au_high_interest_savings",
+      "titleRes": "scheme_au_his_title",
+      "descriptionRes": "scheme_au_his_desc",
+      "annualRatePercent": 5.50,
+      "rateEffectiveFrom": "2026-07-01",
+      "sourceUrl": "https://www.rba.gov.au",
+      "eligibility": { "minAge": 18, "maxAge": null, "notesRes": "scheme_au_his_eligibility" },
+      "lockInMonths": null,
+      "minContributionMinor": 0,
+      "maxContributionMinor": null,
+      "taxTreatmentRes": "scheme_au_his_tax",
+      "notes": "High-Interest Savings Accounts (HISA). Top-tier accounts (e.g., ING Savings Maximiser, UBank Save, Macquarie Savings) offer up to 5.50% p.a. with conditions (deposit/spend monthly). Interest is taxable as ordinary income."
+    }
+  ]
+}

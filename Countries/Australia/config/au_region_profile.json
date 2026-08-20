@@ -1,0 +1,12 @@
+{
+  "country": "Australia",
+  "region_code": "AU",
+  "currency": "AUD",
+  "currency_symbol": "$",
+  "enabled_features": [
+    "BANK_HOLIDAYS",
+    "SAVING_SCHEMES",
+    "BANK_CODE_LOOKUP",
+    "BALANCE_CHANNELS"
+  ]
+}
