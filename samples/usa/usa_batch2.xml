@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<smses count="105" region="USA" batch="2">
+  <sms>
+    <receivedTime>1787348220000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: A purchase of $242.58 at KROGER #771 was charged to your credit card ending in 9111 on 08/21.</body>
+  </sms>
+  <sms>
+    <receivedTime>1787400240000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: A purchase of $198.89 at KROGER #771 was charged to your credit card ending in 9111 on 08/22.</body>
+  </sms>
+  <sms>
+    <receivedTime>1787445660000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: A withdrawal/debit of $71.87 (ATM WITHDRAWAL #A5521) posted to account ending 9661 on 08/23. Available balance: $1,270.50.</body>
+  </sms>
+  <sms>
+    <receivedTime>1787495040000</receivedTime>
+    <address>322632</address>
+    <body>BofA: Your credit card ending 9111 was DECLINED for $279.92 at PANERA BREAD #4402 on 08/23. Call 800.732.9194 if you need help.</body>
+  </sms>
+  <sms>
+    <receivedTime>1787542920000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You made a $13.26 debit card purchase with card ending 882 at WALMART SUPERCENTER on 08/24. Avail bal: $8,996.86.</body>
+  </sms>
+  <sms>
+    <receivedTime>1787618100000</receivedTime>
+    <address>672566</address>
+    <body>Netflix: Your payment method was updated successfully. If this wasn&#x27;t you, visit netflix.com/account.</body>
+  </sms>
+  <sms>
+    <receivedTime>1787672640000</receivedTime>
+    <address>24273</address>
+    <body>Chase: A refund of $23.45 from AMAZON MKTPLACE was credited to your debit card ending 882 on 08/25. Avail bal: $9,020.31.</body>
+  </sms>
+  <sms>
+    <receivedTime>1787723040000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: A purchase of $206.12 at KROGER #771 was charged to your credit card ending in 9111 on 08/26.</body>
+  </sms>
+  <sms>
+    <receivedTime>1787760900000</receivedTime>
+    <address>322632</address>
+    <body>BofA Reminder: Payment of $35.00 minimum is due on credit card ending 9111 by 09/01. Avoid late fees.</body>
+  </sms>
+  <sms>
+    <receivedTime>1787783700000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You made a $116.49 debit card purchase with card ending 882 at UBER TRIP on 08/26. Avail bal: $8,903.82.</body>
+  </sms>
+  <sms>
+    <receivedTime>1787801580000</receivedTime>
+    <address>322632</address>
+    <body>BofA: Your credit card ending 9111 was DECLINED for $156.02 at WHOLE FOODS MKT on 08/27. Call 800.732.9194 if you need help.</body>
+  </sms>
+  <sms>
+    <receivedTime>1787856180000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You scheduled a payment of $190.41 to COMCAST CABLE for 09/04 from acct ...9384. To cancel, visit chase.com/pay.</body>
+  </sms>
+  <sms>
+    <receivedTime>1787928780000</receivedTime>
+    <address>89887</address>
+    <body>DOMINO&#x27;S: BOGO large pizzas today only! dominos.com. Txt STOP to end.</body>
+  </sms>
+  <sms>
+    <receivedTime>1787944440000</receivedTime>
+    <address>322632</address>
+    <body>BofA: A pending authorization of $64.10 at DELTA AIR 0062341 is on your credit card ending 9111. Final amount may vary.</body>
+  </sms>
+  <sms>
+    <receivedTime>1787960280000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: A purchase of $64.10 at DELTA AIR 0062341 was charged to your credit card ending in 9111 on 08/28.</body>
+  </sms>
+  <sms>
+    <receivedTime>1787991420000</receivedTime>
+    <address>322632</address>
+    <body>BofA: Your credit card ending 9111 was DECLINED for $82.62 at AMAZON MKTPLACE on 08/29. Call 800.732.9194 if you need help.</body>
+  </sms>
+  <sms>
+    <receivedTime>1788065040000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You made a $110.07 debit card purchase with card ending 882 at APPLE.COM/BILL on 08/30. Avail bal: $8,793.75.</body>
+  </sms>
+  <sms>
+    <receivedTime>1788136020000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: Your credit card ending in 9111 statement is ready. Balance: $716.11. Min payment $35.00 due 09/18.</body>
+  </sms>
+  <sms>
+    <receivedTime>1788168300000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You made a $70.14 debit card purchase with card ending 882 at STARBUCKS #2214 on 08/31. Avail bal: $8,723.61.</body>
+  </sms>
+  <sms>
+    <receivedTime>1788224160000</receivedTime>
+    <address>24273</address>
+    <body>Chase: SARAH LOPEZ sent you $76.13 with Zelle(R). Deposited to acct ...9384. Avail bal: $8,799.74.</body>
+  </sms>
+  <sms>
+    <receivedTime>1788262740000</receivedTime>
+    <address>22000</address>
+    <body>G-964394 is your Google verification code.</body>
+  </sms>
+  <sms>
+    <receivedTime>1788318540000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: AutoPay payment of $150.00 was made to your credit card ending 9111 from account 9661 on 09/02. Avail bal acct 9661: $1,120.50.</body>
+  </sms>
+  <sms>
+    <receivedTime>1788354780000</receivedTime>
+    <address>322632</address>
+    <body>BofA Reminder: Payment of $35.00 minimum is due on credit card ending 9111 by 09/08. Avoid late fees.</body>
+  </sms>
+  <sms>
+    <receivedTime>1788393360000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: Your credit card ending in 9111 statement is ready. Balance: $566.11. Min payment $35.00 due 09/20.</body>
+  </sms>
+  <sms>
+    <receivedTime>1788410760000</receivedTime>
+    <address>24273</address>
+    <body>Chase: Direct deposit of $456.34 from ACME TECHNOLOGIES PAYROLL posted to acct ...9384 on 09/03. Avail bal: $9,256.08.</body>
+  </sms>
+  <sms>
+    <receivedTime>1788428700000</receivedTime>
+    <address>262966</address>
+    <body>792149 is your Amazon OTP. Do not share it with anyone.</body>
+  </sms>
+  <sms>
+    <receivedTime>1788504180000</receivedTime>
+    <address>22000</address>
+    <body>G-424197 is your Google verification code.</body>
+  </sms>
+  <sms>
+    <receivedTime>1788534060000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: Your credit card ending in 9111 statement is ready. Balance: $566.11. Min payment $35.00 due 09/22.</body>
+  </sms>
+  <sms>
+    <receivedTime>1788605460000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: AutoPay is now set up for your credit card ending in 9111. $35.00 (minimum due) will be drafted from account 9661 each cycle. No payment was made today.</body>
+  </sms>
+  <sms>
+    <receivedTime>1788652140000</receivedTime>
+    <address>89887</address>
+    <body>DOMINO&#x27;S: BOGO large pizzas today only! dominos.com. Txt STOP to end.</body>
+  </sms>
+  <sms>
+    <receivedTime>1788710640000</receivedTime>
+    <address>24273</address>
+    <body>Chase: Direct deposit of $2,112.31 from ACME TECHNOLOGIES PAYROLL posted to acct ...9384 on 09/06. Avail bal: $11,368.39.</body>
+  </sms>
+  <sms>
+    <receivedTime>1788784080000</receivedTime>
+    <address>22000</address>
+    <body>G-765616 is your Google verification code.</body>
+  </sms>
+  <sms>
+    <receivedTime>1788836880000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You made a $42.03 debit card purchase with card ending 882 at CHIPOTLE 1187 on 09/08. Avail bal: $11,326.36.</body>
+  </sms>
+  <sms>
+    <receivedTime>1788888360000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: A purchase of $297.53 at KROGER #771 was charged to your credit card ending in 9111 on 09/08.</body>
+  </sms>
+  <sms>
+    <receivedTime>1788895560000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: A purchase of $133.07 at TARGET T-1043 was charged to your credit card ending in 9111 on 09/08.</body>
+  </sms>
+  <sms>
+    <receivedTime>1788930360000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You transferred $500.00 from acct ...9384 to external account ending 9661 on 09/09. Avail bal: $10,826.36.</body>
+  </sms>
+  <sms>
+    <receivedTime>1788941760000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: A transfer of $500.00 was received into account ending 9661 on 09/09. Available balance: $1,620.50.</body>
+  </sms>
+  <sms>
+    <receivedTime>1789004460000</receivedTime>
+    <address>+14155550132</address>
+    <body>Hey are we still on for dinner tonight?</body>
+  </sms>
+  <sms>
+    <receivedTime>1789014480000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: A purchase of $137.61 at SPOTIFY USA was charged to your credit card ending in 9111 on 09/10.</body>
+  </sms>
+  <sms>
+    <receivedTime>1789051200000</receivedTime>
+    <address>262966</address>
+    <body>619585 is your Amazon OTP. Do not share it with anyone.</body>
+  </sms>
+  <sms>
+    <receivedTime>1789111740000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You scheduled a payment of $151.84 to COMCAST CABLE for 09/19 from acct ...9384. To cancel, visit chase.com/pay.</body>
+  </sms>
+  <sms>
+    <receivedTime>1789139340000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You made a $138.01 debit card purchase with card ending 882 at PANERA BREAD #4402 on 09/11. Avail bal: $10,688.35.</body>
+  </sms>
+  <sms>
+    <receivedTime>1789181760000</receivedTime>
+    <address>24273</address>
+    <body>Chase: Direct deposit of $2,249.23 from ACME TECHNOLOGIES PAYROLL posted to acct ...9384 on 09/12. Avail bal: $12,937.58.</body>
+  </sms>
+  <sms>
+    <receivedTime>1789233420000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You transferred $200.00 from acct ...9384 to WELLS FARGO acct ...4417 on 09/12. Avail bal: $12,737.58.</body>
+  </sms>
+  <sms>
+    <receivedTime>1789250760000</receivedTime>
+    <address>24273</address>
+    <body>Chase: Your transfer of $200.00 to acct ...4417 FAILED and was reversed to acct ...9384. Avail bal: $12,937.58.</body>
+  </sms>
+  <sms>
+    <receivedTime>1789278960000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You sent $168.43 to SARAH LOPEZ with Zelle(R) from acct ending 9384 on 09/13. Avail bal: $12,769.15.</body>
+  </sms>
+  <sms>
+    <receivedTime>1789324320000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You scheduled a payment of $141.87 to COMCAST CABLE for 09/21 from acct ...9384. To cancel, visit chase.com/pay.</body>
+  </sms>
+  <sms>
+    <receivedTime>1789374360000</receivedTime>
+    <address>24273</address>
+    <body>Chase: EMILY DAVIS sent you $44.83 with Zelle(R). Deposited to acct ...9384. Avail bal: $12,813.98.</body>
+  </sms>
+  <sms>
+    <receivedTime>1789414380000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You scheduled a payment of $276.99 to COMCAST CABLE for 09/22 from acct ...9384. To cancel, visit chase.com/pay.</body>
+  </sms>
+  <sms>
+    <receivedTime>1789480980000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: A withdrawal/debit of $147.93 (GEICO AUTO INS) posted to account ending 9661 on 09/15. Available balance: $1,472.57.</body>
+  </sms>
+  <sms>
+    <receivedTime>1789526880000</receivedTime>
+    <address>672566</address>
+    <body>Netflix: Your payment method was updated successfully. If this wasn&#x27;t you, visit netflix.com/account.</body>
+  </sms>
+  <sms>
+    <receivedTime>1789587540000</receivedTime>
+    <address>24273</address>
+    <body>Chase: EMILY DAVIS requested $64.07 from you with Zelle(R). Review in the Chase Mobile app. No money has moved.</body>
+  </sms>
+  <sms>
+    <receivedTime>1789645140000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You made a $69.81 debit card purchase with card ending 882 at PANERA BREAD #4402 on 09/17. Avail bal: $12,744.17.</body>
+  </sms>
+  <sms>
+    <receivedTime>1789706880000</receivedTime>
+    <address>24273</address>
+    <body>Chase: SARAH LOPEZ sent you $140.47 with Zelle(R). Deposited to acct ...9384. Avail bal: $12,884.64.</body>
+  </sms>
+  <sms>
+    <receivedTime>1789739520000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You scheduled a payment of $186.35 to COMCAST CABLE for 09/26 from acct ...9384. To cancel, visit chase.com/pay.</body>
+  </sms>
+  <sms>
+    <receivedTime>1789802820000</receivedTime>
+    <address>+14155550132</address>
+    <body>Happy birthday!! 🎉</body>
+  </sms>
+  <sms>
+    <receivedTime>1789867860000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: A withdrawal/debit of $96.12 (PG&amp;E UTILITY) posted to account ending 9661 on 09/20. Available balance: $1,376.45.</body>
+  </sms>
+  <sms>
+    <receivedTime>1789910040000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: A purchase of $221.70 at AMAZON MKTPLACE was charged to your credit card ending in 9111 on 09/20.</body>
+  </sms>
+  <sms>
+    <receivedTime>1789939140000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: An Overdraft Item Fee of $35 was assessed to account ending 9661 on 09/20. Available balance: $1,341.45.</body>
+  </sms>
+  <sms>
+    <receivedTime>1789946400000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You made a $70.93 debit card purchase with card ending 882 at DELTA AIR 0062341 on 09/20. Avail bal: $12,813.71.</body>
+  </sms>
+  <sms>
+    <receivedTime>1790005680000</receivedTime>
+    <address>322632</address>
+    <body>BofA Reminder: Payment of $35.00 minimum is due on credit card ending 9111 by 09/27. Avoid late fees.</body>
+  </sms>
+  <sms>
+    <receivedTime>1790019660000</receivedTime>
+    <address>24273</address>
+    <body>Chase: Direct deposit of $1,663.43 from ACME TECHNOLOGIES PAYROLL posted to acct ...9384 on 09/21. Avail bal: $14,477.14.</body>
+  </sms>
+  <sms>
+    <receivedTime>1790062560000</receivedTime>
+    <address>262966</address>
+    <body>284377 is your Amazon OTP. Do not share it with anyone.</body>
+  </sms>
+  <sms>
+    <receivedTime>1790083740000</receivedTime>
+    <address>322632</address>
+    <body>BofA: Your credit card ending 9111 was DECLINED for $323.75 at UBER TRIP on 09/22. Call 800.732.9194 if you need help.</body>
+  </sms>
+  <sms>
+    <receivedTime>1790110080000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You made a $57.47 debit card purchase with card ending 882 at TRADER JOE&#x27;S #552 on 09/22. Avail bal: $14,419.67.</body>
+  </sms>
+  <sms>
+    <receivedTime>1790122380000</receivedTime>
+    <address>24273</address>
+    <body>Chase: A mobile check deposit of $1,250.00 was received for acct ...9384 on 09/23. Avail bal: $15,669.67.</body>
+  </sms>
+  <sms>
+    <receivedTime>1790130120000</receivedTime>
+    <address>24273</address>
+    <body>Chase: A hold has been placed on part of your recent deposit to acct ...9384. $250.00 available now; remainder available in 2 business days.</body>
+  </sms>
+  <sms>
+    <receivedTime>1790155860000</receivedTime>
+    <address>24273</address>
+    <body>Chase: RAJ PATEL sent you $144.21 with Zelle(R). Deposited to acct ...9384. Avail bal: $15,813.88.</body>
+  </sms>
+  <sms>
+    <receivedTime>1790213100000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: A purchase of $9.32 at STARBUCKS #2214 was charged to your credit card ending in 9111 on 09/24.</body>
+  </sms>
+  <sms>
+    <receivedTime>1790277540000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You scheduled a payment of $211.20 to COMCAST CABLE for 10/02 from acct ...9384. To cancel, visit chase.com/pay.</body>
+  </sms>
+  <sms>
+    <receivedTime>1790350200000</receivedTime>
+    <address>322632</address>
+    <body>BofA: Your credit card ending 9111 was DECLINED for $339.70 at TRADER JOE&#x27;S #552 on 09/25. Call 800.732.9194 if you need help.</body>
+  </sms>
+  <sms>
+    <receivedTime>1790410200000</receivedTime>
+    <address>89887</address>
+    <body>DOMINO&#x27;S: BOGO large pizzas today only! dominos.com. Txt STOP to end.</body>
+  </sms>
+  <sms>
+    <receivedTime>1790420880000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: A withdrawal/debit of $127.77 (ATM WITHDRAWAL #A5521) posted to account ending 9661 on 09/26. Available balance: $1,213.68.</body>
+  </sms>
+  <sms>
+    <receivedTime>1790490660000</receivedTime>
+    <address>322632</address>
+    <body>BofA Alert: Credit card ending 9111 was used for 1234.56 USD at BEST BUY #442 on 09/27. Avail credit: $1,600.10. Fraud? Call 800.732.9194.</body>
+  </sms>
+  <sms>
+    <receivedTime>1790529300000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You made a $.99 debit card purchase with card ending 882 at APPLE.COM/BILL on 09/27. Avail bal: $15,812.89.</body>
+  </sms>
+  <sms>
+    <receivedTime>1790557920000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You made a $161.23 debit card purchase with card ending 882 at 7-ELEVEN 33481 on 09/28. Avail bal: $15,651.66.</body>
+  </sms>
+  <sms>
+    <receivedTime>1790615040000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: A purchase of $290.87 at SHELL OIL 5744 was charged to your credit card ending in 9111 on 09/28.</body>
+  </sms>
+  <sms>
+    <receivedTime>1790639520000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: A withdrawal/debit of $138.95 (COMCAST CABLE) posted to account ending 9661 on 09/28. Available balance: $1,074.73.</body>
+  </sms>
+  <sms>
+    <receivedTime>1790661960000</receivedTime>
+    <address>672566</address>
+    <body>Netflix: Your payment method was updated successfully. If this wasn&#x27;t you, visit netflix.com/account.</body>
+  </sms>
+  <sms>
+    <receivedTime>1790704860000</receivedTime>
+    <address>89887</address>
+    <body>DOMINO&#x27;S: BOGO large pizzas today only! dominos.com. Txt STOP to end.</body>
+  </sms>
+  <sms>
+    <receivedTime>1790726280000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You made a $98.15 debit card purchase with card ending 882 at SHELL OIL 5744 on 09/29. Avail bal: $15,553.51.</body>
+  </sms>
+  <sms>
+    <receivedTime>1790739000000</receivedTime>
+    <address>24273</address>
+    <body>Chase: $76.40 was debited from checking acct ending 9384 via debit card 882 at COSTCO WHSE #482 on 09/30. Avail bal: $15,477.11.</body>
+  </sms>
+  <sms>
+    <receivedTime>1790787300000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You made a $11.40 debit card purchase with card ending 882 at DELTA AIR 0062341 on 09/30. Avail bal: $15,465.71.</body>
+  </sms>
+  <sms>
+    <receivedTime>1790854080000</receivedTime>
+    <address>24273</address>
+    <body>Chase: Your one-time code is 123207. Don&#x27;t share it. We&#x27;ll never call to ask for it.</body>
+  </sms>
+  <sms>
+    <receivedTime>1790883900000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You made a $27.42 debit card purchase with card ending 882 at SHELL OIL 5744 on 10/01. Avail bal: $15,438.29.</body>
+  </sms>
+  <sms>
+    <receivedTime>1790950920000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: A purchase of $12.94 at APPLE.COM/BILL was charged to your credit card ending in 9111 on 10/02.</body>
+  </sms>
+  <sms>
+    <receivedTime>1790991420000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: A purchase of $199.95 at 7-ELEVEN 33481 was charged to your credit card ending in 9111 on 10/03.</body>
+  </sms>
+  <sms>
+    <receivedTime>1791061140000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: A withdrawal/debit of $26.76 (GEICO AUTO INS) posted to account ending 9661 on 10/03. Available balance: $1,047.97.</body>
+  </sms>
+  <sms>
+    <receivedTime>1791103320000</receivedTime>
+    <address>24273</address>
+    <body>Chase Fraud Alert: Did you attempt $412.77 at ONLINE MERCHANT with debit card ending 882? Reply YES or NO.</body>
+  </sms>
+  <sms>
+    <receivedTime>1791113280000</receivedTime>
+    <address>24273</address>
+    <body>Chase: Thanks for confirming. The $412.77 charge at ONLINE MERCHANT on card 882 has been approved and posted. Avail bal: $15,025.52.</body>
+  </sms>
+  <sms>
+    <receivedTime>1791157020000</receivedTime>
+    <address>262966</address>
+    <body>567532 is your Amazon OTP. Do not share it with anyone.</body>
+  </sms>
+  <sms>
+    <receivedTime>1791207360000</receivedTime>
+    <address>37777</address>
+    <body>USPS: Your package 9435303465369919986 is out for delivery today.</body>
+  </sms>
+  <sms>
+    <receivedTime>1791280740000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: Your credit card ending in 9111 statement is ready. Balance: $3,103.66. Min payment $35.00 due 10/24.</body>
+  </sms>
+  <sms>
+    <receivedTime>1791302940000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You made a $171.59 debit card purchase with card ending 882 at STARBUCKS #2214 on 10/06. Avail bal: $14,853.93.</body>
+  </sms>
+  <sms>
+    <receivedTime>1791311040000</receivedTime>
+    <address>+14155550132</address>
+    <body>Running 10 min late</body>
+  </sms>
+  <sms>
+    <receivedTime>1791359520000</receivedTime>
+    <address>22000</address>
+    <body>G-208915 is your Google verification code.</body>
+  </sms>
+  <sms>
+    <receivedTime>1791368040000</receivedTime>
+    <address>86753</address>
+    <body>Venmo: You paid John Miller $45.00. Funding source: Chase debit card ...882. Avail Venmo balance: $0.00.</body>
+  </sms>
+  <sms>
+    <receivedTime>1791423240000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You sent $46.05 to SARAH LOPEZ with Zelle(R) from acct ending 9384 on 10/08. Avail bal: $14,762.88.</body>
+  </sms>
+  <sms>
+    <receivedTime>1791448080000</receivedTime>
+    <address>672566</address>
+    <body>Netflix: Your payment method was updated successfully. If this wasn&#x27;t you, visit netflix.com/account.</body>
+  </sms>
+  <sms>
+    <receivedTime>1791497580000</receivedTime>
+    <address>24273</address>
+    <body>Chase: Your one-time code is 747015. Don&#x27;t share it. We&#x27;ll never call to ask for it.</body>
+  </sms>
+  <sms>
+    <receivedTime>1791539700000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: Your credit card ending in 9111 statement is ready. Balance: $3,103.66. Min payment $35.00 due 10/27.</body>
+  </sms>
+  <sms>
+    <receivedTime>1791548640000</receivedTime>
+    <address>322632</address>
+    <body>BofA: Your credit card ending 9111 was DECLINED for $123.55 at TARGET T-1043 on 10/09. Call 800.732.9194 if you need help.</body>
+  </sms>
+  <sms>
+    <receivedTime>1791612900000</receivedTime>
+    <address>24273</address>
+    <body>Chase: SARAH LOPEZ sent you $73.71 with Zelle(R). Deposited to acct ...9384. Avail bal: $14,836.59.</body>
+  </sms>
+  <sms>
+    <receivedTime>1791651780000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: A purchase of $88.20 at TARGET T-1043 was charged to your credit card ending in 9111 on 10/10.</body>
+  </sms>
+  <sms>
+    <receivedTime>1791658140000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: A purchase of $88.20 at TARGET T-1043 was charged to your credit card ending in 9111 on 10/10.</body>
+  </sms>
+</smses>
