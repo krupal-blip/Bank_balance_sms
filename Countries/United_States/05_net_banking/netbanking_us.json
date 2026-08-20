@@ -24,7 +24,7 @@
     {
       "bankId": "citibank",
       "displayName": "Citi Online",
-      "loginUrl": "https://online.citi.com/US/login.do",
+      "loginUrl": "https://www.citi.com/",
       "allowedHosts": ["citi.com", "online.citi.com"]
     },
     {

@@ -114,7 +114,7 @@
       "smsKeyword": null, "smsShortCode": null,
       "smsSenderAddress": "Santander",
       "miniStatementNumber": null,
-      "loginUrl": "https://retail.santander.co.uk/LOGSUK_RETSUK_ENT/BtoChannelDriver.ssobto"
+      "loginUrl": "https://www.santander.co.uk/"
     },
     {
       "id": "nationwide",
