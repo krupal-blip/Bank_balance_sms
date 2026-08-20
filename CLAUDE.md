@@ -8,7 +8,7 @@ Generate realistic per-country SMS test batches to drive the SMS transaction par
 REGION LOCK: currently **USA**. Do NOT move to another region until the user confirms 100% pass.
 
 ## Repo protocol
-- Batches: `samples/usa/usa_batch{N}.xml` — next batch number: **8**
+- Batches: `samples/usa/usa_batch{N}.xml` — next batch number: **11**
 - Expected ledger: `samples/usa/usa_batch{N}_expected.json` (spec: `samples/GROUND_TRUTH_SPEC.md`)
   ALSO embed the same JSON in `<expected_summary>` inside the XML.
 - After push to main, the Scooper daemon pulls, runs OpenCode harness, writes reports to `.ai/reports/`.
@@ -37,24 +37,28 @@ REGION LOCK: currently **USA**. Do NOT move to another region until the user con
 - Running balances must stay mathematically consistent within and ACROSS batches.
 - Timestamps continue chronologically from the previous batch.
 
-## User profile & ledger state (after batch 7 — opening balances for batch 8)
+## User profile & ledger state (after batch 10 — opening balances for batch 11)
 | Bank | Acct/Card | State | Status |
 |---|---|---|---|
-| Chase (sender 24273) | Acct 9384 | $29,664.12 | OPEN |
-| Chase | Savings 5520 | $4,826.38 | OPEN |
+| Chase (sender 24273) | Acct 9384 | $35,478.94 | OPEN |
+| Chase | Savings 5520 | $9,885.81 | OPEN |
 | Chase | Debit 7761 (subset of 9384) | mirrors 9384 | OPEN |
 | Chase | Debit 882 (subset of 9384) | — | CLOSED (fraud, batch 4) |
-| Bank of America (322632) | Acct 9661 | $0.00 | **CLOSED (batch 7, swept to Chase 9384)** |
-| Bank of America | Credit card 9111, limit $6,000 | owed $2,434.29 / avail $3,565.71 | OPEN |
-| Bank of America | AU card 3040 (2nd plastic on 9111, added batch 7) | no own balance | OPEN |
-| Wells Fargo (93557) | Acct 4417 | $3,602.87 | OPEN |
+| Bank of America (322632) | Acct 9661 | $0.00 | CLOSED (batch 7, swept to Chase) |
+| Bank of America | Credit card 9111, limit $6,000 | owed $83.79 / avail $5,916.21 | OPEN |
+| Bank of America | AU card 3040 (was 2nd plastic on 9111) | — | CLOSED (removed batch 10) |
+| Wells Fargo (93557) | Acct 4417 | $5,344.61 | OPEN |
 | Wells Fargo | Debit 9111 (subset of 4417) — deliberate last-4 collision with BofA 9111 | mirrors 4417 | OPEN |
+| **Citibank (692484)** | Acct 6208 (opened batch 8) | $1,785.50 | OPEN |
+| Citibank | Debit 8890 (subset of 6208) | mirrors 6208 | OPEN |
+| Citibank | Credit card 4310, limit $3,500 (opened batch 10) | owed $1,861.35 / avail $1,638.65 | OPEN |
 
-BofA now has NO checking account — its card 9111 must be paid from Chase 9384 (or a new BofA acct).
-Batch 7 ends at epoch **1809127466000** (2027-04-30 23:24 UTC). Batch 8 timestamps start after that.
+FOUR institutions live now (Chase, BofA card-only, Wells Fargo, Citi). BofA has NO checking, so its
+card 9111 is paid from Chase 9384. Batch 10 ends at epoch **1818983245000** (2027-08-23).
+Batch 11 timestamps start after that.
 
 Other senders: Amazon 262966, Google 22000, USPS 37777, Venmo 86753, Netflix 672566, promos 89887/55123,
-CreditKarma 54321, personal +14155550132.
+CreditKarma 54321, personal +14155550132, **Citi 692484**, **IRS 77958**.
 
 ## History (accuracy per batch)
 B1 76.5% → B2 87.6% → B3 81.4% (harder traps) → B4 **71.6%** (report
@@ -75,3 +79,21 @@ acct 9384, "$25 cash rewards earned"); smishing SMS from shortcode 55123; paper 
 ## Answer style the user expects
 No lectures. Compact: bank/card totals line, markdown table (bank | acct/card | avl balance | open/closed),
 then the XML/push confirmation.
+
+## Batches 8-10 (pushed together)
+- **B8** (107 sms, 40.2% neg): **Citibank opens** — checking 6208 funded by $2,500 external transfer from
+  Chase (2 legs), debit card 8890, $200 new-account bonus. **IRS amended refund $2,310** ACH credit, plus an
+  IRS *smishing* decoy from shortcode 55123 and an informational IRS processing notice (neither is money).
+  Incoming wire $8,500. HERTZ hold-then-**released** (zero legs). BofA AutoPay auto-cancelled because its
+  funding account 9661 closed in batch 7. CreditKarma "$6,208 total balances" decoy vs Citi acct 6208.
+- **B9** (105 sms, 41.9% neg): **three disputed chargebacks with different outcomes** —
+  A WON (BofA 9111, $412.90 GADGETHUB: purchase + provisional credit = 2 legs, "now permanent" adds none),
+  B LOST (Citi 6208 via card 8890, $189.55 TRAVELNOW: purchase + provisional credit + **reversal** = 3 legs),
+  C left OPEN at batch end (WF 4417 via debit 9111, $76.40 STREAMLYFE, case WF-77410).
+  Also ATM cash-deposit **verification adjustment** ($500 credited, $20 clawed back) and a prorated
+  mid-cycle subscription refund ($8.33).
+- **B10** (101 sms, 40.6% neg): **Citi credit card 4310** issued, limit $3,500. **Balance transfer** $1,200
+  BofA 9111 -> Citi 4310 (credit one revolver, debit the other) + 3% $36.00 fee = 3 legs; household debt
+  rises only by the fee. **Cross-batch dispute close**: WF-77410 settles $40 permanent / **$36.40 clawback**
+  — only the clawback is a leg here. AU card 3040 removed (status CLOSED). Duplicate-authorization refund
+  $71.55. Accrued-but-unposted Citi interest ($2.14) and earned-not-credited cash back ($18.42) are traps.

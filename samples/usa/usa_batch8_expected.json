@@ -1,0 +1,151 @@
+{
+  "batch_id": "usa_batch8",
+  "total_messages": 107,
+  "positive_transactions": 64,
+  "negative_samples": 43,
+  "counting_rules": [
+    "Only EXECUTED money movements count. OTPs, promos, holds and hold-releases, declines, offers, scheduled notices, statements and personal texts must NOT touch any ledger.",
+    "NEW BANK: Citibank (sender 692484) opened checking account 6208 in this batch, funded by a $2,500.00 external transfer from Chase 9384. That transfer has TWO legs, one per bank.",
+    "Citi debit card 8890 is a subset of Citi checking 6208 and shares its balance.",
+    "IRS: only the $2,310.00 ACH credit from 'IRS TREAS 310 TAX REF AMENDED' is money. The IRS processing notice is informational, and the 'unclaimed refund' message from shortcode 55123 is SMISHING - neither touches the ledger.",
+    "HOLD THEN RELEASE: the $95.00 HERTZ hold on Citi card 8890 is released with no charge. Zero legs, not two.",
+    "BofA AutoPay was CANCELLED because funding account 9661 closed in batch 7. The cancellation notice is not a transaction, and account 9661 must stay at $0.00 with zero activity.",
+    "DECOY: 'total tracked balances are now $6,208' from CreditKarma resembles Citi account 6208 but is not a transaction.",
+    "Authorized-user card 3040 purchases ($174.60, $49.90) increase BofA revolving 9111; card 3040 has no balance of its own.",
+    "LAST-4 COLLISION persists: BofA 9111 is a CREDIT card (sender 322632), Wells Fargo 9111 is a DEBIT card on acct 4417 (sender 93557).",
+    "Card 882 (Chase, closed batch 4) and account 9661 (BofA, closed batch 7) both have zero activity."
+  ],
+  "opening_balances": {
+    "9384": 29664.12,
+    "5520": 4826.38,
+    "4417": 3602.87,
+    "6208": 0.0,
+    "9111B_outstanding": 2434.29,
+    "9111B_available_credit": 3565.71,
+    "4310_outstanding": 0.0
+  },
+  "expected_accounts": [
+    {
+      "bank": "Chase",
+      "account_or_card": "9384",
+      "type": "BANK",
+      "expected_total_credits": 15610.0,
+      "expected_total_debits": 8650.03,
+      "expected_txn_count": 26,
+      "expected_final_balance": 36624.09,
+      "status": "OPEN"
+    },
+    {
+      "bank": "Chase",
+      "account_or_card": "7761",
+      "type": "CARD",
+      "expected_total_credits": 0.0,
+      "expected_total_debits": 1118.63,
+      "expected_txn_count": 13,
+      "expected_final_balance": 36624.09,
+      "status": "OPEN",
+      "linked_account": "9384"
+    },
+    {
+      "bank": "Chase",
+      "account_or_card": "882",
+      "type": "CARD",
+      "expected_total_credits": 0.0,
+      "expected_total_debits": 0.0,
+      "expected_txn_count": 0,
+      "expected_final_balance": 36624.09,
+      "status": "CLOSED",
+      "linked_account": "9384",
+      "note": "Closed for fraud in batch 4. Zero activity."
+    },
+    {
+      "bank": "Chase",
+      "account_or_card": "5520",
+      "type": "BANK",
+      "expected_total_credits": 2016.44,
+      "expected_total_debits": 0.0,
+      "expected_txn_count": 2,
+      "expected_final_balance": 6842.82,
+      "status": "OPEN"
+    },
+    {
+      "bank": "Bank of America",
+      "account_or_card": "9661",
+      "type": "BANK",
+      "expected_total_credits": 0.0,
+      "expected_total_debits": 0.0,
+      "expected_txn_count": 0,
+      "expected_final_balance": 0.0,
+      "status": "CLOSED",
+      "note": "Closed in batch 7 and swept to Chase 9384. Zero activity; must stay at 0.00."
+    },
+    {
+      "bank": "Bank of America",
+      "account_or_card": "9111",
+      "type": "CARD",
+      "expected_total_credits": 900.0,
+      "expected_total_debits": 673.0,
+      "expected_txn_count": 9,
+      "expected_final_balance": 2207.29,
+      "status": "OPEN",
+      "credit_limit": 6000.0,
+      "expected_final_available_credit": 3792.71,
+      "note": "Revolving. Totals include authorized-user card 3040 legs."
+    },
+    {
+      "bank": "Bank of America",
+      "account_or_card": "3040",
+      "type": "CARD",
+      "expected_total_credits": 0.0,
+      "expected_total_debits": 224.5,
+      "expected_txn_count": 2,
+      "expected_final_balance": 2207.29,
+      "status": "OPEN",
+      "linked_account": "9111",
+      "note": "Authorized-user plastic on revolving 9111; no balance of its own."
+    },
+    {
+      "bank": "Wells Fargo",
+      "account_or_card": "4417",
+      "type": "BANK",
+      "expected_total_credits": 1561.1,
+      "expected_total_debits": 1110.79,
+      "expected_txn_count": 12,
+      "expected_final_balance": 4053.18,
+      "status": "OPEN"
+    },
+    {
+      "bank": "Wells Fargo",
+      "account_or_card": "9111",
+      "type": "CARD",
+      "expected_total_credits": 0.0,
+      "expected_total_debits": 511.73,
+      "expected_txn_count": 8,
+      "expected_final_balance": 4053.18,
+      "status": "OPEN",
+      "linked_account": "4417",
+      "note": "WF DEBIT card; deliberate last-4 collision with BofA credit card 9111."
+    },
+    {
+      "bank": "Citibank",
+      "account_or_card": "6208",
+      "type": "BANK",
+      "expected_total_credits": 3040.0,
+      "expected_total_debits": 754.2,
+      "expected_txn_count": 15,
+      "expected_final_balance": 2285.8,
+      "status": "OPEN"
+    },
+    {
+      "bank": "Citibank",
+      "account_or_card": "8890",
+      "type": "CARD",
+      "expected_total_credits": 0.0,
+      "expected_total_debits": 661.2,
+      "expected_txn_count": 10,
+      "expected_final_balance": 2285.8,
+      "status": "OPEN",
+      "linked_account": "6208"
+    }
+  ]
+}
