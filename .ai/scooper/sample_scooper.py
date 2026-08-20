@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
 """
-Project Sample Scooper Daemon / Watcher
---------------------------------------
-Monitors the `samples/` directory for incoming raw SMS / data files (.txt, .json, .csv).
-When a new sample file is detected:
-1. Formulates human cognitive ground truth for each line.
-2. Dispatches task via Agent Bridge.
-3. Executes parser test suite.
-4. Generates an execution report in `.ai/reports/`.
-5. Moves processed samples to `samples/processed/` with timestamps.
-6. Notifies Antigravity by completing the task lifecycle.
+Project Sample Scooper Daemon / Watcher (with Git Auto-Pull)
+------------------------------------------------------------
+Monitors the `samples/` directory for incoming raw SMS / data files (.txt, .json, .csv, .xml).
+Supports:
+1. Automated Git Pull from remote repository (e.g. sample batches pushed by Claude).
+2. Formulates human cognitive ground truth for each line.
+3. Dispatches task via Agent Bridge to OpenCode.
+4. Executes parser test suite.
+5. Generates execution reports in `.ai/reports/`.
+6. Archives processed samples in `samples/processed/`.
+7. Completes task lifecycle and reports to Antigravity.
 """
 
 import os
@@ -20,6 +21,7 @@ import shutil
 import datetime
 import subprocess
 import re
+import xml.etree.ElementTree as ET
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 SAMPLES_DIR = os.path.join(BASE_DIR, "samples")
@@ -33,6 +35,50 @@ bridge = AgentBridge()
 
 def timestamp():
     return datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+
+def git_pull_samples():
+    """Pulls latest sample batches pushed by Claude to remote repo."""
+    try:
+        res = subprocess.run(["git", "pull", "--rebase"], cwd=BASE_DIR, capture_output=True, text=True)
+        if "Already up to date" not in res.stdout and res.returncode == 0:
+            print(f"📥 [SCOOPER] Pulled new batches from GitHub:\n{res.stdout.strip()}")
+    except Exception as e:
+        pass
+
+def parse_sample_file_lines(file_path):
+    """Parses .txt, .json, .csv, or .xml files into list of (sender, body) tuples."""
+    filename = os.path.basename(file_path)
+    messages = []
+    
+    if filename.endswith(".xml"):
+        try:
+            tree = ET.parse(file_path)
+            root = tree.getroot()
+            for elem in root.findall(".//sms") or root.findall(".//message"):
+                sender = elem.get("sender") or elem.get("address") or elem.findtext("sender") or "Unknown"
+                body = elem.get("body") or elem.text or elem.findtext("body") or ""
+                if body:
+                    messages.append((sender.strip(), body.strip()))
+        except Exception as e:
+            print(f"⚠️ [SCOOPER] XML Parse error on {filename}: {e}")
+    else:
+        with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
+            content = f.read().strip()
+        lines = [l.strip() for l in content.splitlines() if l.strip() and not l.strip().startswith("#")]
+        for line in lines:
+            sender = "Unknown"
+            body = line
+            if " | " in line:
+                parts = line.split(" | ", 1)
+                sender = parts[0].strip()
+                body = parts[1].strip()
+            elif ":" in line and len(line.split(":", 1)[0]) <= 8:
+                parts = line.split(":", 1)
+                sender = parts[0].strip()
+                body = line
+            messages.append((sender, body))
+            
+    return messages
 
 def formulate_cognitive_ground_truth(sender, body):
     lower = (sender + " " + body).lower()
@@ -49,7 +95,6 @@ def formulate_cognitive_ground_truth(sender, body):
     elif "227898" in sender or "capital one" in lower:
         bank = "Capital One"
 
-    # 1. Negative checks
     if any(w in lower for w in ["otp", "security code", "safepass", "verification code", "passcode"]):
         return {
             "is_transaction": False,
@@ -76,7 +121,6 @@ def formulate_cognitive_ground_truth(sender, body):
             "reasoning": "Transaction was declined/blocked. Money did not move."
         }
 
-    # 2. Extract ground truth elements
     amount_m = re.search(r"\$([0-9,]+\.[0-9]{2})", body)
     amount = amount_m.group(1) if amount_m else None
     
@@ -101,58 +145,42 @@ def formulate_cognitive_ground_truth(sender, body):
         "reasoning": f"Legitimate financial transaction. Amount: ${amount}, Type: {'CREDIT' if is_credit else 'DEBIT'}"
     }
 
-def process_text_sample(file_path):
+def process_sample_file(file_path):
     filename = os.path.basename(file_path)
     if filename.startswith(".") or filename == "processed":
         return
 
-    print(f"\n🔍 [SCOOPER] New sample file detected: {filename}")
-    
-    with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
-        content = f.read().strip()
-
-    if not content:
-        print(f"⚠️ [SCOOPER] File {filename} is empty. Skipping.")
+    messages = parse_sample_file_lines(file_path)
+    if not messages:
         return
 
+    print(f"\n🔍 [SCOOPER] New sample batch detected: {filename} ({len(messages)} messages)")
+    
     task_id = f"TASK_SAMPLE_{timestamp()}_{os.path.splitext(filename)[0]}"
-    objective = f"Process, parse, and verify external sample file: {filename}"
+    objective = f"Process and verify sample batch from Claude: {filename}"
     
     task = bridge.create_task(
         task_id=task_id,
         objective=objective,
-        context=f"Incoming raw sample file placed in samples/{filename}",
+        context=f"Incoming raw batch generated by Claude placed in samples/{filename}",
         assigned_to="opencode",
         scope_files=[f"samples/{filename}"],
-        constraints=["Formulate human cognitive ground truth first", "Execute against US/Region template parser", "Report all discrepancies"],
+        constraints=["Formulate cognitive ground truth", "Verify with US template parser", "Record all discrepancies in report"],
         acceptance_criteria=["All lines parsed", "Report generated in .ai/reports/", "Task status updated to COMPLETED"]
     )
     print(f"📋 [SCOOPER] Created Task: {task_id}")
 
-    bridge.update_task(task_id, status="IN_PROGRESS", notes="OpenCode executor scooping sample lines and testing")
+    bridge.update_task(task_id, status="IN_PROGRESS", notes="OpenCode executor running test harness on Claude batch")
 
     test_cases = []
-    lines = [l.strip() for l in content.splitlines() if l.strip() and not l.strip().startswith("#")]
-
-    for i, line in enumerate(lines, 1):
-        sender = "Unknown"
-        body = line
-        if " | " in line:
-            parts = line.split(" | ", 1)
-            sender = parts[0].strip()
-            body = parts[1].strip()
-        elif ":" in line and len(line.split(":", 1)[0]) <= 8:
-            parts = line.split(":", 1)
-            sender = parts[0].strip()
-            body = line
-
+    for i, (sender, body) in enumerate(messages, 1):
         gt = formulate_cognitive_ground_truth(sender, body)
         test_cases.append({
             "test_id": f"{task_id}_L{i:03d}",
             "raw_sender": sender,
             "raw_body": body,
             "thought_process": {
-                "scenario": f"Sample line {i} from {filename}",
+                "scenario": f"Message {i} from {filename}",
                 "reasoning": gt["reasoning"],
                 "financial_impact": f"{gt['txn_type']} of ${gt['amount']}" if gt['is_transaction'] else "NO TRANSACTION"
             },
@@ -184,8 +212,9 @@ def process_text_sample(file_path):
 
 ## 1. Executive Summary
 - **Source File**: `samples/{filename}`
-- **Processed Messages**: {len(lines)}
-- **Assigned Executor**: `opencode` (via Sample Scooper)
+- **Source Agent**: `Claude (Data Generator)`
+- **Executor Agent**: `opencode` (via Sample Scooper)
+- **Processed Messages**: {len(messages)}
 - **Status**: `COMPLETED`
 - **Execution Timestamp**: {datetime.datetime.now().isoformat()}
 
@@ -198,7 +227,7 @@ def process_text_sample(file_path):
 
 ---
 
-## 3. Discrepancy & Parser Findings
+## 3. Archival Record
 - Raw sample moved to `samples/processed/{timestamp()}_{filename}`.
 """
     with open(report_path, "w", encoding="utf-8") as f:
@@ -214,24 +243,27 @@ def process_text_sample(file_path):
     bridge.complete_task(
         task_id=task_id,
         report_file=f".ai/reports/{report_filename}",
-        result=f"Processed {len(lines)} messages from {filename}. Report generated."
+        result=f"Processed {len(messages)} messages from Claude batch {filename}. Report generated."
     )
     print(f"✅ [SCOOPER] Task {task_id} COMPLETED & Reported to Antigravity!\n")
 
-def scan_samples_once():
+def scan_samples_recursive():
     if not os.path.exists(SAMPLES_DIR):
         return
-    for item in sorted(os.listdir(SAMPLES_DIR)):
-        item_path = os.path.join(SAMPLES_DIR, item)
-        if os.path.isfile(item_path) and not item.startswith("."):
-            process_text_sample(item_path)
+    for root, dirs, files in os.walk(SAMPLES_DIR):
+        if "processed" in root:
+            continue
+        for f in sorted(files):
+            if not f.startswith("."):
+                process_sample_file(os.path.join(root, f))
 
 def watch_loop(interval_seconds=3):
-    print(f"👀 [SCOOPER] Watching '{SAMPLES_DIR}/' every {interval_seconds}s...")
-    print(f"👉 Drop any .txt, .json, or .csv file into 'samples/' to automatically trigger OpenCode testing & Antigravity reporting.\n")
+    print(f"👀 [SCOOPER] Watching '{SAMPLES_DIR}/' and syncing Git every {interval_seconds}s...")
+    print(f"👉 Claude pushes to GitHub or drops into 'samples/' -> Scooper triggers OpenCode -> Reports to Antigravity!\n")
     while True:
         try:
-            scan_samples_once()
+            git_pull_samples()
+            scan_samples_recursive()
             time.sleep(interval_seconds)
         except KeyboardInterrupt:
             print("\n🛑 [SCOOPER] Stopped watcher.")
@@ -242,6 +274,7 @@ def watch_loop(interval_seconds=3):
 
 if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "--once":
-        scan_samples_once()
+        git_pull_samples()
+        scan_samples_recursive()
     else:
         watch_loop()

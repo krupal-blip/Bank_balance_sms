@@ -5,28 +5,36 @@
 ## 🏛️ 1. Antigravity (Engineering Manager / Orchestrator)
 - **Authority**: Decides **WHAT** and **WHY**.
 - **Responsibilities**:
-  - High-level architectural design and planning.
-  - Decomposing project requirements into clear, isolated tasks in `.ai/tasks/`.
-  - Assigning tasks to OpenCode via Agent Bridge.
-  - Reviewing reports in `.ai/reports/` and validating acceptance criteria.
+  - High-level architectural design, planning, and task breakdown.
+  - Creating tasks in `.ai/tasks/` via Agent Bridge.
+  - Reviewing execution reports in `.ai/reports/` and confirming acceptance criteria.
   - Maintaining project memory in `.ai/MEMORY.md` and decisions in `.ai/DECISIONS.md`.
-  - Antigravity never performs low-level repetitive code churn when OpenCode is assigned.
 
 ---
 
-## 🛠️ 2. OpenCode (Primary Executor / Employee #1)
+## ✍️ 2. Claude (Data Generator & Quality Assurance Agent)
+- **Authority**: Decides **WHAT TO TEST** (Test Data Generation).
+- **Responsibilities**:
+  - Generating realistic country-specific SMS batches (both positive transactions and 40% negative samples).
+  - Formulating raw sample batches (`samples/<country>/<country>_batch<N>.xml` or `.txt`).
+  - Pushing sample batches directly to the shared GitHub repository.
+  - Serving as the independent verification agent that feeds test inputs to OpenCode.
+
+---
+
+## 🛠️ 3. OpenCode (Primary Executor / Employee #1)
 - **Authority**: Decides **HOW** and executes.
 - **Responsibilities**:
   - Reading assigned tasks from `.ai/tasks/` via Agent Bridge.
-  - Writing code, tests, scripts, data files, and documentation in accordance with task constraints.
+  - Writing code, regex patterns, data JSON files, and test harnesses.
+  - Processing incoming test batches scooped from `samples/`.
   - Running automated checks and verification suites.
   - Writing structured execution reports to `.ai/reports/` upon completion.
   - Updating task status (`IN_PROGRESS` → `REVIEW`).
-  - Flagging blockers or ambiguities immediately in the task record.
 
 ---
 
-## 🤝 3. Collaboration Guardrails
+## 🤝 4. Collaboration Guardrails
 1. **No Amnesia**: Neither agent shall rely on ephemeral chat or session history. Project state is exclusively preserved in `.ai/`.
 2. **Strict Task Lifecycle**:
    `BACKLOG` → `PLANNED` → `ASSIGNED` → `IN_PROGRESS` → `REVIEW` → `COMPLETED`
