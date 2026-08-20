@@ -11,30 +11,37 @@
       "sms_templates": [
         {
           "type": "DEBIT_CARD_PURCHASE",
-          "sample": "Chase: A debit card purchase of $42.50 was made at TARGET T-1204 on Aug 19, 2026. Available bal: $2,450.10.",
-          "regex": "(?i)Chase:\\s*(?:A\\s*)?debit\\s*card\\s*purchase\\s*of\\s*\\$(?<amount>[0-9,]+\\.[0-9]{2})\\s*(?:was\\s*made\\s*)?at\\s*(?<merchant>[^\\.]+?)\\s*on\\s*(?<date>[^\\.]+?)\\.\\s*(?:Available\\s*bal(?:ance)?:\\s*\\$(?<balance>[0-9,]+\\.[0-9]{2}))?",
+          "sample": "Chase: You made a $157.69 debit card purchase with card ending 882 at WHOLE FOODS MKT on 06/09. Avail bal: $2,578.72.",
+          "regex": "(?i)Chase:\\s*(?:You\\s*made\\s*a\\s*)?\\$(?<amount>[0-9,]+\\.[0-9]{2})\\s*(?:debit\\s*card\\s*)?purchase\\s*(?:with\\s*card\\s*ending\\s*(?<account_suffix>[0-9]{3,4})\\s*)?at\\s*(?<merchant>[^\\.]+?)\\s*on\\s*(?<date>[^\\.]+?)\\.\\s*(?:Avail(?:able)?\\s*bal(?:ance)?:\\s*\\$(?<balance>[0-9,]+\\.[0-9]{2}))?",
+          "transaction_type": "DEBIT",
+          "category": "SHOPPING"
+        },
+        {
+          "type": "DEBIT_CARD_PURCHASE_ALT",
+          "sample": "Chase Alert: A $21.90 card purchase was made at CVS/PHARMACY #883 with your debit card ending in 882 on 06/05. If this wasn't you, call 1-800-935-9935.",
+          "regex": "(?i)Chase(?:\\s*Alert)?:\\s*(?:A\\s*)?\\$(?<amount>[0-9,]+\\.[0-9]{2})\\s*card\\s*purchase\\s*was\\s*made\\s*at\\s*(?<merchant>[^\\.]+?)\\s*with\\s*your\\s*(?:debit\\s*)?card\\s*ending\\s*(?:in\\s*)?(?<account_suffix>[0-9]{3,4})",
           "transaction_type": "DEBIT",
           "category": "SHOPPING"
         },
         {
           "type": "ATM_WITHDRAWAL",
           "sample": "Chase: ATM withdrawal of $100.00 from checking (...4321) on 08/19/2026. Available balance: $2,350.10.",
-          "regex": "(?i)Chase:\\s*ATM\\s*withdrawal\\s*of\\s*\\$(?<amount>[0-9,]+\\.[0-9]{2})\\s*from\\s*(?<account_type>checking|savings)\\s*\\(\\.\\.\\.(?<account_suffix>[0-9]{4})\\)\\s*on\\s*(?<date>[^\\.]+?)\\.\\s*(?:Available\\s*bal(?:ance)?:\\s*\\$(?<balance>[0-9,]+\\.[0-9]{2}))?",
+          "regex": "(?i)Chase:\\s*ATM\\s*withdrawal\\s*of\\s*\\$(?<amount>[0-9,]+\\.[0-9]{2})\\s*from\\s*(?<account_type>checking|savings)\\s*\\(\\.\\.\\.(?<account_suffix>[0-9]{3,4})\\)\\s*on\\s*(?<date>[^\\.]+?)\\.\\s*(?:Available\\s*bal(?:ance)?:\\s*\\$(?<balance>[0-9,]+\\.[0-9]{2}))?",
           "transaction_type": "DEBIT",
           "category": "CASH_WITHDRAWAL"
         },
         {
           "type": "DIRECT_DEPOSIT",
           "sample": "Chase: Direct deposit of $3,200.00 from ACME CORP was deposited to checking (...4321). Bal: $5,550.10.",
-          "regex": "(?i)Chase:\\s*Direct\\s*deposit\\s*of\\s*\\$(?<amount>[0-9,]+\\.[0-9]{2})\\s*from\\s*(?<merchant>[^\\.]+?)\\s*was\\s*deposited\\s*to\\s*(?<account_type>checking|savings)\\s*\\(\\.\\.\\.(?<account_suffix>[0-9]{4})\\)\\.\\s*(?:Bal(?:ance)?:\\s*\\$(?<balance>[0-9,]+\\.[0-9]{2}))?",
+          "regex": "(?i)Chase:\\s*Direct\\s*deposit\\s*of\\s*\\$(?<amount>[0-9,]+\\.[0-9]{2})\\s*from\\s*(?<merchant>[^\\.]+?)\\s*was\\s*deposited\\s*to\\s*(?<account_type>checking|savings)\\s*\\(\\.\\.\\.(?<account_suffix>[0-9]{3,4})\\)\\.\\s*(?:Bal(?:ance)?:\\s*\\$(?<balance>[0-9,]+\\.[0-9]{2}))?",
           "transaction_type": "CREDIT",
           "category": "INCOME"
         },
         {
           "type": "ZELLE_TRANSFER",
           "sample": "Chase: You sent $75.00 with Zelle to John Doe on 08/19. Available balance: $5,475.10.",
-          "regex": "(?i)Chase:\\s*You\\s*sent\\s*\\$(?<amount>[0-9,]+\\.[0-9]{2})\\s*with\\s*Zelle\\s*to\\s*(?<merchant>[^\\.]+?)\\s*on\\s*(?<date>[^\\.]+?)\\.\\s*(?:Available\\s*bal(?:ance)?:\\s*\\$(?<balance>[0-9,]+\\.[0-9]{2}))?",
-          "transaction_type": "DEBIT",
+          "regex": "(?i)Chase:\\s*(?:You\\s*sent|[^\\.]+?\\s*sent\\s*you)\\s*\\$(?<amount>[0-9,]+\\.[0-9]{2})\\s*(?:with\\s*Zelle(?:\\(R\\))?|via\\s*Zelle).*?(?:(?:to|acct)\\s*\\.\\.\\.(?<account_suffix>[0-9]{3,4}))?.*?(?:Avail(?:able)?\\s*bal(?:ance)?:\\s*\\$(?<balance>[0-9,]+\\.[0-9]{2}))?",
+          "transaction_type": "CREDIT",
           "category": "TRANSFER"
         }
       ]
@@ -42,20 +49,27 @@
     {
       "bank_name": "Bank of America",
       "short_name": "BofA",
-      "official_shortcodes": ["73981", "34343", "BOFA"],
+      "official_shortcodes": ["73981", "322632", "34343", "BOFA"],
       "opt_in_path": "BofA App > Profile & Settings > Alert Settings > Custom Setup > Text Messages",
       "sms_templates": [
         {
           "type": "CARD_CHARGE",
-          "sample": "Bank of America Alert: Card ending in 8892 was charged $18.99 at NETFLIX.COM on 08/19/2026. Reply HELP for info.",
-          "regex": "(?i)Bank\\s*of\\s*America\\s*Alert:\\s*Card\\s*ending\\s*in\\s*(?<account_suffix>[0-9]{4})\\s*was\\s*charged\\s*\\$(?<amount>[0-9,]+\\.[0-9]{2})\\s*at\\s*(?<merchant>[^\\.]+?)\\s*on\\s*(?<date>[0-9/\\-]+)",
+          "sample": "Bank of America: A purchase of $242.58 at KROGER #771 was charged to your credit card ending in 9111 on 08/21.",
+          "regex": "(?i)Bank\\s*of\\s*America(?:\\s*Alert)?:\\s*(?:A\\s*purchase\\s*of\\s*\\$(?<amount>[0-9,]+\\.[0-9]{2})\\s*at\\s*(?<merchant>[^\\.]+?)\\s*was\\s*charged\\s*to\\s*your\\s*credit\\s*card\\s*ending\\s*(?:in\\s*)?(?<account_suffix>[0-9]{3,4})|Card\\s*ending\\s*in\\s*(?<account_suffix_alt>[0-9]{3,4})\\s*was\\s*charged\\s*\\$(?<amount_alt>[0-9,]+\\.[0-9]{2})\\s*at\\s*(?<merchant_alt>[^\\.]+?))",
           "transaction_type": "DEBIT",
-          "category": "ENTERTAINMENT"
+          "category": "SHOPPING"
+        },
+        {
+          "type": "CARD_USED_ALERT",
+          "sample": "BofA Alert: Credit card ending 9111 was used for $333.33 at WHOLE FOODS MKT on 06/06. Avail credit: $3,866.67.",
+          "regex": "(?i)BofA(?:\\s*Alert)?:\\s*Credit\\s*card\\s*ending\\s*(?<account_suffix>[0-9]{3,4})\\s*was\\s*used\\s*for\\s*\\$(?<amount>[0-9,]+\\.[0-9]{2})\\s*at\\s*(?<merchant>[^\\.]+?)\\s*on\\s*(?<date>[^\\.]+?)\\.\\s*(?:Avail(?:able)?\\s*credit:\\s*\\$(?<balance>[0-9,]+\\.[0-9]{2}))?",
+          "transaction_type": "DEBIT",
+          "category": "SHOPPING"
         },
         {
           "type": "CHECKING_DEPOSIT",
           "sample": "Bank of America: A deposit of $1,500.00 was posted to your checking account (...9012) on 08/19/2026.",
-          "regex": "(?i)Bank\\s*of\\s*America:\\s*(?:A\\s*)?deposit\\s*of\\s*\\$(?<amount>[0-9,]+\\.[0-9]{2})\\s*was\\s*posted\\s*to\\s*your\\s*(?<account_type>checking|savings)\\s*account\\s*\\(\\.\\.\\.(?<account_suffix>[0-9]{4})\\)",
+          "regex": "(?i)Bank\\s*of\\s*America:\\s*(?:A\\s*)?deposit\\s*of\\s*\\$(?<amount>[0-9,]+\\.[0-9]{2})\\s*was\\s*posted\\s*to\\s*your\\s*(?<account_type>checking|savings)\\s*account\\s*\\(\\.\\.\\.(?<account_suffix>[0-9]{3,4})\\)",
           "transaction_type": "CREDIT",
           "category": "INCOME"
         }
@@ -70,14 +84,14 @@
         {
           "type": "PURCHASE_ALERT",
           "sample": "Wells Fargo Alert: A purchase of $89.20 occurred on card ending in 4112 at WALMART on Aug 19. Avail Bal: $1,120.00.",
-          "regex": "(?i)Wells\\s*Fargo\\s*Alert:\\s*(?:A\\s*)?purchase\\s*of\\s*\\$(?<amount>[0-9,]+\\.[0-9]{2})\\s*occurred\\s*on\\s*card\\s*ending\\s*in\\s*(?<account_suffix>[0-9]{4})\\s*at\\s*(?<merchant>[^\\.]+?)\\s*on\\s*(?<date>[^\\.]+?)\\.\\s*(?:Avail(?:able)?\\s*Bal(?:ance)?:\\s*\\$(?<balance>[0-9,]+\\.[0-9]{2}))?",
+          "regex": "(?i)Wells\\s*Fargo\\s*Alert:\\s*(?:A\\s*)?purchase\\s*of\\s*\\$(?<amount>[0-9,]+\\.[0-9]{2})\\s*occurred\\s*on\\s*card\\s*ending\\s*in\\s*(?<account_suffix>[0-9]{3,4})\\s*at\\s*(?<merchant>[^\\.]+?)\\s*on\\s*(?<date>[^\\.]+?)\\.\\s*(?:Avail(?:able)?\\s*Bal(?:ance)?:\\s*\\$(?<balance>[0-9,]+\\.[0-9]{2}))?",
           "transaction_type": "DEBIT",
           "category": "GROCERIES"
         },
         {
           "type": "ATM_WITHDRAWAL",
           "sample": "Wells Fargo: $200.00 ATM withdrawal from account ending 5543. Available balance: $920.00.",
-          "regex": "(?i)Wells\\s*Fargo:\\s*\\$(?<amount>[0-9,]+\\.[0-9]{2})\\s*ATM\\s*withdrawal\\s*from\\s*account\\s*ending\\s*(?<account_suffix>[0-9]{4})\\.\\s*(?:Available\\s*balance:\\s*\\$(?<balance>[0-9,]+\\.[0-9]{2}))?",
+          "regex": "(?i)Wells\\s*Fargo:\\s*\\$(?<amount>[0-9,]+\\.[0-9]{2})\\s*ATM\\s*withdrawal\\s*from\\s*account\\s*ending\\s*(?<account_suffix>[0-9]{3,4})\\.\\s*(?:Available\\s*balance:\\s*\\$(?<balance>[0-9,]+\\.[0-9]{2}))?",
           "transaction_type": "DEBIT",
           "category": "CASH_WITHDRAWAL"
         }
@@ -92,7 +106,7 @@
         {
           "type": "CREDIT_CARD_CHARGE",
           "sample": "Citi Alert: $55.00 charged to Citi Double Cash card (...7781) at SHELL OIL on 08/19/2026.",
-          "regex": "(?i)Citi\\s*Alert:\\s*\\$(?<amount>[0-9,]+\\.[0-9]{2})\\s*charged\\s*to\\s*(?<card_name>[^\\(]+?)\\s*\\(\\.\\.\\.(?<account_suffix>[0-9]{4})\\)\\s*at\\s*(?<merchant>[^\\.]+?)\\s*on\\s*(?<date>[0-9/\\-]+)",
+          "regex": "(?i)Citi\\s*Alert:\\s*\\$(?<amount>[0-9,]+\\.[0-9]{2})\\s*charged\\s*to\\s*(?<card_name>[^\\(]+?)\\s*\\(\\.\\.\\.(?<account_suffix>[0-9]{3,4})\\)\\s*at\\s*(?<merchant>[^\\.]+?)\\s*on\\s*(?<date>[0-9/\\-]+)",
           "transaction_type": "DEBIT",
           "category": "TRANSPORT"
         }
@@ -107,7 +121,7 @@
         {
           "type": "INSTANT_PURCHASE",
           "sample": "Capital One Alert: You authorized $24.99 at AMAZON.COM with card ending in 1109. Reply HELP for info.",
-          "regex": "(?i)Capital\\s*One\\s*Alert:\\s*You\\s*authorized\\s*\\$(?<amount>[0-9,]+\\.[0-9]{2})\\s*at\\s*(?<merchant>[^\\.]+?)\\s*with\\s*card\\s*ending\\s*in\\s*(?<account_suffix>[0-9]{4})",
+          "regex": "(?i)Capital\\s*One\\s*Alert:\\s*You\\s*authorized\\s*\\$(?<amount>[0-9,]+\\.[0-9]{2})\\s*at\\s*(?<merchant>[^\\.]+?)\\s*with\\s*card\\s*ending\\s*in\\s*(?<account_suffix>[0-9]{3,4})",
           "transaction_type": "DEBIT",
           "category": "SHOPPING"
         }

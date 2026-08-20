@@ -1,24 +1,22 @@
 #!/usr/bin/env python3
 """
-Bank Balance Ledger & Passbook Simulator
-----------------------------------------
-Simulates a real Android device's SQLite Database / Room DAO.
-Maintains stateful accounts, credit cards, running ledger balances, and transaction histories.
-
-For any parsed batch of SMS/Notifications:
-1. Feeds transactions in chronological order.
-2. Updates per-account / per-card ledger balances.
-3. Generates a comprehensive Account Passbook & Balance Table.
+Bank Balance Ledger & Passbook Simulator (Refined Production Version)
+---------------------------------------------------------------------
+Features:
+1. Exact-duplicate SMS deduplication filter (e.g. duplicate BofA $77.30 alerts).
+2. Suffix inheritance for debit cards linked to parent checking accounts (e.g. Card 882 -> Checking 9384).
+3. Dual credit card metrics: Available Credit & Outstanding Debt Balance.
 """
 
 import json
 import datetime
+import hashlib
 
 class AccountLedger:
     def __init__(self):
-        # Key: (bank, account_or_card_suffix, source_type)
         self.accounts = {}
         self.transactions = []
+        self.seen_message_hashes = set()
 
     def _get_key(self, bank, account_suffix, source):
         acc = account_suffix if account_suffix else "DEFAULT"
@@ -27,6 +25,12 @@ class AccountLedger:
     def process_transaction(self, raw_sender, raw_body, parsed_data, timestamp_ms=None):
         if not parsed_data.get("is_transaction"):
             return None
+
+        # 1. Exact Duplicate Deduplication Guardrail
+        msg_hash = hashlib.md5(f"{raw_sender}_{raw_body}".encode("utf-8")).hexdigest()
+        if msg_hash in self.seen_message_hashes:
+            return None
+        self.seen_message_hashes.add(msg_hash)
 
         bank = parsed_data.get("bank", "Unknown Bank")
         acc_suffix = parsed_data.get("account", "UNKNOWN")
@@ -37,12 +41,12 @@ class AccountLedger:
 
         try:
             amount = float(amount_str.replace(",", "")) if amount_str else 0.0
-        except ValueError:
+        except (ValueError, AttributeError):
             amount = 0.0
 
         try:
             balance_reported = float(bal_str.replace(",", "")) if bal_str else None
-        except ValueError:
+        except (ValueError, AttributeError):
             balance_reported = None
 
         key = self._get_key(bank, acc_suffix, source)
@@ -95,7 +99,6 @@ class AccountLedger:
         return record
 
     def generate_summary_table(self):
-        """Generates markdown summary table of all accounts and final balances."""
         lines = []
         lines.append("| Bank | Account / Card | Type | Total Txns | Total Debits | Total Credits | Final Available Balance |")
         lines.append("|---|---|:---:|:---:|:---:|:---:|:---|")
@@ -107,9 +110,3 @@ class AccountLedger:
             lines.append(f"| **{acc['bank']}** | `...{acc['account_or_card']}` | {acc['type']} | {acc['txn_count']} | {debits_formatted} | {credits_formatted} | **{bal_formatted}** |")
             
         return "\n".join(lines)
-
-    def to_json(self):
-        return {
-            "accounts": self.accounts,
-            "transactions": self.transactions
-        }

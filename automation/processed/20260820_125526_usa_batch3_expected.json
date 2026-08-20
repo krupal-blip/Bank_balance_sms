@@ -1,0 +1,60 @@
+{
+  "batch_id": "usa_batch3",
+  "total_messages": 102,
+  "positive_transactions": 57,
+  "negative_samples": 45,
+  "counting_rules": [
+    "Only EXECUTED money movements count. Pending auths, declines, fraud YES/NO prompts, Zelle requests, AutoPay SETUP notices, scheduled (future) payments, statements, reminders, OTPs and non-bank noise move NO ledger.",
+    "The exact-duplicate BofA $77.30 TARGET SMS appears twice; it must be counted ONCE (dedupe).",
+    "Chase debit card 882 draws from acct 9384: card-882 activity is included in the 9384 ledger; row '882' is the card-level subset (its balance mirrors acct 9384).",
+    "Card 9111: expected_final_balance = outstanding owed (limit 4200 - available credit). Purchases=debits, payments/refunds=credits."
+  ],
+  "opening_balances": {
+    "9384": 14836.59,
+    "9661": 1047.97,
+    "9111_outstanding": 3191.86,
+    "9111_available_credit": 1008.14
+  },
+  "expected_accounts": [
+    {
+      "bank": "Chase",
+      "account_or_card": "9384",
+      "type": "BANK",
+      "expected_final_balance": 17736.98,
+      "expected_total_credits": 5933.43,
+      "expected_total_debits": 3033.04,
+      "expected_txn_count": 32
+    },
+    {
+      "bank": "Chase",
+      "account_or_card": "882",
+      "type": "CARD",
+      "linked_account": "9384",
+      "expected_final_balance": 17736.98,
+      "expected_total_credits": 0.0,
+      "expected_total_debits": 1605.98,
+      "expected_txn_count": 16,
+      "note": "Debit card subset of acct 9384; final balance mirrors 9384."
+    },
+    {
+      "bank": "Bank of America",
+      "account_or_card": "9661",
+      "type": "BANK",
+      "expected_final_balance": 1066.5,
+      "expected_total_credits": 400.0,
+      "expected_total_debits": 381.47,
+      "expected_txn_count": 7
+    },
+    {
+      "bank": "Bank of America",
+      "account_or_card": "9111",
+      "type": "CARD",
+      "credit_limit": 4200.0,
+      "expected_final_balance": 3352.96,
+      "expected_final_available_credit": 847.04,
+      "expected_total_credits": 887.08,
+      "expected_total_debits": 1048.18,
+      "expected_txn_count": 18
+    }
+  ]
+}

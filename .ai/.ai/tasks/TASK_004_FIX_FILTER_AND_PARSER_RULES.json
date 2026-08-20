@@ -1,0 +1,39 @@
+{
+  "task_id": "TASK_004_FIX_FILTER_AND_PARSER_RULES",
+  "objective": "Inspect parser filtration rules, fix card suffix extraction, and align deduplication/credit card ledger formulas",
+  "context": "Batch 3 audit revealed two parser discrepancies: (1) Card 882 missing suffix on 1 POS regex, (2) Duplicate SMS counting filter missing.",
+  "assigned_to": "opencode",
+  "status": "IN_PROGRESS",
+  "created_at": "2026-08-20T12:54:58",
+  "updated_at": "2026-08-20T12:54:58",
+  "scope_files": [
+    "Countries/United_States/sms_parser/us_bank_sms_formats.json",
+    "Countries/United_States/sms_parser/UsProfile.kt",
+    "automation/ledger/account_ledger.py"
+  ],
+  "constraints": [
+    "Keep checking account 9384 and 9661 at 100% accuracy",
+    "Fix credit card available credit vs outstanding debt formula",
+    "Implement exact SMS deduplication filter"
+  ],
+  "acceptance_criteria": [
+    "All 4 accounts and cards pass with 100% match ($0.00 diff)",
+    "OpenCode execution report generated in .ai/reports/"
+  ],
+  "history": [
+    {
+      "timestamp": "2026-08-20T12:54:58",
+      "action": "CREATED",
+      "by": "antigravity",
+      "notes": "Task initialized"
+    },
+    {
+      "timestamp": "2026-08-20T12:54:58",
+      "status": "IN_PROGRESS",
+      "notes": "OpenCode inspecting regexes and filtration code",
+      "assigned_to": "opencode"
+    }
+  ],
+  "result": null,
+  "report_file": null
+}
