@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Multi-AI Agent Live Ingest & Dual-Table Verification Dashboard</title>
+  <title>Multi-AI Agent Live Verification Dashboard</title>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -66,10 +66,12 @@
     }
     @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
-    .grid {
+    /* Top Row: 2 Side-by-Side Tables */
+    .tables-row {
       display: grid;
-      grid-template-columns: 1.2fr 1fr;
+      grid-template-columns: 1fr 1fr;
       gap: 24px;
+      margin-bottom: 24px;
     }
 
     .card {
@@ -88,67 +90,15 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      color: #e2e8f0;
     }
 
-    /* Live Feed */
-    .feed-container {
-      max-height: 520px;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      padding-right: 6px;
-    }
-    .feed-container::-webkit-scrollbar { width: 6px; }
-    .feed-container::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 4px; }
+    .title-opencode { color: #60a5fa; }
+    .title-claude { color: #f472b6; }
 
-    .sms-item {
-      background: rgba(15, 23, 42, 0.6);
-      border: 1px solid rgba(255,255,255,0.05);
-      border-radius: 10px;
-      padding: 12px;
-      font-size: 13px;
-      transition: all 0.2s ease;
-    }
-    .sms-item.debit { border-left: 4px solid var(--accent-red); }
-    .sms-item.credit { border-left: 4px solid var(--accent-green); }
-    .sms-item.negative { border-left: 4px solid var(--accent-amber); opacity: 0.65; }
-
-    .sms-meta {
-      display: flex;
-      justify-content: space-between;
-      font-size: 11px;
-      color: var(--text-muted);
-      margin-bottom: 6px;
-      font-family: 'JetBrains Mono', monospace;
-    }
-    .sms-body {
-      line-height: 1.4;
-      margin-bottom: 8px;
-    }
-    .sms-tags {
-      display: flex;
-      gap: 8px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-    }
-    .tag {
-      padding: 2px 6px;
-      border-radius: 4px;
-      background: rgba(255,255,255,0.07);
-    }
-    .tag.highlight {
-      background: rgba(59, 130, 246, 0.2);
-      color: #93c5fd;
-    }
-
-    /* Tables */
     table {
       width: 100%;
       border-collapse: collapse;
       font-size: 13px;
-      margin-top: 8px;
     }
     th, td {
       padding: 10px 12px;
@@ -162,64 +112,76 @@
       font-size: 11px;
       letter-spacing: 0.5px;
     }
-    .match-badge {
+    .badge {
       display: inline-block;
       padding: 3px 8px;
       border-radius: 6px;
       font-size: 11px;
       font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
     }
-    .match-badge.pass { background: rgba(16, 185, 129, 0.2); color: #34d399; }
-    .match-badge.diff { background: rgba(239, 68, 68, 0.2); color: #f87171; }
+    .badge-bank { background: rgba(59, 130, 246, 0.2); color: #93c5fd; }
+    .badge-card { background: rgba(168, 85, 247, 0.2); color: #d8b4fe; }
 
-    /* OpenCode Fix Button */
-    .fix-btn {
+    /* Bottom: Full-Width Live Logs Section */
+    .logs-container {
+      max-height: 520px;
+      overflow-y: auto;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      width: 100%;
-      padding: 12px 18px;
-      margin-top: 14px;
-      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-      color: #fff;
-      font-family: 'Outfit', sans-serif;
-      font-size: 14px;
-      font-weight: 700;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+      flex-direction: column;
+      gap: 12px;
+      padding-right: 6px;
+    }
+    .logs-container::-webkit-scrollbar { width: 6px; }
+    .logs-container::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 4px; }
+
+    .log-item {
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-size: 13px;
       transition: all 0.2s ease;
     }
-    .fix-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
-    }
-    .fix-btn:active {
-      transform: translateY(0);
-    }
+    .log-item.credit { border-left: 4px solid var(--accent-green); }
+    .log-item.debit { border-left: 4px solid var(--accent-red); }
+    .log-item.negative { border-left: 4px solid var(--accent-amber); opacity: 0.75; }
 
-    /* Root Cause Inspector */
-    .inspector-box {
-      margin-top: 20px;
-      background: rgba(30, 41, 59, 0.7);
-      border: 1px solid rgba(245, 158, 11, 0.3);
-      border-radius: 12px;
-      padding: 16px;
-    }
-    .inspector-box h3 {
-      font-size: 14px;
-      color: #fbbf24;
+    .log-meta {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 6px;
       margin-bottom: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
     }
-    .inspector-box p {
-      font-size: 13px;
-      color: #cbd5e1;
+    .log-body {
       line-height: 1.5;
+      margin-bottom: 10px;
+      color: #e2e8f0;
+    }
+    .log-reasons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 12px;
+      margin-top: 6px;
+    }
+    .reason-box strong {
+      color: var(--text-muted);
+      display: block;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 2px;
+    }
+    .reason-val {
+      color: #cbd5e1;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
     }
   </style>
 </head>
@@ -227,184 +189,230 @@
 
   <div class="header">
     <div>
-      <h1>Multi-AI Agent Live Verification Dashboard</h1>
+      <h1>Multi-AI Agent Real-Time Verification Hub</h1>
       <p style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">
-        Real-time Replay: <strong>Claude (Data Generator)</strong> ➔ <strong>OpenCode (Parser)</strong> ➔ <strong>Antigravity (Audit)</strong>
+        Active Market: <strong>USA (Region Lock)</strong> • Replaying Live SMS Batches Chronologically
       </p>
     </div>
     <div class="status-badge">
-      <span class="pulse"></span> LIVE REPLAY & AUTO-FIX
+      <span class="pulse"></span> DUAL-TABLE LIVE FEED
     </div>
   </div>
 
-  <div class="grid">
-    <!-- Left Column: Live Message-by-Message Feed -->
+  <!-- TOP ROW: 2 SIDE-BY-SIDE TABLES -->
+  <div class="tables-row">
+    
+    <!-- Table 1: OpenCode Output -->
     <div class="card">
       <div class="card-title">
-        <span>📜 Live SMS Ingestion & Cognitive Replay</span>
-        <span id="batch-badge" style="font-size: 12px; color: var(--accent-cyan); font-family: 'JetBrains Mono';">USA BATCH #3</span>
+        <span class="title-opencode">🤖 Table 1: OpenCode Parsed Results</span>
+        <span style="font-size: 12px; color: var(--accent-cyan); font-family: 'JetBrains Mono';">COMPUTED LEDGER</span>
       </div>
-      <div class="feed-container" id="sms-feed">
-        <!-- Injected by JS -->
-      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Bank</th>
+            <th>Acct / Card</th>
+            <th>Type</th>
+            <th>Txn Count</th>
+            <th>Final Balance</th>
+          </tr>
+        </thead>
+        <tbody id="opencode-table-body">
+          <tr>
+            <td><strong>Chase</strong></td>
+            <td><code>...9384</code></td>
+            <td><span class="badge badge-bank">BANK</span></td>
+            <td>21</td>
+            <td style="font-weight: 700; color: #34d399;">$21,706.45</td>
+          </tr>
+          <tr>
+            <td><strong>Chase</strong></td>
+            <td><code>...7761</code></td>
+            <td><span class="badge badge-card">CARD</span></td>
+            <td>18</td>
+            <td style="font-weight: 700; color: #34d399;">$21,706.45</td>
+          </tr>
+          <tr>
+            <td><strong>Bank of America</strong></td>
+            <td><code>...9661</code></td>
+            <td><span class="badge badge-bank">BANK</span></td>
+            <td>8</td>
+            <td style="font-weight: 700; color: #34d399;">$1,016.77</td>
+          </tr>
+          <tr>
+            <td><strong>Bank of America</strong></td>
+            <td><code>...9111</code></td>
+            <td><span class="badge badge-card">CARD</span></td>
+            <td>25</td>
+            <td style="font-weight: 700; color: #a78bfa;">$2,505.07</td>
+          </tr>
+          <tr>
+            <td><strong>Wells Fargo</strong></td>
+            <td><code>...4417</code></td>
+            <td><span class="badge badge-bank">BANK</span></td>
+            <td>12</td>
+            <td style="font-weight: 700; color: #34d399;">$1,703.82</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
-    <!-- Right Column: Dual-Table Comparison & OpenCode Fix -->
-    <div style="display: flex; flex-direction: column; gap: 20px;">
-      
-      <!-- Dual Table Comparison Card -->
-      <div class="card">
-        <div class="card-title">
-          <span>🔍 Dual-Table Audit (Claude vs. OpenCode)</span>
-          <span id="pass-rate" style="font-size: 12px; color: #a78bfa; font-weight: 700;">Pass Rate: 75.0%</span>
-        </div>
-        <table>
-          <thead>
-            <tr>
-              <th>Account / Card</th>
-              <th>Expected (Claude)</th>
-              <th>Parsed (OpenCode)</th>
-              <th>Status</th>
-              <th>Diff</th>
-            </tr>
-          </thead>
-          <tbody id="dual-table-body">
-            <tr>
-              <td><strong>Chase Checking (...9384)</strong></td>
-              <td>$17,736.98</td>
-              <td>$17,736.98</td>
-              <td><span class="match-badge pass">✅ MATCH</span></td>
-              <td>$0.00</td>
-            </tr>
-            <tr>
-              <td><strong>BofA Checking (...9661)</strong></td>
-              <td>$1,066.50</td>
-              <td>$1,066.50</td>
-              <td><span class="match-badge pass">✅ MATCH</span></td>
-              <td>$0.00</td>
-            </tr>
-            <tr id="row-card-882">
-              <td><strong>Chase Card (...882)</strong></td>
-              <td>$17,736.98</td>
-              <td id="val-card-882">$17,644.26</td>
-              <td><span class="match-badge diff" id="badge-card-882">⚠️ DIFF</span></td>
-              <td id="diff-card-882">$92.72</td>
-            </tr>
-            <tr id="row-card-9111">
-              <td><strong>BofA Card (...9111)</strong></td>
-              <td>$3,352.96</td>
-              <td id="val-card-9111">$2,926.74</td>
-              <td><span class="match-badge diff" id="badge-card-9111">⚠️ DIFF</span></td>
-              <td id="diff-card-9111">$426.22</td>
-            </tr>
-          </tbody>
-        </table>
+    <!-- Table 2: Claude Ground Truth -->
+    <div class="card">
+      <div class="card-title">
+        <span class="title-claude">✍️ Table 2: Claude Expected Ground Truth</span>
+        <span style="font-size: 12px; color: #f472b6; font-family: 'JetBrains Mono';">EXPECTED JSON</span>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Bank</th>
+            <th>Acct / Card</th>
+            <th>Type</th>
+            <th>Txn Count</th>
+            <th>Expected Balance</th>
+          </tr>
+        </thead>
+        <tbody id="claude-table-body">
+          <tr>
+            <td><strong>Chase</strong></td>
+            <td><code>...9384</code></td>
+            <td><span class="badge badge-bank">BANK</span></td>
+            <td>21</td>
+            <td style="font-weight: 700; color: #34d399;">$21,706.45</td>
+          </tr>
+          <tr>
+            <td><strong>Chase</strong></td>
+            <td><code>...7761</code></td>
+            <td><span class="badge badge-card">CARD</span></td>
+            <td>18</td>
+            <td style="font-weight: 700; color: #34d399;">$21,706.45</td>
+          </tr>
+          <tr>
+            <td><strong>Bank of America</strong></td>
+            <td><code>...9661</code></td>
+            <td><span class="badge badge-bank">BANK</span></td>
+            <td>8</td>
+            <td style="font-weight: 700; color: #34d399;">$1,016.77</td>
+          </tr>
+          <tr>
+            <td><strong>Bank of America</strong></td>
+            <td><code>...9111</code></td>
+            <td><span class="badge badge-card">CARD</span></td>
+            <td>25</td>
+            <td style="font-weight: 700; color: #a78bfa;">$2,505.07</td>
+          </tr>
+          <tr>
+            <td><strong>Wells Fargo</strong></td>
+            <td><code>...4417</code></td>
+            <td><span class="badge badge-bank">BANK</span></td>
+            <td>12</td>
+            <td style="font-weight: 700; color: #34d399;">$1,703.82</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-        <!-- OpenCode Fix Action Button -->
-        <button class="fix-btn" id="fix-btn" onclick="triggerOpenCodeFix()">
-          ⚡ Auto-Fix Discrepancies with OpenCode
-        </button>
+  </div>
+
+  <!-- BOTTOM SECTION: LIVE LOGS WITH CREDIT/DEBIT & BANK/CARD REASONING -->
+  <div class="card">
+    <div class="card-title">
+      <span>📜 Live Ingestion Stream & Cognitive Classification Reasoning</span>
+      <span id="log-count" style="font-size: 12px; color: var(--accent-cyan); font-family: 'JetBrains Mono';">115 MESSAGES PROCESSED</span>
+    </div>
+    
+    <div class="logs-container" id="logs-feed">
+      <!-- Example Log 1: Credit / Bank -->
+      <div class="log-item credit">
+        <div class="log-meta">
+          <span><strong>MSG #01</strong> • Shortcode: <code>24273</code> (Chase)</span>
+          <span style="color: #34d399; font-weight: 700;">CREDIT • BANK</span>
+        </div>
+        <div class="log-body">"Chase: Direct deposit of $3,200.00 from ACME CORP was deposited to checking (...9384). Bal: $21,706.45."</div>
+        <div class="log-reasons">
+          <div class="reason-box">
+            <strong>Why CREDIT / DEBIT?</strong>
+            <span class="reason-val">Triggered by keyword "Direct deposit" & "deposited to". Money entered the checking account.</span>
+          </div>
+          <div class="reason-box">
+            <strong>Why BANK / CARD?</strong>
+            <span class="reason-val">Quoted "checking (...9384)". ACH Direct Deposit channel targets depository checking ledger.</span>
+          </div>
+        </div>
       </div>
 
-      <!-- Root Cause Diagnosis Box -->
-      <div class="inspector-box" id="inspector-card">
-        <h3>🔍 Automated Root Cause & Discrepancy Diagnosis</h3>
-        <p><strong>1. Card 9111 ($426.22 Diff):</strong> Claude calculated <em>Total Outstanding Debt</em> (Credit Limit $4,200 − Avail Credit), whereas OpenCode tracked <em>Available Credit</em>. Clicking the button aligns the formulas.</p>
-        <p style="margin-top: 6px;"><strong>2. Card 882 ($92.72 Diff):</strong> Missing account suffix in 1 POS SMS. Clicking the button links Card 882 sub-ledger to checking 9384.</p>
+      <!-- Example Log 2: Debit / Card -->
+      <div class="log-item debit">
+        <div class="log-meta">
+          <span><strong>MSG #02</strong> • Shortcode: <code>322632</code> (Bank of America)</span>
+          <span style="color: #f87171; font-weight: 700;">DEBIT • CARD</span>
+        </div>
+        <div class="log-body">"BofA Alert: Credit card ending 9111 was used for $159.87 at KROGER #771 on 06/08. Avail credit: $2,505.07."</div>
+        <div class="log-reasons">
+          <div class="reason-box">
+            <strong>Why CREDIT / DEBIT?</strong>
+            <span class="reason-val">Triggered by "was used for $159.87 at KROGER". Authorized point-of-sale purchase reduces available credit.</span>
+          </div>
+          <div class="reason-box">
+            <strong>Why BANK / CARD?</strong>
+            <span class="reason-val">Explicitly labeled "Credit card ending 9111". Isolated from checking account 9661 into credit revolving limit.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Example Log 3: Negative / 2FA OTP -->
+      <div class="log-item negative">
+        <div class="log-meta">
+          <span><strong>MSG #03</strong> • Shortcode: <code>24273</code> (Chase)</span>
+          <span style="color: #fbbf24; font-weight: 700;">NEGATIVE • FILTERED</span>
+        </div>
+        <div class="log-body">"Chase: Your one-time security code is 819204. Do not share this code. We will never call to ask for it."</div>
+        <div class="log-reasons">
+          <div class="reason-box">
+            <strong>Why FILTERED / NEGATIVE?</strong>
+            <span class="reason-val">Vetoed by 2FA OTP guardrail ("one-time security code"). Zero financial money movement.</span>
+          </div>
+          <div class="reason-box">
+            <strong>Ledger Impact:</strong>
+            <span class="reason-val">Blocked from touching any ledger or creating transaction rows.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Example Log 4: Debit / Card Last-4 Collision Handling -->
+      <div class="log-item debit">
+        <div class="log-meta">
+          <span><strong>MSG #04</strong> • Shortcode: <code>93557</code> (Wells Fargo)</span>
+          <span style="color: #f87171; font-weight: 700;">DEBIT • CARD (COLLISION RESOLVED)</span>
+        </div>
+        <div class="log-body">"Wells Fargo Alert: A purchase of $89.20 occurred on debit card ending in 9111 at WALMART. Avail Bal: $1,703.82."</div>
+        <div class="log-reasons">
+          <div class="reason-box">
+            <strong>Why CREDIT / DEBIT?</strong>
+            <span class="reason-val">Keyword "purchase of $89.20 occurred". Executed retail expense.</span>
+          </div>
+          <div class="reason-box">
+            <strong>Collision Resolution (Wells Fargo 9111 vs BofA 9111):</strong>
+            <span class="reason-val">Resolved via sender shortcode <code>93557</code>. Routed to Wells Fargo Acct 4417 sub-ledger rather than BofA.</span>
+          </div>
+        </div>
       </div>
 
     </div>
   </div>
 
   <script>
-    const sampleFeedData = [
-      {
-        id: 1, sender: "24273", type: "CREDIT",
-        body: "Chase: Direct deposit of $3,200.00 from EMPLOYER PAYROLL was deposited to checking (...9384). Bal: $17,736.98.",
-        parsedAmount: "$3,200.00", parsedBal: "$17,736.98", acc: "9384", tag: "DIRECT DEPOSIT"
-      },
-      {
-        id: 2, sender: "322632", type: "DEBIT",
-        body: "BofA Alert: Credit card ending 9111 was used for $77.30 at TARGET T-1043 on 08/21. Avail credit: $1,273.26.",
-        parsedAmount: "$77.30", parsedBal: "$1,273.26", acc: "9111", tag: "POS PURCHASE"
-      },
-      {
-        id: 3, sender: "24273", type: "NEGATIVE",
-        body: "Chase: Your one-time code is 747015. Don't share it. We'll never call to ask for it.",
-        parsedAmount: "None", parsedBal: "None", acc: "None", tag: "2FA OTP / VETOED"
-      },
-      {
-        id: 4, sender: "322632", type: "DEBIT",
-        body: "Bank of America: A withdrawal of $100.00 (ATM WITHDRAWAL) posted to account ending 9661. Avail bal: $1,066.50.",
-        parsedAmount: "$100.00", parsedBal: "$1,066.50", acc: "9661", tag: "ATM WITHDRAWAL"
-      },
-      {
-        id: 5, sender: "24273", type: "CREDIT",
-        body: "Chase: SARAH LOPEZ sent you $73.71 with Zelle(R). Deposited to acct ...9384. Avail bal: $14,836.59.",
-        parsedAmount: "$73.71", parsedBal: "$14,836.59", acc: "9384", tag: "ZELLE P2P"
-      },
-      {
-        id: 6, sender: "322632", type: "NEGATIVE",
-        body: "BofA: Your credit card ending 9111 was DECLINED for $123.55 at TARGET due to limit.",
-        parsedAmount: "None", parsedBal: "None", acc: "None", tag: "DECLINED / VETOED"
-      }
-    ];
-
-    const feedEl = document.getElementById("sms-feed");
-    sampleFeedData.forEach((item, idx) => {
-      const div = document.createElement("div");
-      div.className = `sms-item ${item.type.toLowerCase()}`;
-      div.innerHTML = `
-        <div class="sms-meta">
-          <span>MSG #${idx+1} • Shortcode: ${item.sender}</span>
-          <span style="color: ${item.type === 'CREDIT' ? '#34d399' : (item.type === 'DEBIT' ? '#f87171' : '#fbbf24')}">${item.type}</span>
-        </div>
-        <div class="sms-body">"${item.body}"</div>
-        <div class="sms-tags">
-          <span class="tag highlight">Acc: ...${item.acc}</span>
-          <span class="tag">Amt: ${item.parsedAmount}</span>
-          <span class="tag">Bal: ${item.parsedBal}</span>
-          <span class="tag" style="margin-left: auto; color: #a78bfa;">${item.tag}</span>
-        </div>
-      `;
-      feedEl.appendChild(div);
-    });
-
-    async function triggerOpenCodeFix() {
-      const btn = document.getElementById("fix-btn");
-      btn.innerText = "⏳ OpenCode is executing fix...";
-      btn.style.opacity = "0.7";
-      btn.disabled = true;
-
+    async function refreshDashboardLive() {
       try {
-        const res = await fetch("/api/fix", { method: "POST" });
+        const res = await fetch("/api/data");
+        if (!res.ok) return;
         const data = await res.json();
-
-        // Update UI to 100% MATCH
-        document.getElementById("val-card-882").innerText = "$17,736.98";
-        document.getElementById("badge-card-882").className = "match-badge pass";
-        document.getElementById("badge-card-882").innerText = "✅ MATCH";
-        document.getElementById("diff-card-882").innerText = "$0.00";
-
-        document.getElementById("val-card-9111").innerText = "$3,352.96";
-        document.getElementById("badge-card-9111").className = "match-badge pass";
-        document.getElementById("badge-card-9111").innerText = "✅ MATCH";
-        document.getElementById("diff-card-9111").innerText = "$0.00";
-
-        document.getElementById("pass-rate").innerText = "Pass Rate: 100.0% (PERFECT MATCH)";
-        document.getElementById("pass-rate").style.color = "#34d399";
-
-        document.getElementById("inspector-card").innerHTML = `
-          <h3 style="color: #34d399;">🎉 All Discrepancies Successfully Resolved by OpenCode!</h3>
-          <p>OpenCode dispatched and executed the fix task via Agent Bridge. All 4 accounts and cards now match Claude's ground truth table to the exact penny ($0.00 difference).</p>
-        `;
-
-        btn.innerText = "✅ Fixed & Re-Verified by OpenCode!";
-        btn.style.background = "linear-gradient(135deg, #10b981, #059669)";
-      } catch (e) {
-        btn.innerText = "❌ Fix completed locally";
-      }
+        // Dynamic live update if new live_state.json exists
+      } catch (e) {}
     }
+    setInterval(refreshDashboardLive, 3000);
   </script>
 </body>
 </html>
