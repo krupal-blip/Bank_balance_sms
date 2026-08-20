@@ -1,16 +1,17 @@
 #!/usr/bin/env python3
 """
-Project Sample Scooper Daemon / Watcher (with Git Auto-Pull)
-------------------------------------------------------------
+Project Sample Scooper Daemon / Watcher (with Git Auto-Pull & XML Parser)
+------------------------------------------------------------------------
 Monitors the `samples/` directory for incoming raw SMS / data files (.txt, .json, .csv, .xml).
 Supports:
 1. Automated Git Pull from remote repository (e.g. sample batches pushed by Claude).
-2. Formulates human cognitive ground truth for each line.
-3. Dispatches task via Agent Bridge to OpenCode.
-4. Executes parser test suite.
-5. Generates execution reports in `.ai/reports/`.
-6. Archives processed samples in `samples/processed/`.
-7. Completes task lifecycle and reports to Antigravity.
+2. Parses XML child tags (<address>, <body>).
+3. Formulates human cognitive ground truth for each message.
+4. Dispatches task via Agent Bridge to OpenCode.
+5. Executes parser test suite.
+6. Generates execution reports in `.ai/reports/`.
+7. Archives processed samples in `samples/processed/`.
+8. Completes task lifecycle and reports to Antigravity.
 """
 
 import os
@@ -21,6 +22,7 @@ import shutil
 import datetime
 import subprocess
 import re
+import html
 import xml.etree.ElementTree as ET
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -37,16 +39,14 @@ def timestamp():
     return datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
 
 def git_pull_samples():
-    """Pulls latest sample batches pushed by Claude to remote repo."""
     try:
         res = subprocess.run(["git", "pull", "--rebase"], cwd=BASE_DIR, capture_output=True, text=True)
         if "Already up to date" not in res.stdout and res.returncode == 0:
             print(f"📥 [SCOOPER] Pulled new batches from GitHub:\n{res.stdout.strip()}")
-    except Exception as e:
+    except Exception:
         pass
 
 def parse_sample_file_lines(file_path):
-    """Parses .txt, .json, .csv, or .xml files into list of (sender, body) tuples."""
     filename = os.path.basename(file_path)
     messages = []
     
@@ -54,11 +54,16 @@ def parse_sample_file_lines(file_path):
         try:
             tree = ET.parse(file_path)
             root = tree.getroot()
-            for elem in root.findall(".//sms") or root.findall(".//message"):
-                sender = elem.get("sender") or elem.get("address") or elem.findtext("sender") or "Unknown"
-                body = elem.get("body") or elem.text or elem.findtext("body") or ""
+            for sms in root.findall(".//sms"):
+                addr_node = sms.find("address")
+                body_node = sms.find("body")
+                
+                addr = addr_node.text.strip() if (addr_node is not None and addr_node.text) else sms.get("address", "Unknown")
+                body = body_node.text.strip() if (body_node is not None and body_node.text) else sms.get("body", "")
+                
+                body = html.unescape(body)
                 if body:
-                    messages.append((sender.strip(), body.strip()))
+                    messages.append((addr, body))
         except Exception as e:
             print(f"⚠️ [SCOOPER] XML Parse error on {filename}: {e}")
     else:
@@ -86,7 +91,7 @@ def formulate_cognitive_ground_truth(sender, body):
     bank = "Unknown"
     if "24273" in sender or "chase" in lower:
         bank = "Chase"
-    elif "73981" in sender or "bofa" in lower or "bank of america" in lower:
+    elif "73981" in sender or "322632" in sender or "bofa" in lower or "bank of america" in lower:
         bank = "Bank of America"
     elif "93557" in sender or "wells fargo" in lower or "wells" in lower:
         bank = "Wells Fargo"
@@ -95,7 +100,8 @@ def formulate_cognitive_ground_truth(sender, body):
     elif "227898" in sender or "capital one" in lower:
         bank = "Capital One"
 
-    if any(w in lower for w in ["otp", "security code", "safepass", "verification code", "passcode"]):
+    # Negative checks: 2FA, OTP, declined, ebills, updates
+    if any(w in lower for w in ["verification code", "security code", "safepass", "is your code", "passcode", "otp"]):
         return {
             "is_transaction": False,
             "bank": bank,
@@ -105,10 +111,10 @@ def formulate_cognitive_ground_truth(sender, body):
             "txn_type": "OTHER",
             "source": "NONE",
             "merchant": None,
-            "reasoning": "Zero money movement. 2FA Security / OTP verification code. Must be rejected."
+            "reasoning": "2FA OTP / Verification Code. Zero financial movement."
         }
-    
-    if any(w in lower for w in ["declined", "failed", "insufficient"]):
+        
+    if any(w in lower for w in ["declined", "failed", "insufficient funds"]):
         return {
             "is_transaction": False,
             "bank": bank,
@@ -118,20 +124,34 @@ def formulate_cognitive_ground_truth(sender, body):
             "txn_type": "OTHER",
             "source": "NONE",
             "merchant": None,
-            "reasoning": "Transaction was declined/blocked. Money did not move."
+            "reasoning": "Declined transaction alert. Blocked money movement."
         }
+
+    if any(w in lower for w in ["reminder", "ebill", "due on", "updated successfully", "fraud alert"]):
+        if not any(w in lower for w in ["purchase", "charged", "debited", "credited", "deposited", "withdrawn"]):
+            return {
+                "is_transaction": False,
+                "bank": bank,
+                "account": None,
+                "amount": None,
+                "balance": None,
+                "txn_type": "OTHER",
+                "source": "NONE",
+                "merchant": None,
+                "reasoning": "Informational reminder/notice. No executed transaction."
+            }
 
     amount_m = re.search(r"\$([0-9,]+\.[0-9]{2})", body)
     amount = amount_m.group(1) if amount_m else None
     
-    bal_m = re.search(r"(?:avail(?:able)?\s*bal(?:ance)?|bal(?:ance)?):\s*\$([0-9,]+\.[0-9]{2})", body, re.IGNORECASE)
+    bal_m = re.search(r"(?:avail(?:able)?\s*(?:bal(?:ance)?|credit)|bal(?:ance)?):\s*\$([0-9,]+\.[0-9]{2})", body, re.IGNORECASE)
     balance = bal_m.group(1) if bal_m else None
     
-    acc_m = re.search(r"(?:ending in|\.\.\.|acc|account|\*+)\s*([0-9]{4})", body, re.IGNORECASE)
+    acc_m = re.search(r"(?:ending\s*(?:in)?|\.\.\.|acc|account|\*+)\s*([0-9]{3,4})", body, re.IGNORECASE)
     account = acc_m.group(1) if acc_m else None
 
-    is_credit = any(w in lower for w in ["deposit", "credited", "refund", "received"])
-    is_card = "card" in lower or "charged" in lower or "purchase" in lower
+    is_credit = any(w in lower for w in ["deposit", "credited", "refund", "received", "payment of"])
+    is_card = "card" in lower or "charged" in lower or "purchase" in lower or "credit" in lower
 
     return {
         "is_transaction": True if amount else False,
@@ -142,7 +162,7 @@ def formulate_cognitive_ground_truth(sender, body):
         "txn_type": "CREDIT" if is_credit else "DEBIT",
         "source": "CARD" if is_card else "BANK",
         "merchant": None,
-        "reasoning": f"Legitimate financial transaction. Amount: ${amount}, Type: {'CREDIT' if is_credit else 'DEBIT'}"
+        "reasoning": f"Executed financial transaction: ${amount} ({'CREDIT' if is_credit else 'DEBIT'})"
     }
 
 def process_sample_file(file_path):
@@ -154,7 +174,7 @@ def process_sample_file(file_path):
     if not messages:
         return
 
-    print(f"\n🔍 [SCOOPER] New sample batch detected: {filename} ({len(messages)} messages)")
+    print(f"\n🔍 [SCOOPER] Processing batch: {filename} ({len(messages)} messages)")
     
     task_id = f"TASK_SAMPLE_{timestamp()}_{os.path.splitext(filename)[0]}"
     objective = f"Process and verify sample batch from Claude: {filename}"
@@ -162,11 +182,11 @@ def process_sample_file(file_path):
     task = bridge.create_task(
         task_id=task_id,
         objective=objective,
-        context=f"Incoming raw batch generated by Claude placed in samples/{filename}",
+        context=f"Incoming raw batch generated by Claude: {filename}",
         assigned_to="opencode",
         scope_files=[f"samples/{filename}"],
-        constraints=["Formulate cognitive ground truth", "Verify with US template parser", "Record all discrepancies in report"],
-        acceptance_criteria=["All lines parsed", "Report generated in .ai/reports/", "Task status updated to COMPLETED"]
+        constraints=["Formulate cognitive ground truth", "Execute parser test suite", "Verify field accuracy"],
+        acceptance_criteria=["All messages parsed", "Report generated in .ai/reports/", "Task status updated to COMPLETED"]
     )
     print(f"📋 [SCOOPER] Created Task: {task_id}")
 
@@ -212,7 +232,7 @@ def process_sample_file(file_path):
 
 ## 1. Executive Summary
 - **Source File**: `samples/{filename}`
-- **Source Agent**: `Claude (Data Generator)`
+- **Source Agent**: `Claude (Test Data Generator)`
 - **Executor Agent**: `opencode` (via Sample Scooper)
 - **Processed Messages**: {len(messages)}
 - **Status**: `COMPLETED`
@@ -259,7 +279,7 @@ def scan_samples_recursive():
 
 def watch_loop(interval_seconds=3):
     print(f"👀 [SCOOPER] Watching '{SAMPLES_DIR}/' and syncing Git every {interval_seconds}s...")
-    print(f"👉 Claude pushes to GitHub or drops into 'samples/' -> Scooper triggers OpenCode -> Reports to Antigravity!\n")
+    print(f"👉 Claude pushes to GitHub -> Scooper auto-pulls -> OpenCode parses & tests -> Reports to Antigravity!\n")
     while True:
         try:
             git_pull_samples()

@@ -25,11 +25,13 @@ FORMATS_PATH = os.path.join(US_DATA_DIR, "sms_parser", "us_bank_sms_formats.json
 with open(FORMATS_PATH, "r") as f:
     US_FORMATS = json.load(f)
 
+# Comprehensive US Bank Shortcodes Map (including 322632 for BofA, 24273 for Chase, etc.)
 SHORTCODE_MAP = {
     "24273": "Chase",
     "242731": "Chase",
     "CHASE": "Chase",
     "73981": "Bank of America",
+    "322632": "Bank of America",
     "34343": "Bank of America",
     "BOFA": "Bank of America",
     "93557": "Wells Fargo",
@@ -48,20 +50,33 @@ SHORTCODE_MAP = {
     "266226": "BMO Bank"
 }
 
-OTP_WORDS = ["otp", "verification code", "security code", "passcode", "safepass", "one-time code", "temp code"]
+OTP_WORDS = ["otp", "verification code", "security code", "passcode", "safepass", "one-time code", "temp code", "is your code"]
 DECLINED_WORDS = ["declined", "payment failed", "insufficient funds", "card blocked", "unauthorized", "reversed"]
-REMINDER_WORDS = ["payment due", "minimum payment due", "low balance alert", "statement ready", "bill reminder", "below your"]
+REMINDER_WORDS = ["payment due", "minimum payment due", "low balance alert", "statement ready", "bill reminder", "below your", "ebill reminder", "due on", "updated successfully"]
 MANDATE_CREATION_WORDS = ["scheduled", "set up", "enrolled", "activated", "created", "will be debited", "is scheduled"]
 
-def resolve_sender(sender):
-    if not sender:
-        return "Unknown"
-    cleaned = sender.strip().upper().replace("-", "").replace(" ", "")
-    if cleaned in SHORTCODE_MAP:
-        return SHORTCODE_MAP[cleaned]
-    for bank in US_FORMATS["banks"]:
-        if bank["short_name"].upper() in cleaned or bank["bank_name"].upper() in cleaned:
-            return bank["short_name"]
+def resolve_sender(sender, body=""):
+    if sender:
+        cleaned = sender.strip().upper().replace("-", "").replace(" ", "")
+        if cleaned in SHORTCODE_MAP:
+            return SHORTCODE_MAP[cleaned]
+    
+    # Body-level fallback lookup
+    lower_body = body.lower()
+    if "chase" in lower_body:
+        return "Chase"
+    if "bank of america" in lower_body or "bofa" in lower_body:
+        return "Bank of America"
+    if "wells fargo" in lower_body or "wells" in lower_body:
+        return "Wells Fargo"
+    if "citibank" in lower_body or "citi" in lower_body:
+        return "Citibank"
+    if "capital one" in lower_body:
+        return "Capital One"
+    if "u.s. bank" in lower_body or "us bank" in lower_body:
+        return "U.S. Bank"
+    if "pnc" in lower_body:
+        return "PNC Bank"
     return "Unknown"
 
 def is_negative_notice(body):
@@ -72,19 +87,19 @@ def is_negative_notice(body):
     for word in DECLINED_WORDS:
         if word in lower_body:
             return True, "DECLINED_TRANSACTION"
-    for word in REMINDER_WORDS:
-        if word in lower_body:
-            return True, "REMINDER_NOTICE"
     for word in MANDATE_CREATION_WORDS:
         if "autopay" in lower_body and word in lower_body:
             return True, "MANDATE_CREATION_NOTICE"
+    for word in REMINDER_WORDS:
+        if word in lower_body and not any(w in lower_body for w in ["purchase", "charged", "debited", "credited", "deposited", "withdrawn", "payment of", "used for"]):
+            return True, "REMINDER_NOTICE"
     return False, None
 
 def convert_regex_to_python(pattern_str):
     return re.sub(r"\(\?<([a-zA-Z0-9_]+)>", r"(?P<\1>", pattern_str)
 
 def parse_with_us_template(sender, body):
-    bank_name = resolve_sender(sender)
+    bank_name = resolve_sender(sender, body)
     
     is_neg, neg_reason = is_negative_notice(body)
     if is_neg:
@@ -127,21 +142,23 @@ def parse_with_us_template(sender, body):
 
     if not matched_data:
         amount_match = re.search(r"\$([0-9,]+\.[0-9]{2})", body)
-        acc_match = re.search(r"(?:ending in|\.\.\.|acc|account|\*+)\s*([0-9]{4})", body, re.IGNORECASE)
-        bal_match = re.search(r"(?:avail(?:able)?\s*bal(?:ance)?|bal(?:ance)?):\s*\$([0-9,]+\.[0-9]{2})", body, re.IGNORECASE)
+        acc_match = re.search(r"(?:ending\s*(?:in)?|\.\.\.|acc|account|\*+)\s*([0-9]{3,4})", body, re.IGNORECASE)
+        bal_match = re.search(r"(?:avail(?:able)?\s*(?:bal(?:ance)?|credit)|bal(?:ance)?):\s*\$([0-9,]+\.[0-9]{2})", body, re.IGNORECASE)
         
-        is_credit = any(w in body.lower() for w in ["deposit", "credited", "refund", "received"])
-        is_card = any(w in body.lower() for w in ["card", "charged", "authorized"])
+        is_credit = any(w in body.lower() for w in ["deposit", "credited", "refund", "received", "payment of"])
+        is_card = any(w in body.lower() for w in ["card", "charged", "authorized", "used for", "purchase"])
+        
+        has_txn_intent = amount_match is not None and not is_neg
         
         matched_data = {
-            "is_transaction": True if amount_match else False,
+            "is_transaction": True if has_txn_intent else False,
             "negative_reason": None,
             "bank": bank_name,
             "account": acc_match.group(1) if acc_match else None,
             "amount": amount_match.group(1) if amount_match else None,
             "balance": bal_match.group(1) if bal_match else None,
-            "txn_type": "CREDIT" if is_credit else "DEBIT",
-            "source": "CARD" if is_card else "BANK",
+            "txn_type": "CREDIT" if is_credit else ("DEBIT" if has_txn_intent else "OTHER"),
+            "source": "CARD" if is_card else ("BANK" if has_txn_intent else "NONE"),
             "merchant": None
         }
 
