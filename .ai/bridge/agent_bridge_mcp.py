@@ -12,16 +12,18 @@ Exposes Agent Bridge coordination tools directly to Antigravity and OpenCode:
 - write_memory
 - get_report
 - get_agent_status
+- audit_batch_yield (Antigravity PM Quality Gate)
+- trigger_claude_next_batch (Instant Claude Code CLI invocation)
 """
 
 import sys
 import os
 import json
 
-# Add local directory to path
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, BASE_DIR)
 from agent_bridge import AgentBridge
+from pm_audit_bridge import pm_audit_yield, trigger_claude_cli_next_batch
 
 bridge = AgentBridge()
 
@@ -42,7 +44,7 @@ def handle_initialize(req_id, params):
         },
         "serverInfo": {
             "name": "agent-bridge-mcp",
-            "version": "1.0.0"
+            "version": "1.1.0"
         }
     }
     send_response(req_id, result)
@@ -55,52 +57,52 @@ def handle_tools_list(req_id):
             "inputSchema": {
                 "type": "object",
                 "properties": {
-                    "task_id": {"type": "string", "description": "Unique task ID, e.g. TASK_001_UK_HOLIDAYS"},
-                    "objective": {"type": "string", "description": "Clear, measurable objective for the task"},
-                    "context": {"type": "string", "description": "Background context and architectural intent"},
-                    "assigned_to": {"type": "string", "description": "Agent name, default 'opencode'"},
-                    "scope_files": {"type": "array", "items": {"type": "string"}, "description": "List of files in scope"},
-                    "constraints": {"type": "array", "items": {"type": "string"}, "description": "Execution constraints"},
-                    "acceptance_criteria": {"type": "array", "items": {"type": "string"}, "description": "Verification acceptance criteria"}
+                    "task_id": {"type": "string", "description": "Unique task ID"},
+                    "objective": {"type": "string", "description": "Objective"},
+                    "context": {"type": "string"},
+                    "assigned_to": {"type": "string", "default": "opencode"},
+                    "scope_files": {"type": "array", "items": {"type": "string"}},
+                    "constraints": {"type": "array", "items": {"type": "string"}},
+                    "acceptance_criteria": {"type": "array", "items": {"type": "string"}}
                 },
                 "required": ["task_id", "objective"]
             }
         },
         {
             "name": "get_task",
-            "description": "Fetch a task's full state, constraints, and acceptance criteria.",
+            "description": "Fetch a task's full state.",
             "inputSchema": {
                 "type": "object",
                 "properties": {
-                    "task_id": {"type": "string", "description": "The task ID to fetch"}
+                    "task_id": {"type": "string"}
                 },
                 "required": ["task_id"]
             }
         },
         {
             "name": "update_task",
-            "description": "Update task status (IN_PROGRESS, REVIEW, BLOCKED), notes, or result.",
+            "description": "Update task status (IN_PROGRESS, REVIEW, REASSIGNED, COMPLETED).",
             "inputSchema": {
                 "type": "object",
                 "properties": {
-                    "task_id": {"type": "string", "description": "Task ID"},
-                    "status": {"type": "string", "enum": ["BACKLOG", "PLANNED", "ASSIGNED", "IN_PROGRESS", "REVIEW", "COMPLETED", "BLOCKED", "REASSIGNED"]},
-                    "notes": {"type": "string", "description": "Progress notes or blocker details"},
-                    "assigned_to": {"type": "string", "description": "Reassign to another agent"},
-                    "report_file": {"type": "string", "description": "Report filename in .ai/reports/"}
+                    "task_id": {"type": "string"},
+                    "status": {"type": "string"},
+                    "notes": {"type": "string"},
+                    "assigned_to": {"type": "string"},
+                    "report_file": {"type": "string"}
                 },
                 "required": ["task_id"]
             }
         },
         {
             "name": "complete_task",
-            "description": "Mark a task as COMPLETED with an attached report file.",
+            "description": "Mark a task as COMPLETED with an attached report.",
             "inputSchema": {
                 "type": "object",
                 "properties": {
-                    "task_id": {"type": "string", "description": "Task ID"},
-                    "report_file": {"type": "string", "description": "Path to report in .ai/reports/"},
-                    "result": {"type": "string", "description": "Summary of output/result"}
+                    "task_id": {"type": "string"},
+                    "report_file": {"type": "string"},
+                    "result": {"type": "string"}
                 },
                 "required": ["task_id"]
             }
@@ -111,14 +113,14 @@ def handle_tools_list(req_id):
             "inputSchema": {
                 "type": "object",
                 "properties": {
-                    "status": {"type": "string", "description": "Filter by status"},
-                    "assigned_to": {"type": "string", "description": "Filter by assigned agent"}
+                    "status": {"type": "string"},
+                    "assigned_to": {"type": "string"}
                 }
             }
         },
         {
             "name": "read_memory",
-            "description": "Read the permanent project memory and context from .ai/MEMORY.md.",
+            "description": "Read permanent project memory from .ai/MEMORY.md.",
             "inputSchema": {
                 "type": "object",
                 "properties": {}
@@ -126,12 +128,12 @@ def handle_tools_list(req_id):
         },
         {
             "name": "write_memory",
-            "description": "Append a new permanent finding or knowledge item to .ai/MEMORY.md.",
+            "description": "Append knowledge to .ai/MEMORY.md.",
             "inputSchema": {
                 "type": "object",
                 "properties": {
-                    "entry": {"type": "string", "description": "Knowledge entry text"},
-                    "category": {"type": "string", "description": "Category or topic header"}
+                    "entry": {"type": "string"},
+                    "category": {"type": "string", "default": "General Knowledge"}
                 },
                 "required": ["entry"]
             }
@@ -142,17 +144,39 @@ def handle_tools_list(req_id):
             "inputSchema": {
                 "type": "object",
                 "properties": {
-                    "report_id": {"type": "string", "description": "Report filename or task ID"}
+                    "report_id": {"type": "string"}
                 },
                 "required": ["report_id"]
             }
         },
         {
             "name": "get_agent_status",
-            "description": "Get high-level summary of active tasks and orchestration health.",
+            "description": "Get high-level summary of active tasks.",
             "inputSchema": {
                 "type": "object",
                 "properties": {}
+            }
+        },
+        {
+            "name": "audit_batch_yield",
+            "description": "Antigravity PM Quality Gate: Audits Claude Expected Table vs OpenCode Parsed Table, verifies $0.00 match or reassigns task to OpenCode.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "batch_id": {"type": "string", "description": "Optional batch ID"}
+                }
+            }
+        },
+        {
+            "name": "trigger_claude_next_batch",
+            "description": "Directly invokes the connected Claude Code CLI on the local machine to generate and push the next batch.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "batch_num": {"type": "integer", "description": "Batch number to generate, e.g. 6"},
+                    "instructions": {"type": "string", "description": "Optional specific focus instructions"}
+                },
+                "required": ["batch_num"]
             }
         }
     ]
@@ -205,6 +229,10 @@ def handle_tool_call(req_id, params):
             res = bridge.get_report(args.get("report_id"))
         elif name == "get_agent_status":
             res = bridge.get_agent_status()
+        elif name == "audit_batch_yield":
+            res = pm_audit_yield(args.get("batch_id"))
+        elif name == "trigger_claude_next_batch":
+            res = trigger_claude_cli_next_batch(args.get("batch_num"), args.get("instructions"))
         else:
             send_response(req_id, error={"code": -32601, "message": f"Tool '{name}' not found"})
             return
@@ -234,7 +262,7 @@ def main():
             if method == "initialize":
                 handle_initialize(req_id, params)
             elif method == "notifications/initialized":
-                pass # no response needed for notifications
+                pass
             elif method == "tools/list":
                 handle_tools_list(req_id)
             elif method == "tools/call":
@@ -250,4 +278,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-EOF
