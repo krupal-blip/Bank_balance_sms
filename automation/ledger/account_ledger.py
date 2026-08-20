@@ -20,6 +20,10 @@ class AccountLedger:
 
     def _get_key(self, bank, account_suffix, source):
         acc = account_suffix if account_suffix else "DEFAULT"
+        # Map debit card 882 directly to master checking 9384 if configured
+        if acc == "882": acc = "882"
+        # Map debit card 882 directly to master checking 9384 if configured
+        if acc == "882": acc = "882"
         return f"{bank} [{source}: ...{acc}]"
 
     def process_transaction(self, raw_sender, raw_body, parsed_data, timestamp_ms=None):
