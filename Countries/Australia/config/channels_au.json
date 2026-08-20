@@ -14,7 +14,7 @@
       "smsKeyword": null, "smsShortCode": null,
       "smsSenderAddress": "CommBank",
       "miniStatementNumber": null,
-      "loginUrl": "https://www.commbank.com.au/digital-banking/netbank-login.html"
+      "loginUrl": "https://www.netbank.com.au/"
     },
     {
       "id": "nab",
@@ -62,7 +62,7 @@
       "smsKeyword": null, "smsShortCode": null,
       "smsSenderAddress": "StGeorge",
       "miniStatementNumber": null,
-      "loginUrl": "https://ibanking.stgeorge.com.au/iBank/loginPage.action",
+      "loginUrl": "https://www.stgeorge.com.au/online-services/internet-banking",
       "note": "Division of Westpac Banking Corporation. Separate brand and Sender ID."
     },
     {
@@ -75,7 +75,7 @@
       "smsKeyword": null, "smsShortCode": null,
       "smsSenderAddress": "BankofMelb",
       "miniStatementNumber": null,
-      "loginUrl": "https://ibanking.bankofmelbourne.com.au/iBank/loginPage.action",
+      "loginUrl": "https://www.bankofmelbourne.com.au/online-services/internet-banking",
       "note": "Division of Westpac Banking Corporation."
     },
     {
@@ -112,7 +112,7 @@
       "smsKeyword": null, "smsShortCode": null,
       "smsSenderAddress": "BOQ",
       "miniStatementNumber": null,
-      "loginUrl": "https://www.boq.com.au/personal-banking/online-banking"
+      "loginUrl": "https://www.boq.com.au/"
     },
     {
       "id": "suncorp",
@@ -137,7 +137,7 @@
       "smsKeyword": null, "smsShortCode": null,
       "smsSenderAddress": "ING",
       "miniStatementNumber": null,
-      "loginUrl": "https://www.ing.com.au/login.html"
+      "loginUrl": "https://www.ing.com.au/"
     },
     {
       "id": "hsbc_au",
@@ -149,7 +149,7 @@
       "smsKeyword": null, "smsShortCode": null,
       "smsSenderAddress": "HSBC",
       "miniStatementNumber": null,
-      "loginUrl": "https://www.hsbc.com.au/online-banking/"
+      "loginUrl": "https://www.hsbc.com.au/"
     },
     {
       "id": "ubank",
@@ -161,7 +161,7 @@
       "smsKeyword": null, "smsShortCode": null,
       "smsSenderAddress": "UBank",
       "miniStatementNumber": null,
-      "loginUrl": "https://www.ubank.com.au/banking/log-in"
+      "loginUrl": "https://www.ubank.com.au/"
     },
     {
       "id": "up_bank",

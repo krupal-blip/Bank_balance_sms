@@ -26,7 +26,7 @@
       "smsKeyword": null, "smsShortCode": null,
       "smsSenderAddress": null,
       "miniStatementNumber": null,
-      "loginUrl": "https://authentication.td.com/uap-ui/login/web/ca"
+      "loginUrl": "https://easyweb.td.com"
     },
     {
       "id": "scotiabank",
@@ -38,7 +38,7 @@
       "smsKeyword": null, "smsShortCode": null,
       "smsSenderAddress": null,
       "miniStatementNumber": null,
-      "loginUrl": "https://www.scotiabank.com/ca/en/personal/online-banking.html"
+      "loginUrl": "https://www.scotiabank.com/"
     },
     {
       "id": "bmo",
@@ -50,7 +50,7 @@
       "smsKeyword": null, "smsShortCode": null,
       "smsSenderAddress": null,
       "miniStatementNumber": null,
-      "loginUrl": "https://www.bmo.com/en-ca/main/personal/online-banking/"
+      "loginUrl": "https://www.bmo.com/"
     },
     {
       "id": "cibc",
@@ -62,7 +62,7 @@
       "smsKeyword": null, "smsShortCode": null,
       "smsSenderAddress": null,
       "miniStatementNumber": null,
-      "loginUrl": "https://www.cibc.com/en/personal-banking/ways-to-bank/online-banking.html"
+      "loginUrl": "https://www.cibc.com/"
     },
     {
       "id": "national_bank_canada",
@@ -74,7 +74,7 @@
       "smsKeyword": null, "smsShortCode": null,
       "smsSenderAddress": null,
       "miniStatementNumber": null,
-      "loginUrl": "https://www.nbc.ca/personal/ways-to-bank/online-banking.html"
+      "loginUrl": "https://www.nbc.ca/"
     },
     {
       "id": "desjardins",
@@ -86,7 +86,7 @@
       "smsKeyword": null, "smsShortCode": null,
       "smsSenderAddress": null,
       "miniStatementNumber": null,
-      "loginUrl": "https://www.desjardins.com/en/personal/accounts-services/access-accounts/accesd.html",
+      "loginUrl": "https://www.desjardins.com/",
       "note": "Largest cooperative financial group in North America. Major presence in Quebec and Ontario."
     },
     {
@@ -99,7 +99,7 @@
       "smsKeyword": null, "smsShortCode": null,
       "smsSenderAddress": null,
       "miniStatementNumber": null,
-      "loginUrl": "https://www.tangerine.ca/en/products/spending/secure-access/"
+      "loginUrl": "https://www.tangerine.ca/"
     },
     {
       "id": "eq_bank",
@@ -124,7 +124,7 @@
       "smsKeyword": null, "smsShortCode": null,
       "smsSenderAddress": null,
       "miniStatementNumber": null,
-      "loginUrl": "https://online.laurentianbank.ca/"
+      "loginUrl": "https://www.laurentianbank.ca/"
     },
     {
       "id": "atb_financial",

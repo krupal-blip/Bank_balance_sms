@@ -6,7 +6,7 @@
     {
       "bankId": "chase",
       "displayName": "Chase Online Banking",
-      "loginUrl": "https://secure.chase.com/web/auth/view/login",
+      "loginUrl": "https://www.chase.com/digital/login",
       "allowedHosts": ["chase.com", "secure.chase.com", "auth.chase.com"]
     },
     {
@@ -42,13 +42,13 @@
     {
       "bankId": "pnc",
       "displayName": "PNC Online Banking",
-      "loginUrl": "https://onlinebanking.pnc.com/alservlet/LoginServlet",
+      "loginUrl": "https://www.pnc.com/en/personal-banking.html",
       "allowedHosts": ["pnc.com", "onlinebanking.pnc.com"]
     },
     {
       "bankId": "truist",
       "displayName": "Truist Online Banking",
-      "loginUrl": "https://app.truist.com/auth",
+      "loginUrl": "https://www.truist.com/",
       "allowedHosts": ["truist.com", "app.truist.com"]
     },
     {
@@ -60,7 +60,7 @@
     {
       "bankId": "bmobank",
       "displayName": "BMO Digital Banking",
-      "loginUrl": "https://us.bmo.com/digital",
+      "loginUrl": "https://www.bmobank.com/",
       "allowedHosts": ["bmo.com", "us.bmo.com"]
     }
   ]

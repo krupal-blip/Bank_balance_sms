@@ -51,7 +51,7 @@
       "smsKeyword": null, "smsShortCode": null,
       "smsSenderAddress": "Barclays",
       "miniStatementNumber": null,
-      "loginUrl": "https://bank.barclays.co.uk/olb/auth/LoginLink.action"
+      "loginUrl": "https://www.barclays.co.uk/"
     },
     {
       "id": "hsbc_uk",
@@ -126,7 +126,7 @@
       "smsKeyword": null, "smsShortCode": null,
       "smsSenderAddress": "Nationwide",
       "miniStatementNumber": null,
-      "loginUrl": "https://www.nationwide.co.uk/support/ways-to-bank/online-banking/"
+      "loginUrl": "https://www.nationwide.co.uk/"
     },
     {
       "id": "virgin_money",
@@ -138,7 +138,7 @@
       "smsKeyword": null, "smsShortCode": null,
       "smsSenderAddress": "VirginMoney",
       "miniStatementNumber": null,
-      "loginUrl": "https://uk.virginmoney.com/savings/login/",
+      "loginUrl": "https://uk.virginmoney.com/",
       "note": "Acquired by Nationwide Building Society in 2024."
     },
     {
@@ -201,7 +201,7 @@
       "smsKeyword": null, "smsShortCode": null,
       "smsSenderAddress": "CoopBank",
       "miniStatementNumber": null,
-      "loginUrl": "https://banking.co-operativebank.co.uk/"
+      "loginUrl": "https://www.co-operativebank.co.uk/"
     }
   ]
 }

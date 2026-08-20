@@ -14,7 +14,7 @@
       "smsKeyword": null, "smsShortCode": null,
       "smsSenderAddress": "DeutscheBank",
       "miniStatementNumber": null,
-      "loginUrl": "https://www.deutsche-bank.de/pk/service-und-ihr-konto/online-banking.html"
+      "loginUrl": "https://meine.deutsche-bank.de"
     },
     {
       "id": "commerzbank",
@@ -26,7 +26,7 @@
       "smsKeyword": null, "smsShortCode": null,
       "smsSenderAddress": "Commerzbank",
       "miniStatementNumber": null,
-      "loginUrl": "https://banking.commerzbank.de"
+      "loginUrl": "https://www.commerzbank.de/"
     },
     {
       "id": "comdirect",
@@ -64,7 +64,7 @@
       "smsKeyword": null, "smsShortCode": null,
       "smsSenderAddress": "Sparkasse",
       "miniStatementNumber": null,
-      "loginUrl": "https://www.sparkasse.de/unsere-loesungen/privatkunden/produkte/online-banking.html",
+      "loginUrl": "https://www.sparkasse.de/",
       "note": "Decentralized network of ~370 local Sparkassen. Kontowecker feature supports optional SMS alerts for balance thresholds. No single national IVR."
     },
     {
@@ -77,7 +77,7 @@
       "smsKeyword": null, "smsShortCode": null,
       "smsSenderAddress": "Volksbank",
       "miniStatementNumber": null,
-      "loginUrl": "https://www.volksbank.de/",
+      "loginUrl": "https://www.volksbanken-raiffeisenbanken.de/",
       "note": "Cooperative banking network of ~700 local Volksbanken. Central institution: DZ Bank. App-based push notifications for transaction alerts."
     },
     {
@@ -90,7 +90,7 @@
       "smsKeyword": null, "smsShortCode": null,
       "smsSenderAddress": "DKB",
       "miniStatementNumber": null,
-      "loginUrl": "https://banking.dkb.de/login"
+      "loginUrl": "https://banking.dkb.de/"
     },
     {
       "id": "ing_diba",
@@ -102,7 +102,7 @@
       "smsKeyword": null, "smsShortCode": null,
       "smsSenderAddress": "ING-DiBa",
       "miniStatementNumber": null,
-      "loginUrl": "https://banking.ing.de/app/login"
+      "loginUrl": "https://www.ing.de/"
     },
     {
       "id": "postbank",
@@ -114,7 +114,7 @@
       "smsKeyword": null, "smsShortCode": null,
       "smsSenderAddress": "Postbank",
       "miniStatementNumber": null,
-      "loginUrl": "https://www.postbank.de/privatkunden/service/online-banking.html",
+      "loginUrl": "https://www.postbank.de/",
       "note": "Subsidiary of Deutsche Bank since 2018."
     },
     {
@@ -140,7 +140,7 @@
       "smsKeyword": null, "smsShortCode": null,
       "smsSenderAddress": "TARGOBANK",
       "miniStatementNumber": null,
-      "loginUrl": "https://www.targobank.de/de/privatkunden/banking-service/online-banking.html"
+      "loginUrl": "https://www.targobank.de/"
     },
     {
       "id": "santander_de",
@@ -152,7 +152,7 @@
       "smsKeyword": null, "smsShortCode": null,
       "smsSenderAddress": "Santander",
       "miniStatementNumber": null,
-      "loginUrl": "https://onlinebanking.santander.de/"
+      "loginUrl": "https://www.santander.de/"
     }
   ]
 }
