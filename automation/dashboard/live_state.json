@@ -1,0 +1,1040 @@
+{
+  "task_id": "TASK_AUTO_20260820_134224_usa_batch5",
+  "xml_path": "/Volumes/Extra/backup/R&D/Bank_balance/samples/usa/usa_batch5.xml",
+  "feed_items": [
+    {
+      "id": 1,
+      "sender": "93557",
+      "body": "Wells Fargo: Your new Wells Fargo Debit Card ending in 9111 is now active and linked to checking account ending 4417.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "9111",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 2,
+      "sender": "322632",
+      "body": "Bank of America: Good news! Your credit line on card ending 9111 has been increased to $6,000.00. No action needed. Avail credit: $2,337.70.",
+      "type": "DEBIT",
+      "parsedAmount": "$6,000.00",
+      "parsedBal": "$2,337.70",
+      "acc": "9111",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 3,
+      "sender": "37777",
+      "body": "USPS: Your package 9479207814979871086 is out for delivery today.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 4,
+      "sender": "322632",
+      "body": "BofA: A pending authorization of $45.26 at WHOLE FOODS MKT is on your credit card ending 9111. Final amount may vary.",
+      "type": "DEBIT",
+      "parsedAmount": "$45.26",
+      "parsedBal": "None",
+      "acc": "9111",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 5,
+      "sender": "55123",
+      "body": "QuickCash Loans: Get up to $5,000 TODAY! No credit check. Apply now: qcloans.example/apply. Txt STOP to end.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 6,
+      "sender": "24273",
+      "body": "Chase: You made a $138.92 debit card purchase with card ending 7761 at BEST BUY #442 on 01/05. Avail bal: $20,123.97.",
+      "type": "DEBIT",
+      "parsedAmount": "$138.92",
+      "parsedBal": "$20,123.97",
+      "acc": "7761",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 7,
+      "sender": "322632",
+      "body": "Bank of America: A withdrawal/debit of $57.72 (T-MOBILE) posted to account ending 9661 on 01/05. Available balance: $1,111.76.",
+      "type": "DEBIT",
+      "parsedAmount": "$57.72",
+      "parsedBal": "$1,111.76",
+      "acc": "9661",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 8,
+      "sender": "24273",
+      "body": "Chase: You made a $23.60 debit card purchase with card ending 7761 at SPOTIFY USA on 01/05. Avail bal: $20,100.37.",
+      "type": "DEBIT",
+      "parsedAmount": "$23.60",
+      "parsedBal": "$20,100.37",
+      "acc": "7761",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 9,
+      "sender": "322632",
+      "body": "Bank of America: A purchase of $24.67 at WALMART SUPERCENTER was charged to your credit card ending in 9111 on 01/05.",
+      "type": "DEBIT",
+      "parsedAmount": "$24.67",
+      "parsedBal": "None",
+      "acc": "9111",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 10,
+      "sender": "24273",
+      "body": "Chase: You made a $99.54 debit card purchase with card ending 7761 at HOME DEPOT #6641 on 01/06. Avail bal: $20,000.83.",
+      "type": "DEBIT",
+      "parsedAmount": "$99.54",
+      "parsedBal": "$20,000.83",
+      "acc": "7761",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 11,
+      "sender": "24273",
+      "body": "Chase: You made a $37.43 debit card purchase with card ending 7761 at TRADER JOE'S #552 on 01/06. Avail bal: $19,963.40.",
+      "type": "DEBIT",
+      "parsedAmount": "$37.43",
+      "parsedBal": "$19,963.40",
+      "acc": "7761",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 12,
+      "sender": "93557",
+      "body": "Wells Fargo: A purchase of $113.60 occurred on card ending in 9111 at KROGER #771 on 01/07. Avail Bal: $886.40.",
+      "type": "DEBIT",
+      "parsedAmount": "$113.60",
+      "parsedBal": "$886.40",
+      "acc": "9111",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 13,
+      "sender": "93557",
+      "body": "Wells Fargo: A purchase of $62.64 occurred on card ending in 9111 at BEST BUY #442 on 01/07. Avail Bal: $823.76.",
+      "type": "DEBIT",
+      "parsedAmount": "$62.64",
+      "parsedBal": "$823.76",
+      "acc": "9111",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 14,
+      "sender": "322632",
+      "body": "Bank of America: A purchase of $29.98 at AMAZON MKTPLACE was charged to your credit card ending in 9111 on 01/07.",
+      "type": "DEBIT",
+      "parsedAmount": "$29.98",
+      "parsedBal": "None",
+      "acc": "9111",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 15,
+      "sender": "322632",
+      "body": "Bank of America: Your credit card ending in 9111 statement is ready. Balance: $3,716.95. Min payment $35.00 due 01/26.",
+      "type": "DEBIT",
+      "parsedAmount": "$3,716.95",
+      "parsedBal": "$3,716.95",
+      "acc": "9111",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 16,
+      "sender": "+14155550132",
+      "body": "Hey are we still on for dinner tonight?",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 17,
+      "sender": "37777",
+      "body": "USPS: Your package 9433774468869534634 is out for delivery today.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 18,
+      "sender": "24273",
+      "body": "Chase: MIKE CHEN requested $83.38 from you with Zelle(R). Review in the Chase Mobile app. No money has moved.",
+      "type": "DEBIT",
+      "parsedAmount": "$83.38",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 19,
+      "sender": "+14155550132",
+      "body": "Running 10 min late",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 20,
+      "sender": "24273",
+      "body": "Chase: You sent $136.51 to JOHN MILLER with Zelle(R) from acct ending 9384 on 01/09. Avail bal: $19,826.89.",
+      "type": "DEBIT",
+      "parsedAmount": "$136.51",
+      "parsedBal": "$19,826.89",
+      "acc": "9384",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 21,
+      "sender": "24273",
+      "body": "Chase: Your requested balance for acct ...9384 is $19,826.89 as of 01/10.",
+      "type": "DEBIT",
+      "parsedAmount": "$19,826.89",
+      "parsedBal": "None",
+      "acc": "9384",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 22,
+      "sender": "24273",
+      "body": "Chase Fraud Alert: Did you attempt $236.79 at ONLINE MERCHANT with debit card ending 7761? Reply YES or NO.",
+      "type": "DEBIT",
+      "parsedAmount": "$236.79",
+      "parsedBal": "None",
+      "acc": "7761",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 23,
+      "sender": "24273",
+      "body": "Chase: Your online payment of $409.90 to BANK OF AMERICA CARD 9111 from acct ...9384 is complete on 01/11. Avail bal: $19,416.99.",
+      "type": "CREDIT",
+      "parsedAmount": "$409.90",
+      "parsedBal": "$19,416.99",
+      "acc": "9384",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 24,
+      "sender": "322632",
+      "body": "BofA: Payment of $409.90 received on credit card ending 9111. Thank you. Avail credit: $2,692.95.",
+      "type": "CREDIT",
+      "parsedAmount": "$409.90",
+      "parsedBal": "$2,692.95",
+      "acc": "9111",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 25,
+      "sender": "24273",
+      "body": "Chase: You made a $57.08 debit card purchase with card ending 7761 at COSTCO WHSE #482 on 01/11. Avail bal: $19,359.91.",
+      "type": "DEBIT",
+      "parsedAmount": "$57.08",
+      "parsedBal": "$19,359.91",
+      "acc": "7761",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 26,
+      "sender": "322632",
+      "body": "BofA: Your credit card ending 9111 was DECLINED for $403.85 at APPLE.COM/BILL on 01/12. Call 800.732.9194 if you need help.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 27,
+      "sender": "+14155550132",
+      "body": "Running 10 min late",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 28,
+      "sender": "322632",
+      "body": "BofA: Your credit card ending 9111 was DECLINED for $35.45 at CVS/PHARMACY #883 on 01/12. Call 800.732.9194 if you need help.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 29,
+      "sender": "262966",
+      "body": "228713 is your Amazon OTP. Do not share it with anyone.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 30,
+      "sender": "93557",
+      "body": "Wells Fargo: A purchase of $92.15 occurred on card ending in 9111 at WALMART SUPERCENTER on 01/13. Avail Bal: $731.61.",
+      "type": "DEBIT",
+      "parsedAmount": "$92.15",
+      "parsedBal": "$731.61",
+      "acc": "9111",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 31,
+      "sender": "24273",
+      "body": "Chase: You made a $51.60 debit card purchase with card ending 7761 at TRADER JOE'S #552 on 01/13. Avail bal: $19,308.31.",
+      "type": "DEBIT",
+      "parsedAmount": "$51.60",
+      "parsedBal": "$19,308.31",
+      "acc": "7761",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 32,
+      "sender": "93557",
+      "body": "Wells Fargo: A purchase of $94.57 occurred on card ending in 9111 at APPLE.COM/BILL on 01/14. Avail Bal: $637.04.",
+      "type": "DEBIT",
+      "parsedAmount": "$94.57",
+      "parsedBal": "$637.04",
+      "acc": "9111",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 33,
+      "sender": "322632",
+      "body": "Bank of America: Your credit card ending in 9111 statement is ready. Balance: $3,307.05. Min payment $35.00 due 02/01.",
+      "type": "DEBIT",
+      "parsedAmount": "$3,307.05",
+      "parsedBal": "$3,307.05",
+      "acc": "9111",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 34,
+      "sender": "37777",
+      "body": "USPS: Your package 9461675377152327952 is out for delivery today.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 35,
+      "sender": "89887",
+      "body": "DOMINO'S: BOGO large pizzas today only! dominos.com. Txt STOP to end.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 36,
+      "sender": "322632",
+      "body": "Bank of America: A withdrawal/debit of $52.93 (T-MOBILE) posted to account ending 9661 on 01/16. Available balance: $1,058.83.",
+      "type": "DEBIT",
+      "parsedAmount": "$52.93",
+      "parsedBal": "$1,058.83",
+      "acc": "9661",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 37,
+      "sender": "322632",
+      "body": "Bank of America: A refund of $42.03 from STARBUCKS #2214 was credited to your credit card ending in 9111 on 01/16. Avail credit: $2,734.98.",
+      "type": "CREDIT",
+      "parsedAmount": "$42.03",
+      "parsedBal": "$2,734.98",
+      "acc": "9111",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 38,
+      "sender": "93557",
+      "body": "Wells Fargo: Bill Pay of $67.07 to CITY WATER DEPT was sent from account ending 4417 on 01/16. Avail Bal: $569.97.",
+      "type": "DEBIT",
+      "parsedAmount": "$67.07",
+      "parsedBal": "$569.97",
+      "acc": "4417",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 39,
+      "sender": "24273",
+      "body": "Chase: Your one-time code is 182146. Don't share it. We'll never call to ask for it.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 40,
+      "sender": "24273",
+      "body": "Chase: You sent $36.68 to SARAH LOPEZ with Zelle(R) from acct ending 9384 on 01/17. Avail bal: $19,271.63.",
+      "type": "DEBIT",
+      "parsedAmount": "$36.68",
+      "parsedBal": "$19,271.63",
+      "acc": "9384",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 41,
+      "sender": "93557",
+      "body": "Wells Fargo: The temporary hold on your recent deposit to account ending 4417 has been RELEASED. Funds are now available.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "4417",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 42,
+      "sender": "24273",
+      "body": "Chase: You scheduled a payment of $113.72 to COMCAST CABLE for 01/26 from acct ...9384. To cancel, visit chase.com/pay.",
+      "type": "CREDIT",
+      "parsedAmount": "$113.72",
+      "parsedBal": "None",
+      "acc": "9384",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 43,
+      "sender": "322632",
+      "body": "Bank of America: A purchase of $172.68 at WHOLE FOODS MKT was charged to your credit card ending in 9111 on 01/18.",
+      "type": "DEBIT",
+      "parsedAmount": "$172.68",
+      "parsedBal": "None",
+      "acc": "9111",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 44,
+      "sender": "322632",
+      "body": "BofA: Your credit card ending 9111 was DECLINED for $143.11 at APPLE.COM/BILL on 01/18. Call 800.732.9194 if you need help.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 45,
+      "sender": "24273",
+      "body": "Chase: Your one-time code is 462331. Don't share it. We'll never call to ask for it.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 46,
+      "sender": "22000",
+      "body": "G-842608 is your Google verification code.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 47,
+      "sender": "24273",
+      "body": "Chase: MIKE CHEN sent you $47.48 with Zelle(R). Deposited to acct ...9384. Avail bal: $19,319.11.",
+      "type": "CREDIT",
+      "parsedAmount": "$47.48",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 48,
+      "sender": "24273",
+      "body": "Chase: You scheduled a payment of $245.03 to COMCAST CABLE for 01/28 from acct ...9384. To cancel, visit chase.com/pay.",
+      "type": "CREDIT",
+      "parsedAmount": "$245.03",
+      "parsedBal": "None",
+      "acc": "9384",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 49,
+      "sender": "24273",
+      "body": "Chase: You scheduled a payment of $135.47 to COMCAST CABLE for 01/29 from acct ...9384. To cancel, visit chase.com/pay.",
+      "type": "CREDIT",
+      "parsedAmount": "$135.47",
+      "parsedBal": "None",
+      "acc": "9384",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 50,
+      "sender": "322632",
+      "body": "BofA: Your credit card ending 9111 was DECLINED for $171.29 at STARBUCKS #2214 on 01/21. Call 800.732.9194 if you need help.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 51,
+      "sender": "322632",
+      "body": "BofA: A pending authorization of $114.88 at WHOLE FOODS MKT is on your credit card ending 9111. Final amount may vary.",
+      "type": "DEBIT",
+      "parsedAmount": "$114.88",
+      "parsedBal": "None",
+      "acc": "9111",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 52,
+      "sender": "24273",
+      "body": "Chase: You made a $98.83 debit card purchase with card ending 7761 at TRADER JOE'S #552 on 01/22. Avail bal: $19,220.28.",
+      "type": "DEBIT",
+      "parsedAmount": "$98.83",
+      "parsedBal": "$19,220.28",
+      "acc": "7761",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 53,
+      "sender": "24273",
+      "body": "Chase: SARAH LOPEZ sent you $66.89 with Zelle(R). Deposited to acct ...9384. Avail bal: $19,287.17.",
+      "type": "CREDIT",
+      "parsedAmount": "$66.89",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 54,
+      "sender": "24273",
+      "body": "Chase: You scheduled a payment of $257.45 to COMCAST CABLE for 01/31 from acct ...9384. To cancel, visit chase.com/pay.",
+      "type": "CREDIT",
+      "parsedAmount": "$257.45",
+      "parsedBal": "None",
+      "acc": "9384",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 55,
+      "sender": "24273",
+      "body": "Chase: MIKE CHEN sent you $102.14 with Zelle(R). Deposited to acct ...9384. Avail bal: $19,389.31.",
+      "type": "CREDIT",
+      "parsedAmount": "$102.14",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 56,
+      "sender": "93557",
+      "body": "Wells Fargo: A purchase of $28.03 occurred on card ending in 9111 at 24 HOUR FITNESS USA on 01/24. Avail Bal: $541.94.",
+      "type": "DEBIT",
+      "parsedAmount": "$28.03",
+      "parsedBal": "$541.94",
+      "acc": "9111",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 57,
+      "sender": "24273",
+      "body": "Chase: You made a $142.06 debit card purchase with card ending 7761 at SPOTIFY USA on 01/24. Avail bal: $19,247.25.",
+      "type": "DEBIT",
+      "parsedAmount": "$142.06",
+      "parsedBal": "$19,247.25",
+      "acc": "7761",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 58,
+      "sender": "93557",
+      "body": "Wells Fargo: A direct deposit of $800.00 from ACME TECHNOLOGIES PAYROLL was received into account ending 4417 on 01/24. Avail Bal: $1,341.94.",
+      "type": "CREDIT",
+      "parsedAmount": "$800.00",
+      "parsedBal": "$1,341.94",
+      "acc": "4417",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 59,
+      "sender": "24273",
+      "body": "Chase: You made a $74.02 debit card purchase with card ending 7761 at HOME DEPOT #6641 on 01/25. Avail bal: $19,173.23.",
+      "type": "DEBIT",
+      "parsedAmount": "$74.02",
+      "parsedBal": "$19,173.23",
+      "acc": "7761",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 60,
+      "sender": "54321",
+      "body": "VOTE NOV 3! Volunteer with us this weekend. Reply STOP to opt out. Paid for by Citizens Committee.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 61,
+      "sender": "322632",
+      "body": "BofA Reminder: Payment of $35.00 minimum is due on credit card ending 9111 by 02/01. Avoid late fees.",
+      "type": "CREDIT",
+      "parsedAmount": "$35.00",
+      "parsedBal": "None",
+      "acc": "9111",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 62,
+      "sender": "322632",
+      "body": "Bank of America: A withdrawal/debit of $42.06 (ATM WITHDRAWAL #A5521) posted to account ending 9661 on 01/26. Available balance: $1,016.77.",
+      "type": "DEBIT",
+      "parsedAmount": "$42.06",
+      "parsedBal": "$1,016.77",
+      "acc": "9661",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 63,
+      "sender": "93557",
+      "body": "Wells Fargo: A purchase of $20.99 occurred on card ending in 9111 at WALMART SUPERCENTER on 01/26. Avail Bal: $1,320.95.",
+      "type": "DEBIT",
+      "parsedAmount": "$20.99",
+      "parsedBal": "$1,320.95",
+      "acc": "9111",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 64,
+      "sender": "24273",
+      "body": "Chase Fraud Alert: Did you attempt $471.02 at ONLINE MERCHANT with debit card ending 7761? Reply YES or NO.",
+      "type": "DEBIT",
+      "parsedAmount": "$471.02",
+      "parsedBal": "None",
+      "acc": "7761",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 65,
+      "sender": "93557",
+      "body": "Wells Fargo: A purchase of $63.49 occurred on card ending in 9111 at APPLE.COM/BILL on 01/27. Avail Bal: $1,257.46.",
+      "type": "DEBIT",
+      "parsedAmount": "$63.49",
+      "parsedBal": "$1,257.46",
+      "acc": "9111",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 66,
+      "sender": "24273",
+      "body": "Chase: Direct deposit of $1,789.27 from ACME TECHNOLOGIES PAYROLL posted to acct ...9384 on 01/28. Avail bal: $20,962.50.",
+      "type": "CREDIT",
+      "parsedAmount": "$1,789.27",
+      "parsedBal": "$20,962.50",
+      "acc": "9384",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 67,
+      "sender": "24273",
+      "body": "Chase Fraud Alert: Did you attempt $75.46 at ONLINE MERCHANT with debit card ending 7761? Reply YES or NO.",
+      "type": "DEBIT",
+      "parsedAmount": "$75.46",
+      "parsedBal": "None",
+      "acc": "7761",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 68,
+      "sender": "24273",
+      "body": "Chase: You made a $23.31 debit card purchase with card ending 7761 at AMAZON MKTPLACE on 01/29. Avail bal: $20,939.19.",
+      "type": "DEBIT",
+      "parsedAmount": "$23.31",
+      "parsedBal": "$20,939.19",
+      "acc": "7761",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 69,
+      "sender": "24273",
+      "body": "Chase: Direct deposit of $532.21 from ACME TECHNOLOGIES PAYROLL posted to acct ...9384 on 01/29. Avail bal: $21,471.40.",
+      "type": "CREDIT",
+      "parsedAmount": "$532.21",
+      "parsedBal": "$21,471.40",
+      "acc": "9384",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 70,
+      "sender": "322632",
+      "body": "Bank of America: A purchase of $142.03 at STARBUCKS #2214 was charged to your credit card ending in 9111 on 01/29.",
+      "type": "DEBIT",
+      "parsedAmount": "$142.03",
+      "parsedBal": "None",
+      "acc": "9111",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 71,
+      "sender": "93557",
+      "body": "Wells Fargo: 375827 is your access code. It expires in 10 minutes. Don't share it.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 72,
+      "sender": "24273",
+      "body": "Chase: Your one-time code is 559751. Don't share it. We'll never call to ask for it.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 73,
+      "sender": "322632",
+      "body": "Bank of America: A purchase of $73.54 at BEST BUY #442 was charged to your credit card ending in 9111 on 01/30.",
+      "type": "DEBIT",
+      "parsedAmount": "$73.54",
+      "parsedBal": "None",
+      "acc": "9111",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 74,
+      "sender": "93557",
+      "body": "Wells Fargo: A purchase of $72.89 occurred on card ending in 9111 at STARBUCKS #2214 on 01/31. Avail Bal: $1,184.57.",
+      "type": "DEBIT",
+      "parsedAmount": "$72.89",
+      "parsedBal": "$1,184.57",
+      "acc": "9111",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 75,
+      "sender": "322632",
+      "body": "BofA Reminder: Payment of $35.00 minimum is due on credit card ending 9111 by 02/06. Avoid late fees.",
+      "type": "CREDIT",
+      "parsedAmount": "$35.00",
+      "parsedBal": "None",
+      "acc": "9111",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 76,
+      "sender": "93557",
+      "body": "Wells Fargo: A direct deposit of $800.00 from ACME TECHNOLOGIES PAYROLL was received into account ending 4417 on 02/01. Avail Bal: $1,984.57.",
+      "type": "CREDIT",
+      "parsedAmount": "$800.00",
+      "parsedBal": "$1,984.57",
+      "acc": "4417",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 77,
+      "sender": "322632",
+      "body": "Bank of America: A purchase of $127.27 at CVS/PHARMACY #883 was charged to your credit card ending in 9111 on 02/01.",
+      "type": "DEBIT",
+      "parsedAmount": "$127.27",
+      "parsedBal": "None",
+      "acc": "9111",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 78,
+      "sender": "24273",
+      "body": "Chase: SARAH LOPEZ requested $36.30 from you with Zelle(R). Review in the Chase Mobile app. No money has moved.",
+      "type": "DEBIT",
+      "parsedAmount": "$36.30",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 79,
+      "sender": "24273",
+      "body": "Chase: You made a $52.35 debit card purchase with card ending 7761 at CVS/PHARMACY #883 on 02/02. Avail bal: $21,419.05.",
+      "type": "DEBIT",
+      "parsedAmount": "$52.35",
+      "parsedBal": "$21,419.05",
+      "acc": "7761",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 80,
+      "sender": "93557",
+      "body": "Wells Fargo: Bill Pay of $81.04 to STATE FARM INS was sent from account ending 4417 on 02/03. Avail Bal: $1,903.53.",
+      "type": "DEBIT",
+      "parsedAmount": "$81.04",
+      "parsedBal": "$1,903.53",
+      "acc": "4417",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 81,
+      "sender": "24273",
+      "body": "Chase: Your one-time code is 254388. Don't share it. We'll never call to ask for it.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 82,
+      "sender": "93557",
+      "body": "Wells Fargo: A purchase of $41.17 occurred on card ending in 9111 at SPOTIFY USA on 02/03. Avail Bal: $1,862.36.",
+      "type": "DEBIT",
+      "parsedAmount": "$41.17",
+      "parsedBal": "$1,862.36",
+      "acc": "9111",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 83,
+      "sender": "24273",
+      "body": "Chase: Direct deposit of $831.56 from ACME TECHNOLOGIES PAYROLL posted to acct ...9384 on 02/04. Avail bal: $22,250.61.",
+      "type": "CREDIT",
+      "parsedAmount": "$831.56",
+      "parsedBal": "$22,250.61",
+      "acc": "9384",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 84,
+      "sender": "24273",
+      "body": "Chase: You made a $137.53 debit card purchase with card ending 7761 at BEST BUY #442 on 02/04. Avail bal: $22,113.08.",
+      "type": "DEBIT",
+      "parsedAmount": "$137.53",
+      "parsedBal": "$22,113.08",
+      "acc": "7761",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 85,
+      "sender": "24273",
+      "body": "Chase: You made a $31.66 debit card purchase with card ending 7761 at KROGER #771 on 02/05. Avail bal: $22,081.42.",
+      "type": "DEBIT",
+      "parsedAmount": "$31.66",
+      "parsedBal": "$22,081.42",
+      "acc": "7761",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 86,
+      "sender": "93557",
+      "body": "Wells Fargo: A purchase of $86.71 occurred on card ending in 9111 at SHELL OIL 5744 on 02/06. Avail Bal: $1,775.65.",
+      "type": "DEBIT",
+      "parsedAmount": "$86.71",
+      "parsedBal": "$1,775.65",
+      "acc": "9111",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 87,
+      "sender": "672566",
+      "body": "Netflix: Your payment method was updated successfully. If this wasn't you, visit netflix.com/account.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 88,
+      "sender": "37777",
+      "body": "USPS: Your package 9472952233246045435 is out for delivery today.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 89,
+      "sender": "93557",
+      "body": "Wells Fargo: Bill Pay of $71.83 to AT&T was sent from account ending 4417 on 02/07. Avail Bal: $1,703.82.",
+      "type": "DEBIT",
+      "parsedAmount": "$71.83",
+      "parsedBal": "$1,703.82",
+      "acc": "4417",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 90,
+      "sender": "89887",
+      "body": "DOMINO'S: BOGO large pizzas today only! dominos.com. Txt STOP to end.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 91,
+      "sender": "24273",
+      "body": "Chase: JOHN MILLER sent you $12.56 with Zelle(R). Deposited to acct ...9384. Avail bal: $22,093.98.",
+      "type": "CREDIT",
+      "parsedAmount": "$12.56",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 92,
+      "sender": "322632",
+      "body": "Bank of America: A purchase of $80.97 at CHIPOTLE 1187 was charged to your credit card ending in 9111 on 02/08.",
+      "type": "DEBIT",
+      "parsedAmount": "$80.97",
+      "parsedBal": "None",
+      "acc": "9111",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 93,
+      "sender": "24273",
+      "body": "Chase: You made a $113.08 debit card purchase with card ending 7761 at APPLE.COM/BILL on 02/09. Avail bal: $21,980.90.",
+      "type": "DEBIT",
+      "parsedAmount": "$113.08",
+      "parsedBal": "$21,980.90",
+      "acc": "7761",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 94,
+      "sender": "24273",
+      "body": "Chase: SARAH LOPEZ sent you $161.21 with Zelle(R). Deposited to acct ...9384. Avail bal: $22,142.11.",
+      "type": "CREDIT",
+      "parsedAmount": "$161.21",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 95,
+      "sender": "24273",
+      "body": "Chase: You sent $69.08 to JOHN MILLER with Zelle(R) from acct ending 9384 on 02/10. Avail bal: $22,073.03.",
+      "type": "DEBIT",
+      "parsedAmount": "$69.08",
+      "parsedBal": "$22,073.03",
+      "acc": "9384",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 96,
+      "sender": "24273",
+      "body": "Chase: Your one-time code is 568764. Don't share it. We'll never call to ask for it.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 97,
+      "sender": "24273",
+      "body": "Chase: Your online payment of $366.58 to BANK OF AMERICA CARD 9111 from acct ...9384 is complete on 02/11. Avail bal: $21,706.45.",
+      "type": "CREDIT",
+      "parsedAmount": "$366.58",
+      "parsedBal": "$21,706.45",
+      "acc": "9384",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 98,
+      "sender": "322632",
+      "body": "BofA: Payment of $366.58 received on credit card ending 9111. Thank you. Avail credit: $2,505.07.",
+      "type": "CREDIT",
+      "parsedAmount": "$366.58",
+      "parsedBal": "$2,505.07",
+      "acc": "9111",
+      "tag": "TRANSACTION"
+    }
+  ],
+  "dual_table": [
+    {
+      "account": "Chase BANK (...9384)",
+      "expected": "$21,706.45",
+      "parsed": "$21,706.45",
+      "status": "MATCH",
+      "diff": "$0.00"
+    },
+    {
+      "account": "Chase CARD (...7761)",
+      "expected": "$21,706.45",
+      "parsed": "$21,706.45",
+      "status": "MATCH",
+      "diff": "$0.00"
+    },
+    {
+      "account": "Chase CARD (...882)",
+      "expected": "$21,706.45",
+      "parsed": "$21,706.45",
+      "status": "MATCH",
+      "diff": "$0.00"
+    },
+    {
+      "account": "Bank of America BANK (...9661)",
+      "expected": "$1,016.77",
+      "parsed": "$1,016.77",
+      "status": "MATCH",
+      "diff": "$0.00"
+    },
+    {
+      "account": "Bank of America CARD (...9111)",
+      "expected": "$3,494.93",
+      "parsed": "$3,494.93",
+      "status": "MATCH",
+      "diff": "$0.00"
+    },
+    {
+      "account": "Wells Fargo BANK (...4417)",
+      "expected": "$1,703.82",
+      "parsed": "$1,703.82",
+      "status": "MATCH",
+      "diff": "$0.00"
+    },
+    {
+      "account": "Wells Fargo CARD (...9111)",
+      "expected": "$1,703.82",
+      "parsed": "$1,703.82",
+      "status": "MATCH",
+      "diff": "$0.00"
+    }
+  ],
+  "discrepancies": [],
+  "all_match": true,
+  "pass_rate": "100.0% (PERFECT MATCH)"
+}
