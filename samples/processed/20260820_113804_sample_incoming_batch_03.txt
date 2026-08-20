@@ -1,0 +1,7 @@
+# Sample Raw SMS Incoming Messages
+# Drop any raw SMS lines here!
+
+24273 | Chase: A debit card purchase of $15.75 was made at STARBUCKS #1042 on Aug 20, 2026. Available bal: $2,434.35.
+73981 | Bank of America Alert: Card ending in 1204 was charged $45.00 at CHEVRON GAS on 08/20/2026.
+93557 | Wells Fargo Alert: A purchase of $12.50 occurred on card ending in 4112 at MCDONALDS on Aug 20. Avail Bal: $1,107.50.
+24273 | Chase: Your temporary security code is 194820. Do not share this code with anyone.
