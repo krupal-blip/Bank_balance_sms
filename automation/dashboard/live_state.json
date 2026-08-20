@@ -1,5 +1,5 @@
 {
-  "task_id": "TASK_AUTO_20260820_135558_usa_batch6",
+  "task_id": "TASK_AUTO_20260820_135900_usa_batch6",
   "xml_path": "/Volumes/Extra/backup/R&D/Bank_balance/samples/usa/usa_batch6.xml",
   "feed_items": [
     {
@@ -65,7 +65,7 @@
     {
       "id": 7,
       "sender": "24273",
-      "body": "Chase: AutoPay is now SET UP for CITY POWER & LIGHT from acct ...9384. First payment of $142.66 will be sent on 02/26. No money has moved yet.",
+      "body": "Chase: AutoPay is now SET UP for CITY POWER & LIGHT from acct ...9384. First payment of $142.66 will be sent on 03/03. No money has moved yet.",
       "type": "NEGATIVE",
       "parsedAmount": "None",
       "parsedBal": "None",
@@ -365,7 +365,7 @@
     {
       "id": 37,
       "sender": "93557",
-      "body": "Wells Fargo: Reminder - your Bill Pay to CITY WATER DEPT for $310.00 is scheduled for 02/24. No funds have been sent yet.",
+      "body": "Wells Fargo: Reminder - your Bill Pay to CITY WATER DEPT for $310.00 is scheduled for 02/27. No funds have been sent yet.",
       "type": "DEBIT",
       "parsedAmount": "$310.00",
       "parsedBal": "None",
@@ -705,7 +705,7 @@
     {
       "id": 71,
       "sender": "93557",
-      "body": "Wells Fargo: Scheduled transfer notice - $600.00 will be sent from account ending 4417 to CHASE ...9384 on 03/06.",
+      "body": "Wells Fargo: Scheduled transfer notice - $600.00 will be sent from account ending 4417 to CHASE ...9384 on 03/14.",
       "type": "DEBIT",
       "parsedAmount": "$600.00",
       "parsedBal": "None",
@@ -845,7 +845,7 @@
     {
       "id": 85,
       "sender": "24273",
-      "body": "Chase: Your payment of $1,500.00 to BANK OF AMERICA CARD 9111 from acct ...9384 is scheduled for 03/12. No funds have been sent yet.",
+      "body": "Chase: Your payment of $1,500.00 to BANK OF AMERICA CARD 9111 from acct ...9384 is scheduled for 03/21. No funds have been sent yet.",
       "type": "CREDIT",
       "parsedAmount": "$1,500.00",
       "parsedBal": "None",
