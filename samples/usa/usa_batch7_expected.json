@@ -1,0 +1,135 @@
+{
+  "batch_id": "usa_batch7",
+  "total_messages": 109,
+  "positive_transactions": 66,
+  "negative_samples": 43,
+  "counting_rules": [
+    "Only EXECUTED money movements count. Holds/pre-auths, plan creations, price-change notices, availability notices, rewards-earned notices, scheduled ACH/AutoPay notices, OTPs, smishing, promos and personal texts must NOT touch any ledger.",
+    "SAME TXN REPORTED TWICE IN DIFFERENT WORDING: the KROGER #8812 $58.20 Wells Fargo debit arrives as 'You made a purchase of $58.20...' and again as 'A debit card purchase of $58.20 ... has posted'. Not a verbatim duplicate - it is still ONE transaction.",
+    "PRE-AUTH vs SETTLEMENT: SUNOCO 8871 places a $125.00 hold on card 7761, then settles at $61.28. Only $61.28 is executed; the hold and the later hold-release notice are both non-events.",
+    "DEPOSIT WITH DELAYED AVAILABILITY: the $4,200.00 mobile deposit is ONE executed credit on the deposit date. '$225.00 available now', and the later 'funds now fully available' notice, do NOT create additional legs.",
+    "INSTALLMENT PLAN: a $480.00 PELOTON purchase is split into 4 monthly payments of $120.00. Only installment 1 ($120.00) executes in this batch; the plan-creation SMS and the 05/02, 06/02 and 07/02 dates are non-events. Do NOT post $480.00.",
+    "AUTHORIZED USER CARD: new BofA card ending 3040 is a second plastic on the SAME revolving account 9111. Its $210.75 and $66.30 purchases increase 9111 outstanding; card 3040 has no balance of its own.",
+    "MICRO-DEPOSITS: $0.32 and $0.47 verification credits and the $0.79 reversal debit are three separate real legs that net to zero.",
+    "ZELLE RETURN: the $145.00 sent to DANA WU and the $145.00 credited back are two separate executed legs netting to zero. The later 'DANA WU has now enrolled' message is a non-event.",
+    "FEE REVERSAL: the $12.00 BofA maintenance fee and its $12.00 courtesy reversal are two legs netting to zero.",
+    "FOREIGN ATM: 200.00 CAD posts as USD $147.62 on card 7761, plus a separate $5.00 international ATM fee and a separate $4.43 conversion fee charged to acct 9384 (3 legs, only USD amounts count).",
+    "ACCOUNT CLOSURE: BofA checking 9661 sweeps its remaining $1,144.84 to Chase 9384 (2 legs, one per bank) and ends at $0.00 with status CLOSED. BofA credit card 9111 stays OPEN.",
+    "REWARDS ARE NOT MONEY: '9,384 Ultimate Rewards points' and '$25.00 in cash rewards earned' are not credits. The 9,384 points figure is also a decoy resembling account 9384.",
+    "SMISHING: the 'CHASE-ALERT ... chase-secure-verify.example' message from shortcode 55123 is phishing, not a bank message.",
+    "LAST-4 COLLISION persists: sender 322632/BofA card 9111 is a CREDIT card; sender 93557/Wells Fargo card 9111 is a DEBIT card on acct 4417. Attribute by sender/bank, never by last-4 alone.",
+    "Card 882 remains CLOSED with zero activity and receives no messages this batch.",
+    "Debit-card legs (7761, WF 9111) are a SUBSET of their parent account totals and share the parent's balance."
+  ],
+  "opening_balances": {
+    "9384": 20925.04,
+    "5520": 3812.36,
+    "9661": 976.84,
+    "9111B_outstanding": 2728.62,
+    "9111B_available_credit": 3271.38,
+    "4417": 3077.56
+  },
+  "expected_accounts": [
+    {
+      "bank": "Chase",
+      "account_or_card": "9384",
+      "type": "BANK",
+      "expected_total_credits": 12247.53,
+      "expected_total_debits": 3508.45,
+      "expected_txn_count": 34,
+      "expected_final_balance": 29664.12,
+      "status": "OPEN"
+    },
+    {
+      "bank": "Chase",
+      "account_or_card": "7761",
+      "type": "CARD",
+      "expected_total_credits": 0.0,
+      "expected_total_debits": 1315.03,
+      "expected_txn_count": 17,
+      "linked_account": "9384",
+      "expected_final_balance": 29664.12,
+      "status": "OPEN"
+    },
+    {
+      "bank": "Chase",
+      "account_or_card": "882",
+      "type": "CARD",
+      "expected_total_credits": 0.0,
+      "expected_total_debits": 0.0,
+      "expected_txn_count": 0,
+      "linked_account": "9384",
+      "expected_final_balance": 29664.12,
+      "status": "CLOSED",
+      "note": "Closed for fraud in batch 4. No messages and no activity this batch."
+    },
+    {
+      "bank": "Chase",
+      "account_or_card": "5520",
+      "type": "BANK",
+      "expected_total_credits": 1014.02,
+      "expected_total_debits": 0.0,
+      "expected_txn_count": 2,
+      "expected_final_balance": 4826.38,
+      "status": "OPEN"
+    },
+    {
+      "bank": "Bank of America",
+      "account_or_card": "9661",
+      "type": "BANK",
+      "expected_total_credits": 262.0,
+      "expected_total_debits": 1238.84,
+      "expected_txn_count": 5,
+      "expected_final_balance": 0.0,
+      "status": "CLOSED",
+      "note": "Closed this batch; remaining balance swept to Chase 9384. Final balance must be exactly 0.00."
+    },
+    {
+      "bank": "Bank of America",
+      "account_or_card": "9111",
+      "type": "CARD",
+      "expected_total_credits": 1027.0,
+      "expected_total_debits": 732.67,
+      "expected_txn_count": 11,
+      "credit_limit": 6000.0,
+      "expected_final_balance": 2434.29,
+      "expected_final_available_credit": 3565.71,
+      "status": "OPEN",
+      "note": "Totals include the authorized-user card 3040 legs and the $95.00 annual fee."
+    },
+    {
+      "bank": "Bank of America",
+      "account_or_card": "3040",
+      "type": "CARD",
+      "expected_total_credits": 0.0,
+      "expected_total_debits": 277.05,
+      "expected_txn_count": 2,
+      "linked_account": "9111",
+      "expected_final_balance": 2434.29,
+      "status": "OPEN",
+      "note": "NEW authorized-user plastic on revolving account 9111; no separate balance."
+    },
+    {
+      "bank": "Wells Fargo",
+      "account_or_card": "4417",
+      "type": "BANK",
+      "expected_total_credits": 1986.1,
+      "expected_total_debits": 1460.79,
+      "expected_txn_count": 14,
+      "expected_final_balance": 3602.87,
+      "status": "OPEN"
+    },
+    {
+      "bank": "Wells Fargo",
+      "account_or_card": "9111",
+      "type": "CARD",
+      "expected_total_credits": 0.0,
+      "expected_total_debits": 511.73,
+      "expected_txn_count": 8,
+      "linked_account": "4417",
+      "expected_final_balance": 3602.87,
+      "status": "OPEN",
+      "note": "WF DEBIT card; deliberate last-4 collision with BofA credit card 9111."
+    }
+  ]
+}

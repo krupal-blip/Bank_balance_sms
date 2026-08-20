@@ -8,7 +8,7 @@ Generate realistic per-country SMS test batches to drive the SMS transaction par
 REGION LOCK: currently **USA**. Do NOT move to another region until the user confirms 100% pass.
 
 ## Repo protocol
-- Batches: `samples/usa/usa_batch{N}.xml` — next batch number: **7**
+- Batches: `samples/usa/usa_batch{N}.xml` — next batch number: **8**
 - Expected ledger: `samples/usa/usa_batch{N}_expected.json` (spec: `samples/GROUND_TRUTH_SPEC.md`)
   ALSO embed the same JSON in `<expected_summary>` inside the XML.
 - After push to main, the Scooper daemon pulls, runs OpenCode harness, writes reports to `.ai/reports/`.
@@ -37,19 +37,21 @@ REGION LOCK: currently **USA**. Do NOT move to another region until the user con
 - Running balances must stay mathematically consistent within and ACROSS batches.
 - Timestamps continue chronologically from the previous batch.
 
-## User profile & ledger state (after batch 6 — opening balances for batch 7)
+## User profile & ledger state (after batch 7 — opening balances for batch 8)
 | Bank | Acct/Card | State | Status |
 |---|---|---|---|
-| Chase (sender 24273) | Acct 9384 | $20,925.04 | OPEN |
-| Chase | Savings 5520 (opened batch 6) | $3,812.36 | OPEN |
+| Chase (sender 24273) | Acct 9384 | $29,664.12 | OPEN |
+| Chase | Savings 5520 | $4,826.38 | OPEN |
+| Chase | Debit 7761 (subset of 9384) | mirrors 9384 | OPEN |
 | Chase | Debit 882 (subset of 9384) | — | CLOSED (fraud, batch 4) |
-| Chase | Debit 7761 (subset of 9384, replacement) | mirrors 9384 | OPEN |
-| Bank of America (322632) | Acct 9661 | $976.84 | OPEN |
-| Bank of America | Credit card 9111, limit $6,000 | owed $2,728.62 / avail $3,271.38 | OPEN |
-| Wells Fargo (93557) | Acct 4417 | $3,077.56 | OPEN |
+| Bank of America (322632) | Acct 9661 | $0.00 | **CLOSED (batch 7, swept to Chase 9384)** |
+| Bank of America | Credit card 9111, limit $6,000 | owed $2,434.29 / avail $3,565.71 | OPEN |
+| Bank of America | AU card 3040 (2nd plastic on 9111, added batch 7) | no own balance | OPEN |
+| Wells Fargo (93557) | Acct 4417 | $3,602.87 | OPEN |
 | Wells Fargo | Debit 9111 (subset of 4417) — deliberate last-4 collision with BofA 9111 | mirrors 4417 | OPEN |
 
-Batch 6 ends at epoch **1805850728000** (2027-03-24 01:12 UTC). Batch 7 timestamps start after that.
+BofA now has NO checking account — its card 9111 must be paid from Chase 9384 (or a new BofA acct).
+Batch 7 ends at epoch **1809127466000** (2027-04-30 23:24 UTC). Batch 8 timestamps start after that.
 
 Other senders: Amazon 262966, Google 22000, USPS 37777, Venmo 86753, Netflix 672566, promos 89887/55123,
 CreditKarma 54321, personal +14155550132.
@@ -61,7 +63,14 @@ bug tagging OTP/promo as DEBIT/BANK) → B5 report pending → B6 pushed: NEW Ch
 internal transfer (2-leg), BofA 9661 OVERDRAFT to -$168.23 + $35 fee, BofA card cash advance $500 + $15
 fee + $47.83 interest, GLOWMART double-charge + reversal (3 legs), exact-duplicate PETCO SMS, merchant
 -number decoy `CVS/PHARMACY #4417`, provisional dispute credit, wire + wire fee, FX EUR, scheduled-vs-
-executed pairs whose dates now match.
+executed pairs whose dates now match → B7 pushed (109 sms, 39.4% neg, all-new traps, no B1-B6 repeats):
+BofA checking 9661 CLOSED with $1,144.84 sweep to Chase (2 legs, ends exactly $0.00); AU card 3040 added
+as 2nd plastic on revolving 9111; deposit with delayed availability ($4,200, "$225 available now");
+pre-auth $125 → settle $61.28; same txn reported twice in DIFFERENT wording (KROGER $58.20); My Plan
+installment ($480 → only 1st $120 executes); micro-deposits $0.32/$0.47 + $0.79 reversal; Zelle sent
+then RETURNED; $12 fee then courtesy reversal; foreign ATM CAD (3 legs: USD $147.62 + $5 intl + $4.43 FX);
+payroll SPLIT across 2 banks; card annual fee $95; rewards-are-not-money decoy ("9,384 points" mimicking
+acct 9384, "$25 cash rewards earned"); smishing SMS from shortcode 55123; paper check #1042 clearing.
 
 ## Answer style the user expects
 No lectures. Compact: bank/card totals line, markdown table (bank | acct/card | avl balance | open/closed),
