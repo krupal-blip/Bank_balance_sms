@@ -1,181 +1,1044 @@
 {
-  "batch_id": "USA BATCH #7",
-  "total_messages": 109,
-  "claude_table": [
+  "task_id": "TASK_AUTO_20260820_144249_usa_batch10",
+  "xml_path": "/Volumes/Extra/backup/R&D/Bank_balance/samples/usa/usa_batch10.xml",
+  "feed_items": [
     {
-      "bank": "Chase",
-      "account": "...9384",
-      "type": "BANK",
-      "txns": 34,
-      "balance": "$29,664.12",
-      "status": "OPEN"
+      "id": 1,
+      "sender": "692484",
+      "body": "Citi: You're approved for the Citi Double Cash card ending 4310 with a $3,500.00 credit line. Your card ships in 5-7 days.",
+      "type": "DEBIT",
+      "parsedAmount": "$3,500.00",
+      "parsedBal": "None",
+      "acc": "4310",
+      "tag": "TRANSACTION"
     },
     {
-      "bank": "Chase",
-      "account": "...7761",
-      "type": "CARD",
-      "txns": 17,
-      "balance": "$29,664.12",
-      "status": "OPEN"
+      "id": 2,
+      "sender": "24273",
+      "body": "Chase: Your one-time code is 337421. Don't share it. We'll never call to ask for it.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
     },
     {
-      "bank": "Chase",
-      "account": "...882",
-      "type": "CARD",
-      "txns": 0,
-      "balance": "$29,664.12",
-      "status": "CLOSED"
+      "id": 3,
+      "sender": "93557",
+      "body": "Wells Fargo: Case WF-77410 has been decided. STREAMLYFE MEDIA honored $40.00 of the $76.40 disputed charge. The remaining $36.40 will be debited.",
+      "type": "DEBIT",
+      "parsedAmount": "$40.00",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "TRANSACTION"
     },
     {
-      "bank": "Chase",
-      "account": "...5520",
-      "type": "BANK",
-      "txns": 2,
-      "balance": "$4,826.38",
-      "status": "OPEN"
+      "id": 4,
+      "sender": "93557",
+      "body": "Wells Fargo: The unsupported portion of case WF-77410, $36.40, has been debited from account ending 4417 on 07/19. Available balance: $4,729.72.",
+      "type": "DEBIT",
+      "parsedAmount": "$36.40",
+      "parsedBal": "$4,729.72",
+      "acc": "4417",
+      "tag": "TRANSACTION"
     },
     {
-      "bank": "Bank of America",
-      "account": "...9661",
-      "type": "BANK",
-      "txns": 5,
-      "balance": "$0.00",
-      "status": "CLOSED"
+      "id": 5,
+      "sender": "93557",
+      "body": "Wells Fargo: $40.00 of your case WF-77410 provisional credit is now permanent. No further action is needed.",
+      "type": "DEBIT",
+      "parsedAmount": "$40.00",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "TRANSACTION"
     },
     {
-      "bank": "Bank of America",
-      "account": "...9111",
-      "type": "CARD",
-      "txns": 11,
-      "balance": "$2,434.29",
-      "status": "OPEN"
+      "id": 6,
+      "sender": "24273",
+      "body": "Chase: Direct deposit of $2,400.00 from PRISHA APPS INC PAYROLL posted to acct ...9384 on 07/20. Avail bal: $39,732.08.",
+      "type": "CREDIT",
+      "parsedAmount": "$2,400.00",
+      "parsedBal": "$39,732.08",
+      "acc": "9384",
+      "tag": "TRANSACTION"
     },
     {
-      "bank": "Bank of America",
-      "account": "...3040",
-      "type": "CARD",
-      "txns": 2,
-      "balance": "$2,434.29",
-      "status": "OPEN"
+      "id": 7,
+      "sender": "93557",
+      "body": "Wells Fargo: A direct deposit of $780.55 from PRISHA APPS INC PAYROLL posted to account ending 4417 on 07/20. Available balance: $5,510.27.",
+      "type": "CREDIT",
+      "parsedAmount": "$780.55",
+      "parsedBal": "$5,510.27",
+      "acc": "4417",
+      "tag": "TRANSACTION"
     },
     {
-      "bank": "Wells Fargo",
-      "account": "...4417",
-      "type": "BANK",
-      "txns": 14,
-      "balance": "$3,602.87",
-      "status": "OPEN"
+      "id": 8,
+      "sender": "692484",
+      "body": "Citi: Your Citi card ending 4310 is now active. Add it to your wallet in the Citi app.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "4310",
+      "tag": "FILTERED / VETOED"
     },
     {
-      "bank": "Wells Fargo",
-      "account": "...9111",
-      "type": "CARD",
-      "txns": 8,
-      "balance": "$3,602.87",
-      "status": "OPEN"
+      "id": 9,
+      "sender": "692484",
+      "body": "Citi: Transfer a balance to card ending 4310 at 0% APR for 15 months. A 3% transfer fee applies.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "4310",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 10,
+      "sender": "322632",
+      "body": "Bank of America: A balance transfer payment of $1,200.00 from CITIBANK was applied to your credit card ending 9111 on 07/21. Avail credit: $5,477.41.",
+      "type": "CREDIT",
+      "parsedAmount": "$1,200.00",
+      "parsedBal": "$5,477.41",
+      "acc": "9111",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 11,
+      "sender": "692484",
+      "body": "Citi: Your balance transfer of $1,200.00 to card ending 4310 is complete on 07/21. Avail credit: $2,300.00.",
+      "type": "DEBIT",
+      "parsedAmount": "$1,200.00",
+      "parsedBal": "$2,300.00",
+      "acc": "4310",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 12,
+      "sender": "692484",
+      "body": "Citi: A balance transfer fee of $36.00 (3% of $1,200.00) was charged to card ending 4310 on 07/22. Avail credit: $2,264.00.",
+      "type": "DEBIT",
+      "parsedAmount": "$36.00",
+      "parsedBal": "$2,264.00",
+      "acc": "4310",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 13,
+      "sender": "37777",
+      "body": "USPS: Your package 9400111899223197522104 is out for delivery.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 14,
+      "sender": "24273",
+      "body": "Chase: You made a $71.55 debit card purchase with card ending 7761 at EXXONMOBIL 4412 on 07/23. Avail bal: $39,660.53.",
+      "type": "DEBIT",
+      "parsedAmount": "$71.55",
+      "parsedBal": "$39,660.53",
+      "acc": "7761",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 15,
+      "sender": "692484",
+      "body": "Citi: A purchase of $129.40 at BEST BUY #442 was charged to your Citi credit card ending 4310 on 07/23. Avail credit: $2,134.60.",
+      "type": "DEBIT",
+      "parsedAmount": "$129.40",
+      "parsedBal": "$2,134.60",
+      "acc": "4310",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 16,
+      "sender": "24273",
+      "body": "Chase: An ACH debit of $1,650.00 (SUNSTONE PROPERTY MGMT RENT) posted to acct ...9384 on 07/23. Avail bal: $38,010.53.",
+      "type": "DEBIT",
+      "parsedAmount": "$1,650.00",
+      "parsedBal": "$38,010.53",
+      "acc": "9384",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 17,
+      "sender": "322632",
+      "body": "Bank of America: Authorized user card ending 3040 has been REMOVED from your account ending 9111 at your request. The card can no longer be used.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "3040",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 18,
+      "sender": "89887",
+      "body": "GEICO: You could save 15% in 15 minutes. geico.example/quote. Txt STOP to opt out.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 19,
+      "sender": "93557",
+      "body": "Wells Fargo: You made a purchase of $83.40 at WEGMANS 331 with debit card ending 9111 on 07/24. Available balance: $5,426.87.",
+      "type": "DEBIT",
+      "parsedAmount": "$83.40",
+      "parsedBal": "$5,426.87",
+      "acc": "9111",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 20,
+      "sender": "692484",
+      "body": "Citi: A debit card purchase of $52.85 at H-E-B 331 posted to your account ending 6208 on 07/25. Available balance: $1,786.45.",
+      "type": "DEBIT",
+      "parsedAmount": "$52.85",
+      "parsedBal": "$1,786.45",
+      "acc": "6208",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 21,
+      "sender": "322632",
+      "body": "Bank of America: A pending authorization of $71.20 at DELTA AIR LINES is on your credit card ending 9111.",
+      "type": "DEBIT",
+      "parsedAmount": "$71.20",
+      "parsedBal": "None",
+      "acc": "9111",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 22,
+      "sender": "322632",
+      "body": "Bank of America: A purchase of $94.65 at KROGER #8812 was charged to your credit card ending in 9111 on 07/25.",
+      "type": "DEBIT",
+      "parsedAmount": "$94.65",
+      "parsedBal": "None",
+      "acc": "9111",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 23,
+      "sender": "24273",
+      "body": "Chase: You made a $238.90 debit card purchase with card ending 7761 at DELTA AIR LINES on 07/26. Avail bal: $37,771.63.",
+      "type": "DEBIT",
+      "parsedAmount": "$238.90",
+      "parsedBal": "$37,771.63",
+      "acc": "7761",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 24,
+      "sender": "692484",
+      "body": "Citi: 660281 is your Citi verification code. Do not share it with anyone.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 25,
+      "sender": "692484",
+      "body": "Citi: A purchase of $64.20 at CHIPOTLE 1187 was charged to your Citi credit card ending 4310 on 07/27. Avail credit: $2,070.40.",
+      "type": "DEBIT",
+      "parsedAmount": "$64.20",
+      "parsedBal": "$2,070.40",
+      "acc": "4310",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 26,
+      "sender": "24273",
+      "body": "Chase: You sent $95.00 to DEV PATEL with Zelle(R) from acct ending 9384 on 07/27. Avail bal: $37,676.63.",
+      "type": "DEBIT",
+      "parsedAmount": "$95.00",
+      "parsedBal": "$37,676.63",
+      "acc": "9384",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 27,
+      "sender": "262966",
+      "body": "Amazon: Your order of 3 items has shipped. Track: amzn.example/t/WQ7712.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 28,
+      "sender": "692484",
+      "body": "Citi: A Bill Pay payment of $94.00 to AUSTIN ENERGY was sent from account ending 6208 on 07/28. Available balance: $1,692.45.",
+      "type": "CREDIT",
+      "parsedAmount": "$94.00",
+      "parsedBal": "$1,692.45",
+      "acc": "6208",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 29,
+      "sender": "24273",
+      "body": "Chase: You made a $17.85 debit card purchase with card ending 7761 at PEETS COFFEE 118 on 07/28. Avail bal: $37,658.78.",
+      "type": "DEBIT",
+      "parsedAmount": "$17.85",
+      "parsedBal": "$37,658.78",
+      "acc": "7761",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 30,
+      "sender": "54321",
+      "body": "CreditKarma: A new credit card account was reported on your file. Review it now.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 31,
+      "sender": "93557",
+      "body": "Wells Fargo: You made a purchase of $126.75 at ACE HARDWARE 2211 with debit card ending 9111 on 07/29. Available balance: $5,300.12.",
+      "type": "DEBIT",
+      "parsedAmount": "$126.75",
+      "parsedBal": "$5,300.12",
+      "acc": "9111",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 32,
+      "sender": "24273",
+      "body": "Chase: Your transfer of $3,000.00 from checking ...9384 to savings ...5520 is complete on 07/29. Checking avail bal: $34,658.78.",
+      "type": "DEBIT",
+      "parsedAmount": "$3,000.00",
+      "parsedBal": "$34,658.78",
+      "acc": "9384",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 33,
+      "sender": "24273",
+      "body": "Chase: A transfer of $3,000.00 from checking ...9384 was deposited to savings ...5520 on 07/29. Savings bal: $9,862.10.",
+      "type": "CREDIT",
+      "parsedAmount": "$3,000.00",
+      "parsedBal": "$9,862.10",
+      "acc": "9384",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 34,
+      "sender": "692484",
+      "body": "Citi: A purchase of $38.75 at DOORDASH was charged to your Citi credit card ending 4310 on 07/30. Avail credit: $2,031.65.",
+      "type": "DEBIT",
+      "parsedAmount": "$38.75",
+      "parsedBal": "$2,031.65",
+      "acc": "4310",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 35,
+      "sender": "22000",
+      "body": "G-773905 is your Google verification code. Do not share it with anyone.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 36,
+      "sender": "322632",
+      "body": "Bank of America: A purchase of $52.20 at PANERA BREAD 6612 was charged to your credit card ending in 9111 on 07/30.",
+      "type": "DEBIT",
+      "parsedAmount": "$52.20",
+      "parsedBal": "None",
+      "acc": "9111",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 37,
+      "sender": "24273",
+      "body": "Chase: You made a $146.30 debit card purchase with card ending 7761 at COSTCO WHSE #1189 on 07/31. Avail bal: $34,512.48.",
+      "type": "DEBIT",
+      "parsedAmount": "$146.30",
+      "parsedBal": "$34,512.48",
+      "acc": "7761",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 38,
+      "sender": "+14155550132",
+      "body": "New card came in the mail today",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 39,
+      "sender": "692484",
+      "body": "Citi: A debit card purchase of $23.60 at SUBWAY 2210 posted to your account ending 6208 on 07/31. Available balance: $1,668.85.",
+      "type": "DEBIT",
+      "parsedAmount": "$23.60",
+      "parsedBal": "$1,668.85",
+      "acc": "6208",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 40,
+      "sender": "93557",
+      "body": "Wells Fargo: An ACH debit of $412.66 (SUMMIT AUTO FINANCE) posted to account ending 4417 on 08/01. Available balance: $4,887.46.",
+      "type": "DEBIT",
+      "parsedAmount": "$412.66",
+      "parsedBal": "$4,887.46",
+      "acc": "4417",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 41,
+      "sender": "672566",
+      "body": "Netflix: Your plan renews on 08/02. Manage your membership at netflix.com/account.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 42,
+      "sender": "24273",
+      "body": "Chase: You made a $24.99 debit card purchase with card ending 7761 at NETFLIX.COM on 08/02. Avail bal: $34,487.49.",
+      "type": "DEBIT",
+      "parsedAmount": "$24.99",
+      "parsedBal": "$34,487.49",
+      "acc": "7761",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 43,
+      "sender": "692484",
+      "body": "Citi: A purchase of $211.45 at SOUTHWEST AIRLINES was charged to your Citi credit card ending 4310 on 08/02. Avail credit: $1,820.20.",
+      "type": "DEBIT",
+      "parsedAmount": "$211.45",
+      "parsedBal": "$1,820.20",
+      "acc": "4310",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 44,
+      "sender": "93557",
+      "body": "Wells Fargo: 991204 is your access code. It expires in 10 minutes. Do not share it.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 45,
+      "sender": "93557",
+      "body": "Wells Fargo: You made a purchase of $37.90 at TIM HORTONS 4471 with debit card ending 9111 on 08/02. Available balance: $4,849.56.",
+      "type": "DEBIT",
+      "parsedAmount": "$37.90",
+      "parsedBal": "$4,849.56",
+      "acc": "9111",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 46,
+      "sender": "24273",
+      "body": "Chase: An ACH debit of $250.00 (HEALTHEQUITY HSA CONTRIB) posted to acct ...9384 on 08/02. Avail bal: $34,237.49.",
+      "type": "DEBIT",
+      "parsedAmount": "$250.00",
+      "parsedBal": "$34,237.49",
+      "acc": "9384",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 47,
+      "sender": "86753",
+      "body": "Venmo: Chris Doyle requested $24.00 from you for 'lunch'. Open Venmo to pay or decline.",
+      "type": "DEBIT",
+      "parsedAmount": "$24.00",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 48,
+      "sender": "692484",
+      "body": "Citi: A debit card purchase of $108.30 at IKEA 0044 posted to your account ending 6208 on 08/03. Available balance: $1,560.55.",
+      "type": "DEBIT",
+      "parsedAmount": "$108.30",
+      "parsedBal": "$1,560.55",
+      "acc": "6208",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 49,
+      "sender": "24273",
+      "body": "Chase: Your payment of $700.00 to BANK OF AMERICA CARD 9111 from acct ...9384 is scheduled for 08/06. No funds have been sent yet.",
+      "type": "CREDIT",
+      "parsedAmount": "$700.00",
+      "parsedBal": "None",
+      "acc": "9384",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 50,
+      "sender": "322632",
+      "body": "Bank of America: A purchase of $77.85 at MACYS 0092 was charged to your credit card ending in 9111 on 08/04.",
+      "type": "DEBIT",
+      "parsedAmount": "$77.85",
+      "parsedBal": "None",
+      "acc": "9111",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 51,
+      "sender": "24273",
+      "body": "Chase: You made a $59.40 debit card purchase with card ending 7761 at TRADER JOES 552 on 08/05. Avail bal: $34,178.09.",
+      "type": "DEBIT",
+      "parsedAmount": "$59.40",
+      "parsedBal": "$34,178.09",
+      "acc": "7761",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 52,
+      "sender": "55123",
+      "body": "CoinRush: BTC is moving. Deposit $100, get $100 bonus. coinrush.example/go. Txt STOP.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 53,
+      "sender": "93557",
+      "body": "Wells Fargo: You made a purchase of $68.25 at AT&T WIRELESS with debit card ending 9111 on 08/05. Available balance: $4,781.31.",
+      "type": "DEBIT",
+      "parsedAmount": "$68.25",
+      "parsedBal": "$4,781.31",
+      "acc": "9111",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 54,
+      "sender": "692484",
+      "body": "Citi: An ACH credit of $412.00 from AUSTIN ISD REBATE posted to your account ending 6208 on 08/06. Available balance: $1,972.55.",
+      "type": "DEBIT",
+      "parsedAmount": "$412.00",
+      "parsedBal": "$1,972.55",
+      "acc": "6208",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 55,
+      "sender": "692484",
+      "body": "Citi: A purchase of $45.90 at PETSMART 3311 was charged to your Citi credit card ending 4310 on 08/06. Avail credit: $1,774.30.",
+      "type": "DEBIT",
+      "parsedAmount": "$45.90",
+      "parsedBal": "$1,774.30",
+      "acc": "4310",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 56,
+      "sender": "37777",
+      "body": "USPS: Your item was delivered to the front desk.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 57,
+      "sender": "24273",
+      "body": "Chase: Your online payment of $700.00 to BANK OF AMERICA CARD 9111 from acct ...9384 is complete on 08/06. Avail bal: $33,478.09.",
+      "type": "CREDIT",
+      "parsedAmount": "$700.00",
+      "parsedBal": "$33,478.09",
+      "acc": "9384",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 58,
+      "sender": "322632",
+      "body": "Bank of America: We received your payment of $700.00 on credit card ending 9111 on 08/07. Thank you. Avail credit: $5,952.71.",
+      "type": "CREDIT",
+      "parsedAmount": "$700.00",
+      "parsedBal": "$5,952.71",
+      "acc": "9111",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 59,
+      "sender": "24273",
+      "body": "Chase: You made a $88.60 debit card purchase with card ending 7761 at TARGET T-1043 on 08/07. Avail bal: $33,389.49.",
+      "type": "DEBIT",
+      "parsedAmount": "$88.60",
+      "parsedBal": "$33,389.49",
+      "acc": "7761",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 60,
+      "sender": "692484",
+      "body": "Citi: Your first statement for card ending 4310 will close on 08/05. Minimum payment will be due 09/01.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "4310",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 61,
+      "sender": "692484",
+      "body": "Citi: A debit card purchase of $31.85 at CVS 2201 posted to your account ending 6208 on 08/08. Available balance: $1,940.70.",
+      "type": "DEBIT",
+      "parsedAmount": "$31.85",
+      "parsedBal": "$1,940.70",
+      "acc": "6208",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 62,
+      "sender": "24273",
+      "body": "Chase: Direct deposit of $2,400.00 from PRISHA APPS INC PAYROLL posted to acct ...9384 on 08/09. Avail bal: $35,789.49.",
+      "type": "CREDIT",
+      "parsedAmount": "$2,400.00",
+      "parsedBal": "$35,789.49",
+      "acc": "9384",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 63,
+      "sender": "93557",
+      "body": "Wells Fargo: A direct deposit of $780.55 from PRISHA APPS INC PAYROLL posted to account ending 4417 on 08/09. Available balance: $5,561.86.",
+      "type": "CREDIT",
+      "parsedAmount": "$780.55",
+      "parsedBal": "$5,561.86",
+      "acc": "4417",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 64,
+      "sender": "89887",
+      "body": "PLANET FITNESS: $1 down, $10/mo. Offer ends Sunday. Reply JOIN. Txt STOP to opt out.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 65,
+      "sender": "93557",
+      "body": "Wells Fargo: You made a purchase of $44.60 at KROGER #8812 with debit card ending 9111 on 08/10. Available balance: $5,517.26.",
+      "type": "DEBIT",
+      "parsedAmount": "$44.60",
+      "parsedBal": "$5,517.26",
+      "acc": "9111",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 66,
+      "sender": "24273",
+      "body": "Chase: Interest of $23.71 was credited to your savings account ending 5520 on 08/10. Savings bal: $9,885.81.",
+      "type": "CREDIT",
+      "parsedAmount": "$23.71",
+      "parsedBal": "$9,885.81",
+      "acc": "5520",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 67,
+      "sender": "24273",
+      "body": "Chase: You made a $33.40 debit card purchase with card ending 7761 at LYFT RIDE on 08/11. Avail bal: $35,756.09.",
+      "type": "DEBIT",
+      "parsedAmount": "$33.40",
+      "parsedBal": "$35,756.09",
+      "acc": "7761",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 68,
+      "sender": "322632",
+      "body": "Bank of America: Your statement for credit card ending 9111 is ready. Minimum payment due $25.00 by 08/14.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 69,
+      "sender": "692484",
+      "body": "Citi: A purchase of $19.95 at AUDIBLE.COM was charged to your Citi credit card ending 4310 on 08/11. Avail credit: $1,754.35.",
+      "type": "DEBIT",
+      "parsedAmount": "$19.95",
+      "parsedBal": "$1,754.35",
+      "acc": "4310",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 70,
+      "sender": "24273",
+      "body": "Chase: An ACH debit of $96.40 (VERIZON WIRELESS) posted to acct ...9384 on 08/11. Avail bal: $35,659.69.",
+      "type": "DEBIT",
+      "parsedAmount": "$96.40",
+      "parsedBal": "$35,659.69",
+      "acc": "9384",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 71,
+      "sender": "+14155550132",
+      "body": "Dinner at 7 work for you?",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 72,
+      "sender": "692484",
+      "body": "Citi: A debit card purchase of $96.20 at SAMS CLUB #6612 posted to your account ending 6208 on 08/12. Available balance: $1,844.50.",
+      "type": "DEBIT",
+      "parsedAmount": "$96.20",
+      "parsedBal": "$1,844.50",
+      "acc": "6208",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 73,
+      "sender": "692484",
+      "body": "Citi: You've earned $18.42 in cash back on card ending 4310. Redeem any time in the app.",
+      "type": "DEBIT",
+      "parsedAmount": "$18.42",
+      "parsedBal": "None",
+      "acc": "4310",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 74,
+      "sender": "24273",
+      "body": "Chase: You made a $112.35 debit card purchase with card ending 7761 at HOME DEPOT #6641 on 08/13. Avail bal: $35,547.34.",
+      "type": "DEBIT",
+      "parsedAmount": "$112.35",
+      "parsedBal": "$35,547.34",
+      "acc": "7761",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 75,
+      "sender": "93557",
+      "body": "Wells Fargo: You made a purchase of $58.95 at SPROUTS FARMERS MKT with debit card ending 9111 on 08/13. Available balance: $5,458.31.",
+      "type": "DEBIT",
+      "parsedAmount": "$58.95",
+      "parsedBal": "$5,458.31",
+      "acc": "9111",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 76,
+      "sender": "93557",
+      "body": "Wells Fargo: To report a suspicious charge, text FRAUD to 93557 or call the number on your card.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 77,
+      "sender": "322632",
+      "body": "Bank of America: A purchase of $36.50 at DOORDASH was charged to your credit card ending in 9111 on 08/14.",
+      "type": "DEBIT",
+      "parsedAmount": "$36.50",
+      "parsedBal": "None",
+      "acc": "9111",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 78,
+      "sender": "55123",
+      "body": "WELLS FARGO ALERT: Your account is restricted. Restore access at wf-secure-login.example/verify",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 79,
+      "sender": "692484",
+      "body": "Citi: A purchase of $27.30 at PEETS COFFEE 118 was charged to your Citi credit card ending 4310 on 08/15. Avail credit: $1,727.05.",
+      "type": "DEBIT",
+      "parsedAmount": "$27.30",
+      "parsedBal": "$1,727.05",
+      "acc": "4310",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 80,
+      "sender": "24273",
+      "body": "Chase: A refund of $71.55 from EXXONMOBIL 4412 (duplicate authorization) was credited to acct ...9384 on 08/15. Avail bal: $35,618.89.",
+      "type": "CREDIT",
+      "parsedAmount": "$71.55",
+      "parsedBal": "$35,618.89",
+      "acc": "9384",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 81,
+      "sender": "24273",
+      "body": "Chase: Your one-time code is 428170. Don't share it. We'll never call to ask for it.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 82,
+      "sender": "93557",
+      "body": "Wells Fargo: You made a purchase of $22.40 at SUBWAY 2210 with debit card ending 9111 on 08/16. Available balance: $5,435.91.",
+      "type": "DEBIT",
+      "parsedAmount": "$22.40",
+      "parsedBal": "$5,435.91",
+      "acc": "9111",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 83,
+      "sender": "262966",
+      "body": "Amazon: Your package was delivered. View photo: amzn.example/p/WQ7712.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 84,
+      "sender": "24273",
+      "body": "Chase: You made a $41.70 debit card purchase with card ending 7761 at WALGREENS 1188 on 08/17. Avail bal: $35,577.19.",
+      "type": "DEBIT",
+      "parsedAmount": "$41.70",
+      "parsedBal": "$35,577.19",
+      "acc": "7761",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 85,
+      "sender": "322632",
+      "body": "Bank of America: 887201 is your Bank of America authorization code. Never share this code.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 86,
+      "sender": "692484",
+      "body": "Citi: A debit card purchase of $14.85 at STARBUCKS #2214 posted to your account ending 6208 on 08/18. Available balance: $1,829.65.",
+      "type": "DEBIT",
+      "parsedAmount": "$14.85",
+      "parsedBal": "$1,829.65",
+      "acc": "6208",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 87,
+      "sender": "692484",
+      "body": "Citi: Your account ending 6208 earned $2.14 in interest this statement period and it will post next cycle.",
+      "type": "DEBIT",
+      "parsedAmount": "$2.14",
+      "parsedBal": "None",
+      "acc": "6208",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 88,
+      "sender": "24273",
+      "body": "Chase: You made a $76.80 debit card purchase with card ending 7761 at PUBLIX #1120 on 08/18. Avail bal: $35,500.39.",
+      "type": "DEBIT",
+      "parsedAmount": "$76.80",
+      "parsedBal": "$35,500.39",
+      "acc": "7761",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 89,
+      "sender": "+14155550132",
+      "body": "Perfect, see you then",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 90,
+      "sender": "692484",
+      "body": "Citi: Your 0% APR promotional period on card ending 4310 ends 10/2028. Track it in the Citi app.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "4310",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 91,
+      "sender": "322632",
+      "body": "Bank of America: Your credit line on card ending 9111 remains $6,000.00. No action needed.",
+      "type": "DEBIT",
+      "parsedAmount": "$6,000.00",
+      "parsedBal": "None",
+      "acc": "9111",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 92,
+      "sender": "93557",
+      "body": "Wells Fargo: Go paperless for account ending 4417 and get statements in the app.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "4417",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 93,
+      "sender": "37777",
+      "body": "USPS Informed Delivery: 2 mailpieces are arriving today.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 94,
+      "sender": "55123",
+      "body": "QuickCash Loans: Up to $5,000 today, no credit check. qcloans.example/apply. Txt STOP to end.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 95,
+      "sender": "+14155550132",
+      "body": "Can you send me the landlord's number?",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 96,
+      "sender": "22000",
+      "body": "Google: New sign-in to your account from a Mac. Review activity if this wasn't you.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 97,
+      "sender": "672566",
+      "body": "Netflix: Your payment method was updated successfully.",
+      "type": "NEGATIVE",
+      "parsedAmount": "None",
+      "parsedBal": "None",
+      "acc": "None",
+      "tag": "FILTERED / VETOED"
+    },
+    {
+      "id": 98,
+      "sender": "692484",
+      "body": "Citi: A purchase of $88.40 at WHOLE FOODS MKT 229 was charged to your Citi credit card ending 4310 on 08/21. Avail credit: $1,638.65.",
+      "type": "DEBIT",
+      "parsedAmount": "$88.40",
+      "parsedBal": "$1,638.65",
+      "acc": "4310",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 99,
+      "sender": "24273",
+      "body": "Chase: You made a $21.45 debit card purchase with card ending 7761 at STARBUCKS #2214 on 08/22. Avail bal: $35,478.94.",
+      "type": "DEBIT",
+      "parsedAmount": "$21.45",
+      "parsedBal": "$35,478.94",
+      "acc": "7761",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 100,
+      "sender": "93557",
+      "body": "Wells Fargo: You made a purchase of $91.30 at PUBLIX #1120 with debit card ending 9111 on 08/22. Available balance: $5,344.61.",
+      "type": "DEBIT",
+      "parsedAmount": "$91.30",
+      "parsedBal": "$5,344.61",
+      "acc": "9111",
+      "tag": "TRANSACTION"
+    },
+    {
+      "id": 101,
+      "sender": "692484",
+      "body": "Citi: A debit card purchase of $44.15 at DOORDASH posted to your account ending 6208 on 08/23. Available balance: $1,785.50.",
+      "type": "DEBIT",
+      "parsedAmount": "$44.15",
+      "parsedBal": "$1,785.50",
+      "acc": "6208",
+      "tag": "TRANSACTION"
     }
   ],
-  "opencode_table": [
-    {
-      "bank": "Chase",
-      "account": "...9384",
-      "type": "BANK",
-      "txns": 34,
-      "balance": "$29,664.12",
-      "status": "OPEN"
-    },
-    {
-      "bank": "Chase",
-      "account": "...7761",
-      "type": "CARD",
-      "txns": 17,
-      "balance": "$29,664.12",
-      "status": "OPEN"
-    },
-    {
-      "bank": "Chase",
-      "account": "...882",
-      "type": "CARD",
-      "txns": 0,
-      "balance": "$29,664.12",
-      "status": "CLOSED"
-    },
-    {
-      "bank": "Chase",
-      "account": "...5520",
-      "type": "BANK",
-      "txns": 2,
-      "balance": "$4,826.38",
-      "status": "OPEN"
-    },
-    {
-      "bank": "Bank of America",
-      "account": "...9661",
-      "type": "BANK",
-      "txns": 5,
-      "balance": "$0.00",
-      "status": "CLOSED"
-    },
-    {
-      "bank": "Bank of America",
-      "account": "...9111",
-      "type": "CARD",
-      "txns": 11,
-      "balance": "$2,434.29",
-      "status": "OPEN"
-    },
-    {
-      "bank": "Bank of America",
-      "account": "...3040",
-      "type": "CARD",
-      "txns": 2,
-      "balance": "$2,434.29",
-      "status": "OPEN"
-    },
-    {
-      "bank": "Wells Fargo",
-      "account": "...4417",
-      "type": "BANK",
-      "txns": 14,
-      "balance": "$3,602.87",
-      "status": "OPEN"
-    },
-    {
-      "bank": "Wells Fargo",
-      "account": "...9111",
-      "type": "CARD",
-      "txns": 8,
-      "balance": "$3,602.87",
-      "status": "OPEN"
-    }
-  ],
-  "all_match": true,
   "dual_table": [
     {
       "account": "Chase BANK (...9384)",
-      "expected": "$29,664.12",
-      "parsed": "$29,664.12",
+      "expected": "$35,478.94",
+      "parsed": "$35,478.94",
       "status": "MATCH",
       "diff": "$0.00"
     },
     {
       "account": "Chase CARD (...7761)",
-      "expected": "$29,664.12",
-      "parsed": "$29,664.12",
+      "expected": "$35,478.94",
+      "parsed": "$35,478.94",
       "status": "MATCH",
       "diff": "$0.00"
     },
     {
       "account": "Chase CARD (...882)",
-      "expected": "$29,664.12",
-      "parsed": "$29,664.12",
+      "expected": "$35,478.94",
+      "parsed": "$35,478.94",
       "status": "MATCH",
       "diff": "$0.00"
     },
     {
       "account": "Chase BANK (...5520)",
-      "expected": "$4,826.38",
-      "parsed": "$4,826.38",
+      "expected": "$9,885.81",
+      "parsed": "$9,885.81",
       "status": "MATCH",
       "diff": "$0.00"
     },
@@ -188,32 +1051,55 @@
     },
     {
       "account": "Bank of America CARD (...9111)",
-      "expected": "$2,434.29",
-      "parsed": "$2,434.29",
+      "expected": "$83.79",
+      "parsed": "$83.79",
       "status": "MATCH",
       "diff": "$0.00"
     },
     {
       "account": "Bank of America CARD (...3040)",
-      "expected": "$2,434.29",
-      "parsed": "$2,434.29",
+      "expected": "$83.79",
+      "parsed": "$83.79",
       "status": "MATCH",
       "diff": "$0.00"
     },
     {
       "account": "Wells Fargo BANK (...4417)",
-      "expected": "$3,602.87",
-      "parsed": "$3,602.87",
+      "expected": "$5,344.61",
+      "parsed": "$5,344.61",
       "status": "MATCH",
       "diff": "$0.00"
     },
     {
       "account": "Wells Fargo CARD (...9111)",
-      "expected": "$3,602.87",
-      "parsed": "$3,602.87",
+      "expected": "$5,344.61",
+      "parsed": "$5,344.61",
+      "status": "MATCH",
+      "diff": "$0.00"
+    },
+    {
+      "account": "Citibank BANK (...6208)",
+      "expected": "$1,785.50",
+      "parsed": "$1,785.50",
+      "status": "MATCH",
+      "diff": "$0.00"
+    },
+    {
+      "account": "Citibank CARD (...8890)",
+      "expected": "$1,785.50",
+      "parsed": "$1,785.50",
+      "status": "MATCH",
+      "diff": "$0.00"
+    },
+    {
+      "account": "Citibank CARD (...4310)",
+      "expected": "$1,861.35",
+      "parsed": "$1,861.35",
       "status": "MATCH",
       "diff": "$0.00"
     }
   ],
-  "discrepancies": []
+  "discrepancies": [],
+  "all_match": true,
+  "pass_rate": "100.0% (PERFECT MATCH)"
 }
