@@ -1,0 +1,121 @@
+{
+  "batch_id": "usa_batch6",
+  "total_messages": 110,
+  "positive_transactions": 64,
+  "negative_samples": 46,
+  "counting_rules": [
+    "Only EXECUTED money movements count. Scheduled/AutoPay-setup notices, pending auths, holds, declines, OTPs, alerts, statements and promos must NOT touch any ledger.",
+    "EXACT DUPLICATE SMS: the PETCO #331 $76.55 card-7761 alert appears twice verbatim; it is ONE transaction.",
+    "DOUBLE CHARGE + REVERSAL: GLOWMART ONLINE $64.99 posted TWICE (both real debits), then a $64.99 reversal credit posted. Net effect on 9384 = -$64.99, but 3 separate legs must be recorded.",
+    "OVERDRAFT: BofA 9661 goes NEGATIVE mid-batch (-$133.23, then -$168.23 after the $35.00 overdraft fee). Negative running balances are valid and must be preserved.",
+    "NEW ACCOUNT: Chase Savings 5520 opened in this batch, funded by a $5,000.00 INTERNAL transfer from checking 9384. Internal transfers have TWO legs (debit 9384, credit 5520) and both are recorded; net household change is zero.",
+    "CROSS-BANK transfer WF 4417 -> Chase 9384 ($600.00) also has two legs, one per bank.",
+    "LAST-4 COLLISION persists: 'card ending 9111' exists at BOTH banks. Sender 322632/BofA = CREDIT card 9111 (revolving, limit $6,000). Sender 93557/Wells Fargo = DEBIT card 9111, subset of WF acct 4417. Attribution must use bank/sender, not last-4 alone.",
+    "MERCHANT-NUMBER DECOY: 'CVS/PHARMACY #4417' is a store number, NOT the Wells Fargo account 4417. That $23.14 debit belongs to Chase 9384 via card 7761.",
+    "CASH ADVANCE $500.00 + $15.00 fee and a $47.83 interest charge all INCREASE BofA card 9111 outstanding. Refund $89.99, provisional dispute credit $132.00 and payment $1,500.00 DECREASE it.",
+    "FX: 54.90 EUR posted as USD $59.72 on card 7761 - only the USD amount hits the ledger.",
+    "Card 882 stays CLOSED with zero activity; a declined attempt on it is a negative sample.",
+    "Debit-card legs (7761, WF 9111) are a SUBSET of their parent account totals and share the parent's balance."
+  ],
+  "opening_balances": {
+    "9384": 21706.45,
+    "5520": 0.0,
+    "9661": 1016.77,
+    "9111B_outstanding": 3494.93,
+    "9111B_available_credit": 2505.07,
+    "4417": 1703.82
+  },
+  "expected_accounts": [
+    {
+      "bank": "Chase",
+      "account_or_card": "9384",
+      "type": "BANK",
+      "expected_total_credits": 9311.49,
+      "expected_total_debits": 10092.9,
+      "expected_txn_count": 30,
+      "expected_final_balance": 20925.04,
+      "status": "OPEN"
+    },
+    {
+      "bank": "Chase",
+      "account_or_card": "7761",
+      "type": "CARD",
+      "expected_total_credits": 0.0,
+      "expected_total_debits": 1333.24,
+      "expected_txn_count": 16,
+      "linked_account": "9384",
+      "expected_final_balance": 20925.04,
+      "status": "OPEN"
+    },
+    {
+      "bank": "Chase",
+      "account_or_card": "882",
+      "type": "CARD",
+      "expected_total_credits": 0.0,
+      "expected_total_debits": 0.0,
+      "expected_txn_count": 0,
+      "linked_account": "9384",
+      "expected_final_balance": 20925.04,
+      "status": "CLOSED",
+      "note": "No activity; closed for fraud in batch 4. One DECLINED attempt (negative sample)."
+    },
+    {
+      "bank": "Chase",
+      "account_or_card": "5520",
+      "type": "BANK",
+      "expected_total_credits": 5012.36,
+      "expected_total_debits": 1200.0,
+      "expected_txn_count": 3,
+      "expected_final_balance": 3812.36,
+      "status": "OPEN",
+      "note": "NEW savings account opened this batch."
+    },
+    {
+      "bank": "Bank of America",
+      "account_or_card": "9661",
+      "type": "BANK",
+      "expected_total_credits": 1400.0,
+      "expected_total_debits": 1439.93,
+      "expected_txn_count": 6,
+      "expected_final_balance": 976.84,
+      "status": "OPEN",
+      "expected_min_balance": -168.23,
+      "note": "Overdrafted mid-batch; negative balance then covered by a $1,400.00 deposit."
+    },
+    {
+      "bank": "Bank of America",
+      "account_or_card": "9111",
+      "type": "CARD",
+      "expected_total_credits": 1721.99,
+      "expected_total_debits": 955.68,
+      "expected_txn_count": 11,
+      "credit_limit": 6000.0,
+      "expected_final_balance": 2728.62,
+      "expected_final_available_credit": 3271.38,
+      "status": "OPEN",
+      "note": "Revolving credit card. Cash advance + fee + interest charged this batch."
+    },
+    {
+      "bank": "Wells Fargo",
+      "account_or_card": "4417",
+      "type": "BANK",
+      "expected_total_credits": 2840.0,
+      "expected_total_debits": 1466.26,
+      "expected_txn_count": 14,
+      "expected_final_balance": 3077.56,
+      "status": "OPEN"
+    },
+    {
+      "bank": "Wells Fargo",
+      "account_or_card": "9111",
+      "type": "CARD",
+      "expected_total_credits": 0.0,
+      "expected_total_debits": 544.26,
+      "expected_txn_count": 8,
+      "linked_account": "4417",
+      "expected_final_balance": 3077.56,
+      "status": "OPEN",
+      "note": "WF DEBIT card; deliberate last-4 collision with BofA credit card 9111."
+    }
+  ]
+}
