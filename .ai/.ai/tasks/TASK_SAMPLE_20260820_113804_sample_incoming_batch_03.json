@@ -1,0 +1,44 @@
+{
+  "task_id": "TASK_SAMPLE_20260820_113804_sample_incoming_batch_03",
+  "objective": "Process, parse, and verify external sample file: sample_incoming_batch_03.txt",
+  "context": "Incoming raw sample file placed in samples/sample_incoming_batch_03.txt",
+  "assigned_to": "opencode",
+  "status": "COMPLETED",
+  "created_at": "2026-08-20T11:38:04",
+  "updated_at": "2026-08-20T11:38:04",
+  "scope_files": [
+    "samples/sample_incoming_batch_03.txt"
+  ],
+  "constraints": [
+    "Formulate human cognitive ground truth first",
+    "Execute against US/Region template parser",
+    "Report all discrepancies"
+  ],
+  "acceptance_criteria": [
+    "All lines parsed",
+    "Report generated in .ai/reports/",
+    "Task status updated to COMPLETED"
+  ],
+  "history": [
+    {
+      "timestamp": "2026-08-20T11:38:04",
+      "action": "CREATED",
+      "by": "antigravity",
+      "notes": "Task initialized"
+    },
+    {
+      "timestamp": "2026-08-20T11:38:04",
+      "status": "IN_PROGRESS",
+      "notes": "OpenCode executor scooping sample lines and testing",
+      "assigned_to": "opencode"
+    },
+    {
+      "timestamp": "2026-08-20T11:38:04",
+      "status": "COMPLETED",
+      "notes": "Task marked completed by orchestrator/executor",
+      "assigned_to": "opencode"
+    }
+  ],
+  "result": "Processed 4 messages from sample_incoming_batch_03.txt. Report generated.",
+  "report_file": ".ai/reports/TASK_SAMPLE_20260820_113804_sample_incoming_batch_03_report.md"
+}
