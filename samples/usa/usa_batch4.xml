@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<smses count="102" region="USA" batch="4">
+  <sms>
+    <receivedTime>1795172820000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: A purchase of $96.87 at TARGET T-1043 was charged to your credit card ending in 9111 on 11/20.</body>
+  </sms>
+  <sms>
+    <receivedTime>1795197300000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You sent $87.79 to MIKE CHEN with Zelle(R) from acct ending 9384 on 11/20. Avail bal: $17,649.19.</body>
+  </sms>
+  <sms>
+    <receivedTime>1795209420000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You made a $96.69 debit card purchase with card ending 882 at BEST BUY #442 on 11/20. Avail bal: $17,552.50.</body>
+  </sms>
+  <sms>
+    <receivedTime>1795267500000</receivedTime>
+    <address>93557</address>
+    <body>Wells Fargo: 212098 is your access code. It expires in 10 minutes. Don&#x27;t share it.</body>
+  </sms>
+  <sms>
+    <receivedTime>1795286700000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You made a $91.74 debit card purchase with card ending 882 at TRADER JOE&#x27;S #552 on 11/21. Avail bal: $17,460.76.</body>
+  </sms>
+  <sms>
+    <receivedTime>1795310940000</receivedTime>
+    <address>672566</address>
+    <body>Netflix: Your payment method was updated successfully. If this wasn&#x27;t you, visit netflix.com/account.</body>
+  </sms>
+  <sms>
+    <receivedTime>1795356060000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: A purchase of $103.93 at STARBUCKS #2214 was charged to your credit card ending in 9111 on 11/22.</body>
+  </sms>
+  <sms>
+    <receivedTime>1795411680000</receivedTime>
+    <address>93557</address>
+    <body>Wells Fargo: 156689 is your access code. It expires in 10 minutes. Don&#x27;t share it.</body>
+  </sms>
+  <sms>
+    <receivedTime>1795456800000</receivedTime>
+    <address>322632</address>
+    <body>BofA: Your credit card ending 9111 was DECLINED for $414.89 at SHELL OIL 5744 on 11/23. Call 800.732.9194 if you need help.</body>
+  </sms>
+  <sms>
+    <receivedTime>1795472760000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You scheduled a payment of $144.31 to COMCAST CABLE for 12/01 from acct ...9384. To cancel, visit chase.com/pay.</body>
+  </sms>
+  <sms>
+    <receivedTime>1795517940000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You scheduled a payment of $103.69 to COMCAST CABLE for 12/02 from acct ...9384. To cancel, visit chase.com/pay.</body>
+  </sms>
+  <sms>
+    <receivedTime>1795561680000</receivedTime>
+    <address>55123</address>
+    <body>QuickCash Loans: Get up to $5,000 TODAY! No credit check. Apply now: qcloans.example/apply. Txt STOP to end.</body>
+  </sms>
+  <sms>
+    <receivedTime>1795574220000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You made a $113.69 debit card purchase with card ending 882 at STARBUCKS #2214 on 11/25. Avail bal: $17,347.07.</body>
+  </sms>
+  <sms>
+    <receivedTime>1795607100000</receivedTime>
+    <address>24273</address>
+    <body>Chase: Direct deposit of $1,339.22 from ACME TECHNOLOGIES PAYROLL posted to acct ...9384 on 11/25. Avail bal: $18,686.29.</body>
+  </sms>
+  <sms>
+    <receivedTime>1795627440000</receivedTime>
+    <address>322632</address>
+    <body>BofA: Your credit card ending 9111 was DECLINED for $114.43 at STARBUCKS #2214 on 11/25. Call 800.732.9194 if you need help.</body>
+  </sms>
+  <sms>
+    <receivedTime>1795653960000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: A purchase of $84.80 at STARBUCKS #2214 was charged to your credit card ending in 9111 on 11/26.</body>
+  </sms>
+  <sms>
+    <receivedTime>1795682760000</receivedTime>
+    <address>24273</address>
+    <body>Chase: Your one-time code is 145287. Don&#x27;t share it. We&#x27;ll never call to ask for it.</body>
+  </sms>
+  <sms>
+    <receivedTime>1795707780000</receivedTime>
+    <address>24273</address>
+    <body>Chase: Direct deposit of $501.36 from ACME TECHNOLOGIES PAYROLL posted to acct ...9384 on 11/26. Avail bal: $19,187.65.</body>
+  </sms>
+  <sms>
+    <receivedTime>1795740360000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You made a $69.30 debit card purchase with card ending 882 at SHELL OIL 5744 on 11/27. Avail bal: $19,118.35.</body>
+  </sms>
+  <sms>
+    <receivedTime>1795788960000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: A purchase of $22.02 at TRADER JOE&#x27;S #552 was charged to your credit card ending in 9111 on 11/27.</body>
+  </sms>
+  <sms>
+    <receivedTime>1795827240000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You made a $57.71 debit card purchase with card ending 882 at SHELL OIL 5744 on 11/28. Avail bal: $19,060.64.</body>
+  </sms>
+  <sms>
+    <receivedTime>1795845720000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: A purchase of $145.23 at UBER TRIP was charged to your credit card ending in 9111 on 11/28.</body>
+  </sms>
+  <sms>
+    <receivedTime>1795860420000</receivedTime>
+    <address>55123</address>
+    <body>QuickCash Loans: Get up to $5,000 TODAY! No credit check. Apply now: qcloans.example/apply. Txt STOP to end.</body>
+  </sms>
+  <sms>
+    <receivedTime>1795909140000</receivedTime>
+    <address>24273</address>
+    <body>Chase: JOHN MILLER sent you $45.79 with Zelle(R). Deposited to acct ...9384. Avail bal: $19,106.43.</body>
+  </sms>
+  <sms>
+    <receivedTime>1795959660000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: A withdrawal/debit of $29.00 (GEICO AUTO INS) posted to account ending 9661 on 11/29. Available balance: $1,037.50.</body>
+  </sms>
+  <sms>
+    <receivedTime>1796014320000</receivedTime>
+    <address>24273</address>
+    <body>Chase: RAJ PATEL sent you $119.36 with Zelle(R). Deposited to acct ...9384. Avail bal: $19,225.79.</body>
+  </sms>
+  <sms>
+    <receivedTime>1796056860000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You scheduled a payment of $174.59 to COMCAST CABLE for 12/08 from acct ...9384. To cancel, visit chase.com/pay.</body>
+  </sms>
+  <sms>
+    <receivedTime>1796110320000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: A withdrawal/debit of $27.18 (PG&amp;E UTILITY) posted to account ending 9661 on 12/01. Available balance: $1,010.32.</body>
+  </sms>
+  <sms>
+    <receivedTime>1796164320000</receivedTime>
+    <address>89887</address>
+    <body>DOMINO&#x27;S: BOGO large pizzas today only! dominos.com. Txt STOP to end.</body>
+  </sms>
+  <sms>
+    <receivedTime>1796196660000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You made a $136.67 debit card purchase with card ending 882 at WALMART SUPERCENTER on 12/02. Avail bal: $19,089.12.</body>
+  </sms>
+  <sms>
+    <receivedTime>1796235060000</receivedTime>
+    <address>24273</address>
+    <body>Chase Fraud Alert: Did you attempt $845.00 at ELECTRONICS OUTLET ONLINE with debit card ending 882? Reply YES or NO.</body>
+  </sms>
+  <sms>
+    <receivedTime>1796243700000</receivedTime>
+    <address>24273</address>
+    <body>Chase: Your debit card ending 882 has been CLOSED due to suspected fraud. A replacement card ending 7761 has been mailed to your address on file. No transaction was posted.</body>
+  </sms>
+  <sms>
+    <receivedTime>1796360160000</receivedTime>
+    <address>24273</address>
+    <body>Chase: Your new debit card ending 7761 is now ACTIVE and linked to acct ...9384. Your old card ending 882 can no longer be used.</body>
+  </sms>
+  <sms>
+    <receivedTime>1796376180000</receivedTime>
+    <address>24273</address>
+    <body>Chase Fraud Alert: Did you attempt $105.98 at ONLINE MERCHANT with debit card ending 7761? Reply YES or NO.</body>
+  </sms>
+  <sms>
+    <receivedTime>1796433660000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: A withdrawal/debit of $30.52 (ATM WITHDRAWAL #A5521) posted to account ending 9661 on 12/05. Available balance: $979.80.</body>
+  </sms>
+  <sms>
+    <receivedTime>1796459580000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: A purchase of $23.99 at WHOLE FOODS MKT was charged to your credit card ending in 9111 on 12/05.</body>
+  </sms>
+  <sms>
+    <receivedTime>1796478300000</receivedTime>
+    <address>322632</address>
+    <body>BofA: A pending authorization of $70.96 at UBER TRIP is on your credit card ending 9111. Final amount may vary.</body>
+  </sms>
+  <sms>
+    <receivedTime>1796529120000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: AutoPay is now set up for your credit card ending in 9111. $35.00 (minimum due) will be drafted from account 9661 each cycle. No payment was made today.</body>
+  </sms>
+  <sms>
+    <receivedTime>1796589960000</receivedTime>
+    <address>93557</address>
+    <body>Welcome to Wells Fargo Alerts! You are now enrolled for account ending 4417. Msg&amp;data rates may apply. Reply HELP for help.</body>
+  </sms>
+  <sms>
+    <receivedTime>1796598000000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You transferred $1,000.00 from acct ...9384 to external account ending 4417 on 12/06. Avail bal: $18,089.12.</body>
+  </sms>
+  <sms>
+    <receivedTime>1796602200000</receivedTime>
+    <address>93557</address>
+    <body>Wells Fargo: A transfer of $1,000.00 was received into account ending 4417 on 12/07. Avail Bal: $1,000.00.</body>
+  </sms>
+  <sms>
+    <receivedTime>1796636340000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You made a $92.64 debit card purchase with card ending 7761 at CHIPOTLE 1187 on 12/07. Avail bal: $17,996.48.</body>
+  </sms>
+  <sms>
+    <receivedTime>1796646000000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You made a $67.26 debit card purchase with card ending 7761 at SHELL OIL 5744 on 12/07. Avail bal: $17,929.22.</body>
+  </sms>
+  <sms>
+    <receivedTime>1796676060000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: A withdrawal/debit of $55.19 (PG&amp;E UTILITY) posted to account ending 9661 on 12/07. Available balance: $924.61.</body>
+  </sms>
+  <sms>
+    <receivedTime>1796702760000</receivedTime>
+    <address>55123</address>
+    <body>QuickCash Loans: Get up to $5,000 TODAY! No credit check. Apply now: qcloans.example/apply. Txt STOP to end.</body>
+  </sms>
+  <sms>
+    <receivedTime>1796757840000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You scheduled a payment of $212.70 to COMCAST CABLE for 12/16 from acct ...9384. To cancel, visit chase.com/pay.</body>
+  </sms>
+  <sms>
+    <receivedTime>1796816640000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You made a $60.00 debit card purchase (includes $20.00 cash back) with card ending 7761 at KROGER #771 on 12/09. Avail bal: $17,869.22.</body>
+  </sms>
+  <sms>
+    <receivedTime>1796870220000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: A withdrawal/debit of $56.25 (T-MOBILE) posted to account ending 9661 on 12/10. Available balance: $868.36.</body>
+  </sms>
+  <sms>
+    <receivedTime>1796916120000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You made a $20.35 debit card purchase with card ending 7761 at CVS/PHARMACY #883 on 12/10. Avail bal: $17,848.87.</body>
+  </sms>
+  <sms>
+    <receivedTime>1796924400000</receivedTime>
+    <address>24273</address>
+    <body>Chase: Your online payment of $389.57 to BANK OF AMERICA CARD 9111 from acct ...9384 is complete on 12/10. Avail bal: $17,459.30.</body>
+  </sms>
+  <sms>
+    <receivedTime>1796927820000</receivedTime>
+    <address>322632</address>
+    <body>BofA: Payment of $389.57 received on credit card ending 9111. Thank you. Avail credit: $759.77.</body>
+  </sms>
+  <sms>
+    <receivedTime>1796986440000</receivedTime>
+    <address>24273</address>
+    <body>Chase: Direct deposit of $1,610.22 from ACME TECHNOLOGIES PAYROLL posted to acct ...9384 on 12/11. Avail bal: $19,069.52.</body>
+  </sms>
+  <sms>
+    <receivedTime>1797011040000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You made a $141.54 debit card purchase with card ending 7761 at UBER TRIP on 12/11. Avail bal: $18,927.98.</body>
+  </sms>
+  <sms>
+    <receivedTime>1797070740000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: An international purchase of $49.12 (EUR 45.00) at CAFE DE PARIS was charged to your credit card ending in 9111 on 12/12. Avail credit: $710.65.</body>
+  </sms>
+  <sms>
+    <receivedTime>1797121980000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: A purchase of $113.96 at UBER TRIP was charged to your credit card ending in 9111 on 12/13.</body>
+  </sms>
+  <sms>
+    <receivedTime>1797177120000</receivedTime>
+    <address>+14155550132</address>
+    <body>Movie at 8?</body>
+  </sms>
+  <sms>
+    <receivedTime>1797199860000</receivedTime>
+    <address>322632</address>
+    <body>BofA: A pending authorization of $100.41 at SHELL OIL 5744 is on your credit card ending 9111. Final amount may vary.</body>
+  </sms>
+  <sms>
+    <receivedTime>1797249780000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You sent $33.95 to RAJ PATEL with Zelle(R) from acct ending 9384 on 12/14. Avail bal: $18,894.03.</body>
+  </sms>
+  <sms>
+    <receivedTime>1797276300000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You made a $121.23 debit card purchase with card ending 7761 at CVS/PHARMACY #883 on 12/14. Avail bal: $18,772.80.</body>
+  </sms>
+  <sms>
+    <receivedTime>1797324660000</receivedTime>
+    <address>322632</address>
+    <body>BofA: A Late Payment Fee of $29.00 was charged to your credit card ending 9111 on 12/15.</body>
+  </sms>
+  <sms>
+    <receivedTime>1797347160000</receivedTime>
+    <address>322632</address>
+    <body>BofA: Interest Charged of $41.23 was posted to your credit card ending 9111 on 12/15.</body>
+  </sms>
+  <sms>
+    <receivedTime>1797373560000</receivedTime>
+    <address>24273</address>
+    <body>Chase: Your online payment of $357.86 to BANK OF AMERICA CARD 9111 from acct ...9384 is complete on 12/15. Avail bal: $18,414.94.</body>
+  </sms>
+  <sms>
+    <receivedTime>1797376260000</receivedTime>
+    <address>322632</address>
+    <body>BofA: Payment of $357.86 received on credit card ending 9111. Thank you. Avail credit: $884.32.</body>
+  </sms>
+  <sms>
+    <receivedTime>1797383820000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You sent $10.04 to RAJ PATEL with Zelle(R) from acct ending 9384 on 12/16. Avail bal: $18,404.90.</body>
+  </sms>
+  <sms>
+    <receivedTime>1797423660000</receivedTime>
+    <address>24273</address>
+    <body>Chase: JOHN MILLER requested $22.44 from you with Zelle(R). Review in the Chase Mobile app. No money has moved.</body>
+  </sms>
+  <sms>
+    <receivedTime>1797468900000</receivedTime>
+    <address>322632</address>
+    <body>BofA Reminder: Payment of $35.00 minimum is due on credit card ending 9111 by 12/23. Avoid late fees.</body>
+  </sms>
+  <sms>
+    <receivedTime>1797491400000</receivedTime>
+    <address>24273</address>
+    <body>Chase: Your one-time code is 765514. Don&#x27;t share it. We&#x27;ll never call to ask for it.</body>
+  </sms>
+  <sms>
+    <receivedTime>1797505140000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: A payment of $200.00 to BofA CARD 9111 was debited from account ending 9661 on 12/17. Available balance: $668.36.</body>
+  </sms>
+  <sms>
+    <receivedTime>1797511020000</receivedTime>
+    <address>322632</address>
+    <body>BofA: Payment of $200.00 received on credit card ending 9111. Thank you. Avail credit: $1,084.32.</body>
+  </sms>
+  <sms>
+    <receivedTime>1797680520000</receivedTime>
+    <address>322632</address>
+    <body>BofA: Your $200.00 payment on credit card ending 9111 was RETURNED (insufficient funds) and reversed on 12/19. Avail credit: $884.32.</body>
+  </sms>
+  <sms>
+    <receivedTime>1797683460000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: $200.00 was credited back to account ending 9661 (returned payment) on 12/19. Available balance: $868.36.</body>
+  </sms>
+  <sms>
+    <receivedTime>1797705720000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: A purchase of $106.20 at STARBUCKS #2214 was charged to your credit card ending in 9111 on 12/19.</body>
+  </sms>
+  <sms>
+    <receivedTime>1797762540000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You made a $101.19 debit card purchase with card ending 7761 at BEST BUY #442 on 12/20. Avail bal: $18,303.71.</body>
+  </sms>
+  <sms>
+    <receivedTime>1797770340000</receivedTime>
+    <address>55123</address>
+    <body>QuickCash Loans: Get up to $5,000 TODAY! No credit check. Apply now: qcloans.example/apply. Txt STOP to end.</body>
+  </sms>
+  <sms>
+    <receivedTime>1797783060000</receivedTime>
+    <address>24273</address>
+    <body>Chase: Direct deposit of $2,082.11 from ACME TECHNOLOGIES PAYROLL posted to acct ...9384 on 12/20. Avail bal: $20,385.82.</body>
+  </sms>
+  <sms>
+    <receivedTime>1797841080000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You scheduled a payment of $83.03 to COMCAST CABLE for 12/29 from acct ...9384. To cancel, visit chase.com/pay.</body>
+  </sms>
+  <sms>
+    <receivedTime>1797880440000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: Interest Paid of $1.12 was credited to account ending 9661 on 12/21. Available balance: $869.48.</body>
+  </sms>
+  <sms>
+    <receivedTime>1797909720000</receivedTime>
+    <address>24273</address>
+    <body>Chase: MIKE CHEN sent you $121.80 with Zelle(R). Deposited to acct ...9384. Avail bal: $20,507.62.</body>
+  </sms>
+  <sms>
+    <receivedTime>1797918360000</receivedTime>
+    <address>262966</address>
+    <body>384605 is your Amazon OTP. Do not share it with anyone.</body>
+  </sms>
+  <sms>
+    <receivedTime>1797958860000</receivedTime>
+    <address>37777</address>
+    <body>USPS: Your package 9420647491911254695 is out for delivery today.</body>
+  </sms>
+  <sms>
+    <receivedTime>1797974520000</receivedTime>
+    <address>93557</address>
+    <body>Wells Fargo: 186720 is your access code. It expires in 10 minutes. Don&#x27;t share it.</body>
+  </sms>
+  <sms>
+    <receivedTime>1798031400000</receivedTime>
+    <address>262966</address>
+    <body>729671 is your Amazon OTP. Do not share it with anyone.</body>
+  </sms>
+  <sms>
+    <receivedTime>1798085760000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: A Monthly Maintenance Fee of $12.00 was charged to account ending 9661 on 12/24. Available balance: $857.48.</body>
+  </sms>
+  <sms>
+    <receivedTime>1798187820000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: Your Monthly Maintenance Fee of $12.00 was REFUNDED to account ending 9661 on 12/25. Available balance: $869.48.</body>
+  </sms>
+  <sms>
+    <receivedTime>1798220940000</receivedTime>
+    <address>24273</address>
+    <body>Chase Fraud Alert: Did you attempt $143.52 at ONLINE MERCHANT with debit card ending 7761? Reply YES or NO.</body>
+  </sms>
+  <sms>
+    <receivedTime>1798264020000</receivedTime>
+    <address>89887</address>
+    <body>DOMINO&#x27;S: BOGO large pizzas today only! dominos.com. Txt STOP to end.</body>
+  </sms>
+  <sms>
+    <receivedTime>1798287300000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: Your credit card ending in 9111 statement is ready. Balance: $3,421.88. Min payment $35.00 due 01/13.</body>
+  </sms>
+  <sms>
+    <receivedTime>1798330020000</receivedTime>
+    <address>24273</address>
+    <body>Chase: RAJ PATEL sent you $156.31 with Zelle(R). Deposited to acct ...9384. Avail bal: $20,663.93.</body>
+  </sms>
+  <sms>
+    <receivedTime>1798340280000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You sent $174.91 to MIKE CHEN with Zelle(R) from acct ending 9384 on 12/27. Avail bal: $20,489.02.</body>
+  </sms>
+  <sms>
+    <receivedTime>1798358700000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: A cash deposit of $300.00 was made at ATM #B2231 to account ending 9661 on 12/27. Available balance: $1,169.48.</body>
+  </sms>
+  <sms>
+    <receivedTime>1798381200000</receivedTime>
+    <address>262966</address>
+    <body>440588 is your Amazon OTP. Do not share it with anyone.</body>
+  </sms>
+  <sms>
+    <receivedTime>1798411740000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You made a $68.03 debit card purchase with card ending 7761 at SPOTIFY USA on 12/27. Avail bal: $20,420.99.</body>
+  </sms>
+  <sms>
+    <receivedTime>1798422120000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You made a $97.58 debit card purchase with card ending 7761 at STARBUCKS #2214 on 12/28. Avail bal: $20,323.41.</body>
+  </sms>
+  <sms>
+    <receivedTime>1798471260000</receivedTime>
+    <address>89887</address>
+    <body>DOMINO&#x27;S: BOGO large pizzas today only! dominos.com. Txt STOP to end.</body>
+  </sms>
+  <sms>
+    <receivedTime>1798512660000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You made a $10.03 debit card purchase with card ending 7761 at APPLE.COM/BILL on 12/29. Avail bal: $20,313.38.</body>
+  </sms>
+  <sms>
+    <receivedTime>1798540620000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: A purchase of $66.67 at TRADER JOE&#x27;S #552 was charged to your credit card ending in 9111 on 12/29.</body>
+  </sms>
+  <sms>
+    <receivedTime>1798582560000</receivedTime>
+    <address>24273</address>
+    <body>Chase: You made a $50.49 debit card purchase with card ending 7761 at BEST BUY #442 on 12/29. Avail bal: $20,262.89.</body>
+  </sms>
+  <sms>
+    <receivedTime>1798625640000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: A purchase of $11.95 at TARGET T-1043 was charged to your credit card ending in 9111 on 12/30.</body>
+  </sms>
+  <sms>
+    <receivedTime>1798686600000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: Your credit card ending in 9111 statement is ready. Balance: $3,500.50. Min payment $35.00 due 01/18.</body>
+  </sms>
+  <sms>
+    <receivedTime>1798697160000</receivedTime>
+    <address>93557</address>
+    <body>Wells Fargo: 206830 is your access code. It expires in 10 minutes. Don&#x27;t share it.</body>
+  </sms>
+  <sms>
+    <receivedTime>1798746600000</receivedTime>
+    <address>672566</address>
+    <body>Netflix: Your payment method was updated successfully. If this wasn&#x27;t you, visit netflix.com/account.</body>
+  </sms>
+  <sms>
+    <receivedTime>1798773840000</receivedTime>
+    <address>322632</address>
+    <body>Bank of America: A purchase of $161.80 at BEST BUY #442 was charged to your credit card ending in 9111 on 01/01.</body>
+  </sms>
+  <expected_summary>
+{&quot;batch_id&quot;: &quot;usa_batch4&quot;, &quot;total_messages&quot;: 102, &quot;positive_transactions&quot;: 62, &quot;negative_samples&quot;: 40, &quot;counting_rules&quot;: [&quot;Only executed movements count; pending/declined/fraud-question/AutoPay-setup/scheduled/statements/OTP/noise = no ledger.&quot;, &quot;Card 882 CLOSED mid-batch (fraud); replaced by card 7761 \u2014 both are subsets of Chase acct 9384; their balances mirror 9384.&quot;, &quot;Returned CC payment cycle counts 4 movements: 9661 debit, card credit, card reversal (charge), 9661 credit-back. Net zero.&quot;, &quot;Cash-back purchase: full $60.00 is the ledger debit.&quot;, &quot;FX purchase: USD amount $49.12 is the ledger debit (EUR 45.00 is informational).&quot;, &quot;New bank: Wells Fargo acct 4417 opened this batch, funded $1,000 from Chase 9384.&quot;], &quot;opening_balances&quot;: {&quot;9384&quot;: 17736.98, &quot;9661&quot;: 1066.5, &quot;9111_outstanding&quot;: 3352.96, &quot;9111_available_credit&quot;: 847.04, &quot;4417&quot;: 0.0}, &quot;expected_accounts&quot;: [{&quot;bank&quot;: &quot;Chase&quot;, &quot;account_or_card&quot;: &quot;9384&quot;, &quot;type&quot;: &quot;BANK&quot;, &quot;expected_total_credits&quot;: 5976.17, &quot;expected_total_debits&quot;: 3450.26, &quot;expected_txn_count&quot;: 32, &quot;expected_final_balance&quot;: 20262.89, &quot;status&quot;: &quot;OPEN&quot;}, {&quot;bank&quot;: &quot;Chase&quot;, &quot;account_or_card&quot;: &quot;882&quot;, &quot;type&quot;: &quot;CARD&quot;, &quot;expected_total_credits&quot;: 0.0, &quot;expected_total_debits&quot;: 565.8, &quot;expected_txn_count&quot;: 6, &quot;linked_account&quot;: &quot;9384&quot;, &quot;expected_final_balance&quot;: 20262.89, &quot;status&quot;: &quot;CLOSED&quot;, &quot;note&quot;: &quot;Closed mid-batch due to fraud; replaced by 7761.&quot;}, {&quot;bank&quot;: &quot;Chase&quot;, &quot;account_or_card&quot;: &quot;7761&quot;, &quot;type&quot;: &quot;CARD&quot;, &quot;expected_total_credits&quot;: 0.0, &quot;expected_total_debits&quot;: 830.34, &quot;expected_txn_count&quot;: 11, &quot;linked_account&quot;: &quot;9384&quot;, &quot;expected_final_balance&quot;: 20262.89, &quot;status&quot;: &quot;OPEN&quot;, &quot;note&quot;: &quot;Replacement debit card, active mid-batch.&quot;}, {&quot;bank&quot;: &quot;Bank of America&quot;, &quot;account_or_card&quot;: &quot;9661&quot;, &quot;type&quot;: &quot;BANK&quot;, &quot;expected_total_credits&quot;: 513.12, &quot;expected_total_debits&quot;: 410.14, &quot;expected_txn_count&quot;: 11, &quot;expected_final_balance&quot;: 1169.48, &quot;status&quot;: &quot;OPEN&quot;}, {&quot;bank&quot;: &quot;Bank of America&quot;, &quot;account_or_card&quot;: &quot;9111&quot;, &quot;type&quot;: &quot;CARD&quot;, &quot;expected_total_credits&quot;: 947.43, &quot;expected_total_debits&quot;: 1256.77, &quot;expected_txn_count&quot;: 18, &quot;credit_limit&quot;: 4200.0, &quot;expected_final_balance&quot;: 3662.3, &quot;expected_final_available_credit&quot;: 537.7, &quot;status&quot;: &quot;OPEN&quot;}, {&quot;bank&quot;: &quot;Wells Fargo&quot;, &quot;account_or_card&quot;: &quot;4417&quot;, &quot;type&quot;: &quot;BANK&quot;, &quot;expected_total_credits&quot;: 1000.0, &quot;expected_total_debits&quot;: 0.0, &quot;expected_txn_count&quot;: 1, &quot;expected_final_balance&quot;: 1000.0, &quot;status&quot;: &quot;OPEN&quot;, &quot;note&quot;: &quot;New bank account opened this batch.&quot;}]}
+  </expected_summary>
+</smses>

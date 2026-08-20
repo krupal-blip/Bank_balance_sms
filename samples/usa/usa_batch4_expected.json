@@ -1,0 +1,90 @@
+{
+  "batch_id": "usa_batch4",
+  "total_messages": 102,
+  "positive_transactions": 62,
+  "negative_samples": 40,
+  "counting_rules": [
+    "Only executed movements count; pending/declined/fraud-question/AutoPay-setup/scheduled/statements/OTP/noise = no ledger.",
+    "Card 882 CLOSED mid-batch (fraud); replaced by card 7761 \u2014 both are subsets of Chase acct 9384; their balances mirror 9384.",
+    "Returned CC payment cycle counts 4 movements: 9661 debit, card credit, card reversal (charge), 9661 credit-back. Net zero.",
+    "Cash-back purchase: full $60.00 is the ledger debit.",
+    "FX purchase: USD amount $49.12 is the ledger debit (EUR 45.00 is informational).",
+    "New bank: Wells Fargo acct 4417 opened this batch, funded $1,000 from Chase 9384."
+  ],
+  "opening_balances": {
+    "9384": 17736.98,
+    "9661": 1066.5,
+    "9111_outstanding": 3352.96,
+    "9111_available_credit": 847.04,
+    "4417": 0.0
+  },
+  "expected_accounts": [
+    {
+      "bank": "Chase",
+      "account_or_card": "9384",
+      "type": "BANK",
+      "expected_total_credits": 5976.17,
+      "expected_total_debits": 3450.26,
+      "expected_txn_count": 32,
+      "expected_final_balance": 20262.89,
+      "status": "OPEN"
+    },
+    {
+      "bank": "Chase",
+      "account_or_card": "882",
+      "type": "CARD",
+      "expected_total_credits": 0.0,
+      "expected_total_debits": 565.8,
+      "expected_txn_count": 6,
+      "linked_account": "9384",
+      "expected_final_balance": 20262.89,
+      "status": "CLOSED",
+      "note": "Closed mid-batch due to fraud; replaced by 7761."
+    },
+    {
+      "bank": "Chase",
+      "account_or_card": "7761",
+      "type": "CARD",
+      "expected_total_credits": 0.0,
+      "expected_total_debits": 830.34,
+      "expected_txn_count": 11,
+      "linked_account": "9384",
+      "expected_final_balance": 20262.89,
+      "status": "OPEN",
+      "note": "Replacement debit card, active mid-batch."
+    },
+    {
+      "bank": "Bank of America",
+      "account_or_card": "9661",
+      "type": "BANK",
+      "expected_total_credits": 513.12,
+      "expected_total_debits": 410.14,
+      "expected_txn_count": 11,
+      "expected_final_balance": 1169.48,
+      "status": "OPEN"
+    },
+    {
+      "bank": "Bank of America",
+      "account_or_card": "9111",
+      "type": "CARD",
+      "expected_total_credits": 947.43,
+      "expected_total_debits": 1256.77,
+      "expected_txn_count": 18,
+      "credit_limit": 4200.0,
+      "expected_final_balance": 3662.3,
+      "expected_final_available_credit": 537.7,
+      "status": "OPEN"
+    },
+    {
+      "bank": "Wells Fargo",
+      "account_or_card": "4417",
+      "type": "BANK",
+      "expected_total_credits": 1000.0,
+      "expected_total_debits": 0.0,
+      "expected_txn_count": 1,
+      "expected_final_balance": 1000.0,
+      "status": "OPEN",
+      "note": "New bank account opened this batch."
+    }
+  ]
+}

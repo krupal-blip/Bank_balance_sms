@@ -1,0 +1,99 @@
+{
+  "batch_id": "usa_batch5",
+  "total_messages": 98,
+  "positive_transactions": 55,
+  "negative_samples": 43,
+  "counting_rules": [
+    "Only executed movements count.",
+    "LAST-4 COLLISION: 'card ending 9111' exists at BOTH banks. Sender 322632/BofA = credit card 9111 (revolving). Sender 93557/Wells Fargo = debit card 9111, subset of WF acct 4417. Attribution must use bank/sender, not last-4 alone.",
+    "BofA card 9111 credit limit increased to $6,000.00 early in batch \u2014 available credit thereafter = 6000 - outstanding.",
+    "Card 882 remains CLOSED; zero activity. Active Chase debit card is 7761 (subset of 9384)."
+  ],
+  "opening_balances": {
+    "9384": 20262.89,
+    "9661": 1169.48,
+    "9111_outstanding": 3662.3,
+    "9111_available_credit": 537.7,
+    "4417": 1000.0
+  },
+  "expected_accounts": [
+    {
+      "bank": "Chase",
+      "account_or_card": "9384",
+      "type": "BANK",
+      "expected_total_credits": 3543.32,
+      "expected_total_debits": 2099.76,
+      "expected_txn_count": 27,
+      "expected_final_balance": 21706.45,
+      "status": "OPEN"
+    },
+    {
+      "bank": "Chase",
+      "account_or_card": "7761",
+      "type": "CARD",
+      "expected_total_credits": 0.0,
+      "expected_total_debits": 1081.01,
+      "expected_txn_count": 14,
+      "linked_account": "9384",
+      "expected_final_balance": 21706.45,
+      "status": "OPEN"
+    },
+    {
+      "bank": "Chase",
+      "account_or_card": "882",
+      "type": "CARD",
+      "expected_total_credits": 0.0,
+      "expected_total_debits": 0.0,
+      "expected_txn_count": 0,
+      "linked_account": "9384",
+      "expected_final_balance": 21706.45,
+      "status": "CLOSED",
+      "note": "No activity; closed in batch 4."
+    },
+    {
+      "bank": "Bank of America",
+      "account_or_card": "9661",
+      "type": "BANK",
+      "expected_total_credits": 0.0,
+      "expected_total_debits": 152.71,
+      "expected_txn_count": 3,
+      "expected_final_balance": 1016.77,
+      "status": "OPEN"
+    },
+    {
+      "bank": "Bank of America",
+      "account_or_card": "9111",
+      "type": "CARD",
+      "expected_total_credits": 818.51,
+      "expected_total_debits": 651.14,
+      "expected_txn_count": 10,
+      "credit_limit": 6000.0,
+      "expected_final_balance": 3494.93,
+      "expected_final_available_credit": 2505.07,
+      "status": "OPEN",
+      "note": "Limit raised 4200->6000 this batch."
+    },
+    {
+      "bank": "Wells Fargo",
+      "account_or_card": "4417",
+      "type": "BANK",
+      "expected_total_credits": 1600.0,
+      "expected_total_debits": 896.18,
+      "expected_txn_count": 15,
+      "expected_final_balance": 1703.82,
+      "status": "OPEN"
+    },
+    {
+      "bank": "Wells Fargo",
+      "account_or_card": "9111",
+      "type": "CARD",
+      "expected_total_credits": 0.0,
+      "expected_total_debits": 676.24,
+      "expected_txn_count": 10,
+      "linked_account": "4417",
+      "expected_final_balance": 1703.82,
+      "status": "OPEN",
+      "note": "WF DEBIT card; deliberate last-4 collision with BofA credit card 9111."
+    }
+  ]
+}
