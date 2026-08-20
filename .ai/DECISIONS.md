@@ -16,3 +16,8 @@
 - **Date**: 2026-08-20
 - **Decision**: Establish Antigravity as Engineering Manager/Orchestrator and OpenCode as Executor #1. State is managed via persistent files under `.ai/` and coordinated via the Agent Bridge CLI/MCP.
 - **Rationale**: Enables asynchronous, multi-agent pair programming without session loss, context window pollution, or memory amnesia.
+
+## ADR-004: Unified Primary SMS Banking Experience (US & Global)
+- **Date**: 2026-08-20
+- **Decision**: SMS text messaging is recognized as the primary, default real-time transaction and fraud alert channel across all Tier-1 US banks (Chase, BofA, Wells Fargo, Citi, Capital One). All users share the exact same unified transaction ledger UI across all regions.
+- **Rationale**: Confirmed by US banking standards — banks automatically enable SMS alerts by default for security and transactional auditing. The app delivers a seamless, zero-friction experience without segregating users into separate flows.
