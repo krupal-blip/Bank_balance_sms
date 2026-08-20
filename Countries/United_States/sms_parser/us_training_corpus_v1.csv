@@ -1,0 +1,729 @@
+id,received_time,sender,body,is_transaction,bank,account,amount,balance,txn_type,source
+US_CORPUS_00001,1787348220000,322632,Bank of America: A purchase of $242.58 at KROGER #771 was charged to your credit card ending in 9111 on 08/21.,1,Bank of America,9111,242.58,,DEBIT,CARD
+US_CORPUS_00002,1787400240000,322632,Bank of America: A purchase of $198.89 at KROGER #771 was charged to your credit card ending in 9111 on 08/22.,1,Bank of America,9111,198.89,,DEBIT,CARD
+US_CORPUS_00003,1787445660000,322632,"Bank of America: A withdrawal/debit of $71.87 (ATM WITHDRAWAL #A5521) posted to account ending 9661 on 08/23. Available balance: $1,270.50.",1,Bank of America,9661,71.87,"1,270.50",DEBIT,BANK
+US_CORPUS_00004,1787495040000,322632,BofA: Your credit card ending 9111 was DECLINED for $279.92 at PANERA BREAD #4402 on 08/23. Call 800.732.9194 if you need help.,0,Bank of America,,,,OTHER,NONE
+US_CORPUS_00005,1787542920000,24273,"Chase: You made a $13.26 debit card purchase with card ending 882 at WALMART SUPERCENTER on 08/24. Avail bal: $8,996.86.",1,Chase,882,13.26,"8,996.86",DEBIT,CARD
+US_CORPUS_00006,1787618100000,672566,"Netflix: Your payment method was updated successfully. If this wasn't you, visit netflix.com/account.",0,Unknown,,,,OTHER,NONE
+US_CORPUS_00007,1787672640000,24273,"Chase: A refund of $23.45 from AMAZON MKTPLACE was credited to your debit card ending 882 on 08/25. Avail bal: $9,020.31.",1,Chase,882,23.45,"9,020.31",CREDIT,CARD
+US_CORPUS_00008,1787723040000,322632,Bank of America: A purchase of $206.12 at KROGER #771 was charged to your credit card ending in 9111 on 08/26.,1,Bank of America,9111,206.12,,DEBIT,CARD
+US_CORPUS_00009,1787760900000,322632,BofA Reminder: Payment of $35.00 minimum is due on credit card ending 9111 by 09/01. Avoid late fees.,1,Bank of America,9111,35.00,,CREDIT,CARD
+US_CORPUS_00010,1787783700000,24273,"Chase: You made a $116.49 debit card purchase with card ending 882 at UBER TRIP on 08/26. Avail bal: $8,903.82.",1,Chase,882,116.49,"8,903.82",DEBIT,CARD
+US_CORPUS_00011,1787801580000,322632,BofA: Your credit card ending 9111 was DECLINED for $156.02 at WHOLE FOODS MKT on 08/27. Call 800.732.9194 if you need help.,0,Bank of America,,,,OTHER,NONE
+US_CORPUS_00012,1787856180000,24273,"Chase: You scheduled a payment of $190.41 to COMCAST CABLE for 09/04 from acct ...9384. To cancel, visit chase.com/pay.",1,Chase,9384,190.41,,CREDIT,BANK
+US_CORPUS_00013,1787928780000,89887,DOMINO'S: BOGO large pizzas today only! dominos.com. Txt STOP to end.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00014,1787944440000,322632,BofA: A pending authorization of $64.10 at DELTA AIR 0062341 is on your credit card ending 9111. Final amount may vary.,1,Bank of America,9111,64.10,,DEBIT,CARD
+US_CORPUS_00015,1787960280000,322632,Bank of America: A purchase of $64.10 at DELTA AIR 0062341 was charged to your credit card ending in 9111 on 08/28.,1,Bank of America,9111,64.10,,DEBIT,CARD
+US_CORPUS_00016,1787991420000,322632,BofA: Your credit card ending 9111 was DECLINED for $82.62 at AMAZON MKTPLACE on 08/29. Call 800.732.9194 if you need help.,0,Bank of America,,,,OTHER,NONE
+US_CORPUS_00017,1788065040000,24273,"Chase: You made a $110.07 debit card purchase with card ending 882 at APPLE.COM/BILL on 08/30. Avail bal: $8,793.75.",1,Chase,882,110.07,"8,793.75",DEBIT,CARD
+US_CORPUS_00018,1788136020000,322632,Bank of America: Your credit card ending in 9111 statement is ready. Balance: $716.11. Min payment $35.00 due 09/18.,1,Bank of America,9111,716.11,716.11,DEBIT,CARD
+US_CORPUS_00019,1788168300000,24273,"Chase: You made a $70.14 debit card purchase with card ending 882 at STARBUCKS #2214 on 08/31. Avail bal: $8,723.61.",1,Chase,882,70.14,"8,723.61",DEBIT,CARD
+US_CORPUS_00020,1788224160000,24273,"Chase: SARAH LOPEZ sent you $76.13 with Zelle(R). Deposited to acct ...9384. Avail bal: $8,799.74.",1,Chase,,76.13,,CREDIT,BANK
+US_CORPUS_00021,1788262740000,22000,G-964394 is your Google verification code.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00022,1788318540000,322632,"Bank of America: AutoPay payment of $150.00 was made to your credit card ending 9111 from account 9661 on 09/02. Avail bal acct 9661: $1,120.50.",1,Bank of America,9111,150.00,,CREDIT,CARD
+US_CORPUS_00023,1788354780000,322632,BofA Reminder: Payment of $35.00 minimum is due on credit card ending 9111 by 09/08. Avoid late fees.,1,Bank of America,9111,35.00,,CREDIT,CARD
+US_CORPUS_00024,1788393360000,322632,Bank of America: Your credit card ending in 9111 statement is ready. Balance: $566.11. Min payment $35.00 due 09/20.,1,Bank of America,9111,566.11,566.11,DEBIT,CARD
+US_CORPUS_00025,1788410760000,24273,"Chase: Direct deposit of $456.34 from ACME TECHNOLOGIES PAYROLL posted to acct ...9384 on 09/03. Avail bal: $9,256.08.",1,Chase,9384,456.34,"9,256.08",CREDIT,BANK
+US_CORPUS_00026,1788428700000,262966,792149 is your Amazon OTP. Do not share it with anyone.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00027,1788504180000,22000,G-424197 is your Google verification code.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00028,1788534060000,322632,Bank of America: Your credit card ending in 9111 statement is ready. Balance: $566.11. Min payment $35.00 due 09/22.,1,Bank of America,9111,566.11,566.11,DEBIT,CARD
+US_CORPUS_00029,1788605460000,322632,Bank of America: AutoPay is now set up for your credit card ending in 9111. $35.00 (minimum due) will be drafted from account 9661 each cycle. No payment was made today.,0,Bank of America,,,,OTHER,NONE
+US_CORPUS_00030,1788652140000,89887,DOMINO'S: BOGO large pizzas today only! dominos.com. Txt STOP to end.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00031,1788710640000,24273,"Chase: Direct deposit of $2,112.31 from ACME TECHNOLOGIES PAYROLL posted to acct ...9384 on 09/06. Avail bal: $11,368.39.",1,Chase,9384,"2,112.31","11,368.39",CREDIT,BANK
+US_CORPUS_00032,1788784080000,22000,G-765616 is your Google verification code.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00033,1788836880000,24273,"Chase: You made a $42.03 debit card purchase with card ending 882 at CHIPOTLE 1187 on 09/08. Avail bal: $11,326.36.",1,Chase,882,42.03,"11,326.36",DEBIT,CARD
+US_CORPUS_00034,1788888360000,322632,Bank of America: A purchase of $297.53 at KROGER #771 was charged to your credit card ending in 9111 on 09/08.,1,Bank of America,9111,297.53,,DEBIT,CARD
+US_CORPUS_00035,1788895560000,322632,Bank of America: A purchase of $133.07 at TARGET T-1043 was charged to your credit card ending in 9111 on 09/08.,1,Bank of America,9111,133.07,,DEBIT,CARD
+US_CORPUS_00036,1788930360000,24273,"Chase: You transferred $500.00 from acct ...9384 to external account ending 9661 on 09/09. Avail bal: $10,826.36.",1,Chase,9384,500.00,"10,826.36",DEBIT,BANK
+US_CORPUS_00037,1788941760000,322632,"Bank of America: A transfer of $500.00 was received into account ending 9661 on 09/09. Available balance: $1,620.50.",1,Bank of America,9661,500.00,"1,620.50",CREDIT,BANK
+US_CORPUS_00038,1789004460000,+14155550132,Hey are we still on for dinner tonight?,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00039,1789014480000,322632,Bank of America: A purchase of $137.61 at SPOTIFY USA was charged to your credit card ending in 9111 on 09/10.,1,Bank of America,9111,137.61,,DEBIT,CARD
+US_CORPUS_00040,1789051200000,262966,619585 is your Amazon OTP. Do not share it with anyone.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00041,1789111740000,24273,"Chase: You scheduled a payment of $151.84 to COMCAST CABLE for 09/19 from acct ...9384. To cancel, visit chase.com/pay.",1,Chase,9384,151.84,,CREDIT,BANK
+US_CORPUS_00042,1789139340000,24273,"Chase: You made a $138.01 debit card purchase with card ending 882 at PANERA BREAD #4402 on 09/11. Avail bal: $10,688.35.",1,Chase,882,138.01,"10,688.35",DEBIT,CARD
+US_CORPUS_00043,1789181760000,24273,"Chase: Direct deposit of $2,249.23 from ACME TECHNOLOGIES PAYROLL posted to acct ...9384 on 09/12. Avail bal: $12,937.58.",1,Chase,9384,"2,249.23","12,937.58",CREDIT,BANK
+US_CORPUS_00044,1789233420000,24273,"Chase: You transferred $200.00 from acct ...9384 to WELLS FARGO acct ...4417 on 09/12. Avail bal: $12,737.58.",1,Chase,9384,200.00,"12,737.58",DEBIT,BANK
+US_CORPUS_00045,1789250760000,24273,"Chase: Your transfer of $200.00 to acct ...4417 FAILED and was reversed to acct ...9384. Avail bal: $12,937.58.",0,Chase,,,,OTHER,NONE
+US_CORPUS_00046,1789278960000,24273,"Chase: You sent $168.43 to SARAH LOPEZ with Zelle(R) from acct ending 9384 on 09/13. Avail bal: $12,769.15.",1,Chase,9384,168.43,"12,769.15",DEBIT,BANK
+US_CORPUS_00047,1789324320000,24273,"Chase: You scheduled a payment of $141.87 to COMCAST CABLE for 09/21 from acct ...9384. To cancel, visit chase.com/pay.",1,Chase,9384,141.87,,CREDIT,BANK
+US_CORPUS_00048,1789374360000,24273,"Chase: EMILY DAVIS sent you $44.83 with Zelle(R). Deposited to acct ...9384. Avail bal: $12,813.98.",1,Chase,,44.83,,CREDIT,BANK
+US_CORPUS_00049,1789414380000,24273,"Chase: You scheduled a payment of $276.99 to COMCAST CABLE for 09/22 from acct ...9384. To cancel, visit chase.com/pay.",1,Chase,9384,276.99,,CREDIT,BANK
+US_CORPUS_00050,1789480980000,322632,"Bank of America: A withdrawal/debit of $147.93 (GEICO AUTO INS) posted to account ending 9661 on 09/15. Available balance: $1,472.57.",1,Bank of America,9661,147.93,"1,472.57",DEBIT,BANK
+US_CORPUS_00051,1789526880000,672566,"Netflix: Your payment method was updated successfully. If this wasn't you, visit netflix.com/account.",0,Unknown,,,,OTHER,NONE
+US_CORPUS_00052,1789587540000,24273,Chase: EMILY DAVIS requested $64.07 from you with Zelle(R). Review in the Chase Mobile app. No money has moved.,1,Chase,,64.07,,DEBIT,BANK
+US_CORPUS_00053,1789645140000,24273,"Chase: You made a $69.81 debit card purchase with card ending 882 at PANERA BREAD #4402 on 09/17. Avail bal: $12,744.17.",1,Chase,882,69.81,"12,744.17",DEBIT,CARD
+US_CORPUS_00054,1789706880000,24273,"Chase: SARAH LOPEZ sent you $140.47 with Zelle(R). Deposited to acct ...9384. Avail bal: $12,884.64.",1,Chase,,140.47,,CREDIT,BANK
+US_CORPUS_00055,1789739520000,24273,"Chase: You scheduled a payment of $186.35 to COMCAST CABLE for 09/26 from acct ...9384. To cancel, visit chase.com/pay.",1,Chase,9384,186.35,,CREDIT,BANK
+US_CORPUS_00056,1789802820000,+14155550132,Happy birthday!! 🎉,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00057,1789867860000,322632,"Bank of America: A withdrawal/debit of $96.12 (PG&E UTILITY) posted to account ending 9661 on 09/20. Available balance: $1,376.45.",1,Bank of America,9661,96.12,"1,376.45",DEBIT,BANK
+US_CORPUS_00058,1789910040000,322632,Bank of America: A purchase of $221.70 at AMAZON MKTPLACE was charged to your credit card ending in 9111 on 09/20.,1,Bank of America,9111,221.70,,DEBIT,CARD
+US_CORPUS_00059,1789939140000,322632,"Bank of America: An Overdraft Item Fee of $35 was assessed to account ending 9661 on 09/20. Available balance: $1,341.45.",1,Bank of America,9661,"1,341.45","1,341.45",DEBIT,BANK
+US_CORPUS_00060,1789946400000,24273,"Chase: You made a $70.93 debit card purchase with card ending 882 at DELTA AIR 0062341 on 09/20. Avail bal: $12,813.71.",1,Chase,882,70.93,"12,813.71",DEBIT,CARD
+US_CORPUS_00061,1790005680000,322632,BofA Reminder: Payment of $35.00 minimum is due on credit card ending 9111 by 09/27. Avoid late fees.,1,Bank of America,9111,35.00,,CREDIT,CARD
+US_CORPUS_00062,1790019660000,24273,"Chase: Direct deposit of $1,663.43 from ACME TECHNOLOGIES PAYROLL posted to acct ...9384 on 09/21. Avail bal: $14,477.14.",1,Chase,9384,"1,663.43","14,477.14",CREDIT,BANK
+US_CORPUS_00063,1790062560000,262966,284377 is your Amazon OTP. Do not share it with anyone.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00064,1790083740000,322632,BofA: Your credit card ending 9111 was DECLINED for $323.75 at UBER TRIP on 09/22. Call 800.732.9194 if you need help.,0,Bank of America,,,,OTHER,NONE
+US_CORPUS_00065,1790110080000,24273,"Chase: You made a $57.47 debit card purchase with card ending 882 at TRADER JOE'S #552 on 09/22. Avail bal: $14,419.67.",1,Chase,882,57.47,"14,419.67",DEBIT,CARD
+US_CORPUS_00066,1790122380000,24273,"Chase: A mobile check deposit of $1,250.00 was received for acct ...9384 on 09/23. Avail bal: $15,669.67.",1,Chase,9384,"1,250.00","15,669.67",CREDIT,BANK
+US_CORPUS_00067,1790130120000,24273,Chase: A hold has been placed on part of your recent deposit to acct ...9384. $250.00 available now; remainder available in 2 business days.,1,Chase,9384,250.00,,CREDIT,BANK
+US_CORPUS_00068,1790155860000,24273,"Chase: RAJ PATEL sent you $144.21 with Zelle(R). Deposited to acct ...9384. Avail bal: $15,813.88.",1,Chase,,144.21,,CREDIT,BANK
+US_CORPUS_00069,1790213100000,322632,Bank of America: A purchase of $9.32 at STARBUCKS #2214 was charged to your credit card ending in 9111 on 09/24.,1,Bank of America,9111,9.32,,DEBIT,CARD
+US_CORPUS_00070,1790277540000,24273,"Chase: You scheduled a payment of $211.20 to COMCAST CABLE for 10/02 from acct ...9384. To cancel, visit chase.com/pay.",1,Chase,9384,211.20,,CREDIT,BANK
+US_CORPUS_00071,1790350200000,322632,BofA: Your credit card ending 9111 was DECLINED for $339.70 at TRADER JOE'S #552 on 09/25. Call 800.732.9194 if you need help.,0,Bank of America,,,,OTHER,NONE
+US_CORPUS_00072,1790410200000,89887,DOMINO'S: BOGO large pizzas today only! dominos.com. Txt STOP to end.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00073,1790420880000,322632,"Bank of America: A withdrawal/debit of $127.77 (ATM WITHDRAWAL #A5521) posted to account ending 9661 on 09/26. Available balance: $1,213.68.",1,Bank of America,9661,127.77,"1,213.68",DEBIT,BANK
+US_CORPUS_00074,1790490660000,322632,"BofA Alert: Credit card ending 9111 was used for 1234.56 USD at BEST BUY #442 on 09/27. Avail credit: $1,600.10. Fraud? Call 800.732.9194.",1,Bank of America,9111,"1,600.10","1,600.10",DEBIT,CARD
+US_CORPUS_00075,1790529300000,24273,"Chase: You made a $.99 debit card purchase with card ending 882 at APPLE.COM/BILL on 09/27. Avail bal: $15,812.89.",1,Chase,882,"15,812.89","15,812.89",DEBIT,CARD
+US_CORPUS_00076,1790557920000,24273,"Chase: You made a $161.23 debit card purchase with card ending 882 at 7-ELEVEN 33481 on 09/28. Avail bal: $15,651.66.",1,Chase,882,161.23,"15,651.66",DEBIT,CARD
+US_CORPUS_00077,1790615040000,322632,Bank of America: A purchase of $290.87 at SHELL OIL 5744 was charged to your credit card ending in 9111 on 09/28.,1,Bank of America,9111,290.87,,DEBIT,CARD
+US_CORPUS_00078,1790639520000,322632,"Bank of America: A withdrawal/debit of $138.95 (COMCAST CABLE) posted to account ending 9661 on 09/28. Available balance: $1,074.73.",1,Bank of America,9661,138.95,"1,074.73",DEBIT,BANK
+US_CORPUS_00079,1790661960000,672566,"Netflix: Your payment method was updated successfully. If this wasn't you, visit netflix.com/account.",0,Unknown,,,,OTHER,NONE
+US_CORPUS_00080,1790704860000,89887,DOMINO'S: BOGO large pizzas today only! dominos.com. Txt STOP to end.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00081,1790726280000,24273,"Chase: You made a $98.15 debit card purchase with card ending 882 at SHELL OIL 5744 on 09/29. Avail bal: $15,553.51.",1,Chase,882,98.15,"15,553.51",DEBIT,CARD
+US_CORPUS_00082,1790739000000,24273,"Chase: $76.40 was debited from checking acct ending 9384 via debit card 882 at COSTCO WHSE #482 on 09/30. Avail bal: $15,477.11.",1,Chase,9384,76.40,"15,477.11",DEBIT,CARD
+US_CORPUS_00083,1790787300000,24273,"Chase: You made a $11.40 debit card purchase with card ending 882 at DELTA AIR 0062341 on 09/30. Avail bal: $15,465.71.",1,Chase,882,11.40,"15,465.71",DEBIT,CARD
+US_CORPUS_00084,1790854080000,24273,Chase: Your one-time code is 123207. Don't share it. We'll never call to ask for it.,0,Chase,,,,OTHER,NONE
+US_CORPUS_00085,1790883900000,24273,"Chase: You made a $27.42 debit card purchase with card ending 882 at SHELL OIL 5744 on 10/01. Avail bal: $15,438.29.",1,Chase,882,27.42,"15,438.29",DEBIT,CARD
+US_CORPUS_00086,1790950920000,322632,Bank of America: A purchase of $12.94 at APPLE.COM/BILL was charged to your credit card ending in 9111 on 10/02.,1,Bank of America,9111,12.94,,DEBIT,CARD
+US_CORPUS_00087,1790991420000,322632,Bank of America: A purchase of $199.95 at 7-ELEVEN 33481 was charged to your credit card ending in 9111 on 10/03.,1,Bank of America,9111,199.95,,DEBIT,CARD
+US_CORPUS_00088,1791061140000,322632,"Bank of America: A withdrawal/debit of $26.76 (GEICO AUTO INS) posted to account ending 9661 on 10/03. Available balance: $1,047.97.",1,Bank of America,9661,26.76,"1,047.97",DEBIT,BANK
+US_CORPUS_00089,1791103320000,24273,Chase Fraud Alert: Did you attempt $412.77 at ONLINE MERCHANT with debit card ending 882? Reply YES or NO.,1,Chase,882,412.77,,DEBIT,CARD
+US_CORPUS_00090,1791113280000,24273,"Chase: Thanks for confirming. The $412.77 charge at ONLINE MERCHANT on card 882 has been approved and posted. Avail bal: $15,025.52.",1,Chase,,412.77,"15,025.52",DEBIT,CARD
+US_CORPUS_00091,1791157020000,262966,567532 is your Amazon OTP. Do not share it with anyone.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00092,1791207360000,37777,USPS: Your package 9435303465369919986 is out for delivery today.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00093,1791280740000,322632,"Bank of America: Your credit card ending in 9111 statement is ready. Balance: $3,103.66. Min payment $35.00 due 10/24.",1,Bank of America,9111,"3,103.66","3,103.66",DEBIT,CARD
+US_CORPUS_00094,1791302940000,24273,"Chase: You made a $171.59 debit card purchase with card ending 882 at STARBUCKS #2214 on 10/06. Avail bal: $14,853.93.",1,Chase,882,171.59,"14,853.93",DEBIT,CARD
+US_CORPUS_00095,1791311040000,+14155550132,Running 10 min late,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00096,1791359520000,22000,G-208915 is your Google verification code.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00097,1791368040000,86753,Venmo: You paid John Miller $45.00. Funding source: Chase debit card ...882. Avail Venmo balance: $0.00.,1,Chase,882,45.00,0.00,DEBIT,CARD
+US_CORPUS_00098,1791423240000,24273,"Chase: You sent $46.05 to SARAH LOPEZ with Zelle(R) from acct ending 9384 on 10/08. Avail bal: $14,762.88.",1,Chase,9384,46.05,"14,762.88",DEBIT,BANK
+US_CORPUS_00099,1791448080000,672566,"Netflix: Your payment method was updated successfully. If this wasn't you, visit netflix.com/account.",0,Unknown,,,,OTHER,NONE
+US_CORPUS_00100,1791497580000,24273,Chase: Your one-time code is 747015. Don't share it. We'll never call to ask for it.,0,Chase,,,,OTHER,NONE
+US_CORPUS_00101,1791539700000,322632,"Bank of America: Your credit card ending in 9111 statement is ready. Balance: $3,103.66. Min payment $35.00 due 10/27.",1,Bank of America,9111,"3,103.66","3,103.66",DEBIT,CARD
+US_CORPUS_00102,1791548640000,322632,BofA: Your credit card ending 9111 was DECLINED for $123.55 at TARGET T-1043 on 10/09. Call 800.732.9194 if you need help.,0,Bank of America,,,,OTHER,NONE
+US_CORPUS_00103,1791612900000,24273,"Chase: SARAH LOPEZ sent you $73.71 with Zelle(R). Deposited to acct ...9384. Avail bal: $14,836.59.",1,Chase,,73.71,,CREDIT,BANK
+US_CORPUS_00104,1791651780000,322632,Bank of America: A purchase of $88.20 at TARGET T-1043 was charged to your credit card ending in 9111 on 10/10.,1,Bank of America,9111,88.20,,DEBIT,CARD
+US_CORPUS_00105,1791658140000,322632,Bank of America: A purchase of $88.20 at TARGET T-1043 was charged to your credit card ending in 9111 on 10/10.,1,Bank of America,9111,88.20,,DEBIT,CARD
+US_CORPUS_00106,1791223320000,322632,Bank of America: A purchase of $38.14 at BEST BUY #442 was charged to your credit card ending in 9111 on 10/05.,1,Bank of America,9111,38.14,,DEBIT,CARD
+US_CORPUS_00107,1791238320000,24273,"Chase: You made a $53.99 debit card purchase with card ending 882 at SPOTIFY USA on 10/05. Avail bal: $14,782.60.",1,Chase,882,53.99,"14,782.60",DEBIT,CARD
+US_CORPUS_00108,1791277560000,24273,"Chase: You made a $132.33 debit card purchase with card ending 882 at WALMART SUPERCENTER on 10/06. Avail bal: $14,650.27.",1,Chase,882,132.33,"14,650.27",DEBIT,CARD
+US_CORPUS_00109,1791331680000,262966,282295 is your Amazon OTP. Do not share it with anyone.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00110,1791369180000,322632,BofA: Your credit card ending 9111 was DECLINED for $164.69 at CHIPOTLE 1187 on 10/07. Call 800.732.9194 if you need help.,0,Bank of America,,,,OTHER,NONE
+US_CORPUS_00111,1791390000000,+14155550132,Hey are we still on for dinner tonight?,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00112,1791421740000,262966,818341 is your Amazon OTP. Do not share it with anyone.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00113,1791450960000,24273,Chase Fraud Alert: Did you attempt $613.12 at ONLINE MERCHANT with debit card ending 882? Reply YES or NO.,1,Chase,882,613.12,,DEBIT,CARD
+US_CORPUS_00114,1791494040000,322632,BofA Reminder: Payment of $35.00 minimum is due on credit card ending 9111 by 10/14. Avoid late fees.,1,Bank of America,9111,35.00,,CREDIT,CARD
+US_CORPUS_00115,1791510420000,24273,"Chase: You made a $67.33 debit card purchase with card ending 882 at CHIPOTLE 1187 on 10/09. Avail bal: $14,582.94.",1,Chase,882,67.33,"14,582.94",DEBIT,CARD
+US_CORPUS_00116,1791563040000,24273,"Chase: RAJ PATEL sent you $81.74 with Zelle(R). Deposited to acct ...9384. Avail bal: $14,664.68.",1,Chase,,81.74,,CREDIT,BANK
+US_CORPUS_00117,1791583680000,24273,"Chase: Direct deposit of $1,314.13 from ACME TECHNOLOGIES PAYROLL posted to acct ...9384 on 10/09. Avail bal: $15,978.81.",1,Chase,9384,"1,314.13","15,978.81",CREDIT,BANK
+US_CORPUS_00118,1791605220000,24273,"Chase: Your online payment of $173.31 to BANK OF AMERICA CARD 9111 from acct ...9384 is complete on 10/10. Avail bal: $15,805.50.",1,Chase,9384,173.31,"15,805.50",CREDIT,CARD
+US_CORPUS_00119,1791606960000,322632,"BofA: Payment of $173.31 received on credit card ending 9111. Thank you. Avail credit: $1,143.31.",1,Bank of America,9111,173.31,"1,143.31",CREDIT,CARD
+US_CORPUS_00120,1791621780000,22000,G-547085 is your Google verification code.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00121,1791674760000,24273,Chase: Your one-time code is 224604. Don't share it. We'll never call to ask for it.,0,Chase,,,,OTHER,NONE
+US_CORPUS_00122,1791711900000,24273,"Chase: You sent $75.86 to MIKE CHEN with Zelle(R) from acct ending 9384 on 10/11. Avail bal: $15,729.64.",1,Chase,9384,75.86,"15,729.64",DEBIT,BANK
+US_CORPUS_00123,1791763860000,322632,BofA Reminder: Payment of $35.00 minimum is due on credit card ending 9111 by 10/18. Avoid late fees.,1,Bank of America,9111,35.00,,CREDIT,CARD
+US_CORPUS_00124,1791792840000,24273,"Chase: You made a $145.61 debit card purchase with card ending 882 at KROGER #771 on 10/12. Avail bal: $15,584.03.",1,Chase,882,145.61,"15,584.03",DEBIT,CARD
+US_CORPUS_00125,1791843360000,322632,"Bank of America: Your credit card ending in 9111 statement is ready. Balance: $3,056.69. Min payment $35.00 due 10/30.",1,Bank of America,9111,"3,056.69","3,056.69",DEBIT,CARD
+US_CORPUS_00126,1791891840000,322632,Bank of America: A purchase of $77.30 at TARGET T-1043 was charged to your credit card ending in 9111 on 10/13.,1,Bank of America,9111,77.30,,DEBIT,CARD
+US_CORPUS_00127,1791893820000,322632,Bank of America: A purchase of $77.30 at TARGET T-1043 was charged to your credit card ending in 9111 on 10/13.,1,Bank of America,9111,77.30,,DEBIT,CARD
+US_CORPUS_00128,1791911340000,+14155550132,Movie at 8?,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00129,1791920040000,+14155550132,Movie at 8?,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00130,1791964260000,322632,"Bank of America: A refund of $36.52 from COSTCO WHSE #482 was credited to your credit card ending in 9111 on 10/14. Avail credit: $1,102.53.",1,Bank of America,9111,36.52,"1,102.53",CREDIT,CARD
+US_CORPUS_00131,1791971700000,322632,BofA: Your credit card ending 9111 was DECLINED for $105.79 at KROGER #771 on 10/14. Call 800.732.9194 if you need help.,0,Bank of America,,,,OTHER,NONE
+US_CORPUS_00132,1791999060000,+14155550132,Running 10 min late,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00133,1792015140000,+14155550132,Movie at 8?,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00134,1792063680000,322632,BofA: A pending authorization of $71.78 at TARGET T-1043 is on your credit card ending 9111. Final amount may vary.,1,Bank of America,9111,71.78,,DEBIT,CARD
+US_CORPUS_00135,1792114800000,672566,"Netflix: Your payment method was updated successfully. If this wasn't you, visit netflix.com/account.",0,Unknown,,,,OTHER,NONE
+US_CORPUS_00136,1792156500000,24273,"Chase: You scheduled a payment of $174.86 to COMCAST CABLE for 10/24 from acct ...9384. To cancel, visit chase.com/pay.",1,Chase,9384,174.86,,CREDIT,BANK
+US_CORPUS_00137,1792203360000,322632,Bank of America: A purchase of $79.32 at WHOLE FOODS MKT was charged to your credit card ending in 9111 on 10/17.,1,Bank of America,9111,79.32,,DEBIT,CARD
+US_CORPUS_00138,1792227720000,24273,Chase Fraud Alert: Did you attempt $485.08 at ONLINE MERCHANT with debit card ending 882? Reply YES or NO.,1,Chase,882,485.08,,DEBIT,CARD
+US_CORPUS_00139,1792246440000,24273,"Chase: You made a $148.65 debit card purchase with card ending 882 at AMAZON MKTPLACE on 10/17. Avail bal: $15,435.38.",1,Chase,882,148.65,"15,435.38",DEBIT,CARD
+US_CORPUS_00140,1792264140000,322632,Bank of America: A purchase of $175.27 at WALMART SUPERCENTER was charged to your credit card ending in 9111 on 10/17.,1,Bank of America,9111,175.27,,DEBIT,CARD
+US_CORPUS_00141,1792319280000,24273,"Chase: SARAH LOPEZ sent you $32.43 with Zelle(R). Deposited to acct ...9384. Avail bal: $15,467.81.",1,Chase,,32.43,,CREDIT,BANK
+US_CORPUS_00142,1792353540000,24273,"Chase: You sent $120.81 to JOHN MILLER with Zelle(R) from acct ending 9384 on 10/18. Avail bal: $15,347.00.",1,Chase,9384,120.81,"15,347.00",DEBIT,BANK
+US_CORPUS_00143,1792413600000,24273,"Chase: JOHN MILLER sent you $111.99 with Zelle(R). Deposited to acct ...9384. Avail bal: $15,458.99.",1,Chase,,111.99,,CREDIT,BANK
+US_CORPUS_00144,1792444380000,262966,877412 is your Amazon OTP. Do not share it with anyone.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00145,1792502220000,322632,Bank of America: A withdrawal/debit of $84.02 (ATM WITHDRAWAL #A5521) posted to account ending 9661 on 10/20. Available balance: $963.95.,1,Bank of America,9661,84.02,963.95,DEBIT,BANK
+US_CORPUS_00146,1792516620000,24273,"Chase: You made a $129.43 debit card purchase with card ending 882 at WHOLE FOODS MKT on 10/20. Avail bal: $15,329.56.",1,Chase,882,129.43,"15,329.56",DEBIT,CARD
+US_CORPUS_00147,1792560420000,322632,BofA: A pending authorization of $87.08 at APPLE.COM/BILL is on your credit card ending 9111. Final amount may vary.,1,Bank of America,9111,87.08,,DEBIT,CARD
+US_CORPUS_00148,1792606860000,24273,"Chase: Direct deposit of $860.83 from ACME TECHNOLOGIES PAYROLL posted to acct ...9384 on 10/21. Avail bal: $16,190.39.",1,Chase,9384,860.83,"16,190.39",CREDIT,BANK
+US_CORPUS_00149,1792622100000,24273,"Chase: You made a $124.51 debit card purchase with card ending 882 at HOME DEPOT #6641 on 10/21. Avail bal: $16,065.88.",1,Chase,882,124.51,"16,065.88",DEBIT,CARD
+US_CORPUS_00150,1792658100000,24273,"Chase: Direct deposit of $1,705.30 from ACME TECHNOLOGIES PAYROLL posted to acct ...9384 on 10/22. Avail bal: $17,771.18.",1,Chase,9384,"1,705.30","17,771.18",CREDIT,BANK
+US_CORPUS_00151,1792720260000,24273,"Chase: Your online payment of $265.56 to BANK OF AMERICA CARD 9111 from acct ...9384 is complete on 10/23. Avail bal: $17,505.62.",1,Chase,9384,265.56,"17,505.62",CREDIT,CARD
+US_CORPUS_00152,1792720380000,322632,"BofA: Payment of $265.56 received on credit card ending 9111. Thank you. Avail credit: $1,113.50.",1,Bank of America,9111,265.56,"1,113.50",CREDIT,CARD
+US_CORPUS_00153,1792784460000,24273,"Chase: You made a $76.96 debit card purchase with card ending 882 at COSTCO WHSE #482 on 10/23. Avail bal: $17,428.66.",1,Chase,882,76.96,"17,428.66",DEBIT,CARD
+US_CORPUS_00154,1792798260000,322632,"Bank of America: A refund of $20.17 from 7-ELEVEN 33481 was credited to your credit card ending in 9111 on 10/23. Avail credit: $1,133.67.",1,Bank of America,9111,20.17,"1,133.67",CREDIT,CARD
+US_CORPUS_00155,1792850640000,24273,"Chase: SARAH LOPEZ sent you $137.17 with Zelle(R). Deposited to acct ...9384. Avail bal: $17,565.83.",1,Chase,,137.17,,CREDIT,BANK
+US_CORPUS_00156,1792906140000,24273,"Chase: You made a $23.50 debit card purchase with card ending 882 at AMAZON MKTPLACE on 10/25. Avail bal: $17,542.33.",1,Chase,882,23.50,"17,542.33",DEBIT,CARD
+US_CORPUS_00157,1792937400000,322632,Bank of America: A purchase of $104.39 at 7-ELEVEN 33481 was charged to your credit card ending in 9111 on 10/25.,1,Bank of America,9111,104.39,,DEBIT,CARD
+US_CORPUS_00158,1792992060000,22000,G-363473 is your Google verification code.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00159,1793013000000,322632,Bank of America: A withdrawal/debit of $86.74 (GEICO AUTO INS) posted to account ending 9661 on 10/26. Available balance: $877.21.,1,Bank of America,9661,86.74,877.21,DEBIT,BANK
+US_CORPUS_00160,1793024880000,322632,"Bank of America: Your credit card ending in 9111 statement is ready. Balance: $3,170.72. Min payment $35.00 due 11/13.",1,Bank of America,9111,"3,170.72","3,170.72",DEBIT,CARD
+US_CORPUS_00161,1793059020000,24273,"Chase: Direct deposit of $1,529.60 from ACME TECHNOLOGIES PAYROLL posted to acct ...9384 on 10/26. Avail bal: $19,071.93.",1,Chase,9384,"1,529.60","19,071.93",CREDIT,BANK
+US_CORPUS_00162,1793070720000,24273,Chase Fraud Alert: Did you attempt $144.42 at ONLINE MERCHANT with debit card ending 882? Reply YES or NO.,1,Chase,882,144.42,,DEBIT,CARD
+US_CORPUS_00163,1793123640000,24273,"Chase: You made a $124.54 debit card purchase with card ending 882 at CHIPOTLE 1187 on 10/27. Avail bal: $18,947.39.",1,Chase,882,124.54,"18,947.39",DEBIT,CARD
+US_CORPUS_00164,1793139660000,322632,Bank of America: A purchase of $131.93 at KROGER #771 was charged to your credit card ending in 9111 on 10/27.,1,Bank of America,9111,131.93,,DEBIT,CARD
+US_CORPUS_00165,1793198400000,24273,"Chase: Your online payment of $391.52 to BANK OF AMERICA CARD 9111 from acct ...9384 is complete on 10/28. Avail bal: $18,555.87.",1,Chase,9384,391.52,"18,555.87",CREDIT,CARD
+US_CORPUS_00166,1793204640000,322632,"BofA: Payment of $391.52 received on credit card ending 9111. Thank you. Avail credit: $1,288.87.",1,Bank of America,9111,391.52,"1,288.87",CREDIT,CARD
+US_CORPUS_00167,1793262840000,24273,Chase: Your one-time code is 803278. Don't share it. We'll never call to ask for it.,0,Chase,,,,OTHER,NONE
+US_CORPUS_00168,1793293680000,24273,"Chase: You made a $68.70 debit card purchase with card ending 882 at UBER TRIP on 10/29. Avail bal: $18,487.17.",1,Chase,882,68.70,"18,487.17",DEBIT,CARD
+US_CORPUS_00169,1793336760000,24273,"Chase: You scheduled a payment of $249.36 to COMCAST CABLE for 11/07 from acct ...9384. To cancel, visit chase.com/pay.",1,Chase,9384,249.36,,CREDIT,BANK
+US_CORPUS_00170,1793347140000,672566,"Netflix: Your payment method was updated successfully. If this wasn't you, visit netflix.com/account.",0,Unknown,,,,OTHER,NONE
+US_CORPUS_00171,1793378760000,322632,Bank of America: A withdrawal/debit of $17.49 (GEICO AUTO INS) posted to account ending 9661 on 10/30. Available balance: $859.72.,1,Bank of America,9661,17.49,859.72,DEBIT,BANK
+US_CORPUS_00172,1793406960000,24273,"Chase: You transferred $400.00 from acct ...9384 to external account ending 9661 on 10/31. Avail bal: $18,087.17.",1,Chase,9384,400.00,"18,087.17",DEBIT,BANK
+US_CORPUS_00173,1793410860000,322632,"Bank of America: A transfer of $400.00 was received into account ending 9661 on 10/31. Available balance: $1,259.72.",1,Bank of America,9661,400.00,"1,259.72",CREDIT,BANK
+US_CORPUS_00174,1793452500000,24273,Chase Fraud Alert: Did you attempt $292.82 at ONLINE MERCHANT with debit card ending 882? Reply YES or NO.,1,Chase,882,292.82,,DEBIT,CARD
+US_CORPUS_00175,1793514000000,24273,"Chase: You scheduled a payment of $254.49 to COMCAST CABLE for 11/09 from acct ...9384. To cancel, visit chase.com/pay.",1,Chase,9384,254.49,,CREDIT,BANK
+US_CORPUS_00176,1793568300000,24273,Chase: MIKE CHEN requested $56.82 from you with Zelle(R). Review in the Chase Mobile app. No money has moved.,1,Chase,,56.82,,DEBIT,BANK
+US_CORPUS_00177,1793616780000,322632,Bank of America: A purchase of $73.59 at STARBUCKS #2214 was charged to your credit card ending in 9111 on 11/02.,1,Bank of America,9111,73.59,,DEBIT,CARD
+US_CORPUS_00178,1793677680000,322632,"Bank of America: A withdrawal/debit of $85.05 (T-MOBILE) posted to account ending 9661 on 11/03. Available balance: $1,174.67.",1,Bank of America,9661,85.05,"1,174.67",DEBIT,BANK
+US_CORPUS_00179,1793728920000,37777,USPS: Your package 9414352513849945149 is out for delivery today.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00180,1793744760000,322632,Bank of America: A purchase of $67.25 at AMAZON MKTPLACE was charged to your credit card ending in 9111 on 11/03.,1,Bank of America,9111,67.25,,DEBIT,CARD
+US_CORPUS_00181,1793773260000,322632,BofA: Your credit card ending 9111 was DECLINED for $280.36 at BEST BUY #442 on 11/04. Call 800.732.9194 if you need help.,0,Bank of America,,,,OTHER,NONE
+US_CORPUS_00182,1793823600000,322632,Bank of America: A purchase of $70.38 at CVS/PHARMACY #883 was charged to your credit card ending in 9111 on 11/04.,1,Bank of America,9111,70.38,,DEBIT,CARD
+US_CORPUS_00183,1793846760000,262966,413586 is your Amazon OTP. Do not share it with anyone.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00184,1793903940000,322632,BofA: A pending authorization of $33.81 at BEST BUY #442 is on your credit card ending 9111. Final amount may vary.,1,Bank of America,9111,33.81,,DEBIT,CARD
+US_CORPUS_00185,1793911980000,24273,"Chase: You made a $120.00 debit card purchase with card ending 882 at KROGER #771 on 11/05. Avail bal: $17,967.17.",1,Chase,882,120.00,"17,967.17",DEBIT,CARD
+US_CORPUS_00186,1793947260000,37777,USPS: Your package 9485825906204525607 is out for delivery today.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00187,1793999040000,322632,BofA: Your credit card ending 9111 was DECLINED for $388.64 at SHELL OIL 5744 on 11/06. Call 800.732.9194 if you need help.,0,Bank of America,,,,OTHER,NONE
+US_CORPUS_00188,1794050040000,322632,"Bank of America: Your credit card ending in 9111 statement is ready. Balance: $3,122.35. Min payment $35.00 due 11/25.",1,Bank of America,9111,"3,122.35","3,122.35",DEBIT,CARD
+US_CORPUS_00189,1794111840000,24273,"Chase: RAJ PATEL sent you $67.52 with Zelle(R). Deposited to acct ...9384. Avail bal: $18,034.69.",1,Chase,,67.52,,CREDIT,BANK
+US_CORPUS_00190,1794164040000,24273,"Chase: You made a $61.58 debit card purchase with card ending 882 at STARBUCKS #2214 on 11/08. Avail bal: $17,973.11.",1,Chase,882,61.58,"17,973.11",DEBIT,CARD
+US_CORPUS_00191,1794189420000,24273,"Chase: You made a $127.26 debit card purchase with card ending 882 at BEST BUY #442 on 11/09. Avail bal: $17,845.85.",1,Chase,882,127.26,"17,845.85",DEBIT,CARD
+US_CORPUS_00192,1794212760000,322632,Bank of America: A purchase of $45.23 at APPLE.COM/BILL was charged to your credit card ending in 9111 on 11/09.,1,Bank of America,9111,45.23,,DEBIT,CARD
+US_CORPUS_00193,1794277680000,24273,Chase: EMILY DAVIS requested $20.43 from you with Zelle(R). Review in the Chase Mobile app. No money has moved.,1,Chase,,20.43,,DEBIT,BANK
+US_CORPUS_00194,1794296820000,322632,"Bank of America: A withdrawal/debit of $71.36 (COMCAST CABLE) posted to account ending 9661 on 11/10. Available balance: $1,103.31.",1,Bank of America,9661,71.36,"1,103.31",DEBIT,BANK
+US_CORPUS_00195,1794312060000,24273,"Chase: You scheduled a payment of $128.26 to COMCAST CABLE for 11/18 from acct ...9384. To cancel, visit chase.com/pay.",1,Chase,9384,128.26,,CREDIT,BANK
+US_CORPUS_00196,1794356460000,24273,Chase: Your one-time code is 986798. Don't share it. We'll never call to ask for it.,0,Chase,,,,OTHER,NONE
+US_CORPUS_00197,1794373980000,322632,BofA Reminder: Payment of $35.00 minimum is due on credit card ending 9111 by 11/17. Avoid late fees.,1,Bank of America,9111,35.00,,CREDIT,CARD
+US_CORPUS_00198,1794419580000,24273,"Chase: You made a $51.95 debit card purchase with card ending 882 at TARGET T-1043 on 11/11. Avail bal: $17,793.90.",1,Chase,882,51.95,"17,793.90",DEBIT,CARD
+US_CORPUS_00199,1794486660000,322632,"Bank of America: A withdrawal/debit of $36.81 (T-MOBILE) posted to account ending 9661 on 11/12. Available balance: $1,066.50.",1,Bank of America,9661,36.81,"1,066.50",DEBIT,BANK
+US_CORPUS_00200,1794553320000,322632,Bank of America: A purchase of $84.01 at SPOTIFY USA was charged to your credit card ending in 9111 on 11/13.,1,Bank of America,9111,84.01,,DEBIT,CARD
+US_CORPUS_00201,1794571020000,322632,Bank of America: A purchase of $54.44 at KROGER #771 was charged to your credit card ending in 9111 on 11/13.,1,Bank of America,9111,54.44,,DEBIT,CARD
+US_CORPUS_00202,1794604440000,24273,"Chase: You made a $149.64 debit card purchase with card ending 882 at PANERA BREAD #4402 on 11/13. Avail bal: $17,644.26.",1,Chase,882,149.64,"17,644.26",DEBIT,CARD
+US_CORPUS_00203,1794634560000,322632,Bank of America: AutoPay is now set up for your credit card ending in 9111. $35.00 (minimum due) will be drafted from account 9661 each cycle. No payment was made today.,0,Bank of America,,,,OTHER,NONE
+US_CORPUS_00204,1794690120000,24273,"Chase: JOHN MILLER sent you $92.72 with Zelle(R). Deposited to acct ...9384. Avail bal: $17,736.98.",1,Chase,,92.72,,CREDIT,BANK
+US_CORPUS_00205,1794710520000,322632,Bank of America: A purchase of $46.93 at COSTCO WHSE #482 was charged to your credit card ending in 9111 on 11/15.,1,Bank of America,9111,46.93,,DEBIT,CARD
+US_CORPUS_00206,1794723120000,322632,BofA: Your credit card ending 9111 was DECLINED for $389.01 at TRADER JOE'S #552 on 11/15. Call 800.732.9194 if you need help.,0,Bank of America,,,,OTHER,NONE
+US_CORPUS_00207,1794788940000,37777,USPS: Your package 9480897275522687331 is out for delivery today.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00208,1791223320000,322632,Bank of America: A purchase of $38.14 at BEST BUY #442 was charged to your credit card ending in 9111 on 10/05.,1,Bank of America,9111,38.14,,DEBIT,CARD
+US_CORPUS_00209,1791238320000,24273,"Chase: You made a $53.99 debit card purchase with card ending 882 at SPOTIFY USA on 10/05. Avail bal: $14,782.60.",1,Chase,882,53.99,"14,782.60",DEBIT,CARD
+US_CORPUS_00210,1791277560000,24273,"Chase: You made a $132.33 debit card purchase with card ending 882 at WALMART SUPERCENTER on 10/06. Avail bal: $14,650.27.",1,Chase,882,132.33,"14,650.27",DEBIT,CARD
+US_CORPUS_00211,1791331680000,262966,282295 is your Amazon OTP. Do not share it with anyone.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00212,1791369180000,322632,BofA: Your credit card ending 9111 was DECLINED for $164.69 at CHIPOTLE 1187 on 10/07. Call 800.732.9194 if you need help.,0,Bank of America,,,,OTHER,NONE
+US_CORPUS_00213,1791390000000,+14155550132,Hey are we still on for dinner tonight?,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00214,1791421740000,262966,818341 is your Amazon OTP. Do not share it with anyone.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00215,1791450960000,24273,Chase Fraud Alert: Did you attempt $613.12 at ONLINE MERCHANT with debit card ending 882? Reply YES or NO.,1,Chase,882,613.12,,DEBIT,CARD
+US_CORPUS_00216,1791494040000,322632,BofA Reminder: Payment of $35.00 minimum is due on credit card ending 9111 by 10/14. Avoid late fees.,1,Bank of America,9111,35.00,,CREDIT,CARD
+US_CORPUS_00217,1791510420000,24273,"Chase: You made a $67.33 debit card purchase with card ending 882 at CHIPOTLE 1187 on 10/09. Avail bal: $14,582.94.",1,Chase,882,67.33,"14,582.94",DEBIT,CARD
+US_CORPUS_00218,1791563040000,24273,"Chase: RAJ PATEL sent you $81.74 with Zelle(R). Deposited to acct ...9384. Avail bal: $14,664.68.",1,Chase,,81.74,,CREDIT,BANK
+US_CORPUS_00219,1791583680000,24273,"Chase: Direct deposit of $1,314.13 from ACME TECHNOLOGIES PAYROLL posted to acct ...9384 on 10/09. Avail bal: $15,978.81.",1,Chase,9384,"1,314.13","15,978.81",CREDIT,BANK
+US_CORPUS_00220,1791605220000,24273,"Chase: Your online payment of $173.31 to BANK OF AMERICA CARD 9111 from acct ...9384 is complete on 10/10. Avail bal: $15,805.50.",1,Chase,9384,173.31,"15,805.50",CREDIT,CARD
+US_CORPUS_00221,1791606960000,322632,"BofA: Payment of $173.31 received on credit card ending 9111. Thank you. Avail credit: $1,143.31.",1,Bank of America,9111,173.31,"1,143.31",CREDIT,CARD
+US_CORPUS_00222,1791621780000,22000,G-547085 is your Google verification code.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00223,1791674760000,24273,Chase: Your one-time code is 224604. Don't share it. We'll never call to ask for it.,0,Chase,,,,OTHER,NONE
+US_CORPUS_00224,1791711900000,24273,"Chase: You sent $75.86 to MIKE CHEN with Zelle(R) from acct ending 9384 on 10/11. Avail bal: $15,729.64.",1,Chase,9384,75.86,"15,729.64",DEBIT,BANK
+US_CORPUS_00225,1791763860000,322632,BofA Reminder: Payment of $35.00 minimum is due on credit card ending 9111 by 10/18. Avoid late fees.,1,Bank of America,9111,35.00,,CREDIT,CARD
+US_CORPUS_00226,1791792840000,24273,"Chase: You made a $145.61 debit card purchase with card ending 882 at KROGER #771 on 10/12. Avail bal: $15,584.03.",1,Chase,882,145.61,"15,584.03",DEBIT,CARD
+US_CORPUS_00227,1791843360000,322632,"Bank of America: Your credit card ending in 9111 statement is ready. Balance: $3,056.69. Min payment $35.00 due 10/30.",1,Bank of America,9111,"3,056.69","3,056.69",DEBIT,CARD
+US_CORPUS_00228,1791891840000,322632,Bank of America: A purchase of $77.30 at TARGET T-1043 was charged to your credit card ending in 9111 on 10/13.,1,Bank of America,9111,77.30,,DEBIT,CARD
+US_CORPUS_00229,1791893820000,322632,Bank of America: A purchase of $77.30 at TARGET T-1043 was charged to your credit card ending in 9111 on 10/13.,1,Bank of America,9111,77.30,,DEBIT,CARD
+US_CORPUS_00230,1791911340000,+14155550132,Movie at 8?,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00231,1791920040000,+14155550132,Movie at 8?,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00232,1791964260000,322632,"Bank of America: A refund of $36.52 from COSTCO WHSE #482 was credited to your credit card ending in 9111 on 10/14. Avail credit: $1,102.53.",1,Bank of America,9111,36.52,"1,102.53",CREDIT,CARD
+US_CORPUS_00233,1791971700000,322632,BofA: Your credit card ending 9111 was DECLINED for $105.79 at KROGER #771 on 10/14. Call 800.732.9194 if you need help.,0,Bank of America,,,,OTHER,NONE
+US_CORPUS_00234,1791999060000,+14155550132,Running 10 min late,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00235,1792015140000,+14155550132,Movie at 8?,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00236,1792063680000,322632,BofA: A pending authorization of $71.78 at TARGET T-1043 is on your credit card ending 9111. Final amount may vary.,1,Bank of America,9111,71.78,,DEBIT,CARD
+US_CORPUS_00237,1792114800000,672566,"Netflix: Your payment method was updated successfully. If this wasn't you, visit netflix.com/account.",0,Unknown,,,,OTHER,NONE
+US_CORPUS_00238,1792156500000,24273,"Chase: You scheduled a payment of $174.86 to COMCAST CABLE for 10/24 from acct ...9384. To cancel, visit chase.com/pay.",1,Chase,9384,174.86,,CREDIT,BANK
+US_CORPUS_00239,1792203360000,322632,Bank of America: A purchase of $79.32 at WHOLE FOODS MKT was charged to your credit card ending in 9111 on 10/17.,1,Bank of America,9111,79.32,,DEBIT,CARD
+US_CORPUS_00240,1792227720000,24273,Chase Fraud Alert: Did you attempt $485.08 at ONLINE MERCHANT with debit card ending 882? Reply YES or NO.,1,Chase,882,485.08,,DEBIT,CARD
+US_CORPUS_00241,1792246440000,24273,"Chase: You made a $148.65 debit card purchase with card ending 882 at AMAZON MKTPLACE on 10/17. Avail bal: $15,435.38.",1,Chase,882,148.65,"15,435.38",DEBIT,CARD
+US_CORPUS_00242,1792264140000,322632,Bank of America: A purchase of $175.27 at WALMART SUPERCENTER was charged to your credit card ending in 9111 on 10/17.,1,Bank of America,9111,175.27,,DEBIT,CARD
+US_CORPUS_00243,1792319280000,24273,"Chase: SARAH LOPEZ sent you $32.43 with Zelle(R). Deposited to acct ...9384. Avail bal: $15,467.81.",1,Chase,,32.43,,CREDIT,BANK
+US_CORPUS_00244,1792353540000,24273,"Chase: You sent $120.81 to JOHN MILLER with Zelle(R) from acct ending 9384 on 10/18. Avail bal: $15,347.00.",1,Chase,9384,120.81,"15,347.00",DEBIT,BANK
+US_CORPUS_00245,1792413600000,24273,"Chase: JOHN MILLER sent you $111.99 with Zelle(R). Deposited to acct ...9384. Avail bal: $15,458.99.",1,Chase,,111.99,,CREDIT,BANK
+US_CORPUS_00246,1792444380000,262966,877412 is your Amazon OTP. Do not share it with anyone.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00247,1792502220000,322632,Bank of America: A withdrawal/debit of $84.02 (ATM WITHDRAWAL #A5521) posted to account ending 9661 on 10/20. Available balance: $963.95.,1,Bank of America,9661,84.02,963.95,DEBIT,BANK
+US_CORPUS_00248,1792516620000,24273,"Chase: You made a $129.43 debit card purchase with card ending 882 at WHOLE FOODS MKT on 10/20. Avail bal: $15,329.56.",1,Chase,882,129.43,"15,329.56",DEBIT,CARD
+US_CORPUS_00249,1792560420000,322632,BofA: A pending authorization of $87.08 at APPLE.COM/BILL is on your credit card ending 9111. Final amount may vary.,1,Bank of America,9111,87.08,,DEBIT,CARD
+US_CORPUS_00250,1792606860000,24273,"Chase: Direct deposit of $860.83 from ACME TECHNOLOGIES PAYROLL posted to acct ...9384 on 10/21. Avail bal: $16,190.39.",1,Chase,9384,860.83,"16,190.39",CREDIT,BANK
+US_CORPUS_00251,1792622100000,24273,"Chase: You made a $124.51 debit card purchase with card ending 882 at HOME DEPOT #6641 on 10/21. Avail bal: $16,065.88.",1,Chase,882,124.51,"16,065.88",DEBIT,CARD
+US_CORPUS_00252,1792658100000,24273,"Chase: Direct deposit of $1,705.30 from ACME TECHNOLOGIES PAYROLL posted to acct ...9384 on 10/22. Avail bal: $17,771.18.",1,Chase,9384,"1,705.30","17,771.18",CREDIT,BANK
+US_CORPUS_00253,1792720260000,24273,"Chase: Your online payment of $265.56 to BANK OF AMERICA CARD 9111 from acct ...9384 is complete on 10/23. Avail bal: $17,505.62.",1,Chase,9384,265.56,"17,505.62",CREDIT,CARD
+US_CORPUS_00254,1792720380000,322632,"BofA: Payment of $265.56 received on credit card ending 9111. Thank you. Avail credit: $1,113.50.",1,Bank of America,9111,265.56,"1,113.50",CREDIT,CARD
+US_CORPUS_00255,1792784460000,24273,"Chase: You made a $76.96 debit card purchase with card ending 882 at COSTCO WHSE #482 on 10/23. Avail bal: $17,428.66.",1,Chase,882,76.96,"17,428.66",DEBIT,CARD
+US_CORPUS_00256,1792798260000,322632,"Bank of America: A refund of $20.17 from 7-ELEVEN 33481 was credited to your credit card ending in 9111 on 10/23. Avail credit: $1,133.67.",1,Bank of America,9111,20.17,"1,133.67",CREDIT,CARD
+US_CORPUS_00257,1792850640000,24273,"Chase: SARAH LOPEZ sent you $137.17 with Zelle(R). Deposited to acct ...9384. Avail bal: $17,565.83.",1,Chase,,137.17,,CREDIT,BANK
+US_CORPUS_00258,1792906140000,24273,"Chase: You made a $23.50 debit card purchase with card ending 882 at AMAZON MKTPLACE on 10/25. Avail bal: $17,542.33.",1,Chase,882,23.50,"17,542.33",DEBIT,CARD
+US_CORPUS_00259,1792937400000,322632,Bank of America: A purchase of $104.39 at 7-ELEVEN 33481 was charged to your credit card ending in 9111 on 10/25.,1,Bank of America,9111,104.39,,DEBIT,CARD
+US_CORPUS_00260,1792992060000,22000,G-363473 is your Google verification code.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00261,1793013000000,322632,Bank of America: A withdrawal/debit of $86.74 (GEICO AUTO INS) posted to account ending 9661 on 10/26. Available balance: $877.21.,1,Bank of America,9661,86.74,877.21,DEBIT,BANK
+US_CORPUS_00262,1793024880000,322632,"Bank of America: Your credit card ending in 9111 statement is ready. Balance: $3,170.72. Min payment $35.00 due 11/13.",1,Bank of America,9111,"3,170.72","3,170.72",DEBIT,CARD
+US_CORPUS_00263,1793059020000,24273,"Chase: Direct deposit of $1,529.60 from ACME TECHNOLOGIES PAYROLL posted to acct ...9384 on 10/26. Avail bal: $19,071.93.",1,Chase,9384,"1,529.60","19,071.93",CREDIT,BANK
+US_CORPUS_00264,1793070720000,24273,Chase Fraud Alert: Did you attempt $144.42 at ONLINE MERCHANT with debit card ending 882? Reply YES or NO.,1,Chase,882,144.42,,DEBIT,CARD
+US_CORPUS_00265,1793123640000,24273,"Chase: You made a $124.54 debit card purchase with card ending 882 at CHIPOTLE 1187 on 10/27. Avail bal: $18,947.39.",1,Chase,882,124.54,"18,947.39",DEBIT,CARD
+US_CORPUS_00266,1793139660000,322632,Bank of America: A purchase of $131.93 at KROGER #771 was charged to your credit card ending in 9111 on 10/27.,1,Bank of America,9111,131.93,,DEBIT,CARD
+US_CORPUS_00267,1793198400000,24273,"Chase: Your online payment of $391.52 to BANK OF AMERICA CARD 9111 from acct ...9384 is complete on 10/28. Avail bal: $18,555.87.",1,Chase,9384,391.52,"18,555.87",CREDIT,CARD
+US_CORPUS_00268,1793204640000,322632,"BofA: Payment of $391.52 received on credit card ending 9111. Thank you. Avail credit: $1,288.87.",1,Bank of America,9111,391.52,"1,288.87",CREDIT,CARD
+US_CORPUS_00269,1793262840000,24273,Chase: Your one-time code is 803278. Don't share it. We'll never call to ask for it.,0,Chase,,,,OTHER,NONE
+US_CORPUS_00270,1793293680000,24273,"Chase: You made a $68.70 debit card purchase with card ending 882 at UBER TRIP on 10/29. Avail bal: $18,487.17.",1,Chase,882,68.70,"18,487.17",DEBIT,CARD
+US_CORPUS_00271,1793336760000,24273,"Chase: You scheduled a payment of $249.36 to COMCAST CABLE for 11/07 from acct ...9384. To cancel, visit chase.com/pay.",1,Chase,9384,249.36,,CREDIT,BANK
+US_CORPUS_00272,1793347140000,672566,"Netflix: Your payment method was updated successfully. If this wasn't you, visit netflix.com/account.",0,Unknown,,,,OTHER,NONE
+US_CORPUS_00273,1793378760000,322632,Bank of America: A withdrawal/debit of $17.49 (GEICO AUTO INS) posted to account ending 9661 on 10/30. Available balance: $859.72.,1,Bank of America,9661,17.49,859.72,DEBIT,BANK
+US_CORPUS_00274,1793406960000,24273,"Chase: You transferred $400.00 from acct ...9384 to external account ending 9661 on 10/31. Avail bal: $18,087.17.",1,Chase,9384,400.00,"18,087.17",DEBIT,BANK
+US_CORPUS_00275,1793410860000,322632,"Bank of America: A transfer of $400.00 was received into account ending 9661 on 10/31. Available balance: $1,259.72.",1,Bank of America,9661,400.00,"1,259.72",CREDIT,BANK
+US_CORPUS_00276,1793452500000,24273,Chase Fraud Alert: Did you attempt $292.82 at ONLINE MERCHANT with debit card ending 882? Reply YES or NO.,1,Chase,882,292.82,,DEBIT,CARD
+US_CORPUS_00277,1793514000000,24273,"Chase: You scheduled a payment of $254.49 to COMCAST CABLE for 11/09 from acct ...9384. To cancel, visit chase.com/pay.",1,Chase,9384,254.49,,CREDIT,BANK
+US_CORPUS_00278,1793568300000,24273,Chase: MIKE CHEN requested $56.82 from you with Zelle(R). Review in the Chase Mobile app. No money has moved.,1,Chase,,56.82,,DEBIT,BANK
+US_CORPUS_00279,1793616780000,322632,Bank of America: A purchase of $73.59 at STARBUCKS #2214 was charged to your credit card ending in 9111 on 11/02.,1,Bank of America,9111,73.59,,DEBIT,CARD
+US_CORPUS_00280,1793677680000,322632,"Bank of America: A withdrawal/debit of $85.05 (T-MOBILE) posted to account ending 9661 on 11/03. Available balance: $1,174.67.",1,Bank of America,9661,85.05,"1,174.67",DEBIT,BANK
+US_CORPUS_00281,1793728920000,37777,USPS: Your package 9414352513849945149 is out for delivery today.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00282,1793744760000,322632,Bank of America: A purchase of $67.25 at AMAZON MKTPLACE was charged to your credit card ending in 9111 on 11/03.,1,Bank of America,9111,67.25,,DEBIT,CARD
+US_CORPUS_00283,1793773260000,322632,BofA: Your credit card ending 9111 was DECLINED for $280.36 at BEST BUY #442 on 11/04. Call 800.732.9194 if you need help.,0,Bank of America,,,,OTHER,NONE
+US_CORPUS_00284,1793823600000,322632,Bank of America: A purchase of $70.38 at CVS/PHARMACY #883 was charged to your credit card ending in 9111 on 11/04.,1,Bank of America,9111,70.38,,DEBIT,CARD
+US_CORPUS_00285,1793846760000,262966,413586 is your Amazon OTP. Do not share it with anyone.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00286,1793903940000,322632,BofA: A pending authorization of $33.81 at BEST BUY #442 is on your credit card ending 9111. Final amount may vary.,1,Bank of America,9111,33.81,,DEBIT,CARD
+US_CORPUS_00287,1793911980000,24273,"Chase: You made a $120.00 debit card purchase with card ending 882 at KROGER #771 on 11/05. Avail bal: $17,967.17.",1,Chase,882,120.00,"17,967.17",DEBIT,CARD
+US_CORPUS_00288,1793947260000,37777,USPS: Your package 9485825906204525607 is out for delivery today.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00289,1793999040000,322632,BofA: Your credit card ending 9111 was DECLINED for $388.64 at SHELL OIL 5744 on 11/06. Call 800.732.9194 if you need help.,0,Bank of America,,,,OTHER,NONE
+US_CORPUS_00290,1794050040000,322632,"Bank of America: Your credit card ending in 9111 statement is ready. Balance: $3,122.35. Min payment $35.00 due 11/25.",1,Bank of America,9111,"3,122.35","3,122.35",DEBIT,CARD
+US_CORPUS_00291,1794111840000,24273,"Chase: RAJ PATEL sent you $67.52 with Zelle(R). Deposited to acct ...9384. Avail bal: $18,034.69.",1,Chase,,67.52,,CREDIT,BANK
+US_CORPUS_00292,1794164040000,24273,"Chase: You made a $61.58 debit card purchase with card ending 882 at STARBUCKS #2214 on 11/08. Avail bal: $17,973.11.",1,Chase,882,61.58,"17,973.11",DEBIT,CARD
+US_CORPUS_00293,1794189420000,24273,"Chase: You made a $127.26 debit card purchase with card ending 882 at BEST BUY #442 on 11/09. Avail bal: $17,845.85.",1,Chase,882,127.26,"17,845.85",DEBIT,CARD
+US_CORPUS_00294,1794212760000,322632,Bank of America: A purchase of $45.23 at APPLE.COM/BILL was charged to your credit card ending in 9111 on 11/09.,1,Bank of America,9111,45.23,,DEBIT,CARD
+US_CORPUS_00295,1794277680000,24273,Chase: EMILY DAVIS requested $20.43 from you with Zelle(R). Review in the Chase Mobile app. No money has moved.,1,Chase,,20.43,,DEBIT,BANK
+US_CORPUS_00296,1794296820000,322632,"Bank of America: A withdrawal/debit of $71.36 (COMCAST CABLE) posted to account ending 9661 on 11/10. Available balance: $1,103.31.",1,Bank of America,9661,71.36,"1,103.31",DEBIT,BANK
+US_CORPUS_00297,1794312060000,24273,"Chase: You scheduled a payment of $128.26 to COMCAST CABLE for 11/18 from acct ...9384. To cancel, visit chase.com/pay.",1,Chase,9384,128.26,,CREDIT,BANK
+US_CORPUS_00298,1794356460000,24273,Chase: Your one-time code is 986798. Don't share it. We'll never call to ask for it.,0,Chase,,,,OTHER,NONE
+US_CORPUS_00299,1794373980000,322632,BofA Reminder: Payment of $35.00 minimum is due on credit card ending 9111 by 11/17. Avoid late fees.,1,Bank of America,9111,35.00,,CREDIT,CARD
+US_CORPUS_00300,1794419580000,24273,"Chase: You made a $51.95 debit card purchase with card ending 882 at TARGET T-1043 on 11/11. Avail bal: $17,793.90.",1,Chase,882,51.95,"17,793.90",DEBIT,CARD
+US_CORPUS_00301,1794486660000,322632,"Bank of America: A withdrawal/debit of $36.81 (T-MOBILE) posted to account ending 9661 on 11/12. Available balance: $1,066.50.",1,Bank of America,9661,36.81,"1,066.50",DEBIT,BANK
+US_CORPUS_00302,1794553320000,322632,Bank of America: A purchase of $84.01 at SPOTIFY USA was charged to your credit card ending in 9111 on 11/13.,1,Bank of America,9111,84.01,,DEBIT,CARD
+US_CORPUS_00303,1794571020000,322632,Bank of America: A purchase of $54.44 at KROGER #771 was charged to your credit card ending in 9111 on 11/13.,1,Bank of America,9111,54.44,,DEBIT,CARD
+US_CORPUS_00304,1794604440000,24273,"Chase: You made a $149.64 debit card purchase with card ending 882 at PANERA BREAD #4402 on 11/13. Avail bal: $17,644.26.",1,Chase,882,149.64,"17,644.26",DEBIT,CARD
+US_CORPUS_00305,1794634560000,322632,Bank of America: AutoPay is now set up for your credit card ending in 9111. $35.00 (minimum due) will be drafted from account 9661 each cycle. No payment was made today.,0,Bank of America,,,,OTHER,NONE
+US_CORPUS_00306,1794690120000,24273,"Chase: JOHN MILLER sent you $92.72 with Zelle(R). Deposited to acct ...9384. Avail bal: $17,736.98.",1,Chase,,92.72,,CREDIT,BANK
+US_CORPUS_00307,1794710520000,322632,Bank of America: A purchase of $46.93 at COSTCO WHSE #482 was charged to your credit card ending in 9111 on 11/15.,1,Bank of America,9111,46.93,,DEBIT,CARD
+US_CORPUS_00308,1794723120000,322632,BofA: Your credit card ending 9111 was DECLINED for $389.01 at TRADER JOE'S #552 on 11/15. Call 800.732.9194 if you need help.,0,Bank of America,,,,OTHER,NONE
+US_CORPUS_00309,1794788940000,37777,USPS: Your package 9480897275522687331 is out for delivery today.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00310,1795172820000,322632,Bank of America: A purchase of $96.87 at TARGET T-1043 was charged to your credit card ending in 9111 on 11/20.,1,Bank of America,9111,96.87,,DEBIT,CARD
+US_CORPUS_00311,1795197300000,24273,"Chase: You sent $87.79 to MIKE CHEN with Zelle(R) from acct ending 9384 on 11/20. Avail bal: $17,649.19.",1,Chase,9384,87.79,"17,649.19",DEBIT,BANK
+US_CORPUS_00312,1795209420000,24273,"Chase: You made a $96.69 debit card purchase with card ending 882 at BEST BUY #442 on 11/20. Avail bal: $17,552.50.",1,Chase,882,96.69,"17,552.50",DEBIT,CARD
+US_CORPUS_00313,1795267500000,93557,Wells Fargo: 212098 is your access code. It expires in 10 minutes. Don't share it.,0,Wells Fargo,,,,OTHER,NONE
+US_CORPUS_00314,1795286700000,24273,"Chase: You made a $91.74 debit card purchase with card ending 882 at TRADER JOE'S #552 on 11/21. Avail bal: $17,460.76.",1,Chase,882,91.74,"17,460.76",DEBIT,CARD
+US_CORPUS_00315,1795310940000,672566,"Netflix: Your payment method was updated successfully. If this wasn't you, visit netflix.com/account.",0,Unknown,,,,OTHER,NONE
+US_CORPUS_00316,1795356060000,322632,Bank of America: A purchase of $103.93 at STARBUCKS #2214 was charged to your credit card ending in 9111 on 11/22.,1,Bank of America,9111,103.93,,DEBIT,CARD
+US_CORPUS_00317,1795411680000,93557,Wells Fargo: 156689 is your access code. It expires in 10 minutes. Don't share it.,0,Wells Fargo,,,,OTHER,NONE
+US_CORPUS_00318,1795456800000,322632,BofA: Your credit card ending 9111 was DECLINED for $414.89 at SHELL OIL 5744 on 11/23. Call 800.732.9194 if you need help.,0,Bank of America,,,,OTHER,NONE
+US_CORPUS_00319,1795472760000,24273,"Chase: You scheduled a payment of $144.31 to COMCAST CABLE for 12/01 from acct ...9384. To cancel, visit chase.com/pay.",1,Chase,9384,144.31,,CREDIT,BANK
+US_CORPUS_00320,1795517940000,24273,"Chase: You scheduled a payment of $103.69 to COMCAST CABLE for 12/02 from acct ...9384. To cancel, visit chase.com/pay.",1,Chase,9384,103.69,,CREDIT,BANK
+US_CORPUS_00321,1795561680000,55123,"QuickCash Loans: Get up to $5,000 TODAY! No credit check. Apply now: qcloans.example/apply. Txt STOP to end.",0,Unknown,,,,OTHER,NONE
+US_CORPUS_00322,1795574220000,24273,"Chase: You made a $113.69 debit card purchase with card ending 882 at STARBUCKS #2214 on 11/25. Avail bal: $17,347.07.",1,Chase,882,113.69,"17,347.07",DEBIT,CARD
+US_CORPUS_00323,1795607100000,24273,"Chase: Direct deposit of $1,339.22 from ACME TECHNOLOGIES PAYROLL posted to acct ...9384 on 11/25. Avail bal: $18,686.29.",1,Chase,9384,"1,339.22","18,686.29",CREDIT,BANK
+US_CORPUS_00324,1795627440000,322632,BofA: Your credit card ending 9111 was DECLINED for $114.43 at STARBUCKS #2214 on 11/25. Call 800.732.9194 if you need help.,0,Bank of America,,,,OTHER,NONE
+US_CORPUS_00325,1795653960000,322632,Bank of America: A purchase of $84.80 at STARBUCKS #2214 was charged to your credit card ending in 9111 on 11/26.,1,Bank of America,9111,84.80,,DEBIT,CARD
+US_CORPUS_00326,1795682760000,24273,Chase: Your one-time code is 145287. Don't share it. We'll never call to ask for it.,0,Chase,,,,OTHER,NONE
+US_CORPUS_00327,1795707780000,24273,"Chase: Direct deposit of $501.36 from ACME TECHNOLOGIES PAYROLL posted to acct ...9384 on 11/26. Avail bal: $19,187.65.",1,Chase,9384,501.36,"19,187.65",CREDIT,BANK
+US_CORPUS_00328,1795740360000,24273,"Chase: You made a $69.30 debit card purchase with card ending 882 at SHELL OIL 5744 on 11/27. Avail bal: $19,118.35.",1,Chase,882,69.30,"19,118.35",DEBIT,CARD
+US_CORPUS_00329,1795788960000,322632,Bank of America: A purchase of $22.02 at TRADER JOE'S #552 was charged to your credit card ending in 9111 on 11/27.,1,Bank of America,9111,22.02,,DEBIT,CARD
+US_CORPUS_00330,1795827240000,24273,"Chase: You made a $57.71 debit card purchase with card ending 882 at SHELL OIL 5744 on 11/28. Avail bal: $19,060.64.",1,Chase,882,57.71,"19,060.64",DEBIT,CARD
+US_CORPUS_00331,1795845720000,322632,Bank of America: A purchase of $145.23 at UBER TRIP was charged to your credit card ending in 9111 on 11/28.,1,Bank of America,9111,145.23,,DEBIT,CARD
+US_CORPUS_00332,1795860420000,55123,"QuickCash Loans: Get up to $5,000 TODAY! No credit check. Apply now: qcloans.example/apply. Txt STOP to end.",0,Unknown,,,,OTHER,NONE
+US_CORPUS_00333,1795909140000,24273,"Chase: JOHN MILLER sent you $45.79 with Zelle(R). Deposited to acct ...9384. Avail bal: $19,106.43.",1,Chase,,45.79,,CREDIT,BANK
+US_CORPUS_00334,1795959660000,322632,"Bank of America: A withdrawal/debit of $29.00 (GEICO AUTO INS) posted to account ending 9661 on 11/29. Available balance: $1,037.50.",1,Bank of America,9661,29.00,"1,037.50",DEBIT,BANK
+US_CORPUS_00335,1796014320000,24273,"Chase: RAJ PATEL sent you $119.36 with Zelle(R). Deposited to acct ...9384. Avail bal: $19,225.79.",1,Chase,,119.36,,CREDIT,BANK
+US_CORPUS_00336,1796056860000,24273,"Chase: You scheduled a payment of $174.59 to COMCAST CABLE for 12/08 from acct ...9384. To cancel, visit chase.com/pay.",1,Chase,9384,174.59,,CREDIT,BANK
+US_CORPUS_00337,1796110320000,322632,"Bank of America: A withdrawal/debit of $27.18 (PG&E UTILITY) posted to account ending 9661 on 12/01. Available balance: $1,010.32.",1,Bank of America,9661,27.18,"1,010.32",DEBIT,BANK
+US_CORPUS_00338,1796164320000,89887,DOMINO'S: BOGO large pizzas today only! dominos.com. Txt STOP to end.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00339,1796196660000,24273,"Chase: You made a $136.67 debit card purchase with card ending 882 at WALMART SUPERCENTER on 12/02. Avail bal: $19,089.12.",1,Chase,882,136.67,"19,089.12",DEBIT,CARD
+US_CORPUS_00340,1796235060000,24273,Chase Fraud Alert: Did you attempt $845.00 at ELECTRONICS OUTLET ONLINE with debit card ending 882? Reply YES or NO.,1,Chase,882,845.00,,DEBIT,CARD
+US_CORPUS_00341,1796243700000,24273,Chase: Your debit card ending 882 has been CLOSED due to suspected fraud. A replacement card ending 7761 has been mailed to your address on file. No transaction was posted.,0,Chase,882,,,OTHER,CARD
+US_CORPUS_00342,1796360160000,24273,Chase: Your new debit card ending 7761 is now ACTIVE and linked to acct ...9384. Your old card ending 882 can no longer be used.,0,Chase,7761,,,OTHER,CARD
+US_CORPUS_00343,1796376180000,24273,Chase Fraud Alert: Did you attempt $105.98 at ONLINE MERCHANT with debit card ending 7761? Reply YES or NO.,1,Chase,7761,105.98,,DEBIT,CARD
+US_CORPUS_00344,1796433660000,322632,Bank of America: A withdrawal/debit of $30.52 (ATM WITHDRAWAL #A5521) posted to account ending 9661 on 12/05. Available balance: $979.80.,1,Bank of America,9661,30.52,979.80,DEBIT,BANK
+US_CORPUS_00345,1796459580000,322632,Bank of America: A purchase of $23.99 at WHOLE FOODS MKT was charged to your credit card ending in 9111 on 12/05.,1,Bank of America,9111,23.99,,DEBIT,CARD
+US_CORPUS_00346,1796478300000,322632,BofA: A pending authorization of $70.96 at UBER TRIP is on your credit card ending 9111. Final amount may vary.,1,Bank of America,9111,70.96,,DEBIT,CARD
+US_CORPUS_00347,1796529120000,322632,Bank of America: AutoPay is now set up for your credit card ending in 9111. $35.00 (minimum due) will be drafted from account 9661 each cycle. No payment was made today.,0,Bank of America,,,,OTHER,NONE
+US_CORPUS_00348,1796589960000,93557,Welcome to Wells Fargo Alerts! You are now enrolled for account ending 4417. Msg&data rates may apply. Reply HELP for help.,0,Wells Fargo,4417,,,OTHER,NONE
+US_CORPUS_00349,1796598000000,24273,"Chase: You transferred $1,000.00 from acct ...9384 to external account ending 4417 on 12/06. Avail bal: $18,089.12.",1,Chase,9384,"1,000.00","18,089.12",DEBIT,BANK
+US_CORPUS_00350,1796602200000,93557,"Wells Fargo: A transfer of $1,000.00 was received into account ending 4417 on 12/07. Avail Bal: $1,000.00.",1,Wells Fargo,4417,"1,000.00","1,000.00",CREDIT,BANK
+US_CORPUS_00351,1796636340000,24273,"Chase: You made a $92.64 debit card purchase with card ending 7761 at CHIPOTLE 1187 on 12/07. Avail bal: $17,996.48.",1,Chase,7761,92.64,"17,996.48",DEBIT,CARD
+US_CORPUS_00352,1796646000000,24273,"Chase: You made a $67.26 debit card purchase with card ending 7761 at SHELL OIL 5744 on 12/07. Avail bal: $17,929.22.",1,Chase,7761,67.26,"17,929.22",DEBIT,CARD
+US_CORPUS_00353,1796676060000,322632,Bank of America: A withdrawal/debit of $55.19 (PG&E UTILITY) posted to account ending 9661 on 12/07. Available balance: $924.61.,1,Bank of America,9661,55.19,924.61,DEBIT,BANK
+US_CORPUS_00354,1796702760000,55123,"QuickCash Loans: Get up to $5,000 TODAY! No credit check. Apply now: qcloans.example/apply. Txt STOP to end.",0,Unknown,,,,OTHER,NONE
+US_CORPUS_00355,1796757840000,24273,"Chase: You scheduled a payment of $212.70 to COMCAST CABLE for 12/16 from acct ...9384. To cancel, visit chase.com/pay.",1,Chase,9384,212.70,,CREDIT,BANK
+US_CORPUS_00356,1796816640000,24273,"Chase: You made a $60.00 debit card purchase (includes $20.00 cash back) with card ending 7761 at KROGER #771 on 12/09. Avail bal: $17,869.22.",1,Chase,7761,60.00,"17,869.22",DEBIT,CARD
+US_CORPUS_00357,1796870220000,322632,Bank of America: A withdrawal/debit of $56.25 (T-MOBILE) posted to account ending 9661 on 12/10. Available balance: $868.36.,1,Bank of America,9661,56.25,868.36,DEBIT,BANK
+US_CORPUS_00358,1796916120000,24273,"Chase: You made a $20.35 debit card purchase with card ending 7761 at CVS/PHARMACY #883 on 12/10. Avail bal: $17,848.87.",1,Chase,7761,20.35,"17,848.87",DEBIT,CARD
+US_CORPUS_00359,1796924400000,24273,"Chase: Your online payment of $389.57 to BANK OF AMERICA CARD 9111 from acct ...9384 is complete on 12/10. Avail bal: $17,459.30.",1,Chase,9384,389.57,"17,459.30",CREDIT,CARD
+US_CORPUS_00360,1796927820000,322632,BofA: Payment of $389.57 received on credit card ending 9111. Thank you. Avail credit: $759.77.,1,Bank of America,9111,389.57,759.77,CREDIT,CARD
+US_CORPUS_00361,1796986440000,24273,"Chase: Direct deposit of $1,610.22 from ACME TECHNOLOGIES PAYROLL posted to acct ...9384 on 12/11. Avail bal: $19,069.52.",1,Chase,9384,"1,610.22","19,069.52",CREDIT,BANK
+US_CORPUS_00362,1797011040000,24273,"Chase: You made a $141.54 debit card purchase with card ending 7761 at UBER TRIP on 12/11. Avail bal: $18,927.98.",1,Chase,7761,141.54,"18,927.98",DEBIT,CARD
+US_CORPUS_00363,1797070740000,322632,Bank of America: An international purchase of $49.12 (EUR 45.00) at CAFE DE PARIS was charged to your credit card ending in 9111 on 12/12. Avail credit: $710.65.,1,Bank of America,9111,49.12,710.65,DEBIT,CARD
+US_CORPUS_00364,1797121980000,322632,Bank of America: A purchase of $113.96 at UBER TRIP was charged to your credit card ending in 9111 on 12/13.,1,Bank of America,9111,113.96,,DEBIT,CARD
+US_CORPUS_00365,1797177120000,+14155550132,Movie at 8?,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00366,1797199860000,322632,BofA: A pending authorization of $100.41 at SHELL OIL 5744 is on your credit card ending 9111. Final amount may vary.,1,Bank of America,9111,100.41,,DEBIT,CARD
+US_CORPUS_00367,1797249780000,24273,"Chase: You sent $33.95 to RAJ PATEL with Zelle(R) from acct ending 9384 on 12/14. Avail bal: $18,894.03.",1,Chase,9384,33.95,"18,894.03",DEBIT,BANK
+US_CORPUS_00368,1797276300000,24273,"Chase: You made a $121.23 debit card purchase with card ending 7761 at CVS/PHARMACY #883 on 12/14. Avail bal: $18,772.80.",1,Chase,7761,121.23,"18,772.80",DEBIT,CARD
+US_CORPUS_00369,1797324660000,322632,BofA: A Late Payment Fee of $29.00 was charged to your credit card ending 9111 on 12/15.,1,Bank of America,9111,29.00,,DEBIT,CARD
+US_CORPUS_00370,1797347160000,322632,BofA: Interest Charged of $41.23 was posted to your credit card ending 9111 on 12/15.,1,Bank of America,9111,41.23,,DEBIT,CARD
+US_CORPUS_00371,1797373560000,24273,"Chase: Your online payment of $357.86 to BANK OF AMERICA CARD 9111 from acct ...9384 is complete on 12/15. Avail bal: $18,414.94.",1,Chase,9384,357.86,"18,414.94",CREDIT,CARD
+US_CORPUS_00372,1797376260000,322632,BofA: Payment of $357.86 received on credit card ending 9111. Thank you. Avail credit: $884.32.,1,Bank of America,9111,357.86,884.32,CREDIT,CARD
+US_CORPUS_00373,1797383820000,24273,"Chase: You sent $10.04 to RAJ PATEL with Zelle(R) from acct ending 9384 on 12/16. Avail bal: $18,404.90.",1,Chase,9384,10.04,"18,404.90",DEBIT,BANK
+US_CORPUS_00374,1797423660000,24273,Chase: JOHN MILLER requested $22.44 from you with Zelle(R). Review in the Chase Mobile app. No money has moved.,1,Chase,,22.44,,DEBIT,BANK
+US_CORPUS_00375,1797468900000,322632,BofA Reminder: Payment of $35.00 minimum is due on credit card ending 9111 by 12/23. Avoid late fees.,1,Bank of America,9111,35.00,,CREDIT,CARD
+US_CORPUS_00376,1797491400000,24273,Chase: Your one-time code is 765514. Don't share it. We'll never call to ask for it.,0,Chase,,,,OTHER,NONE
+US_CORPUS_00377,1797505140000,322632,Bank of America: A payment of $200.00 to BofA CARD 9111 was debited from account ending 9661 on 12/17. Available balance: $668.36.,1,Bank of America,9661,200.00,668.36,CREDIT,CARD
+US_CORPUS_00378,1797511020000,322632,"BofA: Payment of $200.00 received on credit card ending 9111. Thank you. Avail credit: $1,084.32.",1,Bank of America,9111,200.00,"1,084.32",CREDIT,CARD
+US_CORPUS_00379,1797680520000,322632,BofA: Your $200.00 payment on credit card ending 9111 was RETURNED (insufficient funds) and reversed on 12/19. Avail credit: $884.32.,0,Bank of America,,,,OTHER,NONE
+US_CORPUS_00380,1797683460000,322632,Bank of America: $200.00 was credited back to account ending 9661 (returned payment) on 12/19. Available balance: $868.36.,1,Bank of America,9661,200.00,868.36,CREDIT,BANK
+US_CORPUS_00381,1797705720000,322632,Bank of America: A purchase of $106.20 at STARBUCKS #2214 was charged to your credit card ending in 9111 on 12/19.,1,Bank of America,9111,106.20,,DEBIT,CARD
+US_CORPUS_00382,1797762540000,24273,"Chase: You made a $101.19 debit card purchase with card ending 7761 at BEST BUY #442 on 12/20. Avail bal: $18,303.71.",1,Chase,7761,101.19,"18,303.71",DEBIT,CARD
+US_CORPUS_00383,1797770340000,55123,"QuickCash Loans: Get up to $5,000 TODAY! No credit check. Apply now: qcloans.example/apply. Txt STOP to end.",0,Unknown,,,,OTHER,NONE
+US_CORPUS_00384,1797783060000,24273,"Chase: Direct deposit of $2,082.11 from ACME TECHNOLOGIES PAYROLL posted to acct ...9384 on 12/20. Avail bal: $20,385.82.",1,Chase,9384,"2,082.11","20,385.82",CREDIT,BANK
+US_CORPUS_00385,1797841080000,24273,"Chase: You scheduled a payment of $83.03 to COMCAST CABLE for 12/29 from acct ...9384. To cancel, visit chase.com/pay.",1,Chase,9384,83.03,,CREDIT,BANK
+US_CORPUS_00386,1797880440000,322632,Bank of America: Interest Paid of $1.12 was credited to account ending 9661 on 12/21. Available balance: $869.48.,1,Bank of America,9661,1.12,869.48,CREDIT,BANK
+US_CORPUS_00387,1797909720000,24273,"Chase: MIKE CHEN sent you $121.80 with Zelle(R). Deposited to acct ...9384. Avail bal: $20,507.62.",1,Chase,,121.80,,CREDIT,BANK
+US_CORPUS_00388,1797918360000,262966,384605 is your Amazon OTP. Do not share it with anyone.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00389,1797958860000,37777,USPS: Your package 9420647491911254695 is out for delivery today.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00390,1797974520000,93557,Wells Fargo: 186720 is your access code. It expires in 10 minutes. Don't share it.,0,Wells Fargo,,,,OTHER,NONE
+US_CORPUS_00391,1798031400000,262966,729671 is your Amazon OTP. Do not share it with anyone.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00392,1798085760000,322632,Bank of America: A Monthly Maintenance Fee of $12.00 was charged to account ending 9661 on 12/24. Available balance: $857.48.,1,Bank of America,9661,12.00,857.48,DEBIT,CARD
+US_CORPUS_00393,1798187820000,322632,Bank of America: Your Monthly Maintenance Fee of $12.00 was REFUNDED to account ending 9661 on 12/25. Available balance: $869.48.,1,Bank of America,9661,12.00,869.48,CREDIT,BANK
+US_CORPUS_00394,1798220940000,24273,Chase Fraud Alert: Did you attempt $143.52 at ONLINE MERCHANT with debit card ending 7761? Reply YES or NO.,1,Chase,7761,143.52,,DEBIT,CARD
+US_CORPUS_00395,1798264020000,89887,DOMINO'S: BOGO large pizzas today only! dominos.com. Txt STOP to end.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00396,1798287300000,322632,"Bank of America: Your credit card ending in 9111 statement is ready. Balance: $3,421.88. Min payment $35.00 due 01/13.",1,Bank of America,9111,"3,421.88","3,421.88",DEBIT,CARD
+US_CORPUS_00397,1798330020000,24273,"Chase: RAJ PATEL sent you $156.31 with Zelle(R). Deposited to acct ...9384. Avail bal: $20,663.93.",1,Chase,,156.31,,CREDIT,BANK
+US_CORPUS_00398,1798340280000,24273,"Chase: You sent $174.91 to MIKE CHEN with Zelle(R) from acct ending 9384 on 12/27. Avail bal: $20,489.02.",1,Chase,9384,174.91,"20,489.02",DEBIT,BANK
+US_CORPUS_00399,1798358700000,322632,"Bank of America: A cash deposit of $300.00 was made at ATM #B2231 to account ending 9661 on 12/27. Available balance: $1,169.48.",1,Bank of America,9661,300.00,"1,169.48",CREDIT,BANK
+US_CORPUS_00400,1798381200000,262966,440588 is your Amazon OTP. Do not share it with anyone.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00401,1798411740000,24273,"Chase: You made a $68.03 debit card purchase with card ending 7761 at SPOTIFY USA on 12/27. Avail bal: $20,420.99.",1,Chase,7761,68.03,"20,420.99",DEBIT,CARD
+US_CORPUS_00402,1798422120000,24273,"Chase: You made a $97.58 debit card purchase with card ending 7761 at STARBUCKS #2214 on 12/28. Avail bal: $20,323.41.",1,Chase,7761,97.58,"20,323.41",DEBIT,CARD
+US_CORPUS_00403,1798471260000,89887,DOMINO'S: BOGO large pizzas today only! dominos.com. Txt STOP to end.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00404,1798512660000,24273,"Chase: You made a $10.03 debit card purchase with card ending 7761 at APPLE.COM/BILL on 12/29. Avail bal: $20,313.38.",1,Chase,7761,10.03,"20,313.38",DEBIT,CARD
+US_CORPUS_00405,1798540620000,322632,Bank of America: A purchase of $66.67 at TRADER JOE'S #552 was charged to your credit card ending in 9111 on 12/29.,1,Bank of America,9111,66.67,,DEBIT,CARD
+US_CORPUS_00406,1798582560000,24273,"Chase: You made a $50.49 debit card purchase with card ending 7761 at BEST BUY #442 on 12/29. Avail bal: $20,262.89.",1,Chase,7761,50.49,"20,262.89",DEBIT,CARD
+US_CORPUS_00407,1798625640000,322632,Bank of America: A purchase of $11.95 at TARGET T-1043 was charged to your credit card ending in 9111 on 12/30.,1,Bank of America,9111,11.95,,DEBIT,CARD
+US_CORPUS_00408,1798686600000,322632,"Bank of America: Your credit card ending in 9111 statement is ready. Balance: $3,500.50. Min payment $35.00 due 01/18.",1,Bank of America,9111,"3,500.50","3,500.50",DEBIT,CARD
+US_CORPUS_00409,1798697160000,93557,Wells Fargo: 206830 is your access code. It expires in 10 minutes. Don't share it.,0,Wells Fargo,,,,OTHER,NONE
+US_CORPUS_00410,1798746600000,672566,"Netflix: Your payment method was updated successfully. If this wasn't you, visit netflix.com/account.",0,Unknown,,,,OTHER,NONE
+US_CORPUS_00411,1798773840000,322632,Bank of America: A purchase of $161.80 at BEST BUY #442 was charged to your credit card ending in 9111 on 01/01.,1,Bank of America,9111,161.80,,DEBIT,CARD
+US_CORPUS_00412,1798963620000,93557,Wells Fargo: Your new Wells Fargo Debit Card ending in 9111 is now active and linked to checking account ending 4417.,0,Wells Fargo,9111,,,OTHER,CARD
+US_CORPUS_00413,1798981380000,322632,"Bank of America: Good news! Your credit line on card ending 9111 has been increased to $6,000.00. No action needed. Avail credit: $2,337.70.",1,Bank of America,9111,"6,000.00","2,337.70",DEBIT,CARD
+US_CORPUS_00414,1799012820000,37777,USPS: Your package 9479207814979871086 is out for delivery today.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00415,1799058300000,322632,BofA: A pending authorization of $45.26 at WHOLE FOODS MKT is on your credit card ending 9111. Final amount may vary.,1,Bank of America,9111,45.26,,DEBIT,CARD
+US_CORPUS_00416,1799083080000,55123,"QuickCash Loans: Get up to $5,000 TODAY! No credit check. Apply now: qcloans.example/apply. Txt STOP to end.",0,Unknown,,,,OTHER,NONE
+US_CORPUS_00417,1799110140000,24273,"Chase: You made a $138.92 debit card purchase with card ending 7761 at BEST BUY #442 on 01/05. Avail bal: $20,123.97.",1,Chase,7761,138.92,"20,123.97",DEBIT,CARD
+US_CORPUS_00418,1799143800000,322632,"Bank of America: A withdrawal/debit of $57.72 (T-MOBILE) posted to account ending 9661 on 01/05. Available balance: $1,111.76.",1,Bank of America,9661,57.72,"1,111.76",DEBIT,BANK
+US_CORPUS_00419,1799172600000,24273,"Chase: You made a $23.60 debit card purchase with card ending 7761 at SPOTIFY USA on 01/05. Avail bal: $20,100.37.",1,Chase,7761,23.60,"20,100.37",DEBIT,CARD
+US_CORPUS_00420,1799192640000,322632,Bank of America: A purchase of $24.67 at WALMART SUPERCENTER was charged to your credit card ending in 9111 on 01/05.,1,Bank of America,9111,24.67,,DEBIT,CARD
+US_CORPUS_00421,1799217780000,24273,"Chase: You made a $99.54 debit card purchase with card ending 7761 at HOME DEPOT #6641 on 01/06. Avail bal: $20,000.83.",1,Chase,7761,99.54,"20,000.83",DEBIT,CARD
+US_CORPUS_00422,1799252760000,24273,"Chase: You made a $37.43 debit card purchase with card ending 7761 at TRADER JOE'S #552 on 01/06. Avail bal: $19,963.40.",1,Chase,7761,37.43,"19,963.40",DEBIT,CARD
+US_CORPUS_00423,1799302620000,93557,Wells Fargo: A purchase of $113.60 occurred on card ending in 9111 at KROGER #771 on 01/07. Avail Bal: $886.40.,1,Wells Fargo,9111,113.60,886.40,DEBIT,CARD
+US_CORPUS_00424,1799314740000,93557,Wells Fargo: A purchase of $62.64 occurred on card ending in 9111 at BEST BUY #442 on 01/07. Avail Bal: $823.76.,1,Wells Fargo,9111,62.64,823.76,DEBIT,CARD
+US_CORPUS_00425,1799330340000,322632,Bank of America: A purchase of $29.98 at AMAZON MKTPLACE was charged to your credit card ending in 9111 on 01/07.,1,Bank of America,9111,29.98,,DEBIT,CARD
+US_CORPUS_00426,1799384280000,322632,"Bank of America: Your credit card ending in 9111 statement is ready. Balance: $3,716.95. Min payment $35.00 due 01/26.",1,Bank of America,9111,"3,716.95","3,716.95",DEBIT,CARD
+US_CORPUS_00427,1799395740000,+14155550132,Hey are we still on for dinner tonight?,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00428,1799423160000,37777,USPS: Your package 9433774468869534634 is out for delivery today.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00429,1799449080000,24273,Chase: MIKE CHEN requested $83.38 from you with Zelle(R). Review in the Chase Mobile app. No money has moved.,1,Chase,,83.38,,DEBIT,BANK
+US_CORPUS_00430,1799470740000,+14155550132,Running 10 min late,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00431,1799531520000,24273,"Chase: You sent $136.51 to JOHN MILLER with Zelle(R) from acct ending 9384 on 01/09. Avail bal: $19,826.89.",1,Chase,9384,136.51,"19,826.89",DEBIT,BANK
+US_CORPUS_00432,1799557680000,24273,"Chase: Your requested balance for acct ...9384 is $19,826.89 as of 01/10.",1,Chase,9384,"19,826.89",,DEBIT,BANK
+US_CORPUS_00433,1799597460000,24273,Chase Fraud Alert: Did you attempt $236.79 at ONLINE MERCHANT with debit card ending 7761? Reply YES or NO.,1,Chase,7761,236.79,,DEBIT,CARD
+US_CORPUS_00434,1799641920000,24273,"Chase: Your online payment of $409.90 to BANK OF AMERICA CARD 9111 from acct ...9384 is complete on 01/11. Avail bal: $19,416.99.",1,Chase,9384,409.90,"19,416.99",CREDIT,CARD
+US_CORPUS_00435,1799646660000,322632,"BofA: Payment of $409.90 received on credit card ending 9111. Thank you. Avail credit: $2,692.95.",1,Bank of America,9111,409.90,"2,692.95",CREDIT,CARD
+US_CORPUS_00436,1799681040000,24273,"Chase: You made a $57.08 debit card purchase with card ending 7761 at COSTCO WHSE #482 on 01/11. Avail bal: $19,359.91.",1,Chase,7761,57.08,"19,359.91",DEBIT,CARD
+US_CORPUS_00437,1799720820000,322632,BofA: Your credit card ending 9111 was DECLINED for $403.85 at APPLE.COM/BILL on 01/12. Call 800.732.9194 if you need help.,0,Bank of America,,,,OTHER,NONE
+US_CORPUS_00438,1799732460000,+14155550132,Running 10 min late,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00439,1799740380000,322632,BofA: Your credit card ending 9111 was DECLINED for $35.45 at CVS/PHARMACY #883 on 01/12. Call 800.732.9194 if you need help.,0,Bank of America,,,,OTHER,NONE
+US_CORPUS_00440,1799795340000,262966,228713 is your Amazon OTP. Do not share it with anyone.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00441,1799828700000,93557,Wells Fargo: A purchase of $92.15 occurred on card ending in 9111 at WALMART SUPERCENTER on 01/13. Avail Bal: $731.61.,1,Wells Fargo,9111,92.15,731.61,DEBIT,CARD
+US_CORPUS_00442,1799857920000,24273,"Chase: You made a $51.60 debit card purchase with card ending 7761 at TRADER JOE'S #552 on 01/13. Avail bal: $19,308.31.",1,Chase,7761,51.60,"19,308.31",DEBIT,CARD
+US_CORPUS_00443,1799917080000,93557,Wells Fargo: A purchase of $94.57 occurred on card ending in 9111 at APPLE.COM/BILL on 01/14. Avail Bal: $637.04.,1,Wells Fargo,9111,94.57,637.04,DEBIT,CARD
+US_CORPUS_00444,1799940900000,322632,"Bank of America: Your credit card ending in 9111 statement is ready. Balance: $3,307.05. Min payment $35.00 due 02/01.",1,Bank of America,9111,"3,307.05","3,307.05",DEBIT,CARD
+US_CORPUS_00445,1799973780000,37777,USPS: Your package 9461675377152327952 is out for delivery today.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00446,1800021720000,89887,DOMINO'S: BOGO large pizzas today only! dominos.com. Txt STOP to end.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00447,1800082620000,322632,"Bank of America: A withdrawal/debit of $52.93 (T-MOBILE) posted to account ending 9661 on 01/16. Available balance: $1,058.83.",1,Bank of America,9661,52.93,"1,058.83",DEBIT,BANK
+US_CORPUS_00448,1800113820000,322632,"Bank of America: A refund of $42.03 from STARBUCKS #2214 was credited to your credit card ending in 9111 on 01/16. Avail credit: $2,734.98.",1,Bank of America,9111,42.03,"2,734.98",CREDIT,CARD
+US_CORPUS_00449,1800143040000,93557,Wells Fargo: Bill Pay of $67.07 to CITY WATER DEPT was sent from account ending 4417 on 01/16. Avail Bal: $569.97.,1,Wells Fargo,4417,67.07,569.97,DEBIT,BANK
+US_CORPUS_00450,1800183780000,24273,Chase: Your one-time code is 182146. Don't share it. We'll never call to ask for it.,0,Chase,,,,OTHER,NONE
+US_CORPUS_00451,1800215400000,24273,"Chase: You sent $36.68 to SARAH LOPEZ with Zelle(R) from acct ending 9384 on 01/17. Avail bal: $19,271.63.",1,Chase,9384,36.68,"19,271.63",DEBIT,BANK
+US_CORPUS_00452,1800239220000,93557,Wells Fargo: The temporary hold on your recent deposit to account ending 4417 has been RELEASED. Funds are now available.,0,Wells Fargo,4417,,,CREDIT,NONE
+US_CORPUS_00453,1800264180000,24273,"Chase: You scheduled a payment of $113.72 to COMCAST CABLE for 01/26 from acct ...9384. To cancel, visit chase.com/pay.",1,Chase,9384,113.72,,CREDIT,BANK
+US_CORPUS_00454,1800276600000,322632,Bank of America: A purchase of $172.68 at WHOLE FOODS MKT was charged to your credit card ending in 9111 on 01/18.,1,Bank of America,9111,172.68,,DEBIT,CARD
+US_CORPUS_00455,1800309900000,322632,BofA: Your credit card ending 9111 was DECLINED for $143.11 at APPLE.COM/BILL on 01/18. Call 800.732.9194 if you need help.,0,Bank of America,,,,OTHER,NONE
+US_CORPUS_00456,1800368640000,24273,Chase: Your one-time code is 462331. Don't share it. We'll never call to ask for it.,0,Chase,,,,OTHER,NONE
+US_CORPUS_00457,1800420060000,22000,G-842608 is your Google verification code.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00458,1800432480000,24273,"Chase: MIKE CHEN sent you $47.48 with Zelle(R). Deposited to acct ...9384. Avail bal: $19,319.11.",1,Chase,,47.48,,CREDIT,BANK
+US_CORPUS_00459,1800482040000,24273,"Chase: You scheduled a payment of $245.03 to COMCAST CABLE for 01/28 from acct ...9384. To cancel, visit chase.com/pay.",1,Chase,9384,245.03,,CREDIT,BANK
+US_CORPUS_00460,1800536520000,24273,"Chase: You scheduled a payment of $135.47 to COMCAST CABLE for 01/29 from acct ...9384. To cancel, visit chase.com/pay.",1,Chase,9384,135.47,,CREDIT,BANK
+US_CORPUS_00461,1800552120000,322632,BofA: Your credit card ending 9111 was DECLINED for $171.29 at STARBUCKS #2214 on 01/21. Call 800.732.9194 if you need help.,0,Bank of America,,,,OTHER,NONE
+US_CORPUS_00462,1800600960000,322632,BofA: A pending authorization of $114.88 at WHOLE FOODS MKT is on your credit card ending 9111. Final amount may vary.,1,Bank of America,9111,114.88,,DEBIT,CARD
+US_CORPUS_00463,1800648540000,24273,"Chase: You made a $98.83 debit card purchase with card ending 7761 at TRADER JOE'S #552 on 01/22. Avail bal: $19,220.28.",1,Chase,7761,98.83,"19,220.28",DEBIT,CARD
+US_CORPUS_00464,1800708540000,24273,"Chase: SARAH LOPEZ sent you $66.89 with Zelle(R). Deposited to acct ...9384. Avail bal: $19,287.17.",1,Chase,,66.89,,CREDIT,BANK
+US_CORPUS_00465,1800727980000,24273,"Chase: You scheduled a payment of $257.45 to COMCAST CABLE for 01/31 from acct ...9384. To cancel, visit chase.com/pay.",1,Chase,9384,257.45,,CREDIT,BANK
+US_CORPUS_00466,1800746460000,24273,"Chase: MIKE CHEN sent you $102.14 with Zelle(R). Deposited to acct ...9384. Avail bal: $19,389.31.",1,Chase,,102.14,,CREDIT,BANK
+US_CORPUS_00467,1800785820000,93557,Wells Fargo: A purchase of $28.03 occurred on card ending in 9111 at 24 HOUR FITNESS USA on 01/24. Avail Bal: $541.94.,1,Wells Fargo,9111,28.03,541.94,DEBIT,CARD
+US_CORPUS_00468,1800801000000,24273,"Chase: You made a $142.06 debit card purchase with card ending 7761 at SPOTIFY USA on 01/24. Avail bal: $19,247.25.",1,Chase,7761,142.06,"19,247.25",DEBIT,CARD
+US_CORPUS_00469,1800827340000,93557,"Wells Fargo: A direct deposit of $800.00 from ACME TECHNOLOGIES PAYROLL was received into account ending 4417 on 01/24. Avail Bal: $1,341.94.",1,Wells Fargo,4417,800.00,"1,341.94",CREDIT,BANK
+US_CORPUS_00470,1800888360000,24273,"Chase: You made a $74.02 debit card purchase with card ending 7761 at HOME DEPOT #6641 on 01/25. Avail bal: $19,173.23.",1,Chase,7761,74.02,"19,173.23",DEBIT,CARD
+US_CORPUS_00471,1800916200000,54321,VOTE NOV 3! Volunteer with us this weekend. Reply STOP to opt out. Paid for by Citizens Committee.,0,Citibank,,,,OTHER,NONE
+US_CORPUS_00472,1800944580000,322632,BofA Reminder: Payment of $35.00 minimum is due on credit card ending 9111 by 02/01. Avoid late fees.,1,Bank of America,9111,35.00,,CREDIT,CARD
+US_CORPUS_00473,1800959400000,322632,"Bank of America: A withdrawal/debit of $42.06 (ATM WITHDRAWAL #A5521) posted to account ending 9661 on 01/26. Available balance: $1,016.77.",1,Bank of America,9661,42.06,"1,016.77",DEBIT,BANK
+US_CORPUS_00474,1800976500000,93557,"Wells Fargo: A purchase of $20.99 occurred on card ending in 9111 at WALMART SUPERCENTER on 01/26. Avail Bal: $1,320.95.",1,Wells Fargo,9111,20.99,"1,320.95",DEBIT,CARD
+US_CORPUS_00475,1801019280000,24273,Chase Fraud Alert: Did you attempt $471.02 at ONLINE MERCHANT with debit card ending 7761? Reply YES or NO.,1,Chase,7761,471.02,,DEBIT,CARD
+US_CORPUS_00476,1801071900000,93557,"Wells Fargo: A purchase of $63.49 occurred on card ending in 9111 at APPLE.COM/BILL on 01/27. Avail Bal: $1,257.46.",1,Wells Fargo,9111,63.49,"1,257.46",DEBIT,CARD
+US_CORPUS_00477,1801121160000,24273,"Chase: Direct deposit of $1,789.27 from ACME TECHNOLOGIES PAYROLL posted to acct ...9384 on 01/28. Avail bal: $20,962.50.",1,Chase,9384,"1,789.27","20,962.50",CREDIT,BANK
+US_CORPUS_00478,1801177080000,24273,Chase Fraud Alert: Did you attempt $75.46 at ONLINE MERCHANT with debit card ending 7761? Reply YES or NO.,1,Chase,7761,75.46,,DEBIT,CARD
+US_CORPUS_00479,1801196340000,24273,"Chase: You made a $23.31 debit card purchase with card ending 7761 at AMAZON MKTPLACE on 01/29. Avail bal: $20,939.19.",1,Chase,7761,23.31,"20,939.19",DEBIT,CARD
+US_CORPUS_00480,1801226820000,24273,"Chase: Direct deposit of $532.21 from ACME TECHNOLOGIES PAYROLL posted to acct ...9384 on 01/29. Avail bal: $21,471.40.",1,Chase,9384,532.21,"21,471.40",CREDIT,BANK
+US_CORPUS_00481,1801253820000,322632,Bank of America: A purchase of $142.03 at STARBUCKS #2214 was charged to your credit card ending in 9111 on 01/29.,1,Bank of America,9111,142.03,,DEBIT,CARD
+US_CORPUS_00482,1801285560000,93557,Wells Fargo: 375827 is your access code. It expires in 10 minutes. Don't share it.,0,Wells Fargo,,,,OTHER,NONE
+US_CORPUS_00483,1801313520000,24273,Chase: Your one-time code is 559751. Don't share it. We'll never call to ask for it.,0,Chase,,,,OTHER,NONE
+US_CORPUS_00484,1801331760000,322632,Bank of America: A purchase of $73.54 at BEST BUY #442 was charged to your credit card ending in 9111 on 01/30.,1,Bank of America,9111,73.54,,DEBIT,CARD
+US_CORPUS_00485,1801369980000,93557,"Wells Fargo: A purchase of $72.89 occurred on card ending in 9111 at STARBUCKS #2214 on 01/31. Avail Bal: $1,184.57.",1,Wells Fargo,9111,72.89,"1,184.57",DEBIT,CARD
+US_CORPUS_00486,1801415520000,322632,BofA Reminder: Payment of $35.00 minimum is due on credit card ending 9111 by 02/06. Avoid late fees.,1,Bank of America,9111,35.00,,CREDIT,CARD
+US_CORPUS_00487,1801473480000,93557,"Wells Fargo: A direct deposit of $800.00 from ACME TECHNOLOGIES PAYROLL was received into account ending 4417 on 02/01. Avail Bal: $1,984.57.",1,Wells Fargo,4417,800.00,"1,984.57",CREDIT,BANK
+US_CORPUS_00488,1801515780000,322632,Bank of America: A purchase of $127.27 at CVS/PHARMACY #883 was charged to your credit card ending in 9111 on 02/01.,1,Bank of America,9111,127.27,,DEBIT,CARD
+US_CORPUS_00489,1801529280000,24273,Chase: SARAH LOPEZ requested $36.30 from you with Zelle(R). Review in the Chase Mobile app. No money has moved.,1,Chase,,36.30,,DEBIT,BANK
+US_CORPUS_00490,1801567680000,24273,"Chase: You made a $52.35 debit card purchase with card ending 7761 at CVS/PHARMACY #883 on 02/02. Avail bal: $21,419.05.",1,Chase,7761,52.35,"21,419.05",DEBIT,CARD
+US_CORPUS_00491,1801624740000,93557,"Wells Fargo: Bill Pay of $81.04 to STATE FARM INS was sent from account ending 4417 on 02/03. Avail Bal: $1,903.53.",1,Wells Fargo,4417,81.04,"1,903.53",DEBIT,BANK
+US_CORPUS_00492,1801671540000,24273,Chase: Your one-time code is 254388. Don't share it. We'll never call to ask for it.,0,Chase,,,,OTHER,NONE
+US_CORPUS_00493,1801686060000,93557,"Wells Fargo: A purchase of $41.17 occurred on card ending in 9111 at SPOTIFY USA on 02/03. Avail Bal: $1,862.36.",1,Wells Fargo,9111,41.17,"1,862.36",DEBIT,CARD
+US_CORPUS_00494,1801744140000,24273,"Chase: Direct deposit of $831.56 from ACME TECHNOLOGIES PAYROLL posted to acct ...9384 on 02/04. Avail bal: $22,250.61.",1,Chase,9384,831.56,"22,250.61",CREDIT,BANK
+US_CORPUS_00495,1801775640000,24273,"Chase: You made a $137.53 debit card purchase with card ending 7761 at BEST BUY #442 on 02/04. Avail bal: $22,113.08.",1,Chase,7761,137.53,"22,113.08",DEBIT,CARD
+US_CORPUS_00496,1801821600000,24273,"Chase: You made a $31.66 debit card purchase with card ending 7761 at KROGER #771 on 02/05. Avail bal: $22,081.42.",1,Chase,7761,31.66,"22,081.42",DEBIT,CARD
+US_CORPUS_00497,1801878600000,93557,"Wells Fargo: A purchase of $86.71 occurred on card ending in 9111 at SHELL OIL 5744 on 02/06. Avail Bal: $1,775.65.",1,Wells Fargo,9111,86.71,"1,775.65",DEBIT,CARD
+US_CORPUS_00498,1801935480000,672566,"Netflix: Your payment method was updated successfully. If this wasn't you, visit netflix.com/account.",0,Unknown,,,,OTHER,NONE
+US_CORPUS_00499,1801964940000,37777,USPS: Your package 9472952233246045435 is out for delivery today.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00500,1802011020000,93557,"Wells Fargo: Bill Pay of $71.83 to AT&T was sent from account ending 4417 on 02/07. Avail Bal: $1,703.82.",1,Wells Fargo,4417,71.83,"1,703.82",DEBIT,BANK
+US_CORPUS_00501,1802035380000,89887,DOMINO'S: BOGO large pizzas today only! dominos.com. Txt STOP to end.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00502,1802085360000,24273,"Chase: JOHN MILLER sent you $12.56 with Zelle(R). Deposited to acct ...9384. Avail bal: $22,093.98.",1,Chase,,12.56,,CREDIT,BANK
+US_CORPUS_00503,1802127000000,322632,Bank of America: A purchase of $80.97 at CHIPOTLE 1187 was charged to your credit card ending in 9111 on 02/08.,1,Bank of America,9111,80.97,,DEBIT,CARD
+US_CORPUS_00504,1802170560000,24273,"Chase: You made a $113.08 debit card purchase with card ending 7761 at APPLE.COM/BILL on 02/09. Avail bal: $21,980.90.",1,Chase,7761,113.08,"21,980.90",DEBIT,CARD
+US_CORPUS_00505,1802180640000,24273,"Chase: SARAH LOPEZ sent you $161.21 with Zelle(R). Deposited to acct ...9384. Avail bal: $22,142.11.",1,Chase,,161.21,,CREDIT,BANK
+US_CORPUS_00506,1802234640000,24273,"Chase: You sent $69.08 to JOHN MILLER with Zelle(R) from acct ending 9384 on 02/10. Avail bal: $22,073.03.",1,Chase,9384,69.08,"22,073.03",DEBIT,BANK
+US_CORPUS_00507,1802275020000,24273,Chase: Your one-time code is 568764. Don't share it. We'll never call to ask for it.,0,Chase,,,,OTHER,NONE
+US_CORPUS_00508,1802316540000,24273,"Chase: Your online payment of $366.58 to BANK OF AMERICA CARD 9111 from acct ...9384 is complete on 02/11. Avail bal: $21,706.45.",1,Chase,9384,366.58,"21,706.45",CREDIT,CARD
+US_CORPUS_00509,1802323140000,322632,"BofA: Payment of $366.58 received on credit card ending 9111. Thank you. Avail credit: $2,505.07.",1,Bank of America,9111,366.58,"2,505.07",CREDIT,CARD
+US_CORPUS_00510,1802397600000,24273,Chase: Your one-time code is 704118. Don't share it. We'll never call to ask for it.,0,Chase,,,,OTHER,NONE
+US_CORPUS_00511,1802421946000,322632,BofA: A pending authorization of $52.14 at WHOLE FOODS MKT is on your credit card ending 9111. Final amount may vary.,1,Bank of America,9111,52.14,,DEBIT,CARD
+US_CORPUS_00512,1802465989000,24273,"Chase: You made a $46.82 debit card purchase with card ending 7761 at SHELL OIL 1204 on 02/12. Avail bal: $21,659.63.",1,Chase,7761,46.82,"21,659.63",DEBIT,CARD
+US_CORPUS_00513,1802501981000,89887,VERIZON: Switch today and get a FREE 5G phone on us! Reply INFO or visit vz.example/deal. Txt STOP to opt out.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00514,1802545726000,24273,"Chase: Direct deposit of $3,180.55 from PRISHA APPS INC PAYROLL posted to acct ...9384 on 02/13. Avail bal: $24,840.18.",1,Chase,9384,"3,180.55","24,840.18",CREDIT,BANK
+US_CORPUS_00515,1802591316000,93557,Wells Fargo: 418602 is your access code. It expires in 10 minutes. Don't share it with anyone.,0,Wells Fargo,,,,OTHER,NONE
+US_CORPUS_00516,1802638811000,24273,Chase: AutoPay is now SET UP for CITY POWER & LIGHT from acct ...9384. First payment of $142.66 will be sent on 03/03. No money has moved yet.,0,Chase,,,,OTHER,NONE
+US_CORPUS_00517,1802689295000,24273,"Chase: Your transfer of $5,000.00 from checking ...9384 to savings ...5520 is complete on 02/15. Checking avail bal: $19,840.18.",1,Chase,9384,"5,000.00","19,840.18",DEBIT,BANK
+US_CORPUS_00518,1802703356000,24273,"Chase: Welcome! Your new Chase Savings account ending 5520 is open. Opening deposit of $5,000.00 received. Savings bal: $5,000.00.",1,Chase,5520,"5,000.00","5,000.00",CREDIT,BANK
+US_CORPUS_00519,1802748158000,262966,Amazon: Your order of 3 items has shipped. Track: amzn.example/t/RG7741. Arriving Sat by 8pm.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00520,1802785185000,322632,"Bank of America: A withdrawal/debit of $1,150.00 (SUNSTONE PROPERTY MGMT) posted to account ending 9661 on 02/16. Available balance: -$133.23.",1,Bank of America,9661,"1,150.00",,DEBIT,BANK
+US_CORPUS_00521,1802800353000,322632,Bank of America: An overdraft fee of $35.00 was assessed on account ending 9661 on 02/16. Available balance: -$168.23.,1,Bank of America,9661,35.00,,DEBIT,BANK
+US_CORPUS_00522,1802843130000,322632,Bank of America ALERT: Account ending 9661 has a negative balance of -$168.23. Deposit funds today to avoid additional fees.,1,Bank of America,9661,168.23,,CREDIT,BANK
+US_CORPUS_00523,1802879496000,93557,"Wells Fargo: A direct deposit of $1,250.00 from NORTHSIDE CLINIC LLC posted to account ending 4417 on 02/17. Available balance: $2,953.82.",1,Wells Fargo,4417,"1,250.00","2,953.82",CREDIT,BANK
+US_CORPUS_00524,1802890327000,24273,"Chase: You made a $128.44 debit card purchase with card ending 7761 at COSTCO WHSE #1189 on 02/17. Avail bal: $19,711.74.",1,Chase,7761,128.44,"19,711.74",DEBIT,CARD
+US_CORPUS_00525,1802922707000,672566,Netflix: Your plan renews on 02/28. Manage your membership at netflix.com/account.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00526,1802942616000,322632,Bank of America: A purchase of $73.51 at TARGET T-1043 was charged to your credit card ending in 9111 on 02/18.,1,Bank of America,9111,73.51,,DEBIT,CARD
+US_CORPUS_00527,1802996930000,93557,"Wells Fargo: You made a purchase of $58.90 at SAFEWAY #2210 with debit card ending 9111 on 02/19. Available balance: $2,894.92.",1,Wells Fargo,9111,58.90,"2,894.92",DEBIT,CARD
+US_CORPUS_00528,1803035421000,37777,USPS: Your package 9405511899223197428490 is scheduled for delivery today by 6:30pm.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00529,1803060501000,322632,"Bank of America: A deposit of $1,400.00 (TRANSFER FROM SAVINGS EXT) posted to account ending 9661 on 02/19. Available balance: $1,231.77.",1,Bank of America,9661,"1,400.00","1,231.77",CREDIT,BANK
+US_CORPUS_00530,1803089702000,24273,"Chase: You made a $19.99 debit card purchase with card ending 7761 at SPOTIFY USA on 02/20. Avail bal: $19,691.75.",1,Chase,7761,19.99,"19,691.75",DEBIT,CARD
+US_CORPUS_00531,1803107036000,86753,Venmo: Chris Doyle requested $40.00 from you for 'ramen'. Open Venmo to pay or decline.,1,Unknown,,40.00,,DEBIT,BANK
+US_CORPUS_00532,1803121347000,24273,"Chase: Your mobile check deposit of $875.00 to acct ...9384 was accepted on 02/20. Avail bal: $20,566.75.",1,Chase,9384,875.00,"20,566.75",CREDIT,BANK
+US_CORPUS_00533,1803162151000,322632,Bank of America: A cash advance of $500.00 was taken on your credit card ending 9111 on 02/20.,1,Bank of America,9111,500.00,,DEBIT,CARD
+US_CORPUS_00534,1803206548000,322632,"Bank of America: A cash advance fee of $15.00 was posted to your credit card ending 9111. Avail credit: $1,916.56.",1,Bank of America,9111,15.00,"1,916.56",DEBIT,CARD
+US_CORPUS_00535,1803235238000,55123,"QuickCash Loans: Need $5,000 by tomorrow? No credit check required. qcloans.example/apply. Txt STOP to end.",0,Unknown,,,,OTHER,NONE
+US_CORPUS_00536,1803272089000,24273,Chase: FRAUD ALERT: Did you attempt a $612.00 purchase at ELECTRO WORLD LLC? Reply YES if you did or NO if you did not.,1,Chase,,612.00,,DEBIT,CARD
+US_CORPUS_00537,1803281529000,24273,Chase: A purchase attempt on your card ending 882 was DECLINED because that card is closed. Use your card ending 7761.,0,Chase,,,,OTHER,NONE
+US_CORPUS_00538,1803299794000,93557,"Wells Fargo: You made a purchase of $112.37 at HOME DEPOT #6641 with debit card ending 9111 on 02/22. Available balance: $2,782.55.",1,Wells Fargo,9111,112.37,"2,782.55",DEBIT,CARD
+US_CORPUS_00539,1803340096000,24273,"Chase: You made a $64.99 debit card purchase with card ending 7761 at GLOWMART ONLINE on 02/22. Avail bal: $20,501.76.",1,Chase,7761,64.99,"20,501.76",DEBIT,CARD
+US_CORPUS_00540,1803368287000,24273,"Chase: You made a $64.99 debit card purchase with card ending 7761 at GLOWMART ONLINE on 02/23. Avail bal: $20,436.77.",1,Chase,7761,64.99,"20,436.77",DEBIT,CARD
+US_CORPUS_00541,1803416619000,24273,"Chase: A credit of $64.99 from GLOWMART ONLINE (duplicate charge reversal) posted to acct ...9384 on 02/23. Avail bal: $20,501.76.",1,Chase,9384,64.99,"20,501.76",DEBIT,BANK
+US_CORPUS_00542,1803461008000,22000,G-704118 is your Google verification code. Do not share it with anyone.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00543,1803496234000,322632,"Bank of America: Your statement for credit card ending 9111 is ready. Statement balance $4,083.44. Minimum payment due $102.00 by 03/09.",0,Bank of America,,,,OTHER,NONE
+US_CORPUS_00544,1803511797000,+14155550132,Hey are we still on for dinner Friday?,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00545,1803550781000,24273,"Chase: You made a $92.15 debit card purchase with card ending 7761 at WHOLE FOODS MKT #229 on 02/25. Avail bal: $20,409.61.",1,Chase,7761,92.15,"20,409.61",DEBIT,CARD
+US_CORPUS_00546,1803581310000,93557,Wells Fargo: Reminder - your Bill Pay to CITY WATER DEPT for $310.00 is scheduled for 02/27. No funds have been sent yet.,1,Wells Fargo,,310.00,,DEBIT,BANK
+US_CORPUS_00547,1803628132000,322632,Bank of America: A purchase of $61.20 at SHELL OIL 3382 was charged to your credit card ending in 9111 on 02/26.,1,Bank of America,9111,61.20,,DEBIT,CARD
+US_CORPUS_00548,1803672987000,24273,"Chase: SARAH LOPEZ sent you $210.40 with Zelle(R). Deposited to acct ...9384 on 02/26. Avail bal: $20,620.01.",1,Chase,,210.40,,CREDIT,BANK
+US_CORPUS_00549,1803688911000,93557,"Wells Fargo: A Bill Pay payment of $310.00 to CITY WATER DEPT was sent from account ending 4417 on 02/27. Available balance: $2,472.55.",1,Wells Fargo,4417,310.00,"2,472.55",CREDIT,BANK
+US_CORPUS_00550,1803706220000,24273,"Chase: You made a $37.80 debit card purchase with card ending 7761 at UBER TRIP HELP.UBER.COM on 02/27. Avail bal: $20,582.21.",1,Chase,7761,37.80,"20,582.21",DEBIT,CARD
+US_CORPUS_00551,1803724142000,37777,USPS: We could not deliver your package. Reschedule at usps.example/redelivery.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00552,1803734785000,322632,Bank of America: Your credit card ending 9111 expires 04/28. A replacement card will arrive in 7-10 business days.,0,Bank of America,9111,,,OTHER,CARD
+US_CORPUS_00553,1803748193000,93557,"Wells Fargo: You made a purchase of $45.62 at CHEVRON 0091 with debit card ending 9111 on 02/27. Available balance: $2,426.93.",1,Wells Fargo,9111,45.62,"2,426.93",DEBIT,CARD
+US_CORPUS_00554,1803796874000,24273,"Chase: You withdrew $200.00 at ATM 7-ELEVEN 3391 with card ending 7761 on 02/28. Avail bal: $20,382.21.",1,Chase,7761,200.00,"20,382.21",DEBIT,CARD
+US_CORPUS_00555,1803824104000,24273,"Chase: A non-Chase ATM fee of $3.50 was charged to acct ...9384 on 02/28. Avail bal: $20,378.71.",1,Chase,9384,3.50,"20,378.71",DEBIT,CARD
+US_CORPUS_00556,1803865767000,322632,"Bank of America: A refund of $89.99 from WAYFAIR.COM was credited to your credit card ending 9111 on 03/01. Avail credit: $1,945.35.",1,Bank of America,9111,89.99,"1,945.35",CREDIT,CARD
+US_CORPUS_00557,1803895587000,24273,"Chase: You sent $88.50 to JOHN MILLER with Zelle(R) from acct ending 9384 on 03/01. Avail bal: $20,290.21.",1,Chase,9384,88.50,"20,290.21",DEBIT,BANK
+US_CORPUS_00558,1803932584000,89887,T-MOBILE: Your data plan is upgraded FREE for 3 months. Reply YES to accept. Txt STOP to opt out.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00559,1803952946000,93557,"Wells Fargo: An ATM cash deposit of $340.00 was credited to account ending 4417 on 03/02. Available balance: $2,766.93.",1,Wells Fargo,4417,340.00,"2,766.93",CREDIT,BANK
+US_CORPUS_00560,1803977789000,24273,"Chase: You made a $215.63 debit card purchase with card ending 7761 at BEST BUY #442 on 03/02. Avail bal: $20,074.58.",1,Chase,7761,215.63,"20,074.58",DEBIT,CARD
+US_CORPUS_00561,1804021237000,54321,CreditKarma: Your credit score changed by +11 points this month. Log in to see what moved.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00562,1804036246000,322632,"Bank of America: A withdrawal/debit of $62.18 (T-MOBILE) posted to account ending 9661 on 03/03. Available balance: $1,169.59.",1,Bank of America,9661,62.18,"1,169.59",DEBIT,BANK
+US_CORPUS_00563,1804067612000,24273,"Chase: Your AutoPay payment of $142.66 to CITY POWER & LIGHT was sent from acct ...9384 on 03/03. Avail bal: $19,931.92.",1,Chase,9384,142.66,"19,931.92",CREDIT,BANK
+US_CORPUS_00564,1804090899000,+14155550132,Running 10 min late,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00565,1804113575000,+14155550132,Running 10 min late,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00566,1804128500000,93557,"Wells Fargo: You made a purchase of $133.18 at COSTCO GAS #1189 with debit card ending 9111 on 03/04. Available balance: $2,633.75.",1,Wells Fargo,9111,133.18,"2,633.75",DEBIT,CARD
+US_CORPUS_00567,1804147222000,24273,"Chase: You made a $54.27 debit card purchase with card ending 7761 at TRADER JOE'S #552 on 03/04. Avail bal: $19,877.65.",1,Chase,7761,54.27,"19,877.65",DEBIT,CARD
+US_CORPUS_00568,1804201129000,322632,Bank of America: A pending authorization of $118.45 at DELTA AIR LINES is on your account ending 9661. Final amount may vary.,1,Bank of America,9661,118.45,,DEBIT,BANK
+US_CORPUS_00569,1804230681000,322632,"Bank of America: A withdrawal/debit of $118.45 (DELTA AIR LINES) posted to account ending 9661 on 03/05. Available balance: $1,051.14.",1,Bank of America,9661,118.45,"1,051.14",DEBIT,BANK
+US_CORPUS_00570,1804256930000,24273,Chase: Zelle(R) request: MIKE CHEN is requesting $75.00 from you. Reply in the Chase app to send or decline.,1,Chase,,75.00,,DEBIT,BANK
+US_CORPUS_00571,1804303632000,24273,"Chase: You made a $11.45 debit card purchase with card ending 7761 at STARBUCKS #2214 on 03/06. Avail bal: $19,866.20.",1,Chase,7761,11.45,"19,866.20",DEBIT,CARD
+US_CORPUS_00572,1804342687000,93557,"Wells Fargo: Your debit card ending 9111 was DECLINED at LUXE JEWELERS for $2,480.00 due to insufficient funds. No charge was made.",0,Wells Fargo,,,,OTHER,NONE
+US_CORPUS_00573,1804353643000,322632,Bank of America: An interest charge of $47.83 was assessed on your credit card ending 9111 on 03/06.,1,Bank of America,9111,47.83,,DEBIT,CARD
+US_CORPUS_00574,1804400544000,24273,Chase: Your statement for acct ...9384 is available online. No action needed.,0,Chase,9384,,,OTHER,NONE
+US_CORPUS_00575,1804428170000,93557,"Wells Fargo: You made a purchase of $27.99 at NETFLIX.COM with debit card ending 9111 on 03/07. Available balance: $2,605.76.",1,Wells Fargo,9111,27.99,"2,605.76",DEBIT,CARD
+US_CORPUS_00576,1804476709000,322632,Bank of America: A purchase of $132.99 at LOWES #01772 was charged to your credit card ending in 9111 on 03/08.,1,Bank of America,9111,132.99,,DEBIT,CARD
+US_CORPUS_00577,1804509517000,24273,Chase: We've updated our online banking terms of service. View them at chase.example/terms.,0,Chase,,,,OTHER,NONE
+US_CORPUS_00578,1804552958000,24273,"Chase: You made a $149.00 debit card purchase with card ending 7761 at DELTA AIR LINES on 03/09. Avail bal: $19,717.20.",1,Chase,7761,149.00,"19,717.20",DEBIT,CARD
+US_CORPUS_00579,1804603572000,262966,Amazon: Your order #114-7729183 for $54.20 has been placed. You have not been charged yet.,1,Unknown,,54.20,,DEBIT,CARD
+US_CORPUS_00580,1804633243000,93557,Wells Fargo: Scheduled transfer notice - $600.00 will be sent from account ending 4417 to CHASE ...9384 on 03/14.,1,Wells Fargo,4417,600.00,,DEBIT,BANK
+US_CORPUS_00581,1804654287000,322632,Bank of America: 552901 is your Bank of America authorization code. Never share this code.,0,Bank of America,,,,OTHER,NONE
+US_CORPUS_00582,1804665548000,24273,Chase: A hold of $75.00 was placed by SUNOCO 4471 on card ending 7761 pending final amount. This is not a final charge.,1,Chase,7761,75.00,,DEBIT,CARD
+US_CORPUS_00583,1804699198000,93557,"Wells Fargo: You made a purchase of $84.05 at TARGET T-2288 with debit card ending 9111 on 03/10. Available balance: $2,521.71.",1,Wells Fargo,9111,84.05,"2,521.71",DEBIT,CARD
+US_CORPUS_00584,1804746593000,24273,Chase: Your one-time code is 330975. Don't share it. We'll never call to ask for it.,0,Chase,,,,OTHER,NONE
+US_CORPUS_00585,1804798481000,322632,"Bank of America: A provisional credit of $132.00 for your disputed charge at RIDEQUICK INC has been applied to credit card ending 9111 on 03/11. Avail credit: $1,896.53.",1,Bank of America,9111,132.00,"1,896.53",DEBIT,CARD
+US_CORPUS_00586,1804841050000,93557,"Wells Fargo: A monthly service fee of $12.00 was charged to account ending 4417 on 03/12. Available balance: $2,509.71.",1,Wells Fargo,4417,12.00,"2,509.71",DEBIT,CARD
+US_CORPUS_00587,1804888072000,24273,"Chase: Direct deposit of $3,180.55 from PRISHA APPS INC PAYROLL posted to acct ...9384 on 03/12. Avail bal: $22,897.75.",1,Chase,9384,"3,180.55","22,897.75",CREDIT,BANK
+US_CORPUS_00588,1804911719000,93557,"Wells Fargo: A direct deposit of $1,250.00 from NORTHSIDE CLINIC LLC posted to account ending 4417 on 03/13. Available balance: $3,759.71.",1,Wells Fargo,4417,"1,250.00","3,759.71",CREDIT,BANK
+US_CORPUS_00589,1804951203000,24273,"Chase: You made a $23.14 debit card purchase with card ending 7761 at CVS/PHARMACY #4417 on 03/13. Avail bal: $22,874.61.",1,Chase,7761,23.14,"22,874.61",DEBIT,CARD
+US_CORPUS_00590,1804993160000,672566,"Netflix: Your payment method was updated successfully. If this wasn't you, visit netflix.com/account.",0,Unknown,,,,OTHER,NONE
+US_CORPUS_00591,1805036722000,93557,"Wells Fargo: A transfer of $600.00 to CHASE ...9384 was sent from account ending 4417 on 03/14. Available balance: $3,159.71.",1,Wells Fargo,9384,600.00,"3,159.71",DEBIT,BANK
+US_CORPUS_00592,1805078861000,24273,"Chase: An external transfer of $600.00 from WELLS FARGO ...4417 was deposited to acct ...9384 on 03/15. Avail bal: $23,474.61.",1,Chase,4417,600.00,"23,474.61",CREDIT,BANK
+US_CORPUS_00593,1805132981000,322632,Bank of America: A purchase of $28.75 at CHIPOTLE 1187 was charged to your credit card ending in 9111 on 03/15.,1,Bank of America,9111,28.75,,DEBIT,CARD
+US_CORPUS_00594,1805180726000,24273,"Chase: Your payment of $1,500.00 to BANK OF AMERICA CARD 9111 from acct ...9384 is scheduled for 03/21. No funds have been sent yet.",1,Chase,9384,"1,500.00",,CREDIT,CARD
+US_CORPUS_00595,1805189996000,24273,"Chase: You made a $88.30 debit card purchase with card ending 7761 at APPLE.COM/BILL on 03/16. Avail bal: $23,386.31.",1,Chase,7761,88.30,"23,386.31",DEBIT,CARD
+US_CORPUS_00596,1805221811000,37777,USPS: Your package 9405511899223197428490 was delivered to your front door.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00597,1805241287000,93557,"Wells Fargo: You made a purchase of $19.75 at DUNKIN #33812 with debit card ending 9111 on 03/16. Available balance: $3,139.96.",1,Wells Fargo,9111,19.75,"3,139.96",DEBIT,CARD
+US_CORPUS_00598,1805271588000,24273,"Chase: Interest of $12.36 was credited to your savings account ending 5520 on 03/17. Savings bal: $5,012.36.",1,Chase,5520,12.36,"5,012.36",CREDIT,BANK
+US_CORPUS_00599,1805304150000,322632,"Bank of America ALERT: The balance on account ending 9661 is below your $500.00 threshold. Current balance: $1,051.14.",0,Bank of America,,,,OTHER,NONE
+US_CORPUS_00600,1805350265000,24273,"Chase: You made a purchase of 54.90 EUR (USD $59.72) with card ending 7761 at BRASSERIE LE MARAIS PARIS FR on 03/18. Avail bal: $23,326.59.",1,Chase,7761,59.72,"23,326.59",DEBIT,CARD
+US_CORPUS_00601,1805380489000,24273,Chase: A foreign transaction fee may apply to purchases made outside the U.S. Learn more at chase.example/travel.,0,Chase,,,,OTHER,CARD
+US_CORPUS_00602,1805421186000,93557,"Wells Fargo: Suspicious charge of $899.00 at BIGBOX ELECTRONICS on debit card ending 9111. Reply 1 if this was you, 2 if it was not.",1,Wells Fargo,9111,899.00,,DEBIT,CARD
+US_CORPUS_00603,1805444688000,24273,"Chase: A wire transfer of $2,000.00 to MERIDIAN TITLE CO was sent from acct ...9384 on 03/19. Avail bal: $21,326.59.",1,Chase,9384,"2,000.00","21,326.59",DEBIT,BANK
+US_CORPUS_00604,1805466479000,24273,"Chase: An outgoing wire fee of $25.00 was charged to acct ...9384 on 03/19. Avail bal: $21,301.59.",1,Chase,9384,25.00,"21,301.59",DEBIT,CARD
+US_CORPUS_00605,1805476683000,89887,SPECTRUM: Your area now has 1 Gig internet. Bundle and save $30/mo. Reply INFO. Txt STOP to opt out.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00606,1805490768000,24273,"Chase: Your transfer of $1,200.00 from savings ...5520 to checking ...9384 is complete on 03/19. Savings bal: $3,812.36.",1,Chase,5520,"1,200.00","3,812.36",DEBIT,BANK
+US_CORPUS_00607,1805537786000,24273,"Chase: A transfer of $1,200.00 from savings ...5520 was deposited to checking ...9384 on 03/20. Avail bal: $22,501.59.",1,Chase,5520,"1,200.00","22,501.59",CREDIT,BANK
+US_CORPUS_00608,1805571333000,322632,Bank of America: A purchase of $96.40 at KROGER #8812 was charged to your credit card ending in 9111 on 03/20.,1,Bank of America,9111,96.40,,DEBIT,CARD
+US_CORPUS_00609,1805604749000,24273,"Chase: Your online payment of $1,500.00 to BANK OF AMERICA CARD 9111 from acct ...9384 is complete on 03/21. Avail bal: $21,001.59.",1,Chase,9384,"1,500.00","21,001.59",CREDIT,CARD
+US_CORPUS_00610,1805620142000,322632,"Bank of America: We received your payment of $1,500.00 on credit card ending 9111 on 03/21. Thank you. Avail credit: $3,271.38.",1,Bank of America,9111,"1,500.00","3,271.38",CREDIT,CARD
+US_CORPUS_00611,1805642660000,322632,Bank of America: A withdrawal/debit of $74.30 (STATE FARM INS) posted to account ending 9661 on 03/21. Available balance: $976.84.,1,Bank of America,9661,74.30,976.84,DEBIT,BANK
+US_CORPUS_00612,1805660587000,24273,"Chase: You made a $76.55 debit card purchase with card ending 7761 at PETCO #331 on 03/21. Avail bal: $20,925.04.",1,Chase,7761,76.55,"20,925.04",DEBIT,CARD
+US_CORPUS_00613,1805674303000,24273,"Chase: You made a $76.55 debit card purchase with card ending 7761 at PETCO #331 on 03/22. Avail bal: $20,925.04.",1,Chase,7761,76.55,"20,925.04",DEBIT,CARD
+US_CORPUS_00614,1805722956000,22000,"Google: New sign-in to your account from a Windows device. If this wasn't you, secure your account.",0,Unknown,,,,OTHER,NONE
+US_CORPUS_00615,1805738990000,55123,CoinRush: BTC is moving! Deposit $100 and get $100 bonus. coinrush.example/go. Txt STOP to end.,0,Unknown,,,,CREDIT,NONE
+US_CORPUS_00616,1805775345000,93557,"Wells Fargo: You made a purchase of $62.40 at SAFEWAY #2210 with debit card ending 9111 on 03/23. Available balance: $3,077.56.",1,Wells Fargo,9111,62.40,"3,077.56",DEBIT,CARD
+US_CORPUS_00617,1805807633000,24273,Chase: Your one-time code is 812440. Don't share it. We'll never call to ask for it.,0,Chase,,,,OTHER,NONE
+US_CORPUS_00618,1805821082000,93557,Wells Fargo: Your February statement for account ending 4417 is now available in Wells Fargo Online.,0,Wells Fargo,4417,,,OTHER,NONE
+US_CORPUS_00619,1805850728000,24273,Chase: Paperless statements are now ON for acct ...9384. Manage alerts in the Chase app.,0,Chase,9384,,,OTHER,NONE
+US_CORPUS_00620,1805907600000,24273,Chase: Your one-time code is 249071. Don't share it. We'll never call to ask for it.,0,Chase,,,,OTHER,NONE
+US_CORPUS_00621,1805930682000,24273,"Chase: Your mobile deposit of $4,200.00 to acct ...9384 was received on 03/24. $225.00 is available now; the rest will be available on 04/06. Avail bal: $25,125.04.",1,Chase,9384,"4,200.00","25,125.04",CREDIT,BANK
+US_CORPUS_00622,1805984421000,322632,Bank of America: Your credit card ending 9111 statement has closed. Minimum payment due $82.00 by 04/14. AutoPay will draft from account ending 9661 on 04/12.,0,Bank of America,,,,OTHER,NONE
+US_CORPUS_00623,1806011421000,93557,"Wells Fargo: You made a purchase of $92.44 at SPROUTS FARMERS MKT with debit card ending 9111 on 03/25. Available balance: $2,985.12.",1,Wells Fargo,9111,92.44,"2,985.12",DEBIT,CARD
+US_CORPUS_00624,1806055454000,89887,GEICO: You could save 15% in 15 minutes. Get a quote at geico.example/quote. Txt STOP to opt out.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00625,1806086484000,24273,"Chase: You made a $47.85 debit card purchase with card ending 7761 at EXXONMOBIL 4412 on 03/26. Avail bal: $25,077.19.",1,Chase,7761,47.85,"25,077.19",DEBIT,CARD
+US_CORPUS_00626,1806113259000,24273,"Chase: Direct deposit of $2,400.00 from PRISHA APPS INC PAYROLL posted to acct ...9384 on 03/27. Avail bal: $27,477.19.",1,Chase,9384,"2,400.00","27,477.19",CREDIT,BANK
+US_CORPUS_00627,1806167295000,93557,"Wells Fargo: A direct deposit of $780.55 from PRISHA APPS INC PAYROLL posted to account ending 4417 on 03/27. Available balance: $3,765.67.",1,Wells Fargo,4417,780.55,"3,765.67",CREDIT,BANK
+US_CORPUS_00628,1806222156000,24273,Chase: Your paycheck from PRISHA APPS INC is now split across 2 accounts. Manage direct deposit in the Chase app.,0,Chase,,,,CREDIT,NONE
+US_CORPUS_00629,1806269454000,322632,Bank of America: An authorized user card ending 3040 has been added to your credit card account ending 9111. The card will arrive in 5-7 days.,0,Bank of America,3040,,,OTHER,CARD
+US_CORPUS_00630,1806318049000,37777,USPS: Your package 9400111899223197461122 will be delivered today between 2pm and 6pm.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00631,1806337713000,322632,Bank of America: A purchase of $210.75 at NORDSTROM 0451 was charged to authorized user card ending 3040 on your account ending 9111 on 03/29.,1,Bank of America,3040,210.75,,DEBIT,CARD
+US_CORPUS_00632,1806376026000,+14155550132,Can you grab milk on the way home?,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00633,1806386104000,24273,Chase: A temporary hold of $125.00 was placed by SUNOCO 8871 on card ending 7761. The final amount will be charged when the pump total is known.,1,Chase,7761,125.00,,DEBIT,CARD
+US_CORPUS_00634,1806406903000,24273,"Chase: Your card ending 7761 was charged the final amount of $61.28 at SUNOCO 8871 on 03/30. Avail bal: $27,415.91.",1,Chase,7761,61.28,"27,415.91",DEBIT,CARD
+US_CORPUS_00635,1806454643000,93557,"Wells Fargo: You made a purchase of $58.20 at KROGER #8812 with debit card ending 9111 on 03/31. Available balance: $3,707.47.",1,Wells Fargo,9111,58.20,"3,707.47",DEBIT,CARD
+US_CORPUS_00636,1806467352000,93557,"Wells Fargo: A debit card purchase of $58.20 at KROGER #8812 has posted to your account ending 4417. Available balance: $3,707.47.",1,Wells Fargo,4417,58.20,"3,707.47",DEBIT,CARD
+US_CORPUS_00637,1806518338000,55123,CHASE-ALERT: Your account has been LOCKED for unusual activity. Restore access now at chase-secure-verify.example/unlock,0,Chase,,,,OTHER,NONE
+US_CORPUS_00638,1806546205000,24273,"Chase: You sent $145.00 to DANA WU with Zelle(R) from acct ending 9384 on 04/01. Avail bal: $27,270.91.",1,Chase,9384,145.00,"27,270.91",DEBIT,BANK
+US_CORPUS_00639,1806557109000,24273,"Chase: Your Zelle(R) payment of $145.00 to DANA WU was returned because the recipient never enrolled. $145.00 was credited back to acct ...9384 on 04/01. Avail bal: $27,415.91.",1,Chase,9384,145.00,"27,415.91",CREDIT,BANK
+US_CORPUS_00640,1806610822000,24273,Chase: Zelle(R): DANA WU has now enrolled. Open the Chase app if you still want to send $145.00.,1,Chase,,145.00,,DEBIT,BANK
+US_CORPUS_00641,1806620316000,24273,"Chase: You have 9,384 Ultimate Rewards points available. Redeem for travel at chase.example/rewards.",0,Chase,,,,OTHER,NONE
+US_CORPUS_00642,1806632643000,24273,"Chase: A My Plan installment plan was created for your $480.00 purchase at PELOTON INTERACTIVE. 4 monthly payments of $120.00: today, 05/02, 06/02 and 07/02.",1,Chase,,480.00,,DEBIT,CARD
+US_CORPUS_00643,1806641783000,24273,"Chase: You made a $120.00 debit card purchase with card ending 7761 at PELOTON INTERACTIVE (My Plan payment 1 of 4) on 04/02. Avail bal: $27,295.91.",1,Chase,7761,120.00,"27,295.91",DEBIT,CARD
+US_CORPUS_00644,1806659636000,322632,"Bank of America: A deposit of $250.00 (MOBILE DEPOSIT) posted to account ending 9661 on 04/02. Available balance: $1,226.84.",1,Bank of America,9661,250.00,"1,226.84",CREDIT,BANK
+US_CORPUS_00645,1806712262000,322632,"Bank of America: A monthly maintenance fee of $12.00 was charged to account ending 9661 on 04/03. Available balance: $1,214.84.",1,Bank of America,9661,12.00,"1,214.84",DEBIT,CARD
+US_CORPUS_00646,1806722745000,322632,"Bank of America: As a courtesy we reversed the $12.00 maintenance fee on account ending 9661 on 04/03. Available balance: $1,226.84.",0,Bank of America,,,,OTHER,NONE
+US_CORPUS_00647,1806736425000,672566,Netflix: Your Standard plan price changes to $24.99/mo starting with your next bill on 04/02. No action needed.,1,Unknown,,24.99,,DEBIT,BANK
+US_CORPUS_00648,1806756514000,24273,"Chase: You made a $24.99 debit card purchase with card ending 7761 at NETFLIX.COM on 04/03. Avail bal: $27,270.92.",1,Chase,7761,24.99,"27,270.92",DEBIT,CARD
+US_CORPUS_00649,1806783808000,93557,Wells Fargo: Reminder - an ACH debit of $186.40 for CITY OF AUSTIN UTILITIES is scheduled to post on 04/11.,1,Wells Fargo,,186.40,,DEBIT,BANK
+US_CORPUS_00650,1806806031000,24273,"Chase: You made a $156.20 debit card purchase with card ending 7761 at PATAGONIA.COM on 04/04. Avail bal: $27,114.72.",1,Chase,7761,156.20,,DEBIT,CARD
+US_CORPUS_00651,1806817803000,93557,"Wells Fargo: An ACH debit of $412.66 (SUMMIT AUTO FINANCE) posted to account ending 4417 on 04/04. Available balance: $3,294.81.",1,Wells Fargo,4417,412.66,"3,294.81",DEBIT,BANK
+US_CORPUS_00652,1806848896000,24273,"Chase: An ACH credit of $1,842.00 from IRS TREAS 310 TAX REF posted to acct ...9384 on 04/04. Avail bal: $28,956.72.",1,Chase,9384,"1,842.00","28,956.72",DEBIT,BANK
+US_CORPUS_00653,1806870858000,22000,G-880412 is your Google verification code. Do not share it with anyone.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00654,1806914757000,322632,Bank of America: A purchase of $88.12 at REI CO-OP 0117 was charged to your credit card ending in 9111 on 04/05.,1,Bank of America,9111,88.12,,DEBIT,CARD
+US_CORPUS_00655,1806962157000,24273,"Chase: To finish linking your external account, verify the two small deposits we sent. They will be withdrawn automatically.",0,Chase,,,,CREDIT,NONE
+US_CORPUS_00656,1806980366000,24273,"Chase: A deposit of $0.32 (ACCOUNT VERIFICATION) posted to acct ...9384 on 04/06. Avail bal: $28,957.04.",1,Chase,9384,0.32,"28,957.04",CREDIT,BANK
+US_CORPUS_00657,1807001732000,24273,"Chase: A deposit of $0.47 (ACCOUNT VERIFICATION) posted to acct ...9384 on 04/06. Avail bal: $28,957.51.",1,Chase,9384,0.47,"28,957.51",CREDIT,BANK
+US_CORPUS_00658,1807017051000,24273,"Chase: A withdrawal of $0.79 (ACCOUNT VERIFICATION REVERSAL) posted to acct ...9384 on 04/06. Avail bal: $28,956.72.",1,Chase,9384,0.79,"28,956.72",DEBIT,BANK
+US_CORPUS_00659,1807026975000,24273,Chase: Your funds from the 03/24 mobile deposit are now fully available. No action needed.,0,Chase,,,,CREDIT,NONE
+US_CORPUS_00660,1807074956000,93557,"Wells Fargo: You made a purchase of $33.15 at TIM HORTONS 4471 with debit card ending 9111 on 04/07. Available balance: $3,261.66.",1,Wells Fargo,9111,33.15,"3,261.66",DEBIT,CARD
+US_CORPUS_00661,1807094766000,24273,"Chase: You withdrew 200.00 CAD (USD $147.62) at ATM SCOTIABANK TORONTO ON with card ending 7761 on 04/07. Avail bal: $28,809.10.",1,Chase,7761,147.62,"28,809.10",DEBIT,CARD
+US_CORPUS_00662,1807120145000,24273,"Chase: An international ATM fee of $5.00 was charged to acct ...9384 on 04/07. Avail bal: $28,804.10.",1,Chase,9384,5.00,"28,804.10",DEBIT,CARD
+US_CORPUS_00663,1807150241000,24273,"Chase: A foreign currency conversion fee of $4.43 was charged to acct ...9384 on 04/08. Avail bal: $28,799.67.",1,Chase,9384,4.43,"28,799.67",DEBIT,CARD
+US_CORPUS_00664,1807196106000,24273,Chase: Thanks for letting us know you're traveling. Your cards will work in CANADA through 04/12.,0,Chase,,,,OTHER,CARD
+US_CORPUS_00665,1807250744000,89887,"PLANET FITNESS: Join for $1 down, $10/mo. Offer ends Sunday. Reply JOIN. Txt STOP to opt out.",0,Unknown,,,,OTHER,NONE
+US_CORPUS_00666,1807285063000,322632,"Bank of America: An annual membership fee of $95.00 was charged to your credit card ending 9111 on 04/09. Avail credit: $2,877.51.",1,Bank of America,9111,95.00,"2,877.51",DEBIT,CARD
+US_CORPUS_00667,1807332947000,322632,Bank of America: A purchase of $66.30 at SEPHORA 0912 was charged to authorized user card ending 3040 on your account ending 9111 on 04/10.,1,Bank of America,3040,66.30,,DEBIT,CARD
+US_CORPUS_00668,1807343032000,54321,CreditKarma: Your TransUnion score dropped 8 points. A new account was reported. Log in to review.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00669,1807395970000,24273,"Chase: You made a $22.40 debit card purchase with card ending 7761 at LYFT RIDE on 04/10. Avail bal: $28,777.27.",1,Chase,7761,22.40,"28,777.27",DEBIT,CARD
+US_CORPUS_00670,1807432381000,93557,"Wells Fargo: An ACH debit of $186.40 (CITY OF AUSTIN UTILITIES) posted to account ending 4417 on 04/11. Available balance: $3,075.26.",1,Wells Fargo,4417,186.40,"3,075.26",DEBIT,BANK
+US_CORPUS_00671,1807468293000,86753,Venmo: Priya Raman requested $22.50 from you for 'coffee run'. Open Venmo to pay or decline.,1,Unknown,,22.50,,DEBIT,BANK
+US_CORPUS_00672,1807496582000,322632,"Bank of America: Your AutoPay minimum payment of $82.00 was drafted from account ending 9661 on 04/12. Available balance: $1,144.84.",1,Bank of America,9661,82.00,"1,144.84",CREDIT,BANK
+US_CORPUS_00673,1807546956000,322632,"Bank of America: We received your AutoPay payment of $82.00 on credit card ending 9111 on 04/12. Avail credit: $2,893.21.",1,Bank of America,9111,82.00,"2,893.21",CREDIT,CARD
+US_CORPUS_00674,1807578739000,24273,"Chase: You made a $68.75 debit card purchase with card ending 7761 at PUBLIX #1120 on 04/13. Avail bal: $28,708.52.",1,Chase,7761,68.75,"28,708.52",DEBIT,CARD
+US_CORPUS_00675,1807605815000,262966,Amazon: Your order of 2 items has shipped and arrives tomorrow. Track: amzn.example/t/QK2210.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00676,1807631556000,24273,"Chase: Your transfer of $1,000.00 from checking ...9384 to savings ...5520 is complete on 04/13. Checking avail bal: $27,708.52.",1,Chase,9384,"1,000.00","27,708.52",DEBIT,BANK
+US_CORPUS_00677,1807669926000,24273,"Chase: A transfer of $1,000.00 from checking ...9384 was deposited to savings ...5520 on 04/14. Savings bal: $4,812.36.",1,Chase,9384,"1,000.00","4,812.36",CREDIT,BANK
+US_CORPUS_00678,1807724057000,24273,Chase: You have used 5 of your 6 permitted withdrawals from savings ...5520 this statement period. Additional withdrawals may incur a fee.,0,Chase,5520,,,OTHER,NONE
+US_CORPUS_00679,1807775129000,93557,"Wells Fargo: You made a purchase of $127.80 at ACE HARDWARE 2211 with debit card ending 9111 on 04/15. Available balance: $2,947.46.",1,Wells Fargo,9111,127.80,"2,947.46",DEBIT,CARD
+US_CORPUS_00680,1807794834000,24273,"Chase: You made a $13.99 debit card purchase with card ending 7761 at AUDIBLE.COM on 04/15. Avail bal: $27,694.53.",1,Chase,7761,13.99,"27,694.53",DEBIT,CARD
+US_CORPUS_00681,1807819264000,322632,Bank of America: You've earned $25.00 in cash rewards on card ending 9111. Redeem to your statement any time in the app.,1,Bank of America,9111,25.00,,DEBIT,CARD
+US_CORPUS_00682,1807838031000,93557,Wells Fargo: 663104 is your access code. It expires in 10 minutes. Do not share it.,0,Wells Fargo,,,,OTHER,NONE
+US_CORPUS_00683,1807860075000,24273,"Chase: You made a $205.60 debit card purchase with card ending 7761 at SOUTHWEST AIRLINES on 04/16. Avail bal: $27,488.93.",1,Chase,7761,205.60,"27,488.93",DEBIT,CARD
+US_CORPUS_00684,1807880592000,322632,Bank of America: A purchase of $143.55 at MACYS 0092 was charged to your credit card ending in 9111 on 04/16.,1,Bank of America,9111,143.55,,DEBIT,CARD
+US_CORPUS_00685,1807928298000,+14155550132,"Dentist moved my appt to Thursday 3pm, so I'll be late",0,Unknown,,,,OTHER,NONE
+US_CORPUS_00686,1807959013000,24273,"Chase: Interest of $14.02 was credited to your savings account ending 5520 on 04/17. Savings bal: $4,826.38.",1,Chase,5520,14.02,"4,826.38",CREDIT,BANK
+US_CORPUS_00687,1807981821000,93557,"Wells Fargo: Check #1042 for $350.00 has cleared your account ending 4417 on 04/17. Available balance: $2,597.46.",1,Wells Fargo,4417,350.00,"2,597.46",DEBIT,BANK
+US_CORPUS_00688,1808013358000,672566,Netflix: We couldn't process your payment. Update your payment method at netflix.com/billing to avoid interruption.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00689,1808045940000,24273,"Chase: A partial refund of $18.40 from ETSY.COM was credited to acct ...9384 on 04/18. Avail bal: $27,507.33.",1,Chase,9384,18.40,"27,507.33",CREDIT,BANK
+US_CORPUS_00690,1808069595000,322632,"Bank of America: A returned merchandise credit of $45.00 from MACYS 0092 was applied to your credit card ending 9111 on 04/18. Avail credit: $2,794.66.",1,Bank of America,9111,45.00,"2,794.66",DEBIT,CARD
+US_CORPUS_00691,1808099327000,37777,USPS: Delivery attempted. Your item is being held at your local post office.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00692,1808144380000,24273,"Chase: You made a $91.30 debit card purchase with card ending 7761 at SAMS CLUB #6612 on 04/19. Avail bal: $27,416.03.",1,Chase,7761,91.30,"27,416.03",DEBIT,CARD
+US_CORPUS_00693,1808167486000,322632,Bank of America: 771205 is your Bank of America authorization code. Never share this code with anyone.,0,Bank of America,,,,OTHER,NONE
+US_CORPUS_00694,1808188081000,24273,"Chase: An ACH debit of $138.20 (GEICO AUTO INSURANCE) posted to acct ...9384 on 04/20. Avail bal: $27,277.83.",1,Chase,9384,138.20,"27,277.83",DEBIT,BANK
+US_CORPUS_00695,1808212033000,93557,"Wells Fargo: You made a purchase of $21.60 at PANERA BREAD 6612 with debit card ending 9111 on 04/20. Available balance: $2,575.86.",1,Wells Fargo,9111,21.60,"2,575.86",DEBIT,CARD
+US_CORPUS_00696,1808224026000,24273,"Chase: An ACH credit of $96.50 from ETSY SELLER PAYOUT posted to acct ...9384 on 04/20. Avail bal: $27,374.33.",1,Chase,9384,96.50,"27,374.33",DEBIT,BANK
+US_CORPUS_00697,1808254360000,322632,Bank of America: A purchase of $39.90 at PETSMART 3311 was charged to your credit card ending in 9111 on 04/20.,1,Bank of America,9111,39.90,,DEBIT,CARD
+US_CORPUS_00698,1808305783000,24273,"Chase: Direct deposit of $2,400.00 from PRISHA APPS INC PAYROLL posted to acct ...9384 on 04/21. Avail bal: $29,774.33.",1,Chase,9384,"2,400.00","29,774.33",CREDIT,BANK
+US_CORPUS_00699,1808329987000,93557,"Wells Fargo: A direct deposit of $780.55 from PRISHA APPS INC PAYROLL posted to account ending 4417 on 04/21. Available balance: $3,356.41.",1,Wells Fargo,4417,780.55,"3,356.41",CREDIT,BANK
+US_CORPUS_00700,1808368488000,93557,"Wells Fargo: A Venmo transfer of $425.00 from PRIYA RAMAN was credited to account ending 4417 on 04/22. Available balance: $3,781.41.",1,Wells Fargo,4417,425.00,"3,781.41",CREDIT,BANK
+US_CORPUS_00701,1808391890000,24273,Chase: Your one-time code is 315880. Don't share it. We'll never call to ask for it.,0,Chase,,,,OTHER,NONE
+US_CORPUS_00702,1808403885000,24273,"Chase: You made a $34.50 debit card purchase with card ending 7761 at CHEWY.COM on 04/22. Avail bal: $29,739.83.",1,Chase,7761,34.50,"29,739.83",DEBIT,CARD
+US_CORPUS_00703,1808451653000,322632,Bank of America: A purchase of $57.85 at CVS 2201 was charged to your credit card ending in 9111 on 04/23.,1,Bank of America,9111,57.85,,DEBIT,CARD
+US_CORPUS_00704,1808462662000,93557,"Wells Fargo: You made a purchase of $74.99 at AT&T WIRELESS with debit card ending 9111 on 04/23. Available balance: $3,706.42.",1,Wells Fargo,9111,74.99,"3,706.42",DEBIT,CARD
+US_CORPUS_00705,1808481180000,24273,Chase: A hold placed by SUNOCO 8871 on card ending 7761 has been released. No further action needed.,0,Chase,7761,,,OTHER,CARD
+US_CORPUS_00706,1808512499000,24273,Chase: Your payment of $900.00 to BANK OF AMERICA CARD 9111 from acct ...9384 is scheduled for 04/26. No funds have been sent yet.,1,Chase,9384,900.00,,CREDIT,CARD
+US_CORPUS_00707,1808561399000,262966,Amazon: Your package was delivered to your front door. View photo: amzn.example/p/QK2210.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00708,1808574964000,24273,"Chase: You made a $178.90 debit card purchase with card ending 7761 at IKEA 0044 on 04/24. Avail bal: $29,560.93.",1,Chase,7761,178.90,"29,560.93",DEBIT,CARD
+US_CORPUS_00709,1808602134000,93557,"Wells Fargo: You made a purchase of $88.10 at WEGMANS 331 with debit card ending 9111 on 04/24. Available balance: $3,618.32.",1,Wells Fargo,9111,88.10,"3,618.32",DEBIT,CARD
+US_CORPUS_00710,1808631257000,322632,Bank of America: A purchase of $31.20 at DOORDASH was charged to your credit card ending in 9111 on 04/25.,1,Bank of America,9111,31.20,,DEBIT,CARD
+US_CORPUS_00711,1808673833000,24273,"Chase: You made a $12.75 debit card purchase with card ending 7761 at PEETS COFFEE 118 on 04/25. Avail bal: $29,548.18.",1,Chase,7761,12.75,"29,548.18",DEBIT,CARD
+US_CORPUS_00712,1808717106000,55123,FRESHCRATE: 5 meal kits for $29.99! Skip anytime. freshcrate.example/deal. Txt STOP to end.,1,Unknown,,29.99,,DEBIT,BANK
+US_CORPUS_00713,1808726944000,24273,"Chase: Your online payment of $900.00 to BANK OF AMERICA CARD 9111 from acct ...9384 is complete on 04/26. Avail bal: $28,648.18.",1,Chase,9384,900.00,"28,648.18",CREDIT,CARD
+US_CORPUS_00714,1808747807000,322632,"Bank of America: We received your payment of $900.00 on credit card ending 9111 on 04/26. Thank you. Avail credit: $3,565.71.",1,Bank of America,9111,900.00,"3,565.71",CREDIT,CARD
+US_CORPUS_00715,1808771771000,93557,"Wells Fargo: You made a purchase of $15.45 at SUBWAY 2210 with debit card ending 9111 on 04/26. Available balance: $3,602.87.",1,Wells Fargo,9111,15.45,"3,602.87",DEBIT,CARD
+US_CORPUS_00716,1808803392000,24273,"Chase: You made a $59.40 debit card purchase with card ending 7761 at H MART 118 on 04/27. Avail bal: $28,588.78.",1,Chase,7761,59.40,"28,588.78",DEBIT,CARD
+US_CORPUS_00717,1808825914000,322632,Bank of America: Your request to close checking account ending 9661 is being processed. Your remaining balance will be sent to your linked external account.,0,Bank of America,9661,,,OTHER,NONE
+US_CORPUS_00718,1808844117000,24273,"Chase: You made a $43.20 debit card purchase with card ending 7761 at WALGREENS 1188 on 04/27. Avail bal: $28,545.58.",1,Chase,7761,43.20,"28,545.58",DEBIT,CARD
+US_CORPUS_00719,1808874029000,24273,"Chase: You made a $26.30 debit card purchase with card ending 7761 at EXXONMOBIL 9902 on 04/28. Avail bal: $28,519.28.",1,Chase,7761,26.30,"28,519.28",DEBIT,CARD
+US_CORPUS_00720,1808925342000,93557,"Wells Fargo: To report a suspicious charge, text FRAUD to 93557 or call the number on the back of your card.",0,Wells Fargo,,,,OTHER,CARD
+US_CORPUS_00721,1808964068000,322632,"Bank of America: A closing transfer of $1,144.84 to CHASE ...9384 was sent from account ending 9661 on 04/29. Available balance: $0.00.",1,Bank of America,9384,"1,144.84",0.00,DEBIT,BANK
+US_CORPUS_00722,1808980923000,24273,"Chase: An external transfer of $1,144.84 from BANK OF AMERICA ...9661 was deposited to acct ...9384 on 04/29. Avail bal: $29,664.12.",1,Chase,9661,"1,144.84","29,664.12",CREDIT,BANK
+US_CORPUS_00723,1809017695000,322632,Bank of America: Checking account ending 9661 is now CLOSED. Your final statement will be mailed. Your credit card ending 9111 is unaffected.,0,Bank of America,9661,,,OTHER,CARD
+US_CORPUS_00724,1809032540000,24273,Chase: Your 1099-INT for savings account ending 5520 is available in the Chase app.,0,Chase,5520,,,OTHER,NONE
+US_CORPUS_00725,1809061566000,22000,Google: A new device signed in to your account. Review activity if this wasn't you.,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00726,1809071969000,24273,Chase: Your card ending 7761 expires 06/29. A replacement card will arrive in 7-10 business days.,0,Chase,7761,,,OTHER,CARD
+US_CORPUS_00727,1809107969000,+14155550132,Thanks for dinner! Send me your half whenever,0,Unknown,,,,OTHER,NONE
+US_CORPUS_00728,1809127466000,24273,Chase: We updated the permissions used by the Chase Mobile app. Review them in Settings.,0,Chase,,,,OTHER,NONE
