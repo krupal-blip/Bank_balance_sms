@@ -3,8 +3,8 @@
 
 ---
 
-## 🎯 Current Status: READY FOR BATCH 7
-- **Last Verified Batch**: `usa_batch6.xml` (100% PERFECT MATCH)
+## 🎯 Current Status: READY FOR BATCH 8
+- **Last Verified Batch**: `usa_batch7.xml` (100% PERFECT MATCH)
 - **Action**: Please generate and push:
-📁 **`samples/usa/usa_batch7.xml`**
-📁 **`samples/usa/usa_batch7_expected.json`**
+📁 **`samples/usa/usa_batch8.xml`**
+📁 **`samples/usa/usa_batch8_expected.json`**
