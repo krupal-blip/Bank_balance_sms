@@ -1,0 +1,61 @@
+{
+  "regionCode": "US",
+  "reviewedOn": "2026-01-01",
+  "schemes": [
+    {
+      "id": "us_401k_plan",
+      "titleRes": "scheme_401k_title",
+      "descriptionRes": "scheme_401k_desc",
+      "annualRatePercent": null,
+      "rateEffectiveFrom": "2026-01-01",
+      "sourceUrl": "https://www.irs.gov/retirement-plans/401k-plans",
+      "eligibility": { "minAge": 18, "maxAge": null, "notesRes": "scheme_401k_eligibility" },
+      "lockInMonths": null,
+      "minContributionMinor": 0,
+      "maxContributionMinor": 2450000,
+      "catchUpContributionMinor": 800000,
+      "taxTreatmentRes": "scheme_401k_tax"
+    },
+    {
+      "id": "us_roth_ira",
+      "titleRes": "scheme_roth_title",
+      "descriptionRes": "scheme_roth_desc",
+      "annualRatePercent": null,
+      "rateEffectiveFrom": "2026-01-01",
+      "sourceUrl": "https://www.irs.gov/retirement-plans/roth-iras",
+      "eligibility": { "minAge": 0, "maxAge": null, "notesRes": "scheme_roth_eligibility" },
+      "lockInMonths": null,
+      "minContributionMinor": 0,
+      "maxContributionMinor": 750000,
+      "catchUpContributionMinor": 110000,
+      "taxTreatmentRes": "scheme_roth_tax"
+    },
+    {
+      "id": "us_hsa_triple_tax",
+      "titleRes": "scheme_hsa_title",
+      "descriptionRes": "scheme_hsa_desc",
+      "annualRatePercent": null,
+      "rateEffectiveFrom": "2026-01-01",
+      "sourceUrl": "https://www.irs.gov/publications/p969",
+      "eligibility": { "minAge": 18, "maxAge": 65, "notesRes": "scheme_hsa_eligibility" },
+      "lockInMonths": null,
+      "minContributionMinor": 0,
+      "maxContributionMinor": 440000,
+      "familyMaxContributionMinor": 875000,
+      "taxTreatmentRes": "scheme_hsa_tax"
+    },
+    {
+      "id": "us_529_college_savings",
+      "titleRes": "scheme_529_title",
+      "descriptionRes": "scheme_529_desc",
+      "annualRatePercent": null,
+      "rateEffectiveFrom": "2026-01-01",
+      "sourceUrl": "https://www.sec.gov/reportspubs/investor-publications/investorpubsintro529htm.html",
+      "eligibility": { "minAge": 0, "maxAge": null, "notesRes": "scheme_529_eligibility" },
+      "lockInMonths": null,
+      "minContributionMinor": 0,
+      "maxContributionMinor": 1900000,
+      "taxTreatmentRes": "scheme_529_tax"
+    }
+  ]
+}

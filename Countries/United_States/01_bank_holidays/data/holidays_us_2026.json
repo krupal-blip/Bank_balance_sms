@@ -1,0 +1,22 @@
+{
+  "asOf": "2026-01-01",
+  "regionCode": "US",
+  "sourceDateFormat": "yyyy-MM-dd",
+  "scope": "NATIONAL",
+  "nationalHolidays": [
+    { "Date": "2026-01-01", "Day": "Thursday", "Holiday": "New Year's Day", "fed_closed": true, "markets_closed": true, "ach_delayed": true },
+    { "Date": "2026-01-19", "Day": "Monday", "Holiday": "Martin Luther King Jr. Day", "fed_closed": true, "markets_closed": true, "ach_delayed": true },
+    { "Date": "2026-02-16", "Day": "Monday", "Holiday": "Presidents' Day (Washington's Birthday)", "fed_closed": true, "markets_closed": true, "ach_delayed": true },
+    { "Date": "2026-04-03", "Day": "Friday", "Holiday": "Good Friday", "fed_closed": false, "markets_closed": true, "ach_delayed": false },
+    { "Date": "2026-05-25", "Day": "Monday", "Holiday": "Memorial Day", "fed_closed": true, "markets_closed": true, "ach_delayed": true },
+    { "Date": "2026-06-19", "Day": "Friday", "Holiday": "Juneteenth National Independence Day", "fed_closed": true, "markets_closed": true, "ach_delayed": true },
+    { "Date": "2026-07-03", "Day": "Friday", "Holiday": "Independence Day (Observed)", "fed_closed": true, "markets_closed": true, "ach_delayed": true },
+    { "Date": "2026-09-07", "Day": "Monday", "Holiday": "Labor Day", "fed_closed": true, "markets_closed": true, "ach_delayed": true },
+    { "Date": "2026-10-12", "Day": "Monday", "Holiday": "Columbus Day / Indigenous Peoples' Day", "fed_closed": true, "markets_closed": false, "ach_delayed": true },
+    { "Date": "2026-11-11", "Day": "Wednesday", "Holiday": "Veterans Day", "fed_closed": true, "markets_closed": false, "ach_delayed": true },
+    { "Date": "2026-11-26", "Day": "Thursday", "Holiday": "Thanksgiving Day", "fed_closed": true, "markets_closed": true, "ach_delayed": true },
+    { "Date": "2026-11-27", "Day": "Friday", "Holiday": "Day After Thanksgiving (Black Friday)", "fed_closed": false, "markets_closed": false, "early_close": "1:00 PM EST", "ach_delayed": false },
+    { "Date": "2026-12-24", "Day": "Thursday", "Holiday": "Christmas Eve", "fed_closed": false, "markets_closed": false, "early_close": "1:00 PM EST", "ach_delayed": false },
+    { "Date": "2026-12-25", "Day": "Friday", "Holiday": "Christmas Day", "fed_closed": true, "markets_closed": true, "ach_delayed": true }
+  ]
+}

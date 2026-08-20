@@ -1,0 +1,49 @@
+// ===========================================================================
+// PipelineConstants.kt — EXCERPT of constants/Constant.kt
+//
+// The transaction-type and source vocabulary. These EXACT strings are written
+// into BankSMSModell.transactiontype / .typeOf and are what every downstream
+// query, filter and UI label compares against. Changing a value is a data
+// migration, not a rename.
+// ===========================================================================
+
+package com.check.bank.balance.banking.tool.constants
+
+import com.check.bank.balance.banking.tool.BuildConfig
+import com.check.bank.balance.banking.tool.model.BranchDataX
+import com.check.bank.balance.banking.tool.model.DataNew
+import com.check.bank.balance.banking.tool.model.FirebaseRemoteModel
+import com.check.bank.balance.banking.tool.models.StateHoliday
+import com.check.bank.balance.banking.tool.subcriptionModule.PackagesRen
+import com.google.android.libraries.ads.mobile.sdk.interstitial.InterstitialAd
+import com.revenuecat.purchases.Package
+
+object Constant {
+
+    var isTestModeOn = if(BuildConfig.DEBUG) !BuildConfig.DEBUG else false
+
+    const val DATE_FORMAT = "dd MMM yyyy"
+    const val DATE_FORMAT_TO_DIGIT = "dd/MM/yyyy"
+    const val CREDIT = "Credited"
+    const val DEBIT = "Debited"
+    const val OTHER = "Other"
+    const val ALL = "All"
+    const val PRIVATE_POLICY = "https://privacypolicyapps.com/bank-balance-check-passbook-android/privacy-policy"
+    const val CHANNEL_ID = "my_app_channel_01"
+    const val CHANNEL_NAME = "Important Notifications"
+    const val MESSENGER_APP_LINK = "https://play.google.com/store/apps/details?id=com.messenger.phone.number.text.sms.service.apps&hl=en_IN&gl=US"
+    const val AUTHORITY_APP = "com.check.bank.balance.banking.tool.provider"
+    const val PDF_EXTENSION = ".pdf"
+    const val DIRECTORY = "/Statement"
+    const val DIRECTORY_ = "/Documents/Statement/"
+    const val PATH_SEPARATOR = "/"
+    const val VIA_BANK = "BANK"
+    const val VIA_CARD = "CARD"
+    const val CLARITY_PROJECT_ID = "n7l6zj7jr9"
+    const val GEEMEE_SDK_ID = "d3DKCArdxF7RzsNtag0yxzWbevmpf7S5"
+    const val ONE_SIGNAL_SDK_ID = "ef6c8a34-5f87-483e-9e5d-2447614e0f35"
+    const val REVENUE_CAT_API_ID = "goog_jjieijNTFqZQGOUQSOdokGCPURe"
+    const val PRIVACY_POLICY = "https://privacypolicyapps.com/bank-balance-check-passbook-android/privacy-policy"
+    const val TERMS_CONDITION = "https://privacypolicy.kriadl.com/all-bank-balance-checker-passbook-and-statement/terms-of-service"
+    const val SBI_PROMO = "https://bitli.in/ymbnZ7k"
+    const val HDFC_PROMO = "https://bitli.in/rbrGXP6"

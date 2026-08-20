@@ -1,0 +1,141 @@
+package com.yourapp.holidays
+
+import com.yourapp.region.HolidayScope
+import com.yourapp.region.RegionFeatureProfile
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+import retrofit2.http.POST
+
+// =============================================================================
+// Holiday API + repository.
+//
+// STRUCTURE IS REGION-NEUTRAL. Region work: the endpoint, the date format, and
+// the recurring-closure rule.
+//
+// India reference: apiUtils/HolidayInterface.kt + viewModelModules/BankHolidayViewModel.kt
+// (India puts the fetch directly in the ViewModel with no fallback and no cache —
+//  the repository split below is the shape you want instead.)
+// =============================================================================
+
+interface HolidayApi {
+    /** TODO(REGION): your endpoint. IN-HINT: @POST("bank_holiday") */
+    @POST("bank_holiday")
+    suspend fun getHolidays(): retrofit2.Response<HolidayFeedResponse>
+}
+
+class HolidayRepository(
+    private val api: HolidayApi,
+    private val region: RegionFeatureProfile,
+    private val assets: AssetReader,
+) {
+
+    /**
+     * KEEP THIS THREE-TIER FALLBACK. India has only tier 1 and silently shows an
+     * empty screen when the call fails.
+     *
+     *   1. network        — authoritative, handles lunar-date drift
+     *   2. bundled asset  — offline / API down, stamped with an "as of" date
+     *   3. recurring only — last resort: at least the weekly/biweekly closures
+     */
+    suspend fun load(subRegion: String?): HolidayCalendar = withContext(Dispatchers.IO) {
+        fetchNetwork(subRegion)
+            ?: readBundled(subRegion)
+            ?: recurringOnly(subRegion)
+    }
+
+    private suspend fun fetchNetwork(subRegion: String?): HolidayCalendar? = runCatching {
+        val body = api.getHolidays().takeIf { it.isSuccessful }?.body() ?: return null
+        if (!body.status) return null
+        toCalendar(body.data, subRegion, HolidayCalendar.Source.NETWORK)
+    }.getOrNull()
+
+    private fun readBundled(subRegion: String?): HolidayCalendar? = runCatching {
+        // TODO(REGION): IN-HINT India bundles one file per year,
+        // "new_state_2025.json", shaped {"states": {"<State>": [ ... ]}}.
+        // Note the maintenance cost: a new file must ship every year, which is
+        // exactly why network stays tier 1.
+        val name = region.holidays.bundledAssetPattern ?: return null
+        TODO("parse asset $name into HolidayCalendar, Source.BUNDLED_ASSET")
+    }.getOrNull()
+
+    private fun recurringOnly(subRegion: String?): HolidayCalendar =
+        HolidayCalendar(
+            subRegion = subRegion,
+            months = generateRecurringClosures(java.time.Year.now().value),
+            source = HolidayCalendar.Source.RECURRING_ONLY,
+            asOf = null,
+        )
+
+    // -------------------------------------------------------------------------
+
+    private fun toCalendar(
+        dtos: List<SubRegionHolidaysDto>,
+        subRegion: String?,
+        source: HolidayCalendar.Source,
+    ): HolidayCalendar {
+        // TODO(REGION): if scope is NATIONAL, ignore subRegion entirely and flatten.
+        val rows = when (region.holidays.scope) {
+            HolidayScope.NATIONAL -> dtos.flatMap { it.holidays }
+            HolidayScope.PER_SUBREGION ->
+                dtos.firstOrNull { it.subRegionName.equals(subRegion, ignoreCase = true) }
+                    ?.holidays.orEmpty()
+        }
+        val parsed = rows.mapNotNull { parseDate(it.date)?.let { d -> BankHoliday(d, it.name) } }
+
+        // KEEP: fill in recurring closures the SOURCE DID NOT LIST.
+        // India's feed includes them as rows, so nothing gets added and the merge
+        // is a no-op. If your feed omits them, this is what keeps the calendar
+        // correct — without it the screen is wrong every other week.
+        val merged = mergeRecurring(parsed)
+
+        return HolidayCalendar(subRegion, groupByMonth(merged), source, java.time.LocalDate.now())
+    }
+
+    /**
+     * TODO(REGION): parse with an EXPLICIT Locale.ROOT.
+     * IN-HINT: "d MMMM yyyy" for "11 January 2025". Using the default locale
+     * breaks on a device set to Hindi — the English month names stop parsing and
+     * every row silently drops.
+     */
+    private fun parseDate(raw: String): java.time.LocalDate? = runCatching {
+        java.time.LocalDate.parse(
+            raw.trim(),
+            java.time.format.DateTimeFormatter
+                .ofPattern(region.holidays.sourceDateFormat, java.util.Locale.ROOT)
+        )
+    }.getOrNull()
+
+    /**
+     * TODO(REGION): your central bank's recurring closure rule.
+     *
+     * IN-HINT India (RBI): banks closed on the 2nd and 4th Saturday of every
+     * month, and all Sundays. India does NOT compute these — the feed lists them.
+     *
+     * ** WEEKEND WARNING: ** do not hardcode Saturday/Sunday. Much of the Gulf
+     * runs a Friday/Saturday weekend, so a hardcoded pair silently mislabels the
+     * whole calendar. Drive it from region config.
+     */
+    private fun generateRecurringClosures(year: Int): List<HolidayMonth> {
+        if (region.holidays.recurringClosures.isEmpty()) return emptyList()
+        TODO("expand each RecurringClosure rule across the year")
+    }
+
+    private fun mergeRecurring(listed: List<BankHoliday>): List<BankHoliday> {
+        val generated = generateRecurringClosures(java.time.Year.now().value)
+            .flatMap { it.holidays }
+        val listedDates = listed.map { it.date }.toSet()
+        // KEEP: the SOURCE wins on a date collision — its label is more specific
+        // ("Republic Day" beats "4th Saturday Bank Holiday").
+        return (listed + generated.filter { it.date !in listedDates }).sortedBy { it.date }
+    }
+
+    private fun groupByMonth(all: List<BankHoliday>): List<HolidayMonth> =
+        all.groupBy { it.date.year to it.date.month }
+            .map { (k, v) -> HolidayMonth(k.first, k.second, v.sortedBy { it.date }) }
+            .sortedWith(compareBy({ it.year }, { it.month }))
+}
+
+/** KEEP: thin seam so the repository is unit-testable with no Android. */
+interface AssetReader {
+    fun open(name: String): java.io.InputStream
+}

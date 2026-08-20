@@ -1,0 +1,28 @@
+sender,body,is_transaction,bank,account,amount,balance,txn_type,source,merchant,notes
+# ---------------------------------------------------------------------------
+# FORMAT EXAMPLE ONLY. All rows below are FABRICATED with a placeholder region
+# ("Examplia" / EXB / EX$) so nothing here is mistaken for real data or for
+# India's corpus. DELETE every row before adding yours.
+#
+# Rules: bodies VERBATIM (keep odd spacing and punctuation), expectations
+# NORMALIZED (account = trailing digits only), money as plain numbers with no
+# symbol and '.' as decimal. Fill `notes` on every negative row.
+# ---------------------------------------------------------------------------
+AB-EXBANK,"EX$ 1250.00 debited from A/c XX4471 on 12-03-26. Avl Bal EX$ 18340.55. Ref no 884213774. -Examplia Bank",1,Examplia Bank,4471,1250.00,18340.55,DEBIT,BANK,,plain debit with balance and reference
+AB-EXBANK,"EX$ 45000.00 credited to A/c XX4471 on 01-03-26 by SALARY. Avl Bal EX$ 63290.55",1,Examplia Bank,4471,45000.00,63290.55,CREDIT,BANK,SALARY,salary credit
+AB-EXBCRD,"Your Examplia Bank Credit Card ending with 9012 used for EX$ 899.00 at COFFEEHOUSE on 12-03-26.",1,Examplia Bank,9012,899.00,,DEBIT,CARD,COFFEEHOUSE,card body owns its own account; no balance -> avl limit only
+AB-EXBANK,"EX$ 2000.00 withdrawn at ATM from A/c XX4471. Avl Bal EX$ 16340.55",1,Examplia Bank,4471,2000.00,16340.55,DEBIT,BANK,ATM,ATM wording sometimes types as OTHER - keep OTHER usable
+AB-EXBANK,"Payment of EX$ 349.00 to handle user7788@expay from A/c XX4471. Avl Bal EX$ 15991.55",1,Examplia Bank,4471,349.00,15991.55,DEBIT,BANK,user7788@expay,handle-style merchant MUST join without spaces
+AB-EXBANK,"Avl Bal in A/c XX4471 as on 12-03-26 is EX$ 15991.55",0,Examplia Bank,4471,,15991.55,OTHER,BANK,,balance-only anchor: no money moved. blank amount is what excludes it downstream
+AB-EXBANK,"EX$ 599.00 debited from A/c XX4471 as per mandate EXM0000123456 for STREAMCO.",1,Examplia Bank,4471,599.00,,DEBIT,BANK,STREAMCO,EXECUTED recurring debit = REAL transaction. dropping these inflates balances
+AB-EXBANK,"Mandate EXM0000123456 for EX$ 599.00 to STREAMCO has been registered on your A/c XX4471.",0,Examplia Bank,4471,,,OTHER,BANK,,mandate CREATION = not a transaction. quotes an amount - must not be saved
+AB-EXBANK,"Mandate EXM0000123456 for EX$ 599.00 has been cancelled for A/c XX4471.",0,Examplia Bank,4471,,,OTHER,BANK,,mandate CANCEL = not a transaction. amount here was poisoning the balance field
+AB-EXBANK,"PAYMENT ALERT: EX$ 599.00 will be debited from A/c XX4471 on 15-03-26 towards mandate EXM0000123456.",0,Examplia Bank,4471,,,OTHER,BANK,,NOTICE HALF of a pair + future tense. pairs with the ledger row below
+AB-EXBANK,"UPDATE: EX$ 599.00 debited from A/c XX4471 on 15-03-26. Avl Bal EX$ 15392.55. Ref no 884990211",1,Examplia Bank,4471,599.00,15392.55,DEBIT,BANK,,LEDGER HALF of the pair above. batch engine keeps THIS one
+AB-EXBCRD,"PAYMENT OF EX$ 12400.00 RECEIVED TOWARDS YOUR CREDIT CARD ENDING WITH 9012. Available limit EX$ 87600.00",0,Examplia Bank,9012,,,OTHER,CARD,,card bill ack: restates a payment recorded elsewhere. reports LIMIT not balance
+AB-EXBANK,"884213 is your OTP for a transaction of EX$ 1250.00. Do not share.",0,Examplia Bank,,,,OTHER,NONE,,OTP quotes an amount and an account-shaped number. classic false positive
+AB-EXBANK,"Your transaction of EX$ 1250.00 on A/c XX4471 was declined due to insufficient funds.",0,Examplia Bank,4471,,,OTHER,BANK,,declined: no money moved
+AB-EXBANK,"Please maintain balance in A/c XX4471. Auto debit of EX$ 599.00 due on 15-03-26.",0,Examplia Bank,4471,,,OTHER,BANK,,reminder + future tense
+AB-EXBANK,"EX$ 6,87,367.28 credited to A/c XX4471. Avl Bal EX$ 7,02,890.11",1,Examplia Bank,4471,687367.28,702890.11,CREDIT,BANK,,NON-UNIFORM GROUPING: model may emit one comma group only. tests the money-token repair
++918899001122,"Hi, sent you 500 for dinner. -Ravi",0,,,,,OTHER,NONE,,personal number + no bank signal. must be rejected before parsing
+AB-EXBANK,"Get a pre-approved loan of EX$ 500000 on your A/c XX4471! Apply now.",0,Examplia Bank,4471,,,OTHER,BANK,,promo from a real bank sender. quotes a big amount

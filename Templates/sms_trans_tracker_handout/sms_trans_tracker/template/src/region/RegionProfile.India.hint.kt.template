@@ -1,0 +1,170 @@
+package com.yourapp.smstxn.region
+
+// =============================================================================
+// INDIA — WORKED EXAMPLE ONLY.  ** DO NOT SHIP THIS FILE. **
+//
+// The RegionProfile seam filled in with India's real values, so you can see the
+// shape of a finished profile before writing yours. Every value here is a HINT.
+//
+// Trimmed for readability: the 88-entry bank list and 113-entry sender table are
+// abbreviated. Full data lives in the reference implementation:
+//   ../../../src/shared/BankList.kt.excerpt   (Bank_List)
+//   ../../../src/smsmodel/BankSenderResolver.kt (113 roots)
+//
+// WHEN YOU HAVE WRITTEN YOUR OWN PROFILE: delete this file.
+// =============================================================================
+
+object IndiaProfile : RegionProfile {
+
+    override val regionCode = "IN"
+
+    // -------------------------------------------------------------------------
+    // Money. Note the two India-specific decisions:
+    //   - NON_UNIFORM grouping (lakh/crore: 6,87,367.28 not 687,367.28)
+    //   - maxIntegerDigits 10, because crore-scale balances run 8-9 digits
+    // -------------------------------------------------------------------------
+    override val currency = CurrencyFormat(
+        symbol = "₹",
+        symbolPosition = SymbolPosition.PREFIX,
+        decimalSeparator = '.',
+        groupingSeparator = ',',
+        decimalPlaces = 2,
+        grouping = Grouping.NON_UNIFORM,
+        maxIntegerDigits = 10,
+        // "$" really does appear in some Indian bank SMS. Include what banks
+        // actually send, not what they ought to send.
+        currencyWords = listOf("rs.", "rs", "inr.", "inr", "re.", "₹", "$"),
+    )
+
+    // -------------------------------------------------------------------------
+    // TRAI DLT headers: 2-char prefix + root ticker. "VM-HDFCBK", "AD-HDFCCC".
+    // India-only scheme — see SenderResolver.kt.template for the market table.
+    // -------------------------------------------------------------------------
+    override val senderScheme = object : SenderScheme {
+
+        private val ROOTS: List<Pair<String, String>> = listOf(
+            "HDFC" to "HDFC Bank",
+            "ICICI" to "ICICI Bank",
+            "AXIS" to "Axis Bank",
+            "KOTAK" to "Kotak Mahindra Bank",
+            "SBI" to "State Bank of India",
+            "PNB" to "Punjab National Bank",
+            // ... 107 more. Full list: ../../../src/smsmodel/BankSenderResolver.kt
+        )
+
+        private val DLT_PREFIX_RE = Regex("^[A-Z0-9]{2}-")
+
+        // Rejecting bare numbers is correct for India. It would BLIND a US port,
+        // where banks send from numeric short codes.
+        private val BARE_PHONE_RE = Regex("^\\+?\\d{6,}$")
+
+        override fun resolve(address: String): String? {
+            if (address.isBlank()) return null
+            val cleaned = address.trim().uppercase()
+            if (BARE_PHONE_RE.matches(cleaned.removePrefix("+"))) return null
+
+            val code = cleaned.replaceFirst(DLT_PREFIX_RE, "")
+
+            // Root-prefix match, LONGEST root wins. One entry covers every
+            // product a bank registers (HDFCBK/HDFCCC/HDFCLN/HDFCUB/HDFCMF...),
+            // including future ones, with zero table changes.
+            ROOTS.filter { code.startsWith(it.first) }
+                .maxByOrNull { it.first.length }
+                ?.let { return it.second }
+
+            // Fallback: root anywhere in the code, not only at the start.
+            return ROOTS.filter { code.contains(it.first) }
+                .maxByOrNull { it.first.length }?.second
+        }
+
+        override fun canonicalName(name: String): String {
+            if (name.isBlank()) return ""
+            val cleaned = name.trim().uppercase()
+            if (DLT_PREFIX_RE.containsMatchIn(cleaned)) resolve(cleaned)?.let { return it }
+            val norm = cleaned.filter(Char::isLetter)
+            ROOTS.firstOrNull { it.first == norm }?.let { return it.second }
+            ROOTS.firstOrNull { (_, canonical) ->
+                canonical.uppercase().filter(Char::isLetter) == norm
+            }?.let { return it.second }
+            return name
+        }
+    }
+
+    // -------------------------------------------------------------------------
+    // Indian masking: XX5665 / X5665 / *5665 / ...5665 / bare 5665
+    // -------------------------------------------------------------------------
+    override val accountMasking = AccountMasking(
+        accountRegex = Regex("""(x+\d{3,}|\.{2,}\d{2,}|\d{3,})""", RegexOption.IGNORE_CASE),
+        cardEndingRegex = Regex(
+            """(?:credit|debit)?\s*card\s*(?:no\.?|number)?\s*(?:ending\s*(?:with|in)?|x|\*+)\s*[Xx*]*(\d{4,})""",
+            RegexOption.IGNORE_CASE
+        ),
+        minAccountDigits = 3,
+    )
+
+    // -------------------------------------------------------------------------
+    // All English. This is the layer that needs full translation.
+    // -------------------------------------------------------------------------
+    override val vocabulary = Vocabulary(
+        creditWords = listOf("credited", "credit"),
+        debitWords = listOf("debited", "debit"),
+
+        qualifiedBalanceWords = listOf(
+            "avl", "avlbl", "available", "total", "new", "net", "closing", "clear"
+        ),
+        bareBalanceWords = listOf("bal", "balance"),
+
+        // NACH vocabulary.
+        mandateWords = listOf("mandate", "autopay", "e-mandate", "emandate", "standing instruction"),
+
+        // Only CREATION is a non-transaction. "Rs.199 debited as per mandate" is
+        // REAL money — treating it as a notice inflated computed balances.
+        mandateCreationVerbs = listOf(
+            "created", "raised", "registered", "approved", "set up", "will be debited"
+        ),
+        mandateCancelVerbs = listOf(
+            "cancelled", "canceled", "revoked", "stopped", "deleted", "de-registered", "deregistered"
+        ),
+
+        otpWords = listOf("otp", "one time password"),
+        declinedWords = listOf("declined", "payment failed", "low funds alert"),
+        reminderWords = listOf("maintain balance", "auto debit due", "auto debit on"),
+
+        creditCardBodyWords = listOf("credit card", "card member"),
+        debitCardBodyWords = listOf("debit card"),
+
+        // Must match the trainer's FUTURE_MARKERS byte for byte.
+        futureMarkers = listOf(
+            "will be", "shall be", "is scheduled to", "is due to", "is going to",
+            "is expected to", "will get", "shall get", "would be"
+        ),
+
+        // UMRN = India-only NACH mandate reference id.
+        noticeMarkers = listOf("umrn", "umn", "mandate", "payment alert"),
+        // UTR = India-only.
+        referenceLabels = listOf("refno", "reference no", "ref no", "utr", "txn id"),
+        limitNotBalanceWords = listOf("available limit", "avl limit"),
+    )
+
+    override val banks = listOf(
+        BankIdentity("HDFC Bank", "hdfc_bank_logo"),
+        BankIdentity("State Bank of India", "sbi", aliases = listOf("SBI")),
+        BankIdentity("Bank of Baroda", "baroda", aliases = listOf("BOB")),
+        BankIdentity("Bank of India", "bank_of_india", aliases = listOf("BOI")),
+        // ... ~84 more. Full list: ../../../src/shared/BankList.kt.excerpt
+        //
+        // Note the abbreviation pattern: "SBI" and "State Bank of India" are BOTH
+        // present because bodies use both. Same for BOB/BOI. Model your market's
+        // abbreviations the same way.
+    )
+
+    override val minConfidence = 0.80f
+
+    // Versions model AND guardrails together. "guards9" = the 9th revision of the
+    // Kotlin guardrail layer. Bump on either change; ReparseMigration then
+    // re-parses all stored rows.
+    override val parserVersion = "sms_model_v7+guards9"
+
+    override val useMlParser = true
+    override val modelAssetName = "sms_model_v7.bin"
+}

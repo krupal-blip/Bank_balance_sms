@@ -1,0 +1,175 @@
+package com.yourapp.smstxn.pipeline
+
+import android.content.Context
+import android.content.Intent
+import android.database.Cursor
+import android.provider.Telephony
+import com.yourapp.smstxn.kpdo.BatchEngine
+import com.yourapp.smstxn.kpdo.SmsInput
+import com.yourapp.smstxn.model.TransactionRow
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
+import kotlinx.coroutines.withContext
+import kotlinx.coroutines.yield
+import kotlin.time.Duration.Companion.milliseconds
+
+// =============================================================================
+// SmsIngestor — reads the inbox and handles live messages.
+//
+// NEAR-ZERO REGION WORK. Platform code, not banking logic. Every guard here
+// exists because of a production bug; keep them all.
+//
+// India reference: ../../../src/pipeline/SmsTransactionIngestor.kt
+// =============================================================================
+
+class SmsIngestor(context: Context) {
+
+    private val appContext = context.applicationContext
+    private val cardNoCache = ArrayList<String>()
+
+    /**
+     * Backfill: read the whole inbox once.
+     *
+     * KEEP THE SINGLE-FLIGHT MUTEX. IN-HINT: onResume and an init path both
+     * triggered this, each saw an empty DB, and the entire inbox got inserted
+     * TWICE. The unique index caught most of it, but not rows whose bodies
+     * differed by a delivery quirk.
+     */
+    suspend fun importInbox(limit: Int = UNLIMITED_INBOX_LIMIT): ImportResult =
+        importInboxMutex.withLock {
+            withContext(Dispatchers.IO) {
+                if (!canReadSmsInbox()) return@withContext ImportResult(hasNoTransactions = true)
+
+                val sortOrder =
+                    if (limit > 0) "${Telephony.Sms.DATE} DESC LIMIT $limit"
+                    else "${Telephony.Sms.DATE} DESC"
+
+                val cursor = runCatching {
+                    appContext.contentResolver.query(
+                        Telephony.Sms.CONTENT_URI, SMS_PROJECTION, null, null, sortOrder
+                    )
+                }.getOrNull() ?: return@withContext ImportResult(hasNoTransactions = true)
+
+                var processedCount = 0
+                val inserted = mutableListOf<TransactionRow>()
+
+                cursor.use { c ->
+                    val dao = TODO("your DAO")
+
+                    // KEEP: same-pass dedup. Inserts are batched at the end, so a
+                    // DB check alone misses duplicates WITHIN one pass —
+                    // dual-SIM and duplicate-delivery copies.
+                    val seenBodies = HashSet<String>()
+
+                    // KEEP: COLLECT FIRST, PARSE AS ONE BATCH.
+                    // The batch engine needs every message together to pair the
+                    // two halves of a single payment (two different bodies, so
+                    // neither the unique index nor per-message dedup can catch
+                    // it) and to resolve account inheritance in CHRONOLOGICAL
+                    // rather than cursor order. Parsing per-row here silently
+                    // breaks both.
+                    val inputs = ArrayList<SmsInput>()
+                    while (c.moveToNext()) {
+                        val sms = c.toSmsRecord()
+                        if (!seenBodies.add(sms.body)) continue
+                        if (TODO("dao.bodyAlreadyStored(sms.body)")) continue
+
+                        inputs.add(
+                            SmsInput(
+                                address = sms.address,
+                                body = sms.body,
+                                date = sms.date,
+                                messageId = sms.messageId,
+                                typeId = sms.typeId,
+                                thread = sms.threadId,
+                            )
+                        )
+                        processedCount++
+
+                        // KEEP: yield periodically. A 5000-message inbox on a
+                        // low-end device starves everything else without this.
+                        if (processedCount % YIELD_EVERY_MESSAGE_COUNT == 0) {
+                            delay(50.milliseconds)
+                            yield()
+                        }
+                    }
+
+                    val batch = BatchEngine.process(appContext, inputs)
+                    inserted.addAll(batch.rows)
+
+                    if (inserted.isNotEmpty()) {
+                        TODO("dao.insertAll(inserted); rebuild downstream projections")
+                    }
+                }
+
+                ImportResult(
+                    insertedTransactions = inserted,
+                    processedCount = processedCount,
+                    hasNoTransactions = TODO("dao.isEmpty()"),
+                )
+            }
+        }
+
+    /**
+     * Live path: one incoming SMS.
+     *
+     * NOTE: goes through the SINGLE-MESSAGE filter, not the batch engine — there
+     * is nothing to batch against yet. A two-part payment whose halves arrive
+     * minutes apart is therefore NOT paired live; the reparse migration cleans it
+     * up later. That is a deliberate trade, not an oversight.
+     */
+    suspend fun importIncoming(intent: Intent): ImportResult =
+        withContext(Dispatchers.IO) {
+            if (intent.action != Telephony.Sms.Intents.SMS_RECEIVED_ACTION) {
+                return@withContext ImportResult(hasNoTransactions = true)
+            }
+            val messages = Telephony.Sms.Intents.getMessagesFromIntent(intent)
+            if (messages.isEmpty()) return@withContext ImportResult(hasNoTransactions = true)
+
+            // KEEP: multipart SMS arrives as several PDUs. Join with NO separator
+            // or you corrupt numbers that straddle the split.
+            val body = messages.joinToString(separator = "") { it.messageBody.orEmpty() }
+            if (body.isBlank()) return@withContext ImportResult(hasNoTransactions = true)
+
+            TODO("dedup by body, resolve stored SMS row, run transactionFilter, insert, rebuild")
+        }
+
+    private fun canReadSmsInbox(): Boolean = TODO("check READ_SMS at runtime")
+
+    private fun Cursor.toSmsRecord(): SmsRecord = TODO("map SMS_PROJECTION columns")
+
+    data class ImportResult(
+        val insertedTransactions: List<TransactionRow> = emptyList(),
+        val processedCount: Int = 0,
+        val hasNoTransactions: Boolean,
+    )
+
+    private data class SmsRecord(
+        val address: String?,
+        val body: String,
+        val date: String,
+        val messageId: String,
+        val typeId: String,
+        val threadId: Long,
+    )
+
+    private companion object {
+        private val importInboxMutex = Mutex()
+        private const val UNLIMITED_INBOX_LIMIT = -1
+
+        /** TODO(REGION): tune to device class, not region. IN-HINT: 50 / 100 */
+        private const val YIELD_EVERY_MESSAGE_COUNT = 50
+        private const val CACHE_CLEAR_MESSAGE_COUNT = 100
+
+        private val SMS_PROJECTION = arrayOf(
+            Telephony.Sms.ADDRESS,
+            Telephony.Sms.BODY,
+            Telephony.Sms.DATE,
+            Telephony.Sms._ID,
+            Telephony.Sms.TYPE,
+            Telephony.Sms.THREAD_ID,
+        )
+    }
+}

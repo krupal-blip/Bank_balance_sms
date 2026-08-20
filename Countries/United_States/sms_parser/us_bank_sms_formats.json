@@ -1,0 +1,117 @@
+{
+  "country": "United States",
+  "currency": "USD",
+  "currency_symbol": "$",
+  "banks": [
+    {
+      "bank_name": "JPMorgan Chase Bank",
+      "short_name": "Chase",
+      "official_shortcodes": ["24273", "242731", "CHASE"],
+      "opt_in_path": "Chase Mobile App > Profile > Alerts & Messages > Manage Alerts > Text",
+      "sms_templates": [
+        {
+          "type": "DEBIT_CARD_PURCHASE",
+          "sample": "Chase: A debit card purchase of $42.50 was made at TARGET T-1204 on Aug 19, 2026. Available bal: $2,450.10.",
+          "regex": "(?i)Chase:\\s*(?:A\\s*)?debit\\s*card\\s*purchase\\s*of\\s*\\$(?<amount>[0-9,]+\\.[0-9]{2})\\s*(?:was\\s*made\\s*)?at\\s*(?<merchant>[^\\.]+?)\\s*on\\s*(?<date>[^\\.]+?)\\.\\s*(?:Available\\s*bal(?:ance)?:\\s*\\$(?<balance>[0-9,]+\\.[0-9]{2}))?",
+          "transaction_type": "DEBIT",
+          "category": "SHOPPING"
+        },
+        {
+          "type": "ATM_WITHDRAWAL",
+          "sample": "Chase: ATM withdrawal of $100.00 from checking (...4321) on 08/19/2026. Available balance: $2,350.10.",
+          "regex": "(?i)Chase:\\s*ATM\\s*withdrawal\\s*of\\s*\\$(?<amount>[0-9,]+\\.[0-9]{2})\\s*from\\s*(?<account_type>checking|savings)\\s*\\(\\.\\.\\.(?<account_suffix>[0-9]{4})\\)\\s*on\\s*(?<date>[^\\.]+?)\\.\\s*(?:Available\\s*bal(?:ance)?:\\s*\\$(?<balance>[0-9,]+\\.[0-9]{2}))?",
+          "transaction_type": "DEBIT",
+          "category": "CASH_WITHDRAWAL"
+        },
+        {
+          "type": "DIRECT_DEPOSIT",
+          "sample": "Chase: Direct deposit of $3,200.00 from ACME CORP was deposited to checking (...4321). Bal: $5,550.10.",
+          "regex": "(?i)Chase:\\s*Direct\\s*deposit\\s*of\\s*\\$(?<amount>[0-9,]+\\.[0-9]{2})\\s*from\\s*(?<merchant>[^\\.]+?)\\s*was\\s*deposited\\s*to\\s*(?<account_type>checking|savings)\\s*\\(\\.\\.\\.(?<account_suffix>[0-9]{4})\\)\\.\\s*(?:Bal(?:ance)?:\\s*\\$(?<balance>[0-9,]+\\.[0-9]{2}))?",
+          "transaction_type": "CREDIT",
+          "category": "INCOME"
+        },
+        {
+          "type": "ZELLE_TRANSFER",
+          "sample": "Chase: You sent $75.00 with Zelle to John Doe on 08/19. Available balance: $5,475.10.",
+          "regex": "(?i)Chase:\\s*You\\s*sent\\s*\\$(?<amount>[0-9,]+\\.[0-9]{2})\\s*with\\s*Zelle\\s*to\\s*(?<merchant>[^\\.]+?)\\s*on\\s*(?<date>[^\\.]+?)\\.\\s*(?:Available\\s*bal(?:ance)?:\\s*\\$(?<balance>[0-9,]+\\.[0-9]{2}))?",
+          "transaction_type": "DEBIT",
+          "category": "TRANSFER"
+        }
+      ]
+    },
+    {
+      "bank_name": "Bank of America",
+      "short_name": "BofA",
+      "official_shortcodes": ["73981", "34343", "BOFA"],
+      "opt_in_path": "BofA App > Profile & Settings > Alert Settings > Custom Setup > Text Messages",
+      "sms_templates": [
+        {
+          "type": "CARD_CHARGE",
+          "sample": "Bank of America Alert: Card ending in 8892 was charged $18.99 at NETFLIX.COM on 08/19/2026. Reply HELP for info.",
+          "regex": "(?i)Bank\\s*of\\s*America\\s*Alert:\\s*Card\\s*ending\\s*in\\s*(?<account_suffix>[0-9]{4})\\s*was\\s*charged\\s*\\$(?<amount>[0-9,]+\\.[0-9]{2})\\s*at\\s*(?<merchant>[^\\.]+?)\\s*on\\s*(?<date>[0-9/\\-]+)",
+          "transaction_type": "DEBIT",
+          "category": "ENTERTAINMENT"
+        },
+        {
+          "type": "CHECKING_DEPOSIT",
+          "sample": "Bank of America: A deposit of $1,500.00 was posted to your checking account (...9012) on 08/19/2026.",
+          "regex": "(?i)Bank\\s*of\\s*America:\\s*(?:A\\s*)?deposit\\s*of\\s*\\$(?<amount>[0-9,]+\\.[0-9]{2})\\s*was\\s*posted\\s*to\\s*your\\s*(?<account_type>checking|savings)\\s*account\\s*\\(\\.\\.\\.(?<account_suffix>[0-9]{4})\\)",
+          "transaction_type": "CREDIT",
+          "category": "INCOME"
+        }
+      ]
+    },
+    {
+      "bank_name": "Wells Fargo Bank",
+      "short_name": "Wells Fargo",
+      "official_shortcodes": ["93557", "93748"],
+      "opt_in_path": "Wells Fargo App > Menu > Manage Alerts > Large transaction alerts > SMS",
+      "sms_templates": [
+        {
+          "type": "PURCHASE_ALERT",
+          "sample": "Wells Fargo Alert: A purchase of $89.20 occurred on card ending in 4112 at WALMART on Aug 19. Avail Bal: $1,120.00.",
+          "regex": "(?i)Wells\\s*Fargo\\s*Alert:\\s*(?:A\\s*)?purchase\\s*of\\s*\\$(?<amount>[0-9,]+\\.[0-9]{2})\\s*occurred\\s*on\\s*card\\s*ending\\s*in\\s*(?<account_suffix>[0-9]{4})\\s*at\\s*(?<merchant>[^\\.]+?)\\s*on\\s*(?<date>[^\\.]+?)\\.\\s*(?:Avail(?:able)?\\s*Bal(?:ance)?:\\s*\\$(?<balance>[0-9,]+\\.[0-9]{2}))?",
+          "transaction_type": "DEBIT",
+          "category": "GROCERIES"
+        },
+        {
+          "type": "ATM_WITHDRAWAL",
+          "sample": "Wells Fargo: $200.00 ATM withdrawal from account ending 5543. Available balance: $920.00.",
+          "regex": "(?i)Wells\\s*Fargo:\\s*\\$(?<amount>[0-9,]+\\.[0-9]{2})\\s*ATM\\s*withdrawal\\s*from\\s*account\\s*ending\\s*(?<account_suffix>[0-9]{4})\\.\\s*(?:Available\\s*balance:\\s*\\$(?<balance>[0-9,]+\\.[0-9]{2}))?",
+          "transaction_type": "DEBIT",
+          "category": "CASH_WITHDRAWAL"
+        }
+      ]
+    },
+    {
+      "bank_name": "Citibank",
+      "short_name": "Citi",
+      "official_shortcodes": ["95686", "692484", "CITI"],
+      "opt_in_path": "Citi Mobile > Profile > Notifications > Account Activity > Text",
+      "sms_templates": [
+        {
+          "type": "CREDIT_CARD_CHARGE",
+          "sample": "Citi Alert: $55.00 charged to Citi Double Cash card (...7781) at SHELL OIL on 08/19/2026.",
+          "regex": "(?i)Citi\\s*Alert:\\s*\\$(?<amount>[0-9,]+\\.[0-9]{2})\\s*charged\\s*to\\s*(?<card_name>[^\\(]+?)\\s*\\(\\.\\.\\.(?<account_suffix>[0-9]{4})\\)\\s*at\\s*(?<merchant>[^\\.]+?)\\s*on\\s*(?<date>[0-9/\\-]+)",
+          "transaction_type": "DEBIT",
+          "category": "TRANSPORT"
+        }
+      ]
+    },
+    {
+      "bank_name": "Capital One",
+      "short_name": "Capital One",
+      "official_shortcodes": ["227898", "227767", "227373"],
+      "opt_in_path": "Capital One App > Profile > Alerts > Real-time Card Activity > SMS",
+      "sms_templates": [
+        {
+          "type": "INSTANT_PURCHASE",
+          "sample": "Capital One Alert: You authorized $24.99 at AMAZON.COM with card ending in 1109. Reply HELP for info.",
+          "regex": "(?i)Capital\\s*One\\s*Alert:\\s*You\\s*authorized\\s*\\$(?<amount>[0-9,]+\\.[0-9]{2})\\s*at\\s*(?<merchant>[^\\.]+?)\\s*with\\s*card\\s*ending\\s*in\\s*(?<account_suffix>[0-9]{4})",
+          "transaction_type": "DEBIT",
+          "category": "SHOPPING"
+        }
+      ]
+    }
+  ]
+}

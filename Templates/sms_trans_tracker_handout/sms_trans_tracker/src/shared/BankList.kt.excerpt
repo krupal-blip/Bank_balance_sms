@@ -1,0 +1,110 @@
+// ===========================================================================
+// BankList.kt — EXCERPT of model/LocalSmsGet.kt
+//
+// REGION DATA. Bank_List is the canonical display-name table the model's raw
+// BANK span is matched against (String.getBankName). getBankList() — omitted
+// here, it is ~400 lines of R.drawable references — maps each name to a logo.
+// For a new region this is the FIRST file to replace.
+// ===========================================================================
+
+package com.check.bank.balance.banking.tool.model
+
+import android.content.Context
+import com.check.bank.balance.banking.tool.R
+
+
+var Bank_List = arrayListOf(
+    "Axis Bank",
+    "Andhra Bank",
+    "Allahabad Bank",
+    "Bank of Maharashtra",
+    "Bank of India",
+    "BOI",
+    "Bank of Baroda",
+    "BOB",
+    "Bandhan Bank",
+    "Corporation Bank",
+    "Citi Bank",
+    "Catholic Syrian Bank",
+    "Central Bank of India",
+    "DCB Bank",
+    "Deutsche Bank",
+    "Dena Bank",
+    "Dhanlaxmi Bank",
+    "Federal Bank",
+    "HDFC Bank",
+    "IDBI Bank",
+    "ICICI Bank",
+    "Indian Overseas Bank",
+    "Indian Bank",
+    "IDFC Bank",
+    "IDFC FIRST Bank",
+    "IndusInd Bank",
+    "Karnataka Bank",
+    "Kotak Mahindra Bank",
+    "Kotak Bank",
+    "KARUR VYSYA Bank",
+    "Kerala Gramin Bank",
+    "Punjab and Sind Bank",
+    "Punjab National Bank",
+    "South Indian Bank",
+    "State Bank Of Bikaner and Jaipur",
+    "State Bank of India",
+    "SBI",
+    "State Bank of Hyderabad",
+    "State Bank of Mysore",
+    "Saraswat Bank",
+    "State Bank Of Travancore",
+    "State Bank of Patiala",
+    "Syndicate Bank",
+    "The Ratnakar Bank",
+    "RBL",
+    "Tamilnad Mercantile",
+    "UCO Bank",
+    "Union Bank of India",
+    "United Bank Of India",
+    "Vijaya Bank",
+    "Varachha Bank",
+    "VARACHHABANK",
+    "Yes Bank",
+    "Andhra Pradesh Grameena Bank",
+    "Saptagiri Grameena Bank",
+    "Telangana Grameena Bank",
+    "Capital Small Finance Bank",
+    "JPMorgan Chase Bank India",
+    "Mizuho Bank India",
+    "Bank of America India",
+    "MUFG Bank India",
+    "Shivalik Small Finance Bank",
+    "North East Small Finance Bank",
+    "Unity Small Finance Bank",
+    "Jana Small Finance Bank",
+    "ESAF Small Finance Bank",
+    "Equitas Small Finance Bank",
+    "Fincare Small Finance Bank",
+    "Ujjivan Small Finance Bank",
+    "Baroda Gujarat Gramin Bank",
+    "Rajasthan Marudhara Gramin Bank",
+    "Utkarsh Small Finance Bank",
+    "Utkarsh SFB",
+    "Fino Payments Bank",
+    "Paytm Payments Bank",
+    "J&K Bank",
+    "Jammu & Kashmir Bank",
+    "J&K Grameen Bank",
+    "JKGB",
+    "Uttarakhand Gramin Bank",
+    "UGB",
+    "Chhattisgarh Rajya Gramin Bank",
+    "CGGB",
+    "Maharashtra Gramin Bank",
+    "MGB",
+    "City Union Bank",
+    "CUB",
+    "CSB Bank",
+    "Dhanlaxmi Bank"
+)
+
+
+
+

@@ -1,0 +1,65 @@
+{
+  "tax_year": 2026,
+  "schemes": [
+    {
+      "id": "US_SCHEME_401K",
+      "name": "401(k) / 403(b) Employer Retirement Plan",
+      "category": "RETIREMENT",
+      "tax_treatment": "Pre-Tax Traditional or Post-Tax Roth",
+      "limits_2026": {
+        "employee_elective_deferral": 24500,
+        "catch_up_age_50_plus": 8000,
+        "special_catch_up_age_60_63": 11250,
+        "total_defined_contribution_cap": 72000
+      },
+      "formula": "FutureValue = AnnualContribution * (((1 + r)^n - 1) / r) + (InitialBalance * (1 + r)^n)",
+      "calculator_inputs": ["annual_salary", "employee_contribution_pct", "employer_match_pct", "current_age", "retirement_age", "expected_annual_return"],
+      "description": "Tax-advantaged employer-sponsored retirement account. Traditional contributions reduce current year taxable income; Roth contributions grow tax-free."
+    },
+    {
+      "id": "US_SCHEME_ROTH_IRA",
+      "name": "Roth Individual Retirement Account (Roth IRA)",
+      "category": "TAX_FREE_SAVINGS",
+      "tax_treatment": "Post-Tax Contributions, 100% Tax-Free Qualified Growth & Withdrawals",
+      "limits_2026": {
+        "annual_contribution_cap": 7500,
+        "catch_up_age_50_plus": 1100,
+        "income_phase_out_single_magi": 153000,
+        "income_phase_out_married_magi": 242000
+      },
+      "formula": "TaxFreeFutureValue = Principal * (1 + r)^n + AnnualContribution * (((1 + r)^n - 1) / r)",
+      "calculator_inputs": ["current_age", "retirement_age", "annual_contribution", "expected_return_pct"],
+      "description": "The gold standard for individual wealth accumulation in the US. Earnings grow completely tax-free and withdrawals after age 59.5 are 100% exempt from federal and state income tax."
+    },
+    {
+      "id": "US_SCHEME_HSA",
+      "name": "Health Savings Account (HSA)",
+      "category": "HEALTH_AND_TRIPLE_TAX_SHELTER",
+      "tax_treatment": "Triple Tax-Advantaged (Tax-deductible contribution, Tax-free growth, Tax-free medical withdrawal)",
+      "limits_2026": {
+        "individual_coverage_cap": 4400,
+        "family_coverage_cap": 8750,
+        "catch_up_age_55_plus": 1000
+      },
+      "prerequisite": "High Deductible Health Plan (HDHP)",
+      "formula": "HSA_Growth = AnnualDeposit * (((1 + r)^n - 1) / r) + TaxSavingsCurrentYear",
+      "calculator_inputs": ["coverage_type_individual_or_family", "annual_deposit", "marginal_tax_bracket_pct", "investment_return_pct", "years_to_grow"],
+      "description": "Widely recognized by US wealth planners as the ultimate investment vehicle. Functions as a medical account before age 65, and converts to a traditional retirement account (no medical penalty) after age 65."
+    },
+    {
+      "id": "US_SCHEME_529",
+      "name": "529 Qualified College Savings Plan",
+      "category": "EDUCATION_AND_FAMILY",
+      "tax_treatment": "Post-Tax Contribution, Federal & State Tax-Free Qualified Education Distributions",
+      "limits_2026": {
+        "annual_gift_tax_exclusion_per_beneficiary": 19000,
+        "five_year_front_loading_superfunding": 95000,
+        "lifetime_plan_aggregate_limit": 500000,
+        "roth_ira_rollover_lifetime_cap": 35000
+      },
+      "formula": "EducationFund = InitialLumpSum * (1 + r)^n + MonthlyContribution * (((1 + r/12)^(12*n) - 1) / (r/12))",
+      "calculator_inputs": ["child_current_age", "college_start_age", "current_savings", "monthly_contribution", "expected_return_pct"],
+      "description": "State-sponsored education savings vehicle. Withdrawals for tuition, room, board, and books are 100% tax-free. Unused balances up to $35,000 can be rolled over to the beneficiary's Roth IRA."
+    }
+  ]
+}

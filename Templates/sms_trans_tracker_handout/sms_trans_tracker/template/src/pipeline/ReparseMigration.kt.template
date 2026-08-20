@@ -1,0 +1,108 @@
+package com.yourapp.smstxn.pipeline
+
+import android.content.Context
+import com.yourapp.smstxn.kpdo.BatchEngine
+import com.yourapp.smstxn.kpdo.SmsInput
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
+import kotlinx.coroutines.withContext
+
+// =============================================================================
+// ReparseMigration — ZERO REGION WORK, HIGH VALUE. Copy the design.
+//
+// Re-parses every stored row from its ORIGINAL message body through the CURRENT
+// parser and updates fields IN PLACE. Ids preserved, table never nuked. Runs
+// once per parserVersion.
+//
+// WHY THIS IS THE MOST VALUABLE FILE FOR A NEW REGION:
+// it means shipping an imperfect parser is not a dead end. Ship regex-only,
+// bump parserVersion when the model lands, and every early user's history is
+// re-polished automatically on next launch. Without it, early users keep bad
+// data forever and you need a support story.
+//
+// India reference: ../../../src/pipeline/ReparseMigration.kt
+// =============================================================================
+
+object ReparseMigration {
+
+    private val mutex = Mutex()
+
+    suspend fun runIfNeeded(context: Context) = mutex.withLock {
+        withContext(Dispatchers.IO) {
+            val appContext = context.applicationContext
+            val region = TODO("your RegionProfile")
+            val prefs = TODO("your prefs")
+
+            // Version gate. Bump parserVersion after ANY model or guardrail
+            // change — that string versions BOTH together, deliberately.
+            if (TODO("prefs.reparsedParserVersion == region.parserVersion")) return@withContext
+
+            runCatching {
+                val dao = TODO("your DAO")
+
+                // KEEP: chronological order, so AccountMemory inherits accounts
+                // exactly as it would during live ingestion. Any other order
+                // gives different results for the same data.
+                val all = dao.getAll().sortedBy { it.date.toLongOrNull() ?: 0L }
+
+                // KEEP: batch through the engine, NOT one call per row.
+                // Pass 2 can only pair the two halves of a single payment when
+                // it sees every message at once — so a reparse also PURGES
+                // historic double-counted rows instead of faithfully recreating
+                // them. Per-row reparse would preserve the bug.
+                val batch = BatchEngine.process(
+                    appContext,
+                    all.map { old ->
+                        SmsInput(
+                            address = old.address,
+                            body = old.body,
+                            date = old.date,
+                            messageId = old.messageId,
+                            typeId = old.typeId,
+                            thread = old.thread ?: 0L,
+                        )
+                    }
+                )
+
+                // KEEP: correlate back by (body, date) — the table's own unique
+                // index, so it is a safe key — to preserve each surviving row's
+                // existing id. Anything the engine dropped (not a transaction,
+                // paired away, duplicate) gets deleted.
+                val freshByKey = batch.rows.associateBy { it.body + " " + it.date }
+                val updates = mutableListOf<Any>()
+                val deletes = mutableListOf<Int>()
+                for (old in all) {
+                    val fresh = freshByKey[old.body + " " + old.date]
+                    if (fresh == null) deletes.add(old.id) else updates.add(fresh.copy(id = old.id))
+                }
+
+                if (deletes.isNotEmpty()) dao.deleteByIds(deletes)
+                if (updates.isNotEmpty()) dao.updateAll(updates)
+                if (deletes.isNotEmpty() || updates.isNotEmpty()) {
+                    TODO("rebuild downstream projections")
+                }
+
+                TODO("prefs.reparsedParserVersion = region.parserVersion")
+            }.onFailure {
+                // KEEP: swallow + log. A failed reparse must never block startup;
+                // the version gate stays unset so it retries next launch.
+            }
+        }
+    }
+}
+
+// =============================================================================
+// SCHEDULING — this is a threading decision, not a region decision. Keep it.
+//
+// Run this LAST in deferred startup init, off the main thread. Model inference
+// over full message history is CPU-heavy: running it inside the startup window
+// starves main of cores on low-end devices and shows up as jank and ANR pressure
+// three screens away from this code.
+//
+// IN-HINT India's order in Application deferred init:
+//   step 0.5  pre-warm the DB on IO (first getInstance opens it + runs
+//             migrations eagerly, so it must not first run on main), then
+//             one-shot phantom-row cleanup
+//   step 6    ReparseMigration.runIfNeeded()   <- last
+// =============================================================================

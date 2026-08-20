@@ -1,0 +1,62 @@
+<!--
+  ===========================================================================
+  Manifest pieces the SMS -> transaction feature needs.
+
+  ** POLICY GATE - DO THIS FIRST, BEFORE WRITING ANY CODE. **
+
+  RECEIVE_SMS and READ_SMS are Play-restricted permissions. They require a
+  Permissions Declaration in Play Console and must pass a policy review, and
+  SMS-permission policy DIFFERS BY MARKET. Confirm the feature is permitted in
+  your target market before building it. This has killed ports at review, after
+  the work was done.
+
+  TODO(REGION): confirm and record
+    - [ ] market: ____________
+    - [ ] SMS read/receive permitted for this use case?      yes / no
+    - [ ] Permissions Declaration approved?                  yes / no
+    - [ ] local financial-data / privacy rules reviewed?     yes / no
+    - [ ] fallback if refused (manual entry? notification-listener?): ________
+  ===========================================================================
+-->
+
+<!-- ============================== permissions ============================== -->
+
+<!-- Live path: MessageListener receives new messages. -->
+<uses-permission android:name="android.permission.RECEIVE_SMS" />
+
+<!-- Backfill path: SmsIngestor reads the existing inbox. -->
+<uses-permission android:name="android.permission.READ_SMS" />
+
+<!-- Only if you re-trigger backfill after reboot. Drop it otherwise -
+     every extra permission is another line in the review. -->
+<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+<!-- ============================== receiver ================================= -->
+<!--
+  exported="true" is REQUIRED: the system, not your app, delivers this broadcast.
+
+  onReceive() runs on the MAIN thread. The receiver MUST goAsync(), do all work
+  on Dispatchers.IO inside a timeout, and call pendingResult.finish() in a
+  finally block. See ../src/pipeline/MessageListener.kt.template - copy that
+  shape exactly. Getting it wrong is a guaranteed ANR on every incoming SMS.
+
+  android:priority is ordering only, and cosmetic here.
+  IN-HINT: India uses 999.
+-->
+<receiver
+    android:name=".pipeline.MessageListener"
+    android:enabled="true"
+    android:exported="true">
+    <intent-filter android:priority="999">
+        <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+    </intent-filter>
+</receiver>
+
+<!--
+  ===========================================================================
+  RUNTIME PERMISSION, not just manifest: READ_SMS must also be granted at
+  runtime (minSdk 24). SmsIngestor.canReadSmsInbox() checks it and returns an
+  empty result rather than throwing - keep that shape, because a user who
+  declines must get a working app with no transactions, not a crash.
+  ===========================================================================
+-->

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "agent_bridge": {
+      "type": "local",
+      "command": [
+        "python3",
+        "/Volumes/Extra/backup/R&D/Bank_balance/.ai/bridge/agent_bridge_mcp.py"
+      ],
+      "enabled": true
+    }
+  },
+  "instructions": [
+    "You are OpenCode, working as Executor #1 under Antigravity (Engineering Manager/Orchestrator).",
+    "Always check your assigned tasks in .ai/tasks/ using the agent_bridge tools or by reading the task JSON.",
+    "When executing a task, follow all constraints and acceptance criteria strictly.",
+    "When you finish a task, create a markdown report in .ai/reports/<task_id>_report.md containing:",
+    "- Changes made",
+    "- Files changed",
+    "- Tests/checks performed",
+    "- Findings",
+    "- Problems/blockers",
+    "- Remaining work",
+    "- Recommendation",
+    "Then update the task status to 'REVIEW' or 'COMPLETED' using the agent_bridge tool."
+  ]
+}

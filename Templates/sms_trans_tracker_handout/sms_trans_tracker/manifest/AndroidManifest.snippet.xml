@@ -1,0 +1,33 @@
+<!--
+  Manifest pieces the SMS -> transaction feature needs.
+  Extracted from app/src/main/AndroidManifest.xml (Bank Balance Checker 4.1.1).
+
+  RECEIVE_SMS and READ_SMS are Play-restricted permissions: they require a
+  Permissions Declaration in Play Console and pass a policy review. Market
+  policy differs by region - confirm the feature is permitted in the target
+  market before building it.
+-->
+
+<!-- ============================== permissions ============================== -->
+<uses-permission android:name="android.permission.RECEIVE_SMS" />
+<uses-permission android:name="android.permission.READ_SMS" />
+
+<!-- Only needed if the inbox backfill is re-triggered after reboot. -->
+<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+<!-- ============================== receiver ================================= -->
+<!--
+  exported="true" is required: the system, not the app, delivers this broadcast.
+
+  onReceive() runs on the MAIN thread. MessageListener.kt must goAsync(), do all
+  work on Dispatchers.IO inside a timeout, and call pendingResult.finish() in a
+  finally block. See src/pipeline/MessageListener.kt - copy that shape exactly.
+-->
+<receiver
+    android:name=".helper.MessageListener"
+    android:enabled="true"
+    android:exported="true">
+    <intent-filter android:priority="999">
+        <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+    </intent-filter>
+</receiver>

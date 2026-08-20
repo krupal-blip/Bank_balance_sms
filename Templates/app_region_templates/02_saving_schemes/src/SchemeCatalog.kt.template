@@ -1,0 +1,121 @@
+package com.yourapp.schemes
+
+import androidx.annotation.Keep
+import com.google.gson.annotations.SerializedName
+
+// =============================================================================
+// SchemeCatalog — DATA-DRIVEN. This is the main change from India's shape.
+//
+// India holds all scheme content in two Kotlin functions, loadData_EN() and
+// loadData_HI(), inside SavingSchemesActivity. Consequences it inherited:
+//   - adding a language is a CODE change
+//   - the two copies drift; nothing catches a stale rate in one language
+//   - a rate correction needs an app release
+//
+// Here: content in data/schemes.<region>.json, translatable text in string
+// resources, rates carrying their own effective date.
+// =============================================================================
+
+@Keep
+data class SchemeCatalogDto(
+    @SerializedName("regionCode") val regionCode: String,
+    /** KEEP: when this whole catalog was last reviewed against the official source. */
+    @SerializedName("reviewedOn") val reviewedOn: String,
+    @SerializedName("schemes") val schemes: List<SchemeDto>,
+)
+
+@Keep
+data class SchemeDto(
+    /** Stable key. Never translated, never renamed — it is the analytics id too. */
+    @SerializedName("id") val id: String,
+
+    /** String-resource name for the display title. IN-HINT: R.string.public_pf */
+    @SerializedName("titleRes") val titleRes: String,
+    @SerializedName("descriptionRes") val descriptionRes: String,
+
+    /**
+     * TODO(REGION): ** ALL OF THIS IS YOUR MARKET'S STATUTE. **
+     * IN-HINT India's 8: PPF, EPF, NPS, SCSS, NSC, Post Office savings,
+     * PM Vaya Vandana Yojana, PM Jan Dhan Yojana. None of it transfers — this is
+     * a research task in your own tax and savings law, not a translation.
+     */
+    @SerializedName("annualRatePercent") val annualRatePercent: Double?,
+
+    /**
+     * ** KEEP AND ALWAYS DISPLAY. ** A rate without its effective date is a
+     * liability: users may act on it. India compiles rates into the binary with no
+     * date, so a stale figure is indistinguishable from a current one.
+     */
+    @SerializedName("rateEffectiveFrom") val rateEffectiveFrom: String?,
+
+    /** KEEP: the official page. Lets the user verify, and you re-check. */
+    @SerializedName("sourceUrl") val sourceUrl: String?,
+
+    @SerializedName("eligibility") val eligibility: EligibilityDto?,
+    @SerializedName("lockInMonths") val lockInMonths: Int?,
+    @SerializedName("minContributionMinor") val minContributionMinor: Long?,
+    @SerializedName("maxContributionMinor") val maxContributionMinor: Long?,
+    @SerializedName("taxTreatmentRes") val taxTreatmentRes: String?,
+)
+
+@Keep
+data class EligibilityDto(
+    @SerializedName("minAge") val minAge: Int?,
+    @SerializedName("maxAge") val maxAge: Int?,
+    @SerializedName("notesRes") val notesRes: String?,
+)
+
+// -----------------------------------------------------------------------------
+
+/**
+ * KEEP: staleness is a first-class state, not an afterthought.
+ *
+ * TODO(REGION): set the window from how often YOUR market revises rates.
+ * IN-HINT: India's small-savings rates are revised QUARTERLY by the Ministry of
+ * Finance, so anything older than ~4 months should read as unverified.
+ */
+class SchemeCatalog(
+    private val dto: SchemeCatalogDto,
+    private val staleAfterDays: Long = 120, // TODO(REGION)
+) {
+
+    val schemes: List<SchemeDto> get() = dto.schemes
+
+    fun rateStatus(scheme: SchemeDto, today: java.time.LocalDate): RateStatus {
+        val rate = scheme.annualRatePercent ?: return RateStatus.NotPublished
+        val from = scheme.rateEffectiveFrom?.let {
+            runCatching { java.time.LocalDate.parse(it) }.getOrNull()
+        } ?: return RateStatus.Undated(rate)
+
+        val age = java.time.temporal.ChronoUnit.DAYS.between(from, today)
+        return if (age > staleAfterDays) RateStatus.Stale(rate, from, age)
+        else RateStatus.Current(rate, from)
+    }
+
+    /**
+     * KEEP: what the UI must do with each state.
+     *
+     * Undated and Stale MUST be visibly marked and MUST show the source link.
+     * Silently rendering a stale rate as current is the failure mode to avoid —
+     * a user could plan a deposit around it.
+     */
+    sealed interface RateStatus {
+        data class Current(val rate: Double, val from: java.time.LocalDate) : RateStatus
+        data class Stale(val rate: Double, val from: java.time.LocalDate, val ageDays: Long) : RateStatus
+        data class Undated(val rate: Double) : RateStatus
+        /** Perfectly fine to ship. Description + eligibility + source still help. */
+        data object NotPublished : RateStatus
+    }
+}
+
+// =============================================================================
+// DISCLOSURE — TODO(REGION): required copy, and check local rules.
+//
+// These are published financial figures users may act on. Show, near the rates:
+//   - "Informational only, not financial advice"
+//   - the effective date of each rate
+//   - a link to the official source
+//
+// Some markets regulate the display of financial product information. Confirm
+// before shipping; this is a compliance question, not a UI preference.
+// =============================================================================

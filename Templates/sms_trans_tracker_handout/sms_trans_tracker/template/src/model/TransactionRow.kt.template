@@ -1,0 +1,120 @@
+package com.yourapp.smstxn.model
+
+import androidx.room.Entity
+import androidx.room.Index
+import androidx.room.PrimaryKey
+
+// =============================================================================
+// TransactionRow — the output entity. ONE ROW PER REAL MONEY MOVEMENT.
+//
+// (India calls this BankSMSModell.)
+//
+// ** DEVIATING FROM INDIA HERE IS ENCOURAGED. ** Two of India's field choices
+// are the pipeline's main legacy debt, flagged below. Decide before you write
+// the first migration, not after — both are painful to change later because they
+// touch the entity, every DAO query, the batch engine and the reparse.
+//
+// India reference: ../../../src/model/BankSMSModell.kt
+// =============================================================================
+
+@Entity(
+    // KEEP THIS INDEX. It is the last line of defence against re-inserting the
+    // same message, and the reparse migration uses it as a safe correlation key.
+    // Pair it with an IGNORE conflict strategy on insert.
+    indices = [Index(value = ["body", "date"], unique = true)]
+)
+data class TransactionRow(
+
+    @PrimaryKey(autoGenerate = true)
+    val id: Int = 0,
+
+    // ---- identity ------------------------------------------------------------
+
+    /** Canonical name from RegionProfile.banks — never a raw model span. */
+    val bankName: String,
+
+    /** Normalized to the trailing digit run. See SmsParser.normalizeAccount. */
+    val accountNumber: String,
+
+    /** Logo/asset key, kept beside the name so the UI needs no second lookup. */
+    val logoKey: String,
+
+    // ---- money ---------------------------------------------------------------
+
+    /**
+     * ** LEGACY DEBT — CHANGE THIS FOR A NEW BUILD. **
+     *
+     * IN-HINT: India stores a pre-formatted String: "₹ 1234.50".
+     * Consequences it inherited:
+     *   - every consumer re-parses the string to do arithmetic
+     *   - the currency symbol is baked into the DATA, so a region or symbol
+     *     change is a full-table migration
+     *   - sorting and range queries on amount don't work in SQL
+     *
+     * RECOMMENDED: store `amountMinor: Long` (minor units — paise, cents, and 0
+     * for JPY) plus `currencyCode: String` (ISO 4217). Format at display time
+     * from RegionProfile.currency.
+     */
+    val amount: String, // TODO(REGION): prefer amountMinor: Long + currencyCode
+
+    /** Same treatment as amount. Blank when the message carried no balance. */
+    val avlBal: String, // TODO(REGION): prefer balanceMinor: Long?
+
+    /** CREDIT / DEBIT / OTHER — TxnType.dbValue. A DATABASE VALUE, not a label. */
+    val transactionType: String,
+
+    /** BANK / CARD / NONE — TxnSource.dbValue. */
+    val source: String,
+
+    // ---- provenance ----------------------------------------------------------
+
+    /**
+     * KEEP: the original message text, verbatim.
+     * Non-negotiable — the reparse migration re-derives every other field from
+     * this. Drop it and a parser improvement can never be applied to history.
+     */
+    val body: String,
+
+    /**
+     * ** LEGACY DEBT — CHANGE THIS FOR A NEW BUILD. **
+     *
+     * IN-HINT: epoch millis as a STRING. Works, but forces toLongOrNull() at
+     * every comparison, sort and window check, and makes date-range SQL
+     * lexicographic instead of numeric.
+     *
+     * RECOMMENDED: `date: Long`.
+     */
+    val date: String, // TODO(REGION): prefer Long
+
+    /** Sender address as received — needed to re-resolve the bank on reparse. */
+    val address: String,
+
+    // KEEP: correlate back to the SMS provider.
+    val messageId: String,
+    val typeId: String,
+    val thread: Long? = 0L,
+
+    // ---- optional ------------------------------------------------------------
+
+    /** Blank when the model found none. Never fabricate one. */
+    val merchantName: String,
+)
+
+// =============================================================================
+// FIELD PROVENANCE — where each value comes from, in priority order.
+// Useful when debugging a wrong row: check the sources in order.
+//
+//  bankName, logoKey   sender resolver -> model BANK span -> body lookup
+//  accountNumber       body regex -> model ACCOUNT span (normalized)
+//                      -> AccountMemory.recall(); card body overrides all
+//  amount              model AMOUNT span, repaired against body + balance
+//  avlBal              model BALANCE span, repaired qualified-then-bare
+//                      -> body regex fallback
+//  transactionType     model type head RECONCILED with keyword scan
+//                      (keyword wins unless it said OTHER)
+//  source              model source head; forced to CARD for credit-card bodies
+//  merchantName        model MERCHANT span -> body extraction
+//  body/date/address/  carried straight from SmsInput, never derived
+//   messageId/typeId/
+//   thread
+// =============================================================================

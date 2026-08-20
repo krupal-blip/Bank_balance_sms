@@ -1,0 +1,77 @@
+package com.yourapp.smstxn.pipeline
+
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withTimeoutOrNull
+import kotlin.time.Duration.Companion.milliseconds
+
+// =============================================================================
+// MessageListener — live SMS entry point.
+//
+// ** ZERO REGION WORK. COPY THIS SHAPE EXACTLY. **
+//
+// onReceive() runs on the MAIN thread. Any blocking or suspending call made
+// directly inside it is a guaranteed ANR — and this receiver fires on every
+// incoming SMS, including on locked, cold-started, low-end devices, which is the
+// worst possible context to block main in.
+//
+// The mandatory shape:
+//   1. goAsync()  -> tells the system the work outlives onReceive()
+//   2. launch on Dispatchers.IO
+//   3. wrap the work in a TIMEOUT
+//   4. pendingResult.finish() in FINALLY — no exceptions, no early returns
+//
+// Dropping any one of the four either ANRs or leaks the broadcast slot.
+//
+// India reference: ../../../src/pipeline/MessageListener.kt
+// =============================================================================
+
+class MessageListener : BroadcastReceiver() {
+
+    override fun onReceive(context: Context, intent: Intent) {
+        // 1. Claim time beyond onReceive().
+        val pendingResult = goAsync()
+
+        // 2. Off main immediately. Nothing heavy above this line, ever.
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                // 3. Bounded. A receiver that never returns is still an ANR.
+                withTimeoutOrNull(RECEIVER_TIMEOUT) {
+                    val result = SmsIngestor(context).importIncoming(intent)
+
+                    if (result.insertedTransactions.isNotEmpty()) {
+                        // Notification / UI signal goes here.
+                        // TODO(REGION): localize notification copy and currency
+                        // formatting. Formatting must come from
+                        // RegionProfile.currency, not a hardcoded symbol.
+                    }
+                }
+            } finally {
+                // 4. ALWAYS. Timeout, exception, cancellation — all paths.
+                pendingResult.finish()
+            }
+        }
+    }
+
+    private companion object {
+        /**
+         * KEEP a bound here. Tune to device class, not region.
+         * IN-HINT: India sizes this to stay inside the receiver's ANR budget
+         * while still allowing a cold Room open + one model parse.
+         */
+        val RECEIVER_TIMEOUT = 8_000.milliseconds
+    }
+}
+
+// =============================================================================
+// Manifest side: see ../../manifest/AndroidManifest.snippet.xml.template
+//
+// exported="true" is REQUIRED — the system, not your app, delivers this
+// broadcast. RECEIVE_SMS / READ_SMS are Play-restricted permissions and market
+// policy differs; confirm the feature is permitted in your target market BEFORE
+// building it.
+// =============================================================================

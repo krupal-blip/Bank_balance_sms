@@ -1,0 +1,53 @@
+{
+  "_comment": [
+    "FILE SHAPE ONLY. Fabricated placeholder region ('Examplia'). Delete before use.",
+    "Replaces India's loadData_EN() / loadData_HI() Kotlin functions.",
+    "Display text lives in string resources (titleRes/descriptionRes) so translation",
+    "is a resource task, not a code change - that is the whole point of this file.",
+    "Money is minor units (cents/paise). Rates ALWAYS carry rateEffectiveFrom."
+  ],
+  "regionCode": "EX",
+  "reviewedOn": "2026-01-15",
+  "schemes": [
+    {
+      "id": "national_savings_certificate",
+      "titleRes": "scheme_nsc_title",
+      "descriptionRes": "scheme_nsc_desc",
+      "annualRatePercent": 6.8,
+      "rateEffectiveFrom": "2026-01-01",
+      "sourceUrl": "https://example.gov.ex/savings/nsc",
+      "eligibility": { "minAge": 18, "maxAge": null, "notesRes": "scheme_nsc_eligibility" },
+      "lockInMonths": 60,
+      "minContributionMinor": 100000,
+      "maxContributionMinor": null,
+      "taxTreatmentRes": "scheme_nsc_tax"
+    },
+    {
+      "id": "senior_citizen_savings",
+      "titleRes": "scheme_scss_title",
+      "descriptionRes": "scheme_scss_desc",
+      "annualRatePercent": 8.2,
+      "rateEffectiveFrom": "2026-01-01",
+      "sourceUrl": "https://example.gov.ex/savings/senior",
+      "eligibility": { "minAge": 60, "maxAge": null, "notesRes": "scheme_scss_eligibility" },
+      "lockInMonths": 60,
+      "minContributionMinor": 100000,
+      "maxContributionMinor": 300000000,
+      "taxTreatmentRes": "scheme_scss_tax"
+    },
+    {
+      "id": "basic_banking_account",
+      "titleRes": "scheme_basic_title",
+      "descriptionRes": "scheme_basic_desc",
+      "annualRatePercent": null,
+      "rateEffectiveFrom": null,
+      "sourceUrl": "https://example.gov.ex/inclusion/basic-account",
+      "eligibility": { "minAge": 10, "maxAge": null, "notesRes": "scheme_basic_eligibility" },
+      "lockInMonths": null,
+      "minContributionMinor": 0,
+      "maxContributionMinor": null,
+      "taxTreatmentRes": null,
+      "_note": "annualRatePercent null -> RateStatus.NotPublished. Shipping a scheme with no rate is fine and never goes stale."
+    }
+  ]
+}

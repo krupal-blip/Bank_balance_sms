@@ -1,0 +1,124 @@
+package com.yourapp.smstxn.smsmodel
+
+import com.yourapp.smstxn.region.RegionProfile
+
+// =============================================================================
+// Tokenizer — text -> per-token trigram bucket ids.
+//
+// KEEP the MECHANISM. Region work is TOKEN_RE (script) and the two size knobs.
+//
+// ** HARD CONSTRAINT: this file must match your trainer's tokenizer BYTE FOR
+//    BYTE. ** A one-character difference shifts every embedding lookup. It does
+//    not crash — it quietly degrades extraction, which reads as "the model just
+//    isn't very good". Verify with the parity fixture (../../MODEL_TRAINING.md
+//    step 5) before shipping.
+// =============================================================================
+
+class Tokenizer(private val region: RegionProfile) {
+
+    companion object {
+        /**
+         * Number of hash buckets for trigrams.
+         *
+         * TODO(REGION): richer morphology (Turkish, Finnish) or a larger script
+         * needs more. Collisions surface as confused word forms. Cost is .bin
+         * size, roughly linear.
+         * IN-HINT: 4096 — enough for English banking vocabulary.
+         *
+         * Sanity check before training: bucket your whole corpus, measure the
+         * collision rate on the top 500 tokens. Two frequent unrelated words
+         * sharing a bucket means raise this.
+         */
+        const val VOCAB_SIZE = 4096 // TODO(REGION)
+
+        /**
+         * Cap on trigrams averaged per token.
+         *
+         * TODO(REGION): longer average word length -> raise. German compounds
+         * ("Kontostandmitteilung") need well above 8.
+         * IN-HINT: 8
+         */
+        const val MAX_TRI = 8 // TODO(REGION)
+
+        /**
+         * TODO(REGION): SCRIPT DECISION. This is the single most common porting
+         * mistake — leaving India's ASCII-only class in place.
+         *
+         * IN-HINT: Regex("[A-Za-z0-9]+|[^\\sA-Za-z0-9]")
+         *   Latin letters + ASCII digits only. Anything else collapses into
+         *   single punctuation-class tokens carrying no signal.
+         *
+         * Latin + diacritics (EU/LATAM/TR/VN):
+         *   Regex("[\\p{L}\\p{N}]+|[^\\s\\p{L}\\p{N}]")
+         *   Byte trigrams then work as-is; FNV-1a already hashes UTF-8.
+         *
+         * Arabic / Hebrew: Unicode letter class as above, PLUS decide how to
+         *   handle Arabic-Indic digits (٠١٢) vs ASCII — banks mix them. Normalize
+         *   to one form here, and normalize the same way in the trainer.
+         *
+         * Thai / Khmer: Unicode letter class. No inter-word spaces, so trigrams
+         *   over the raw run actually help — but re-derive MAX_TRI.
+         *
+         * CJK: DIFFERENT STRATEGY. Characters are morphemes; Han trigrams are
+         *   near-meaningless. Use per-character unigrams + bigrams or a real
+         *   segmenter, and raise VOCAB_SIZE well above 4096.
+         *
+         * See ../../MODEL_TRAINING.md, "Layer 1 — script".
+         */
+        private val TOKEN_RE = Regex("[\\p{L}\\p{N}]+|[^\\s\\p{L}\\p{N}]") // TODO(REGION)
+
+        /**
+         * KEEP: synthetic token prepended when a future-tense marker is present.
+         * Gives the classifier an explicit future-vs-completed signal with NO
+         * tensor changes — cheap and worth reusing in every region.
+         *
+         * Why it matters: "500 WILL BE debited tomorrow" is not a transaction.
+         * Without this signal the model infers tense from context and creates
+         * phantom rows often enough to matter.
+         *
+         * The token STRING stays as-is (it is just a bucket key). The MARKER LIST
+         * is regional and lives in RegionProfile.vocabulary.futureMarkers —
+         * translate it, and match the trainer's list exactly.
+         */
+        private const val FUTURE_TOKEN = "futuremarkertoken"
+
+        /** KEEP: FNV-1a over UTF-8 bytes, 32-bit wrap. Must match the trainer. */
+        private fun fnv1a(s: String): Int {
+            var h = 0x811c9dc5.toInt()
+            for (b in s.toByteArray(Charsets.UTF_8)) {
+                h = h xor (b.toInt() and 0xff)
+                h *= 0x01000193
+            }
+            return h
+        }
+
+        private fun bucket(s: String): Int =
+            ((fnv1a(s).toLong() and 0xffffffffL) % VOCAB_SIZE).toInt()
+
+        /**
+         * KEEP: trigram buckets for one token. Tokens shorter than 3 chars fall
+         * back to the whole token as a single "trigram" — mirrors the trainer's
+         * `tris = [...] or [tok]`.
+         */
+        fun trigramIds(tok: String): IntArray {
+            if (tok.length < 3) return intArrayOf(bucket(tok))
+            val n = minOf(tok.length - 2, MAX_TRI)
+            return IntArray(n) { bucket(tok.substring(it, it + 3)) }
+        }
+    }
+
+    fun hasFutureMarker(text: String): Boolean {
+        val t = text.lowercase()
+        return region.vocabulary.futureMarkers.any { t.contains(it) }
+    }
+
+    /**
+     * KEEP: returns raw tokens plus, per token, its trigram buckets.
+     * Prepends the future-marker token when detected on the full text.
+     */
+    fun tokenize(text: String): Pair<List<String>, List<IntArray>> {
+        val raw = TOKEN_RE.findAll(text.lowercase()).map { it.value }.toMutableList()
+        if (hasFutureMarker(text)) raw.add(0, FUTURE_TOKEN)
+        return raw to raw.map { trigramIds(it) }
+    }
+}

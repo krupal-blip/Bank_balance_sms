@@ -1,0 +1,194 @@
+package com.yourapp.region
+
+// =============================================================================
+// RegionFeatureProfile — ONE seam for all five features.
+//
+// Mirrors sms_trans_tracker/template/src/region/RegionProfile.kt.template. Keep
+// them as two interfaces (parser vs app features) or merge into one object per
+// market — either works, as long as region data lives in ONE place.
+//
+// GOAL: a new market ships DATA (JSON + string resources), not Kotlin.
+// India's current shape is the opposite and that is what makes it hard to port:
+//   - schemes duplicated in loadData_EN() / loadData_HI() in an Activity
+//   - 90-bank table as a 15 KB Kotlin literal (BankArray.kt)
+//   - holidays split across an API and per-year bundled JSON
+// =============================================================================
+
+interface RegionFeatureProfile {
+
+    /** IN-HINT: "IN". Also used to pick asset filenames below. */
+    val regionCode: String
+
+    val holidays: HolidayConfig
+    val schemes: SchemeConfig
+    val bankCodes: BankCodeConfig
+    val balanceChannels: BalanceChannelConfig
+    val netBanking: NetBankingConfig
+
+    /**
+     * Whether each feature exists in this market at all.
+     *
+     * TODO(REGION): be honest here. Several of these have NO equivalent outside
+     * India — shipping an empty screen is worse than hiding the feature.
+     * IN-HINT: India enables all five.
+     */
+    val enabledFeatures: Set<RegionFeature>
+}
+
+enum class RegionFeature {
+    BANK_HOLIDAYS,
+    SAVING_SCHEMES,
+    BANK_CODE_LOOKUP,
+    BALANCE_CHANNELS,
+    NET_BANKING,
+}
+
+// -----------------------------------------------------------------------------
+
+data class HolidayConfig(
+    /**
+     * Does this market publish holidays PER SUB-REGION, or nationally?
+     * IN-HINT: PER_SUBREGION — 30+ Indian states each have their own calendar.
+     * Most markets are NATIONAL, which collapses the whole state-picker UI.
+     */
+    val scope: HolidayScope,
+
+    /** IN-HINT: "State". Becomes the picker's label. */
+    val subRegionLabel: String?,
+
+    /**
+     * Recurring closure rules the calendar does NOT list explicitly.
+     * TODO(REGION): your central bank's rule, or emptyList().
+     * IN-HINT: RBI closes banks on the 2nd and 4th Saturday of every month, and
+     * on all Sundays. The API returns these as normal rows ("2nd Saturday Bank
+     * Holiday"), so India does NOT compute them — but if your source omits them,
+     * you must generate them or the calendar is wrong every other week.
+     */
+    val recurringClosures: List<RecurringClosure>,
+
+    /**
+     * TODO(REGION): date format your source emits.
+     * IN-HINT: "d MMMM yyyy" ("11 January 2025"). Parse with an explicit
+     * Locale.ROOT — a device in a Hindi locale otherwise fails to parse the
+     * English month names the API returns.
+     */
+    val sourceDateFormat: String,
+
+    /** Bundled fallback asset per year. IN-HINT: "new_state_2025.json" */
+    val bundledAssetPattern: String?,
+)
+
+enum class HolidayScope { NATIONAL, PER_SUBREGION }
+
+data class RecurringClosure(
+    val rule: String,
+    val label: String,
+)
+
+// -----------------------------------------------------------------------------
+
+data class SchemeConfig(
+    /**
+     * Government/state savings products offered in this market.
+     *
+     * TODO(REGION): ** THIS IS 100% REGION POLICY. ** Nothing about India's list
+     * transfers — the products, the rates, the tax treatment, the eligibility and
+     * the lock-in periods are all Indian statute.
+     * IN-HINT: 8 schemes — PPF, EPF, NPS, SCSS, NSC, Post Office, PM Vaya
+     * Vandana Yojana, PM Jan Dhan Yojana.
+     *
+     * Load from data/schemes.<region>.json — NOT from Kotlin. See 02_saving_schemes.
+     */
+    val catalogAsset: String,
+
+    /**
+     * KEEP: rates change by statute, usually quarterly. Show the source date so a
+     * stale rate is visible rather than silently wrong.
+     * TODO(REGION): who publishes the rates, and how often?
+     * IN-HINT: Ministry of Finance revises small-savings rates quarterly.
+     */
+    val ratesReviewedLabel: String,
+)
+
+// -----------------------------------------------------------------------------
+
+data class BankCodeConfig(
+    /**
+     * TODO(REGION): the routing-code system in your market.
+     * IN-HINT: India uses IFSC (11 chars, bank+branch routing) plus MICR (9
+     * digits, cheque clearing) and ICR. The concept is universal, the format is
+     * not:
+     *   EU        -> IBAN + BIC/SWIFT
+     *   US        -> ABA routing number (9 digits)
+     *   UK        -> sort code (6 digits) + account
+     *   AU        -> BSB (6 digits)
+     *   CA        -> transit + institution number
+     */
+    val primaryCodeName: String,
+
+    /** TODO(REGION): validation regex. IN-HINT: IFSC = "^[A-Z]{4}0[A-Z0-9]{6}$" */
+    val primaryCodeRegex: Regex,
+
+    /** Secondary codes to display, if any. IN-HINT: listOf("MICR", "ICR") */
+    val secondaryCodeNames: List<String>,
+
+    /**
+     * Drill-down levels for the picker.
+     * IN-HINT: BANK -> STATE -> CITY -> BRANCH. A market with a flat national
+     * registry needs BANK -> BRANCH only, and the extra screens should go.
+     */
+    val lookupLevels: List<String>,
+)
+
+// -----------------------------------------------------------------------------
+
+data class BalanceChannelConfig(
+    /**
+     * Which balance-check channels EXIST in this market.
+     *
+     * TODO(REGION): ** MOST OF THESE ARE INDIA-ONLY. ** Do not ship a channel
+     * that does not exist — read 04_balance_channels/README.md first.
+     * IN-HINT: India supports all four (USSD via NUUP *99#, missed-call
+     * banking, SMS keyword, toll-free IVR).
+     */
+    val channels: Set<BalanceChannel>,
+
+    /** Per-bank channel table. IN-HINT: ussd.json + tbl_bank_info (48 banks). */
+    val channelTableAsset: String,
+)
+
+enum class BalanceChannel {
+    /** IN-HINT: India's NUUP / *99# UPI-over-USSD. Rare elsewhere. */
+    USSD,
+
+    /** IN-HINT: dial a number, it hangs up and SMSes the balance. India/SEA mostly. */
+    MISSED_CALL,
+
+    /** Send a keyword to a shortcode. */
+    SMS_KEYWORD,
+
+    /** Toll-free IVR line. Most portable of the four. */
+    IVR,
+}
+
+// -----------------------------------------------------------------------------
+
+data class NetBankingConfig(
+    /**
+     * TODO(REGION): per-bank portal URLs, from data not Kotlin.
+     * IN-HINT: India stores `netbank_api` per row in tbl_bank_info and opens it
+     * in a WebView.
+     */
+    val portalTableAsset: String,
+
+    /**
+     * ** SECURITY — KEEP, DO NOT RELAX. **
+     *
+     * These are LOGIN pages for real bank accounts. See 05_net_banking/README.md.
+     * Non-negotiable in every region: HTTPS only, host allowlisted against the
+     * table, no JavaScript interface, no credential autofill, no cookie
+     * persistence across sessions.
+     */
+    val requireHttps: Boolean = true,
+    val allowlistHostsOnly: Boolean = true,
+)

@@ -1,0 +1,190 @@
+package com.yourapp.smstxn.kpdo
+
+import android.content.Context
+import com.yourapp.smstxn.model.TransactionRow
+import com.yourapp.smstxn.region.RegionProfile
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+
+// =============================================================================
+// BatchEngine — cross-message reasoning. STRUCTURE IS REGION-NEUTRAL;
+// only the VOCABULARY is regional.
+//
+// (India calls this KPDO. Name it whatever you like.)
+//
+// WHY A BATCH ENGINE AND NOT JUST A LOOP — three reasons, all of which apply in
+// every market:
+//
+//  1. ONE money movement can arrive as TWO messages. India's case: a recurring
+//     payment sends a "PAYMENT ALERT ... UMRN" notice AND an "UPDATE: ...
+//     debited ... Avl bal" ledger entry. Parsed one at a time, both look like
+//     valid debits and get saved twice. Their references differ so ref-dedup
+//     can't pair them; the bodies genuinely differ so the unique(body,date)
+//     index can't either. ONLY a cross-message pass can drop the notice.
+//     Every market with recurring payments and card-bill acks has this shape.
+//
+//  2. Messages with NO account (mandate notices, statements) must inherit the
+//     account last seen for that bank. Done per-message that depends on ARRIVAL
+//     order; done here it resolves in CHRONOLOGICAL order, which is what was
+//     intended.
+//
+//  3. Consecutive rows on one account carry running balances, so
+//     prev_balance ± amount ≈ new_balance is a FREE arithmetic audit on the
+//     money path. Catches truncated/misread amounts that no single-message
+//     guardrail can see.
+//
+// NOTE: the model learns nothing here. Weights are frozen; all cross-message
+// knowledge is plain Kotlin in Pass 2.
+//
+// India reference: ../../../src/kpdo/KpdoEngine.kt
+// =============================================================================
+
+data class SmsInput(
+    val address: String?,
+    val body: String,
+    /** Epoch millis as String, matching TransactionRow.date. See REGION_CONFIG §9. */
+    val date: String,
+    val messageId: String,
+    val typeId: String,
+    val thread: Long? = 0L,
+)
+
+data class BatchResult(
+    val rows: List<TransactionRow>,
+    /** Model/guardrails said "not a transaction". */
+    val notTransaction: Int,
+    /** Notice half of a notice+ledger pair. */
+    val pairedAway: Int,
+    /** Same account+amount+date already present. */
+    val duplicates: Int,
+    /** Rows whose balance chain looks wrong. REPORTED, never dropped. */
+    val balanceMismatches: List<String>,
+)
+
+object BatchEngine {
+
+    /**
+     * TODO(REGION): how long does a notice lead its ledger entry in YOUR
+     * clearing system?
+     * IN-HINT: 3 days, derived from Indian NACH timing.
+     */
+    private const val PAIR_WINDOW_MS = 3L * 24 * 60 * 60 * 1000 // TODO(REGION)
+
+    suspend fun process(context: Context, inputs: List<SmsInput>): BatchResult =
+        withContext(Dispatchers.Default) {
+            val region: RegionProfile = TODO("your RegionProfile")
+
+            // KEEP: deterministic order FIRST. Pass 2 is stateful, so the same
+            // input must always produce the same output — never rely on
+            // insertion or cursor order.
+            val sorted = inputs.sortedBy { it.date.toLongOrNull() ?: 0L }
+
+            // ---------- PASS 1: per message, stateless ----------
+            // KEEP: reuse the single-message filter UNCHANGED, so every
+            // guardrail, gate and fallback already in TransactionFilter applies.
+            // Do not fork a "batch variant" of the filter — it will drift.
+            val cardNoCache = mutableSetOf<String>()
+            val parsed = ArrayList<Pair<SmsInput, TransactionRow>>(sorted.size)
+            var notTxn = 0
+            for (input in sorted) {
+                val row = TODO("transactionFilter(env, input..., cardNoCache)")
+                if (row == null) notTxn++ else parsed.add(input to row)
+            }
+
+            // ---------- PASS 2: across messages, stateful ----------
+
+            // 2a. NOTICE + LEDGER PAIRING.
+            // A "notice" announces a movement (carries a mandate/scheme
+            // reference, no available balance). The "ledger entry" records it
+            // (carries a balance). Same account + same amount inside the window
+            // = ONE event: drop the notice, keep the ledger row.
+            // Ambiguous (both or neither look like a notice, and the balance
+            // tiebreak doesn't resolve) -> KEEP BOTH. Never guess.
+            val pairedIdx = HashSet<Int>()
+            TODO("pairing loop — see India reference for the tiebreak order")
+
+            // 2b. DEDUP for rows the unique(body,date) index cannot catch
+            // because bodies differ.
+            //
+            // KEEP THIS SPLIT KEY:
+            //   with a reference  -> (account, amount, type, DAY, ref)
+            //   without one       -> (account, amount, type, EXACT date, body)
+            //
+            // IN-HINT: deliberately does NOT collapse identical repeat payments
+            // carrying different refs — two genuine same-amount subscription
+            // payments on the same day must both survive. Over-aggressive dedup
+            // here silently deletes real transactions, which is worse than a
+            // duplicate a user can see.
+            val seen = HashSet<String>()
+            var duplicates = 0
+
+            // 2c. BALANCE CHAIN per account, chronological.
+            // prev ± amount ≈ new_balance, within tolerance.
+            //
+            // TODO(REGION): tolerance = ONE MINOR CURRENCY UNIT.
+            // IN-HINT: 1.0 (one rupee, 2 decimals). WRONG for JPY (0 decimals)
+            // and KWD (3). Derive from RegionProfile.currency.decimalPlaces.
+            val tolerance = 1.0 // TODO(REGION)
+            val lastBalance = HashMap<String, Double>()
+            val mismatches = ArrayList<String>()
+
+            // KEEP: REPORT ONLY, NEVER DROP. A missing intermediate message also
+            // breaks the chain, so a mismatch is a signal to review — not
+            // grounds to delete a row the user can see in their SMS app.
+            // Report when the balance matches the OPPOSITE direction, or neither.
+
+            BatchResult(
+                rows = TODO("kept"),
+                notTransaction = notTxn,
+                pairedAway = pairedIdx.size,
+                duplicates = duplicates,
+                balanceMismatches = mismatches,
+            )
+        }
+
+    // ---- regional vocabulary -------------------------------------------------
+
+    /**
+     * TODO(REGION): notice markers.
+     * IN-HINT: "umrn", "umn", "mandate", "payment alert", plus card bill-payment
+     * acknowledgements ("PAYMENT OF Rs.X RECEIVED TOWARDS YOUR CREDIT CARD
+     * ENDING WITH 7900" — a restatement of a payment recorded elsewhere, so it
+     * is the notice half of the pair).
+     *
+     * ** UMRN is an India-only NACH mandate id. ** Your equivalent: SEPA Direct
+     * Debit mandate reference (EU), ACH (US).
+     */
+    private fun isNotice(body: String, region: RegionProfile): Boolean =
+        region.vocabulary.noticeMarkers.any { body.contains(it, ignoreCase = true) }
+
+    /**
+     * TODO(REGION): reference extraction.
+     * IN-HINT: "(?:ref(?:no|erence)?\\.?\\s*(?:no\\.?)?|utr|txn\\s*id)
+     *           \\s*[:\\-]?\\s*([A-Za-z0-9]{6,})"
+     * ** UTR is India-only. ** EU: end-to-end reference. US: trace number.
+     */
+    private fun refOf(body: String, region: RegionProfile): String = TODO()
+
+    /**
+     * TODO(REGION): "has a real account balance".
+     * IN-HINT: a CARD acknowledgement reports AVAILABLE LIMIT, not an account
+     * balance ("available limit" / "avl limit"). Treat that as NO balance so it
+     * never wins the ledger-entry tiebreak in 2a. Any market with credit cards
+     * needs this distinction.
+     */
+    private fun hasBalance(row: TransactionRow, region: RegionProfile): Boolean = TODO()
+
+    /**
+     * KEEP the whole predicate — only the ref vocabulary inside it is regional.
+     *
+     * Two rows are the same movement when: same non-blank account, same type,
+     * amounts within 0.01, timestamps within PAIR_WINDOW_MS, AND not both
+     * carrying different references.
+     *
+     * That last clause is what protects genuine repeat payments: if both have a
+     * ref and the refs differ, these are TWO real transactions, not a pair.
+     */
+    private fun sameMovement(
+        a: TransactionRow, b: TransactionRow, ia: SmsInput, ib: SmsInput, region: RegionProfile,
+    ): Boolean = TODO()
+}

@@ -1,0 +1,26 @@
+{
+  "_comment": [
+    "FILE SHAPE ONLY. Fabricated placeholder region ('Examplia'). Delete before use.",
+    "Matches India's bundled asset shape: top-level 'states' -> sub-region name -> rows.",
+    "If your market publishes NATIONAL holidays, drop the sub-region level entirely",
+    "and make this a flat array - and delete the state picker UI with it.",
+    "'asOf' is not in India's file. ADD IT: a bundled calendar goes stale, and lunar",
+    "holidays shift every year, so the UI must be able to show how old this data is."
+  ],
+  "asOf": "2026-01-15",
+  "sourceDateFormat": "d MMMM yyyy",
+  "states": {
+    "Northern Province": [
+      { "Date": "1 January 2026",  "Day": "Thursday", "Holiday": "New Year's Day" },
+      { "Date": "10 January 2026", "Day": "Saturday", "Holiday": "2nd Saturday Bank Holiday" },
+      { "Date": "24 January 2026", "Day": "Saturday", "Holiday": "4th Saturday Bank Holiday" },
+      { "Date": "16 March 2026",   "Day": "Monday",   "Holiday": "Provincial Foundation Day" },
+      { "Date": "20 March 2026",   "Day": "Friday",   "Holiday": "Spring Festival (lunar - shifts yearly)" }
+    ],
+    "Southern Province": [
+      { "Date": "1 January 2026",  "Day": "Thursday", "Holiday": "New Year's Day" },
+      { "Date": "10 January 2026", "Day": "Saturday", "Holiday": "2nd Saturday Bank Holiday" },
+      { "Date": "2 February 2026", "Day": "Monday",   "Holiday": "Harvest Day (southern only)" }
+    ]
+  }
+}

@@ -1,0 +1,236 @@
+package com.yourapp.smstxn.smsmodel
+
+import kotlin.math.exp
+
+// =============================================================================
+// SmsParser — biGRU + CRF inference. ALMOST ENTIRELY REGION-NEUTRAL.
+//
+// Copy the structure as-is. The only regional decisions are the LABEL SETS below
+// (and you should keep those too unless your market genuinely needs more).
+//
+// Full working reference: ../../../src/smsmodel/SmsParser.kt
+// =============================================================================
+
+data class ParsedSms(
+    val isBankTxn: Boolean,
+    /** Raw span. Map via RegionProfile.banks for canonical name + logo. */
+    val bankSpan: String,
+    val accountNumber: String,
+    val amount: String,
+    val avlBal: String,
+    val merchantName: String,
+    /** CREDIT / DEBIT / OTHER */
+    val transactionType: String,
+    /** VIA_BANK / VIA_CARD / NONE */
+    val typeOf: String,
+    /** Min head softmax confidence — the caller gates on this. */
+    val confidence: Float,
+)
+
+class SmsParser(
+    private val w: ModelWeights,
+    private val tokenizer: Tokenizer,
+) {
+
+    // -------------------------------------------------------------------------
+    // LABEL SETS — must match the trainer exactly.
+    //
+    // TODO(REGION): only if your market needs span types India didn't have.
+    // Adding one changes tagW rows, this list, the CRF transition matrix size
+    // AND the mergeSpans switch below. Budget for it up front.
+    //
+    // IN-HINT: 11 tags = O + B/I x 5 span types. A market quoting both booked
+    // and value dates, or FX amounts, needs extra types.
+    // -------------------------------------------------------------------------
+    private val tags = listOf(
+        "O",
+        "B-BANK", "I-BANK",
+        "B-ACCOUNT", "I-ACCOUNT",
+        "B-AMOUNT", "I-AMOUNT",
+        "B-BALANCE", "I-BALANCE",
+        "B-MERCHANT", "I-MERCHANT",
+    )
+
+    /**
+     * KEEP. OTHER is load-bearing: it holds real transactions the model can't
+     * confidently type. Callers must NOT filter it out — they drop blank/zero
+     * amounts instead, which is what actually excludes balance-only messages.
+     */
+    private val txnTypes = listOf("CREDIT", "DEBIT", "OTHER")
+
+    /**
+     * KEEP unless your market has a third dominant instrument class (e.g. a
+     * wallet), which would belong here.
+     * IN-HINT: India separates bank account from card because they behave
+     * differently in the ledger.
+     */
+    private val sources = listOf("VIA_BANK", "VIA_CARD", "NONE")
+
+    /**
+     * KEEP: GruCell carries mutable scratch buffers, so it must NOT be an
+     * instance field. A single shared SmsParser parsing two messages
+     * concurrently on Dispatchers.Default corrupted each other's output
+     * (measured ~0.5% wrong/empty amounts under 8-thread load). Created per call
+     * instead: parse() is reentrant and safe from parallel coroutines.
+     */
+    fun parse(body: String, address: String = ""): ParsedSms {
+        val fwd = GruCell(w.wIhF, w.wHhF, w.bIhF, w.bHhF, w.hidden)
+        val bwd = GruCell(w.wIhB, w.wHhB, w.bIhB, w.bHhB, w.hidden)
+
+        // KEEP: sender is prepended exactly as the training generator did.
+        // Dropping this silently degrades accuracy — the sender carries the
+        // strongest bank signal in the whole message.
+        val full = if (address.isNotBlank()) "$address | $body" else body
+
+        val (tokens, triIds) = tokenizer.tokenize(full)
+        if (tokens.isEmpty()) return empty()
+
+        val T = tokens.size
+        val H = w.hidden
+
+        // KEEP: token embedding = MEAN of its trigram embeddings.
+        // This is what makes word forms ("debit"/"debited"/"debiting") share
+        // representation, and what the self-supervised pretraining phase
+        // exploits to discover that money-movement verbs are interchangeable.
+        // Language-agnostic mechanism — keep it in every region.
+        val x = Array(T) { t ->
+            val tris = triIds[t]
+            FloatArray(w.embDim) { c ->
+                var s = 0f
+                for (id in tris) s += w.emb[id, c]
+                s / tris.size
+            }
+        }
+
+        // biGRU
+        val hF = Array(T) { FloatArray(H) }
+        val hB = Array(T) { FloatArray(H) }
+        val h = FloatArray(H)
+        for (t in 0 until T) { fwd.step(x[t], h); System.arraycopy(h, 0, hF[t], 0, H) }
+        java.util.Arrays.fill(h, 0f)
+        for (t in T - 1 downTo 0) { bwd.step(x[t], h); System.arraycopy(h, 0, hB[t], 0, H) }
+
+        // concat [fwd;bwd] per token + mean pool for the sentence-level heads
+        val enc = Array(T) { t ->
+            FloatArray(2 * H).also { e ->
+                System.arraycopy(hF[t], 0, e, 0, H)
+                System.arraycopy(hB[t], 0, e, H, H)
+            }
+        }
+        val pooled = FloatArray(2 * H)
+        for (t in 0 until T) for (c in 0 until 2 * H) pooled[c] += enc[t][c] / T
+
+        // heads
+        val tagScores = Array(T) { t -> linear(enc[t], w.tagW, w.tagB) }
+        val path = CrfDecoder.decode(tagScores, w.crfTrans, w.numTags)
+        val isBank = softmax(linear(pooled, w.isBankW, w.isBankB))
+        val ttype = softmax(linear(pooled, w.ttypeW, w.ttypeB))
+        val src = softmax(linear(pooled, w.srcW, w.srcB))
+
+        val fields = mergeSpans(tokens, path)
+
+        // KEEP: confidence = the IS-TRANSACTION head only.
+        // Type/source uncertainty must NOT kill a row whose amount and account
+        // are cleanly extracted and separately validated by the guardrails.
+        // IN-HINT: a real Kotak transaction was being dropped because a
+        // cross-bank VPA domain made the source head unsure while every
+        // extracted field was correct.
+        val conf = isBank.max()
+
+        return ParsedSms(
+            isBankTxn = argmax(isBank) == 1,
+            bankSpan = fields["BANK"] ?: "",
+            accountNumber = normalizeAccount(fields["ACCOUNT"] ?: ""),
+            amount = fields["AMOUNT"] ?: "",
+            avlBal = fields["BALANCE"] ?: "",
+            merchantName = fields["MERCHANT"] ?: "",
+            transactionType = txnTypes[argmax(ttype)],
+            typeOf = sources[argmax(src)],
+            confidence = conf,
+        )
+    }
+
+    /**
+     * KEEP: same span-merge logic as the trainer's decode_to_fields —
+     * FIRST span of each type wins.
+     */
+    private fun mergeSpans(tokens: List<String>, path: IntArray): Map<String, String> {
+        val spans = ArrayList<Pair<String, MutableList<String>>>()
+        var curType: String? = null
+        var cur = mutableListOf<String>()
+        fun flush() { curType?.let { spans.add(it to cur) }; curType = null; cur = mutableListOf() }
+        for (i in tokens.indices) {
+            val tag = tags[path[i]]
+            when {
+                tag == "O" -> flush()
+                tag.startsWith("B-") -> { flush(); curType = tag.substring(2); cur.add(tokens[i]) }
+                else -> {
+                    val e = tag.substring(2)
+                    if (curType == e) cur.add(tokens[i]) else { flush(); curType = e; cur.add(tokens[i]) }
+                }
+            }
+        }
+        flush()
+        val out = HashMap<String, String>()
+        for ((type, toks) in spans) if (type !in out) {
+            out[type] = when {
+                // Numbers join with NO separator — the tokenizer split them.
+                type == "AMOUNT" || type == "ACCOUNT" || type == "BALANCE" ->
+                    toks.joinToString("")
+
+                // Handle-style payment identifiers join with no separator so
+                // "rahul123","@","ybl" -> "rahul123@ybl", not "rahul123 @ ybl".
+                //
+                // TODO(REGION): India's case is UPI VPAs. The RULE is not
+                // India-specific — any market with handle-style payment ids
+                // (@ addresses, PIX keys, email transfers) needs it. Retarget
+                // the separator character if yours differs.
+                type == "MERCHANT" && toks.contains("@") -> toks.joinToString("")
+
+                else -> toks.joinToString(" ")
+            }
+        }
+        return out
+    }
+
+    /**
+     * KEEP THE RULE, check the length.
+     *
+     * Masked forms all mean the same account, so reduce to the trailing digit
+     * run and the app groups them as ONE account instead of several.
+     * IN-HINT: XX5665 / 5665 / *5665 / X5665 / ...5665 -> "5665"
+     *
+     * Returns "" if no digit run of length >= 3 exists — guards against a stray
+     * mask fragment becoming an account.
+     *
+     * TODO(REGION): only the minimum length is regional (RegionProfile
+     * .accountMasking.minAccountDigits). IBAN-tail markets may want more.
+     */
+    private fun normalizeAccount(raw: String): String =
+        Regex("""\d{3,}""").findAll(raw.trim()).map { it.value }.lastOrNull() ?: ""
+
+    // ---- plumbing: KEEP verbatim ---------------------------------------------
+
+    private fun linear(x: FloatArray, W: Tensor, b: FloatArray): FloatArray {
+        val out = FloatArray(W.rows)
+        for (r in 0 until W.rows) {
+            var s = b[r]
+            for (c in x.indices) s += W[r, c] * x[c]
+            out[r] = s
+        }
+        return out
+    }
+
+    private fun softmax(x: FloatArray): FloatArray {
+        val m = x.max(); var sum = 0f
+        val e = FloatArray(x.size) { exp(x[it] - m).also { v -> sum += v } }
+        for (i in e.indices) e[i] /= sum
+        return e
+    }
+
+    private fun argmax(x: FloatArray): Int {
+        var a = 0; for (i in 1 until x.size) if (x[i] > x[a]) a = i; return a
+    }
+
+    private fun empty() = ParsedSms(false, "", "", "", "", "", "OTHER", "NONE", 0f)
+}

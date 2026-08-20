@@ -1,0 +1,267 @@
+package com.yourapp.smstxn.pipeline
+
+import com.yourapp.smstxn.model.TransactionRow
+import com.yourapp.smstxn.region.RegionProfile
+import com.yourapp.smstxn.region.TxnSource
+import com.yourapp.smstxn.region.TxnType
+import com.yourapp.smstxn.smsmodel.SmsParser
+import java.math.BigDecimal
+
+// =============================================================================
+// TransactionFilter — THE HEAVIEST FILE IN THE PORT.
+//
+// Model call + every guardrail. India's version is ~450 lines. This skeleton
+// keeps the ORDER OF OPERATIONS and the reasoning; you fill in the regexes and
+// word lists from RegionProfile.
+//
+// ** THE ONE RULE: THE MODEL NEVER DECIDES ALONE. **
+// Every field the model emits is validated, repaired or vetoed here against the
+// raw message text. That is why a wrong span becomes a DROPPED ROW instead of a
+// WRONG BALANCE shown to a user. A new region's model is weaker than India's at
+// first; this layer is what makes that survivable. Do not ship model output raw.
+//
+// This layer is ALSO the complete extractor when RegionProfile.useMlParser is
+// false — a legitimate ship state. See ../../MODEL_TRAINING.md.
+//
+// India reference: ../../../src/pipeline/BankTransactionFilterMl.kt
+// =============================================================================
+
+/**
+ * KEEP: the Android-free seam. Keeps the parser unit-testable with no emulator
+ * and lets you feed corpus rows straight through in a JVM test.
+ */
+interface SmsFilterContext {
+    fun openAsset(fileName: String): java.io.InputStream
+    suspend fun bankNameFromBody(body: String): Pair<String, String>
+    suspend fun merchantFromBody(body: String): String
+    val region: RegionProfile
+}
+
+/**
+ * KEEP: ONE parser instance for the process. Loading the weights is expensive;
+ * parse() is reentrant (GruCell is per-call) so a single instance is safe.
+ */
+object ParserHolder {
+    @Volatile private var instance: SmsParser? = null
+
+    fun get(env: SmsFilterContext): SmsParser =
+        instance ?: synchronized(this) {
+            instance ?: buildParser(env).also { instance = it }
+        }
+
+    private fun buildParser(env: SmsFilterContext): SmsParser {
+        TODO("load ModelWeights from env.openAsset(region.modelAssetName), build Tokenizer(region)")
+    }
+}
+
+/**
+ * KEEP: last account seen per bank, so messages that carry NO account (mandate
+ * notices, statements) can inherit one.
+ *
+ * Order matters: fed in CHRONOLOGICAL order by the batch engine, not arrival
+ * order. Getting that wrong attaches transactions to the wrong account.
+ */
+object AccountMemory {
+    private val byBank = java.util.concurrent.ConcurrentHashMap<String, MutableSet<String>>()
+
+    private fun norm(key: String) = key.uppercase().replace(Regex("[^A-Z]"), "")
+
+    fun remember(keys: List<String?>, account: String) { TODO() }
+    fun recall(keys: List<String?>): String? = TODO()
+    fun clear() = byBank.clear()
+}
+
+// =============================================================================
+// Row-level veto rules.
+//
+// Each of these exists because it produced WRONG DATA in production. The word
+// lists are regional (RegionProfile.vocabulary); the RULES are universal — every
+// market sends OTPs, declines, reminders and recurring-payment notices.
+// =============================================================================
+class TransactionRowValidator(private val region: RegionProfile) {
+
+    private val v get() = region.vocabulary
+
+    /**
+     * KEEP THIS DISTINCTION — it is the easiest thing in the whole port to get
+     * backwards, and getting it backwards inflates every user's balance.
+     *
+     * Only mandate CREATION / CANCELLATION notices are non-transactions.
+     * An EXECUTED recurring debit ("199 debited as per mandate") is REAL money
+     * movement and must be kept.
+     *
+     * IN-HINT: dropping executed autopay debits inflated the computed balance.
+     * IN-HINT: cancel notices QUOTE the mandate amount, and that amount was
+     *          landing in the balance field and anchoring the account to it.
+     */
+    fun isMandateNotice(body: String): Boolean {
+        val hasMandate = v.mandateWords.any { body.contains(it, ignoreCase = true) }
+        if (!hasMandate) return false
+        val created = v.mandateCreationVerbs.any { body.contains(it, ignoreCase = true) }
+        val cancelled = v.mandateCancelVerbs.any { body.contains(it, ignoreCase = true) }
+        return created || cancelled
+    }
+
+    fun isOtpNotice(body: String) = v.otpWords.any { body.contains(it, ignoreCase = true) }
+    fun isDeclinedNotice(body: String) = v.declinedWords.any { body.contains(it, ignoreCase = true) }
+    fun isReminderNotice(body: String) = v.reminderWords.any { body.contains(it, ignoreCase = true) }
+
+    /**
+     * KEEP: the model sometimes tags the AMOUNT span as the ACCOUNT. A row whose
+     * "account" equals its own amount is garbage.
+     */
+    fun isAmountAsAccount(accountNumber: String, amount: String): Boolean = TODO()
+
+    /** KEEP: same check against the body, using account-context words. */
+    fun isAmountAsAccountInBody(accountNumber: String, body: String): Boolean = TODO()
+
+    fun isInvalidRow(accountNumber: String, amount: String, body: String): Boolean =
+        isAmountAsAccount(accountNumber, amount) ||
+            isAmountAsAccountInBody(accountNumber, body) ||
+            isOtpNotice(body) || isDeclinedNotice(body) ||
+            isReminderNotice(body) || isMandateNotice(body)
+}
+
+// =============================================================================
+// Numeric repair — the model proposes, the raw text decides.
+// =============================================================================
+
+/**
+ * KEEP THIS GUARD IN EVERY REGION, even if your grouping is uniform.
+ *
+ * A model value is trusted only if it appears in the body as a COMPLETE money
+ * token. Catches truncation everywhere, and lakh-grouping damage in India.
+ *
+ * IN-HINT: Indian grouping ("INR.6,87,367.28") let the model emit ONE comma
+ * group as the whole number — "6" as the amount, "87367" as the balance. Such a
+ * fragment appears nowhere in the body as a complete token, so the regex reading
+ * wins and the row is repaired instead of saved wrong.
+ *
+ * IN-HINT MONEY_TOKEN_RE: "(?<![A-Za-z0-9])\\d[\\d,]*(?:\\.\\d{1,2})?"
+ *   The leading negative lookbehind matters: without it "CHQ0" offers a bare "0"
+ *   token that would validate a garbage model amount of "00".
+ *
+ * TODO(REGION): rebuild from RegionProfile.currency separators/decimals.
+ */
+private fun isBodyMoneyToken(value: String, body: String, region: RegionProfile): Boolean {
+    runCatching { BigDecimal(value) }.getOrNull() ?: return false
+    TODO("match value against every complete money token in body")
+}
+
+/** KEEP: repair a truncated model number from the body. */
+private fun repairTruncatedNumber(modelValue: String, body: String, re: Regex): String = TODO()
+
+/** KEEP: same for balance, qualified pattern first then bare. */
+private fun repairTruncatedBalance(modelValue: String, body: String): String = TODO()
+
+/**
+ * KEEP: cross-check amount against balance. If the model's amount and balance
+ * are the same number, one of them is wrong — the body decides which.
+ */
+private fun repairAmountAgainstBalance(
+    modelAmount: String, modelBalance: String, body: String,
+): String = TODO()
+
+// =============================================================================
+// The extractor
+// =============================================================================
+
+/**
+ * Returns null when this message is NOT a transaction. Null is the NORMAL,
+ * EXPECTED result for most inbox messages — do not treat it as an error.
+ *
+ * ORDER OF OPERATIONS — keep it. Each step depends on the previous one.
+ */
+suspend fun transactionFilter(
+    env: SmsFilterContext,
+    body: String,
+    address: String?,
+    date: String,
+    messageId: String,
+    typeId: String,
+    threadId: Long,
+    cardNoCache: MutableCollection<String>,
+): TransactionRow? {
+    val region = env.region
+
+    // 1. MODEL. Skipped entirely when useMlParser is false — every step below
+    //    still runs, which is what makes regex-only a shippable configuration.
+    val p = if (region.useMlParser) ParserHolder.get(env).parse(body, address ?: "") else null
+
+    // 2. SENDER. Independent of the model — a lookup, not learned.
+    val senderBank = region.senderScheme.resolve(address ?: "")
+    val hasBankHint = senderBank != null || env.bankNameFromBody(body).first.isNotEmpty()
+
+    // 3. VETO: no bank signal at all + a personal-looking number = not banking.
+    //    TODO(REGION): "personal-looking" depends on your market's numbering.
+    //    IN-HINT: strips spaces/+/- then treats a long digit run as personal.
+    if (!hasBankHint) return null
+
+    // 4. VETO: statement / minimum-due alerts. Money hasn't moved.
+    //    TODO(REGION): translate. IN-HINT: "min.due", statement wording.
+
+    // 5. CONFIDENCE GATE — is-transaction head only (see SmsParser).
+    if (p != null && p.confidence < region.minConfidence) return null
+    if (p != null && !p.isBankTxn) return null
+
+    // 6. BANK + LOGO. Priority: sender resolver -> model BANK span -> body lookup.
+    //    Sender wins because it is a fixed string, not an inference.
+    val (bankName, logoKey) = TODO("resolve via senderBank, p?.bankSpan, env.bankNameFromBody")
+
+    // 7. AMOUNT. Model span, repaired against body and balance, then formatted.
+    //    TODO(REGION): formatting comes from RegionProfile.currency — symbol,
+    //    POSITION (prefix vs suffix), separators, decimal places.
+    //    IN-HINT: "₹ $amountNum" — prefix, hardcoded at 4 call sites in India's
+    //    version. Route it through one formatter instead; that hardcoding is
+    //    exactly what made the India code hard to port.
+    val amount: String = TODO()
+
+    // 8. ACCOUNT. Priority: body regex -> model span (normalized) ->
+    //    AccountMemory.recall() for messages carrying no account at all.
+    //    Plus: reject an "account" that is really the amount.
+    val account: String = TODO()
+
+    // 9. CARD OVERRIDE. A body that identifies itself as a CREDIT card message
+    //    and carries a card-ending owns its own account, and source becomes CARD.
+    //    KEEP the rule — any market with credit cards needs it.
+    //    TODO(REGION): translate creditCardBodyWords / cardEndingRegex.
+
+    // 10. BALANCE. Model span repaired via qualified-then-bare patterns,
+    //     else body regex fallback.
+    val avlBal: String = TODO()
+
+    // 11. TYPE RECONCILIATION. KEEP THIS SHAPE: when the model's type head and
+    //     the keyword scan disagree, THE KEYWORD WINS unless it said OTHER.
+    //     A keyword is a fact in the text; the head is an inference.
+    val transactionType: TxnType = TODO()
+
+    // 12. SOURCE: model head, forced to CARD by step 9.
+    val source: TxnSource = TODO()
+
+    // 13. MERCHANT: model span, else body extraction.
+    val merchant: String = TODO()
+
+    // 14. FINAL VETO. Runs last, on the assembled row.
+    val validator = TransactionRowValidator(region)
+    if (validator.isInvalidRow(account, amount, body)) return null
+
+    // 15. Feed AccountMemory so later account-less messages can inherit.
+    AccountMemory.remember(listOf(senderBank, bankName, p?.bankSpan), account)
+
+    return TransactionRow(
+        bankName = bankName,
+        accountNumber = account,
+        amount = amount,
+        avlBal = avlBal,
+        merchantName = merchant,
+        body = body,
+        date = date,
+        transactionType = transactionType.dbValue,
+        address = address ?: "",
+        logoKey = logoKey,
+        messageId = messageId,
+        typeId = typeId,
+        thread = threadId,
+        source = source.dbValue,
+    )
+}

@@ -1,0 +1,90 @@
+package com.yourapp.holidays
+
+import androidx.annotation.Keep
+import com.google.gson.annotations.SerializedName
+
+// =============================================================================
+// Holiday models — WIRE format vs DOMAIN model, kept separate.
+//
+// India collapses these into one set of Gson models used straight through to the
+// adapters, so the API's field names leak into the UI layer. Splitting them costs
+// one mapping function and means a new region can change its feed shape without
+// touching any screen.
+//
+// KEEP the @Keep annotations — ProGuard strips Gson model fields otherwise, and
+// the failure mode is silent nulls in release only.
+// =============================================================================
+
+// ---- WIRE: matches your feed exactly ----------------------------------------
+
+/**
+ * TODO(REGION): match your source's envelope.
+ * IN-HINT India: {Status, Response_Code, Response_Msg, Data}
+ * — capitalised keys, from their own backend. Yours will differ; keep the
+ * SerializedName values glued to the feed, not to Kotlin style.
+ */
+@Keep
+data class HolidayFeedResponse(
+    @SerializedName("Status") val status: Boolean,
+    @SerializedName("Response_Code") val responseCode: Int,
+    @SerializedName("Response_Msg") val responseMsg: String,
+    @SerializedName("Data") val data: List<SubRegionHolidaysDto>,
+)
+
+/**
+ * TODO(REGION): drop this whole level if your market publishes NATIONAL holidays.
+ * IN-HINT India: {State_Name, bank_holiday:[...]} per state, 30+ entries.
+ */
+@Keep
+data class SubRegionHolidaysDto(
+    @SerializedName("State_Name") val subRegionName: String,
+    @SerializedName("bank_holiday") val holidays: List<HolidayDto>,
+)
+
+@Keep
+data class HolidayDto(
+    /** TODO(REGION): IN-HINT "11 January 2025" — format "d MMMM yyyy". */
+    @SerializedName("Date") val date: String,
+    @SerializedName("Day") val day: String,
+    @SerializedName("Holiday") val name: String,
+)
+
+// ---- DOMAIN: what the UI actually uses --------------------------------------
+
+/**
+ * KEEP: a real date type, not a String.
+ *
+ * India carries the raw display string all the way to the adapter, so grouping by
+ * month means string work and sorting is lexicographic. Parse once at the
+ * repository boundary.
+ */
+data class BankHoliday(
+    val date: java.time.LocalDate,
+    val name: String,
+    /** True when generated from a recurring rule, not listed by the source. */
+    val isRecurringClosure: Boolean = false,
+) {
+    val dayOfWeek: java.time.DayOfWeek get() = date.dayOfWeek
+}
+
+/** KEEP: month grouping is what every holiday screen renders. */
+data class HolidayMonth(
+    val year: Int,
+    val month: java.time.Month,
+    val holidays: List<BankHoliday>,
+)
+
+/**
+ * KEEP: carry the freshness stamp into the UI.
+ *
+ * A bundled fallback WILL go stale — lunar holidays shift every year. Showing
+ * "as of <date>" turns a silent wrong answer into a visible old one.
+ */
+data class HolidayCalendar(
+    val subRegion: String?,
+    val months: List<HolidayMonth>,
+    val source: Source,
+    val asOf: java.time.LocalDate?,
+) {
+    enum class Source { NETWORK, BUNDLED_ASSET, RECURRING_ONLY }
+}

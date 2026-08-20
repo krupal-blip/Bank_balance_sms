@@ -1,0 +1,94 @@
+package com.yourapp.smstxn.database
+
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
+import androidx.room.Update
+import com.yourapp.smstxn.model.TransactionRow
+
+// =============================================================================
+// TransactionDao — ZERO REGION WORK.
+//
+// Only the queries the SMS->transaction pipeline itself needs. India's DAO mixes
+// these with bank-master, card and PDF queries; keep yours narrow.
+//
+// India reference: ../../../src/database/BankDao.kt
+// =============================================================================
+
+@Dao
+interface TransactionDao {
+
+    /**
+     * KEEP THE IGNORE STRATEGY. It pairs with the unique(body, date) index —
+     * together they are what makes re-running the inbox import safe.
+     */
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    fun insertAll(rows: List<TransactionRow>)
+
+    /** Used by the reparse migration. Sort chronologically at the call site. */
+    @Query("SELECT * FROM TransactionRow")
+    fun getAll(): List<TransactionRow>
+
+    /** Pre-insert dedup during an inbox pass. */
+    @Query("SELECT EXISTS(SELECT 1 FROM TransactionRow WHERE body = :body)")
+    fun bodyAlreadyStored(body: String): Boolean
+
+    @Query("SELECT COUNT(*) FROM TransactionRow")
+    suspend fun count(): Int
+
+    // ---- reparse migration support ------------------------------------------
+
+    /** KEEP: update IN PLACE. Ids are preserved; the table is never nuked. */
+    @Update
+    suspend fun updateAll(rows: List<TransactionRow>)
+
+    @Query("DELETE FROM TransactionRow WHERE id IN (:ids)")
+    suspend fun deleteByIds(ids: List<Int>)
+
+    // ---- read paths ----------------------------------------------------------
+
+    /**
+     * KEEP THE COMMENT, IT IS A REAL TRAP:
+     * do NOT add a transactionType filter here. 'OTHER' includes real
+     * transactions the parser couldn't confidently type (some ATM-withdrawal
+     * wording, for example), not just balance-only messages.
+     *
+     * Callers exclude balance-only rows by dropping blank/zero amounts — that is
+     * what actually does the job. Filtering on type here silently hides real
+     * money movements.
+     */
+    @Query("SELECT * FROM TransactionRow WHERE accountNumber = :accountNumber ORDER BY date DESC")
+    suspend fun byAccount(accountNumber: String): List<TransactionRow>
+
+    @Query("SELECT * FROM TransactionRow ORDER BY date DESC")
+    fun allNewestFirst(): List<TransactionRow>
+
+    /**
+     * NOTE: with `date` stored as a String (India's choice), this range compare
+     * is LEXICOGRAPHIC, not numeric. It happens to work for fixed-width epoch
+     * millis and breaks the moment a value has different width.
+     * One more reason to store `date` as Long — see TransactionRow.
+     */
+    @Query("SELECT * FROM TransactionRow WHERE date BETWEEN :start AND :end ORDER BY date DESC")
+    fun dateRange(start: Long, end: Long): List<TransactionRow>
+}
+
+// =============================================================================
+// DATABASE SETUP — the one threading rule that matters here.
+//
+// ** The FIRST getInstance() call opens the DB and runs migrations EAGERLY
+//    (openHelper.writableDatabase). It MUST first run on Dispatchers.IO. **
+//
+// Pre-warm it in your Application's deferred init, on IO, before anything else
+// can touch it. If the first call lands on main during startup, you get an ANR
+// whose stack points at Room and not at whatever actually triggered it.
+//
+// Keep any new getInstance() / repository / ViewModel-repo construction off main
+// for the same reason.
+//
+// India reference: ../../../src/database/BankDataBase.kt
+//   Room, version 14, 7 entities, migrations 1->14 all hand-written. One of them
+//   dedups rows left behind by an early duplicate-insert bug in the ingestor —
+//   a reminder to write the migration when you fix the bug, not later.
+// =============================================================================

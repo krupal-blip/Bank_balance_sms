@@ -1,0 +1,132 @@
+package com.yourapp.channels
+
+import android.content.Intent
+import android.net.Uri
+import androidx.annotation.Keep
+import com.google.gson.annotations.SerializedName
+import com.yourapp.region.BalanceChannel
+import com.yourapp.region.RegionFeatureProfile
+
+// =============================================================================
+// Balance-check channels — ONE consolidated bank table.
+//
+// India splits this across three overlapping sources that disagree on naming and
+// cover different bank counts:
+//   assets/ussd.json          ~90 banks (Bank Name, Short Name, USSD code, IFSC prefix)
+//   assets/bankbalance.db     tbl_bank_info, 48 rows (bank_inquiry, bank_care,
+//                             netbank_api, mini_statement, bank_short)
+//   utils/BankArray.kt        15 KB Kotlin literal (BankMissCallModel)
+//
+// Here: one JSON keyed by a stable bank id. Read ../README.md FIRST — most of
+// these channels do not exist outside India, and the right port is often to
+// disable the feature.
+// =============================================================================
+
+@Keep
+data class ChannelTableDto(
+    @SerializedName("regionCode") val regionCode: String,
+    @SerializedName("banks") val banks: List<BankChannelsDto>,
+)
+
+@Keep
+data class BankChannelsDto(
+    /** Stable id. KEEP — this is what fixed India's three-source naming drift. */
+    @SerializedName("id") val id: String,
+    @SerializedName("displayName") val displayName: String,
+    @SerializedName("shortName") val shortName: String?,
+    @SerializedName("logoKey") val logoKey: String?,
+
+    /**
+     * TODO(REGION): omit any channel your market lacks. null = not offered, and
+     * the UI must hide the row rather than showing a dead button.
+     * IN-HINT India: USSD "*99*87#", missed-call and IVR numbers per bank,
+     * SMS keyword + shortcode.
+     */
+    @SerializedName("ussdCode") val ussdCode: String?,
+    @SerializedName("missedCallNumber") val missedCallNumber: String?,
+    @SerializedName("ivrNumber") val ivrNumber: String?,
+    @SerializedName("smsKeyword") val smsKeyword: String?,
+    @SerializedName("smsShortCode") val smsShortCode: String?,
+    @SerializedName("miniStatementNumber") val miniStatementNumber: String?,
+)
+
+// -----------------------------------------------------------------------------
+
+/**
+ * KEEP: intent builders, not direct calls.
+ *
+ * ** PERMISSIONS — the reason this shape matters. **
+ * Placing a call needs CALL_PHONE and sending an SMS needs SEND_SMS; both are
+ * Play-restricted and need a policy review. ACTION_DIAL and an SMS intent need
+ * NO permission, hand control to the user, and pass review. Use them.
+ */
+object ChannelIntents {
+
+    /**
+     * ** KEEP THE %23 ENCODING. **
+     * USSD codes contain '#'. In a tel: URI an unencoded '#' starts the fragment,
+     * so "*99*87#" is silently truncated to "*99*87" and the code fails with no
+     * error. India handles this in SendSmsActivity — do not lose it.
+     */
+    fun dialUssd(code: String): Intent {
+        val encoded = code.replace("#", "%23")
+        return Intent(Intent.ACTION_DIAL, Uri.parse("tel:$encoded"))
+    }
+
+    fun dial(number: String): Intent =
+        Intent(Intent.ACTION_DIAL, Uri.parse("tel:${number.filter { it.isDigit() || it == '+' }}"))
+
+    /** KEEP: pre-fill the body, let the user press send. No SEND_SMS needed. */
+    fun composeSms(shortCode: String, keyword: String): Intent =
+        Intent(Intent.ACTION_SENDTO, Uri.parse("smsto:$shortCode")).apply {
+            putExtra("sms_body", keyword)
+        }
+}
+
+// -----------------------------------------------------------------------------
+
+class BalanceChannelRepository(
+    private val region: RegionFeatureProfile,
+    private val table: ChannelTableDto,
+) {
+
+    /**
+     * KEEP: filter by what the REGION supports, then by what the BANK offers.
+     * Both gates are needed — a market may have USSD while a given bank doesn't.
+     */
+    fun channelsFor(bankId: String): List<AvailableChannel> {
+        val bank = table.banks.firstOrNull { it.id == bankId } ?: return emptyList()
+        val supported = region.balanceChannels.channels
+
+        return buildList {
+            if (BalanceChannel.USSD in supported && !bank.ussdCode.isNullOrBlank())
+                add(AvailableChannel.Ussd(bank.ussdCode))
+            if (BalanceChannel.MISSED_CALL in supported && !bank.missedCallNumber.isNullOrBlank())
+                add(AvailableChannel.MissedCall(bank.missedCallNumber))
+            if (BalanceChannel.IVR in supported && !bank.ivrNumber.isNullOrBlank())
+                add(AvailableChannel.Ivr(bank.ivrNumber))
+            if (BalanceChannel.SMS_KEYWORD in supported &&
+                !bank.smsKeyword.isNullOrBlank() && !bank.smsShortCode.isNullOrBlank()
+            ) add(AvailableChannel.Sms(bank.smsShortCode, bank.smsKeyword))
+        }
+    }
+
+    sealed interface AvailableChannel {
+        data class Ussd(val code: String) : AvailableChannel
+        data class MissedCall(val number: String) : AvailableChannel
+        data class Ivr(val number: String) : AvailableChannel
+        data class Sms(val shortCode: String, val keyword: String) : AvailableChannel
+    }
+}
+
+// =============================================================================
+// DUAL-SIM — TODO(REGION), and it matters more than it looks.
+//
+// A USSD or missed-call balance check goes out on whichever SIM the system picks.
+// On a dual-SIM device that is often NOT the SIM registered with the bank, and
+// the failure is silent and confusing ("the app doesn't work").
+//
+// Either let the user choose the SIM, or display which one will be used. Dual-SIM
+// is the norm in India and much of Asia and Africa - exactly the markets where
+// these channels exist at all.
+// =============================================================================

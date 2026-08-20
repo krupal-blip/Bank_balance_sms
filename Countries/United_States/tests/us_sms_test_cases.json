@@ -1,0 +1,167 @@
+{
+  "suite_name": "US Bank SMS Validation Test Suite",
+  "country": "United States",
+  "currency": "USD",
+  "test_cases": [
+    {
+      "test_id": "US_TEST_001_CHASE_DEBIT_POS",
+      "raw_sender": "24273",
+      "raw_body": "Chase: A debit card purchase of $42.50 was made at TARGET T-1204 on Aug 19, 2026. Available bal: $2,450.10.",
+      "thought_process": {
+        "scenario": "Customer made an in-store POS purchase at Target with a Chase debit card.",
+        "reasoning": "Real financial money movement. $42.50 was spent. Balance should decrease. Suffix is Target POS terminal ID. Available balance of $2,450.10 is explicitly quoted.",
+        "financial_impact": "DEBIT of $42.50 from bank account/card ledger."
+      },
+      "expected_result": {
+        "is_transaction": true,
+        "bank": "Chase",
+        "account": null,
+        "amount": "42.50",
+        "balance": "2,450.10",
+        "txn_type": "DEBIT",
+        "source": "CARD",
+        "merchant": "TARGET T-1204"
+      }
+    },
+    {
+      "test_id": "US_TEST_002_CHASE_ATM_WITHDRAWAL",
+      "raw_sender": "24273",
+      "raw_body": "Chase: ATM withdrawal of $100.00 from checking (...4321) on 08/19/2026. Available balance: $2,350.10.",
+      "thought_process": {
+        "scenario": "Customer withdrew cash from a Chase ATM.",
+        "reasoning": "Real cash reduction. $100.00 debited from checking account 4321. New balance is $2,350.10.",
+        "financial_impact": "DEBIT of $100.00 from Checking Account 4321."
+      },
+      "expected_result": {
+        "is_transaction": true,
+        "bank": "Chase",
+        "account": "4321",
+        "amount": "100.00",
+        "balance": "2,350.10",
+        "txn_type": "DEBIT",
+        "source": "BANK",
+        "merchant": null
+      }
+    },
+    {
+      "test_id": "US_TEST_003_CHASE_PAYROLL_DIRECT_DEPOSIT",
+      "raw_sender": "24273",
+      "raw_body": "Chase: Direct deposit of $3,200.00 from ACME CORP was deposited to checking (...4321). Bal: $5,550.10.",
+      "thought_process": {
+        "scenario": "ACH Payroll salary direct deposit from employer ACME CORP.",
+        "reasoning": "Real money credit. Income increases the ledger by $3,200.00. Suffix 4321 is the checking account.",
+        "financial_impact": "CREDIT of $3,200.00 to Checking Account 4321."
+      },
+      "expected_result": {
+        "is_transaction": true,
+        "bank": "Chase",
+        "account": "4321",
+        "amount": "3,200.00",
+        "balance": "5,550.10",
+        "txn_type": "CREDIT",
+        "source": "BANK",
+        "merchant": "ACME CORP"
+      }
+    },
+    {
+      "test_id": "US_TEST_004_BOFA_CARD_CHARGE",
+      "raw_sender": "73981",
+      "raw_body": "Bank of America Alert: Card ending in 8892 was charged $18.99 at NETFLIX.COM on 08/19/2026. Reply HELP for info.",
+      "thought_process": {
+        "scenario": "Online recurring subscription charge on Bank of America card.",
+        "reasoning": "Real expense of $18.99 at Netflix. Card tail is 8892. No balance quoted in SMS.",
+        "financial_impact": "DEBIT of $18.99 on Card 8892."
+      },
+      "expected_result": {
+        "is_transaction": true,
+        "bank": "Bank of America",
+        "account": "8892",
+        "amount": "18.99",
+        "balance": null,
+        "txn_type": "DEBIT",
+        "source": "CARD",
+        "merchant": "NETFLIX.COM"
+      }
+    },
+    {
+      "test_id": "US_TEST_005_WELLS_FARGO_PURCHASE",
+      "raw_sender": "93557",
+      "raw_body": "Wells Fargo Alert: A purchase of $89.20 occurred on card ending in 4112 at WALMART on Aug 19. Avail Bal: $1,120.00.",
+      "thought_process": {
+        "scenario": "In-store card purchase at Walmart with Wells Fargo debit card.",
+        "reasoning": "Real debit of $89.20. Card tail is 4112. Available balance of $1,120.00 quoted.",
+        "financial_impact": "DEBIT of $89.20 on Card 4112."
+      },
+      "expected_result": {
+        "is_transaction": true,
+        "bank": "Wells Fargo",
+        "account": "4112",
+        "amount": "89.20",
+        "balance": "1,120.00",
+        "txn_type": "DEBIT",
+        "source": "CARD",
+        "merchant": "WALMART"
+      }
+    },
+    {
+      "test_id": "US_TEST_006_NEGATIVE_BOFA_SAFEPASS_OTP",
+      "raw_sender": "73981",
+      "raw_body": "BofA: Your SafePass code is 918234. We will NEVER call you for this code. Reply HELP for info.",
+      "thought_process": {
+        "scenario": "Two-factor authentication login security code.",
+        "reasoning": "CRITICAL NEGATIVE: Zero money movement. Must be rejected by OTP guardrail. Must NOT create a ledger row.",
+        "financial_impact": "NO TRANSACTION (Ignore)."
+      },
+      "expected_result": {
+        "is_transaction": false,
+        "bank": "Bank of America",
+        "account": null,
+        "amount": null,
+        "balance": null,
+        "txn_type": "OTHER",
+        "source": "NONE",
+        "merchant": null
+      }
+    },
+    {
+      "test_id": "US_TEST_007_NEGATIVE_WELLS_AUTOPAY_SETUP",
+      "raw_sender": "93557",
+      "raw_body": "Wells Fargo Alert: Your scheduled AutoPay of $250.00 for account ending 4112 is set up for 08/25.",
+      "thought_process": {
+        "scenario": "AutoPay / recurring mandate creation notification.",
+        "reasoning": "CRITICAL NEGATIVE: Future mandate setup. No money has moved yet. Quoted $250.00 is a future promise, NOT an executed transaction.",
+        "financial_impact": "NO TRANSACTION (Ignore mandate setup to prevent false balance inflation)."
+      },
+      "expected_result": {
+        "is_transaction": false,
+        "bank": "Wells Fargo",
+        "account": null,
+        "amount": null,
+        "balance": null,
+        "txn_type": "OTHER",
+        "source": "NONE",
+        "merchant": null
+      }
+    },
+    {
+      "test_id": "US_TEST_008_NEGATIVE_CAPITAL_ONE_DECLINED",
+      "raw_sender": "227898",
+      "raw_body": "Capital One Alert: Your transaction of $450.00 at BEST BUY was declined due to low available credit.",
+      "thought_process": {
+        "scenario": "Declined card purchase due to insufficient credit limit.",
+        "reasoning": "CRITICAL NEGATIVE: The transaction was blocked. Money did NOT leave the account. Must be vetoed by declined guardrails.",
+        "financial_impact": "NO TRANSACTION (Ignore declined attempt)."
+      },
+      "expected_result": {
+        "is_transaction": false,
+        "bank": "Capital One",
+        "account": null,
+        "amount": null,
+        "balance": null,
+        "txn_type": "OTHER",
+        "source": "NONE",
+        "merchant": null
+      }
+    }
+  ]
+}

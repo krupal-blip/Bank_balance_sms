@@ -1,0 +1,335 @@
+// ===========================================================================
+// PipelineExtensions.kt  —  EXCERPT, not a compilable file.
+//
+// These are the ONLY functions the SMS->transaction path uses out of the app's
+// 49 KB utils/Extensions.kt. They are the regex/keyword layer that runs
+// ALONGSIDE the ML parser inside BankTransactionFilterMl: the model proposes,
+// these validate and repair, and where the model is unsure these are the
+// fallback. Copied verbatim with original line numbers so a port can diff
+// against the source file.
+//
+// Source: app/src/main/java/com/check/bank/balance/banking/tool/utils/Extensions.kt
+// ===========================================================================
+
+
+// ---------------------------------------------------------------------------
+// Parse caches + cache reset (Extensions.kt:92-106)
+// ---------------------------------------------------------------------------
+
+
+private var cachedBankList: List<BankLogoModel>? = null
+private val bankNameCache = mutableMapOf<String, Pair<String, String>>()
+private val amountCache = mutableMapOf<String, String>()
+private val balanceCache = mutableMapOf<String, String>()
+
+fun clearExtensionCaches() {
+    "clearExtensionCaches ${bankNameCache.size}".log()
+    bankNameCache.clear()
+    amountCache.clear()
+    balanceCache.clear()
+    if (bankNameCache.size > 1000) bankNameCache.clear()
+    if (amountCache.size > 1000) amountCache.clear()
+    if (balanceCache.size > 1000) balanceCache.clear()
+}
+
+
+// ---------------------------------------------------------------------------
+// String.transactionType() — keyword CREDIT/DEBIT fallback (Extensions.kt:692-706)
+// ---------------------------------------------------------------------------
+
+suspend fun String.transactionType(): String = withContext(Dispatchers.IO) {
+    val text = this@transactionType.lowercase()
+    val creditKeywords = setOf("credited", "received", "deposited")
+    val debitKeywords = setOf(
+        "debited", "withdrawn", "transfer", "spent", "paying", "payment", "deducted",
+        "sent", "spend", "purchase", "dr", "txn", "transferred"
+    )
+
+    return@withContext when {
+        creditKeywords.any { it in text } -> CREDIT
+        debitKeywords.any { it in text } -> DEBIT
+        else -> OTHER
+    }
+}
+
+
+
+// ---------------------------------------------------------------------------
+// String.getBankName(Context) — body-text bank lookup vs Bank_List (Extensions.kt:707-738)
+// ---------------------------------------------------------------------------
+
+suspend fun String.getBankName(context: Context): Pair<String, String> =
+    withContext(Dispatchers.IO) {
+
+        bankNameCache[this@getBankName]?.let { return@withContext it }
+
+        val body = this@getBankName.lowercase()
+
+        if (cachedBankList == null) {
+            cachedBankList = context.getBankList()
+        }
+
+        val bankMap = cachedBankList?.associateBy { it.mBank.lowercase() } ?: emptyMap()
+
+        // Longest matching name wins — so "State Bank of India" can never be
+        // stolen by its substring "Bank of India" (same for Union/Central BOI).
+        val bestMatch = Bank_List
+            .filter { body.contains(it.lowercase()) && bankMap.containsKey(it.lowercase()) }
+            .maxByOrNull { it.length }
+
+        bestMatch?.let { bank ->
+            bankMap[bank.lowercase()]?.let {
+                val result = bank to (it.logoCode ?: "")
+                bankNameCache[this@getBankName] = result
+                return@withContext result
+            }
+        }
+
+        val result = "" to ""
+        bankNameCache[this@getBankName] = result
+        return@withContext result
+    }
+
+
+
+// ---------------------------------------------------------------------------
+// String.getAccountNumber() — legacy regex account extractor (Extensions.kt:739-880)
+// ---------------------------------------------------------------------------
+
+suspend fun String.getAccountNumber(): String = withContext(Dispatchers.IO) {
+    var data = ""
+    var p1 = Pattern.compile("[0-9]*[Xx|*]*[0-9]*[Xx|*]+[0-9]{3,}")
+    val p2 = Pattern.compile("\\b(?:A/C\\sno\\.|A/C|(?:a/c\\sno\\.|a/c|AC|ac|account))\\s*(?:ending\\s*(?:with|in)?\\s*)?(\\d+)", Pattern.CASE_INSENSITIVE)
+    val matcher = p2.matcher(this@getAccountNumber)
+    if (matcher.find()) return@withContext "XX${matcher.group(1)}"
+
+    else if (this@getAccountNumber.contains("Ac", true)) {
+        "getAccountNumber: 1 -----> $this".log()
+        if (this@getAccountNumber.contains("a/c no.")) {
+            val body = this@getAccountNumber.split("a/c no. ")
+            if (body.size == 2) {
+                val m1 = p1.matcher(body[1])
+                "getAccouasasasantNumber: ${body[1]}".log()
+                while (m1.find()) {
+                    data = m1.group()
+                    break
+                }
+            } else {
+                val m1 = p1.matcher(body[0])
+                while (m1.find()) {
+                    data = m1.group()
+                    break
+                }
+            }
+        } else {
+            val body = this@getAccountNumber.split("Ac")
+            if (body.size == 2) {
+                val m1 = p1.matcher(body[1])
+                while (m1.find()) {
+                    data = m1.group()
+                    break
+                }
+            } else {
+                val m1 = p1.matcher(body[0])
+                while (m1.find()) {
+                    data = m1.group()
+                    break
+                }
+            }
+        }
+    } else if (this@getAccountNumber.contains("A/C", true)) {
+        "getAccountNumber: body 2".log()
+        if (this@getAccountNumber.contains("A/c ...")) {
+            "getAccountNumber: body 3".log()
+            val body = this@getAccountNumber.lowercase(Locale.ROOT).split("a/c ...")
+            p1 = Pattern.compile("[0-9]+[0-9]")
+            if (body.size > 1) {
+                val m1 = p1.matcher(body[1])
+                while (m1.find()) {
+                    data = m1.group()
+                    break
+                }
+            } else {
+                val m1 = p1.matcher(body[0])
+                while (m1.find()) {
+                    data = m1.group()
+                    break
+                }
+            }
+
+        } else if (this@getAccountNumber.contains("A/C", true)) {
+            "getAccountNumber: body 4".log()
+            val body = this@getAccountNumber.split("A/C")
+            if (body.size == 2) {
+                body.map {
+                    val m1 = p1.matcher(it)
+                    while (m1.find()) {
+                        data = m1.group()
+                        break
+                    }
+                }
+            } else if (this@getAccountNumber.contains("a/c", true)) {
+                "getAccountNumber: body 5".log()
+                val a1 = this@getAccountNumber.split("a/c")
+                if (a1.size > 1) {
+                    p1 = Pattern.compile("[0-9]+[0-9]")
+                    val m1 = p1.matcher(a1[1])
+                    while (m1.find()) {
+                        data = m1.group()
+                        break
+                    }
+                } else {
+                    val m1 = p1.matcher(a1[0])
+                    while (m1.find()) {
+                        data = m1.group()
+                        break
+                    }
+                }
+            }
+        }
+    } else if (this@getAccountNumber.contains("AC")) {
+        "getAccountNumber: body 6".log()
+        val body = this@getAccountNumber.split("AC")
+        if (body.size == 2) {
+            val m1 = p1.matcher(body[1])
+            while (m1.find()) {
+                data = m1.group()
+                break
+            }
+        } else {
+            val m1 = p1.matcher(body[0])
+            while (m1.find()) {
+                data = m1.group()
+                break
+            }
+        }
+    } else if (this@getAccountNumber.contains("a/c no.")) {
+        Log.d(TAG, "getAccountNumber: body 7")
+    } else {
+        val body = this@getAccountNumber.split("on")
+        val m1 = p1.matcher(body[0])
+        while (m1.find()) {
+            data = m1.group()
+            break
+        }
+    }
+    val p5 = if (data == "") {
+        this@getAccountNumber.account().toString()
+    } else {
+        if (data.contains("X", true) ||
+            data.contains("*", true)
+        ) {
+            val p2 = Pattern.compile("([0-9]+)").matcher(data)
+            var lastGroup = ""
+            while (p2.find()) {
+                lastGroup = p2.group()
+            }
+            if (lastGroup.isNotEmpty()) lastGroup else data
+        } else {
+            data
+        }
+    }
+
+    return@withContext if (p5.length > 4) {
+        "XX" + p5.substring(p5.length - 4, p5.length)
+    } else {
+        "XX$p5"
+    }
+}
+
+
+
+
+// ---------------------------------------------------------------------------
+// String.account() — helper used by getAccountNumber (Extensions.kt:881-899)
+// ---------------------------------------------------------------------------
+
+fun String.account(): String? {
+    "getAccountNumber  account : ${this}".log()
+    val str2 = this
+    val matcher = Pattern.compile("(ending\\s+with\\s+(\\d+))|([Xx][Xx]\\d+)|ending\\s*\\d+").matcher(str2)
+    val matcher2 = Pattern.compile("[.]{2,}[0-9]{2,}|[0-9]*[Xx\\*]*[0-9]*[Xx\\*]+[0-9]{3,}").matcher(str2)
+    if (matcher2.find()) {
+        return str2.substring(matcher2.start(), matcher2.end())
+    }
+    if (matcher.find()) {
+        return matcher.group(0)
+    }
+    if (!str2.lowercase(Locale.getDefault()).contains("account")
+        && !str2.lowercase(Locale.getDefault()).contains("a/c")
+        && !str2.lowercase(Locale.getDefault()).contains("a/c no")
+        && !str2.lowercase(Locale.getDefault()).contains("account no")
+    ) {
+        return "NA"
+    }
+    return "NA"
+
+
+// ---------------------------------------------------------------------------
+// String.getMerchantName(Context) (Extensions.kt:903-946)
+// ---------------------------------------------------------------------------
+
+suspend fun String.getMerchantName(mCom: Context): String = withContext(Dispatchers.IO) {
+    var body = this@getMerchantName
+
+    val bankName = this@getMerchantName.getBankName(mCom).first
+    if (body.contains(bankName)) {
+        body = body.replace(bankName, "")
+    }
+
+    val pattern =
+        body.toMatcher("(?:Info : |Info: |Ref |ref|to |[Ff]or |by |[Aa]t |via )(?!X)[^.]+(?:[A-Za-z]){4,}+")
+    val pattern0 = body.toMatcher("([a-zA-Z0-9_.\\+])+@(([a-zA-Z0-9-])+)")
+    val pattern4 =
+        body.toMatcher("(?:\\bto|(?:\\w)([A-Z]+(?: [A-Z]+)+))([A-Z0-9 ]+(?:[A-Z0-9]+)?){4,}")
+
+    var merchantName = "user"
+
+    when {
+        pattern0.find() -> merchantName = pattern0.group()
+        pattern.find() -> {
+            val sds = pattern.group()
+            merchantName = if (pattern4.find()) {
+                val str = pattern4.group()
+                if (str.contains("block", true)) sds else str
+            } else sds
+        }
+
+        else -> {
+            val pattern10 =
+                body.toMatcher("(?:Info : |Info: |Ref |ref|to |[Ff]or |by |[Aa]t |via )((?!X)[^.]+(?:[A-Z])+(?:[A-Z]))")
+            merchantName = when {
+                pattern10.find() -> pattern10.group(1)?.trim() ?: "Bank Card"
+                body.contains("card", true) -> "Bank Card"
+                pattern4.find() -> pattern4.group()
+                else -> "uip@user"
+            }
+        }
+    }
+
+    merchantName = merchantName.replace(Regex("\\b(to|at|for)\\b", RegexOption.IGNORE_CASE), "").trim()
+
+    return@withContext merchantName.lowercase(Locale.ROOT)
+}
+
+
+
+
+// ---------------------------------------------------------------------------
+// String.getBalance() — regex balance fallback (Extensions.kt:1048-1060)
+// ---------------------------------------------------------------------------
+
+suspend fun String.getBalance(): String = withContext(Dispatchers.IO) {
+    val matcher = balancePattern.matcher(this@getBalance)
+    val matcher1 = balancePattern1.matcher(this@getBalance)
+
+    when {
+        matcher.find() -> "₹ ${matcher.group(1)?.replace(",", "") ?: ""}"
+        matcher1.find() -> matcher1.group(1)?.replace(",", "") ?: ""
+        this@getBalance.transactionType() == OTHER -> this@getBalance.getAmount()
+        else -> ""
+    }
+}
+
+
+

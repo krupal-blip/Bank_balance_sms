@@ -1,0 +1,125 @@
+{
+  "regionCode": "US",
+  "banks": [
+    {
+      "id": "chase",
+      "displayName": "JPMorgan Chase Bank",
+      "shortName": "Chase",
+      "logoKey": "bl_chase",
+      "ussdCode": null,
+      "missedCallNumber": null,
+      "ivrNumber": "18009359935",
+      "smsKeyword": "BAL",
+      "smsShortCode": "24273",
+      "miniStatementNumber": null
+    },
+    {
+      "id": "bofa",
+      "displayName": "Bank of America",
+      "shortName": "BofA",
+      "logoKey": "bl_bofa",
+      "ussdCode": null,
+      "missedCallNumber": null,
+      "ivrNumber": "18004321000",
+      "smsKeyword": null,
+      "smsShortCode": "73981",
+      "miniStatementNumber": null
+    },
+    {
+      "id": "wellsfargo",
+      "displayName": "Wells Fargo Bank",
+      "shortName": "Wells Fargo",
+      "logoKey": "bl_wellsfargo",
+      "ussdCode": null,
+      "missedCallNumber": null,
+      "ivrNumber": "18008693557",
+      "smsKeyword": "BAL",
+      "smsShortCode": "93557",
+      "miniStatementNumber": null
+    },
+    {
+      "id": "citibank",
+      "displayName": "Citibank",
+      "shortName": "Citi",
+      "logoKey": "bl_citi",
+      "ussdCode": null,
+      "missedCallNumber": null,
+      "ivrNumber": "18003749700",
+      "smsKeyword": "BAL",
+      "smsShortCode": "95686",
+      "miniStatementNumber": null
+    },
+    {
+      "id": "capone",
+      "displayName": "Capital One",
+      "shortName": "Capital One",
+      "logoKey": "bl_capone",
+      "ussdCode": null,
+      "missedCallNumber": null,
+      "ivrNumber": "18002274825",
+      "smsKeyword": "BAL",
+      "smsShortCode": "227898",
+      "miniStatementNumber": null
+    },
+    {
+      "id": "usbank",
+      "displayName": "U.S. Bank",
+      "shortName": "US Bank",
+      "logoKey": "bl_usbank",
+      "ussdCode": null,
+      "missedCallNumber": null,
+      "ivrNumber": "18008722657",
+      "smsKeyword": null,
+      "smsShortCode": "872265",
+      "miniStatementNumber": null
+    },
+    {
+      "id": "pnc",
+      "displayName": "PNC Bank",
+      "shortName": "PNC",
+      "logoKey": "bl_pnc",
+      "ussdCode": null,
+      "missedCallNumber": null,
+      "ivrNumber": "18887622265",
+      "smsKeyword": "BAL",
+      "smsShortCode": "762265",
+      "miniStatementNumber": null
+    },
+    {
+      "id": "truist",
+      "displayName": "Truist Bank",
+      "shortName": "Truist",
+      "logoKey": "bl_truist",
+      "ussdCode": null,
+      "missedCallNumber": null,
+      "ivrNumber": "18444878478",
+      "smsKeyword": null,
+      "smsShortCode": "878478",
+      "miniStatementNumber": null
+    },
+    {
+      "id": "tdbank",
+      "displayName": "TD Bank (US)",
+      "shortName": "TD",
+      "logoKey": "bl_td",
+      "ussdCode": null,
+      "missedCallNumber": null,
+      "ivrNumber": "18887519000",
+      "smsKeyword": null,
+      "smsShortCode": "832265",
+      "miniStatementNumber": null
+    },
+    {
+      "id": "bmobank",
+      "displayName": "BMO Bank (US)",
+      "shortName": "BMO",
+      "logoKey": "bl_bmo",
+      "ussdCode": null,
+      "missedCallNumber": null,
+      "ivrNumber": "18883402265",
+      "smsKeyword": null,
+      "smsShortCode": "266226",
+      "miniStatementNumber": null
+    }
+  ]
+}

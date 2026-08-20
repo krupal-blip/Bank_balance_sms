@@ -1,0 +1,17 @@
+sender,body,is_transaction,bank,account,amount,balance,txn_type,source,merchant,notes
+24273,"Chase: A debit card purchase of $42.50 was made at TARGET T-1204 on Aug 19, 2026. Available bal: $2,450.10.",1,Chase,4321,42.50,2450.10,DEBIT,CARD,TARGET T-1204,Standard US Chase debit card POS purchase
+24273,"Chase: ATM withdrawal of $100.00 from checking (...4321) on 08/19/2026. Available balance: $2,350.10.",1,Chase,4321,100.00,2350.10,DEBIT,BANK,,Chase cash withdrawal from checking
+24273,"Chase: Direct deposit of $3,200.00 from ACME CORP was deposited to checking (...4321). Bal: $5,550.10.",1,Chase,4321,3200.00,5550.10,CREDIT,BANK,ACME CORP,ACH Payroll deposit
+24273,"Chase: You sent $75.00 with Zelle to John Doe on 08/19. Available balance: $5,475.10.",1,Chase,4321,75.00,5475.10,DEBIT,BANK,John Doe,P2P Zelle payment
+73981,"Bank of America Alert: Card ending in 8892 was charged $18.99 at NETFLIX.COM on 08/19/2026.",1,Bank of America,8892,18.99,,DEBIT,CARD,NETFLIX.COM,BofA online recurring subscription
+73981,"Bank of America: A deposit of $1,500.00 was posted to your checking account (...9012) on 08/19/2026.",1,Bank of America,9012,1500.00,,CREDIT,BANK,,BofA checking deposit without balance
+93557,"Wells Fargo Alert: A purchase of $89.20 occurred on card ending in 4112 at WALMART on Aug 19. Avail Bal: $1,120.00.",1,Wells Fargo,4112,89.20,1120.00,DEBIT,CARD,WALMART,Wells Fargo in-store purchase
+93557,"Wells Fargo: $200.00 ATM withdrawal from account ending 5543. Available balance: $920.00.",1,Wells Fargo,5543,200.00,920.00,DEBIT,BANK,,Wells Fargo ATM cash debit
+95686,"Citi Alert: $55.00 charged to Citi Double Cash card (...7781) at SHELL OIL on 08/19/2026.",1,Citibank,7781,55.00,,DEBIT,CARD,SHELL OIL,Citi credit card fuel charge
+227898,"Capital One Alert: You authorized $24.99 at AMAZON.COM with card ending in 1109.",1,Capital One,1109,24.99,,DEBIT,CARD,AMAZON.COM,Capital One real-time authorization
+24273,"Chase: Your temporary security code is 584920. Do not share this code with anyone.",0,Chase,,,,OTHER,NONE,,NEGATIVE: OTP / 2FA code
+73981,"BofA: Your SafePass code is 918234. We will NEVER call you for this code. Reply HELP for info.",0,Bank of America,,,,OTHER,NONE,,NEGATIVE: SafePass verification code
+93557,"Wells Fargo Alert: Your scheduled AutoPay of $250.00 for account ending 4112 is set up for 08/25.",0,Wells Fargo,4112,,,,OTHER,NONE,,NEGATIVE: Future mandate creation notice (quoted amount must not be balance)
+227898,"Capital One Alert: Your transaction of $450.00 at BEST BUY was declined due to low available credit.",0,Capital One,1109,,,,OTHER,NONE,,NEGATIVE: Declined transaction (no money moved)
+73981,"Bank of America Alert: Your checking account ending in 9012 balance is below your $100.00 threshold. Avail: $45.20.",0,Bank of America,9012,,45.20,OTHER,BANK,,NEGATIVE: Low balance reminder alert
+95686,"Citi Alert: Your credit card statement is ready. Minimum payment of $35.00 is due on 09/10/2026.",0,Citibank,7781,,,,OTHER,NONE,,NEGATIVE: Statement ready notice

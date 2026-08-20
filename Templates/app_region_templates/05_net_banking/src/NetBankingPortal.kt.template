@@ -1,0 +1,165 @@
+package com.yourapp.netbanking
+
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
+import android.webkit.WebView
+import androidx.annotation.Keep
+import com.google.gson.annotations.SerializedName
+
+// =============================================================================
+// Net banking portals.
+//
+// Region work: the URL table. That's all.
+// Everything else here is SECURITY, and it is region-neutral — read
+// ../README.md before touching any of it.
+//
+// India reference: activity/NetBankingActivity.kt — a WebView that loads the
+// "uri" intent extra with no scheme check, no host allowlist, and an
+// shouldOverrideUrlLoading that keeps EVERY redirect inside the same WebView.
+// Do not copy that shape.
+// =============================================================================
+
+@Keep
+data class PortalDto(
+    /** Same stable bank id as the channel table. */
+    @SerializedName("id") val id: String,
+    @SerializedName("displayName") val displayName: String,
+
+    /**
+     * TODO(REGION): your banks' login URLs.
+     * ** MUST be https. ** A cleartext login page is a credential leak, and
+     * validation below rejects it rather than trusting the table.
+     */
+    @SerializedName("loginUrl") val loginUrl: String,
+
+    /**
+     * Hosts this bank is allowed to navigate to, including any SSO/IdP domain
+     * its login flow legitimately redirects through.
+     *
+     * KEEP: without this, one open redirect puts a phishing page inside your
+     * app's chrome and the user cannot tell.
+     */
+    @SerializedName("allowedHosts") val allowedHosts: List<String>,
+)
+
+// -----------------------------------------------------------------------------
+
+class NetBankingPortals(private val portals: List<PortalDto>) {
+
+    fun forBank(bankId: String): PortalDto? = portals.firstOrNull { it.id == bankId }
+
+    /** KEEP: validate the table's own URL — don't trust your data file either. */
+    fun validate(portal: PortalDto): Boolean {
+        val uri = runCatching { Uri.parse(portal.loginUrl) }.getOrNull() ?: return false
+        return uri.scheme.equals("https", ignoreCase = true) && !uri.host.isNullOrBlank()
+    }
+
+    /**
+     * KEEP: exact host or true subdomain match only.
+     *
+     * The `endsWith(".$allowed")` form is deliberate. A bare `contains` or
+     * `endsWith(allowed)` would let "evil-examplebank.com" pass the check for
+     * "examplebank.com".
+     */
+    fun isAllowed(portal: PortalDto, url: String): Boolean {
+        val host = runCatching { Uri.parse(url).host }.getOrNull()?.lowercase() ?: return false
+        val scheme = runCatching { Uri.parse(url).scheme }.getOrNull()?.lowercase()
+        if (scheme != "https") return false
+        return portal.allowedHosts.any { allowed ->
+            val a = allowed.lowercase()
+            host == a || host.endsWith(".$a")
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+/**
+ * ** RECOMMENDED PATH: the system browser. **
+ *
+ * The user gets a real address bar, the browser's phishing protection and their
+ * own password manager — and your app leaves the credential path entirely.
+ * Prefer this over the WebView below.
+ */
+fun openInSystemBrowser(context: Context, portal: PortalDto) {
+    context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(portal.loginUrl)))
+}
+
+/**
+ * In-app WebView path. Present because India ships it. If you must keep it,
+ * keep EVERY guard below — each one is a real attack surface on a login page.
+ */
+object SecureWebViewSetup {
+
+    fun configure(web: WebView, portal: PortalDto, portals: NetBankingPortals) {
+        web.settings.apply {
+            javaScriptEnabled = true            // bank portals require it
+
+            // KEEP ALL FOUR OFF. Do not become a credential store, and do not
+            // give page JS a path to local files.
+            @Suppress("DEPRECATION")
+            savePassword = false
+            saveFormData = false
+            allowFileAccess = false
+            allowContentAccess = false
+        }
+
+        // ** NEVER call web.addJavascriptInterface(...) here. **
+        // It bridges native capability into page JavaScript. On a bank login page
+        // that is as bad as it sounds.
+
+        web.webViewClient = object : android.webkit.WebViewClient() {
+            /**
+             * KEEP: allowlisted hosts stay in-app; everything else goes to the
+             * system browser.
+             *
+             * India returns false and loads every URL in-place, so a redirect
+             * chain can land anywhere while still looking like your app.
+             */
+            override fun shouldOverrideUrlLoading(
+                view: WebView,
+                request: android.webkit.WebResourceRequest,
+            ): Boolean {
+                val url = request.url.toString()
+                return if (portals.isAllowed(portal, url)) {
+                    false // in-app, it's a known bank host over https
+                } else {
+                    openInSystemBrowser(view.context, portal.copy(loginUrl = url))
+                    true
+                }
+            }
+
+            /** KEEP: never proceed past a TLS error on a login page. */
+            override fun onReceivedSslError(
+                view: WebView,
+                handler: android.webkit.SslErrorHandler,
+                error: android.net.http.SslError,
+            ) {
+                handler.cancel()
+                // TODO(REGION): show a localized "connection not secure" message.
+            }
+        }
+
+        // TODO(REGION): display Uri.parse(portal.loginUrl).host prominently in
+        // your toolbar. The user must be able to see where they actually are.
+    }
+
+    /**
+     * KEEP: call on exit. A shared device must not leave a live banking session,
+     * and phone sharing is common in the markets this app targets.
+     */
+    fun clearSession(web: WebView) {
+        android.webkit.CookieManager.getInstance().removeAllCookies(null)
+        android.webkit.WebStorage.getInstance().deleteAllData()
+        web.clearCache(true)
+        web.clearHistory()
+        web.clearFormData()
+    }
+}
+
+// =============================================================================
+// NEVER LOG the portal URL, the POST body, or the WebView's page title on this
+// screen. Session tokens ride in URLs and titles leak account context — both end
+// up in logcat and in crash reports, which are exported off-device.
+// =============================================================================

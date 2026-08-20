@@ -1,0 +1,140 @@
+package com.yourapp.bankcodes
+
+import com.yourapp.region.RegionFeatureProfile
+
+// =============================================================================
+// Bank code lookup — routing code <-> branch.
+//
+// The drill-down machinery, search and history are REGION-NEUTRAL. Region work:
+// the code format, its validator, and how many drill-down levels exist.
+//
+// India reference: activity/IfscActivity.kt (553 lines, drill-down + history),
+// apiUtils/ApiInterface.kt (@POST("bank"), @POST("branch")).
+// =============================================================================
+
+/**
+ * TODO(REGION): your market's routing code system.
+ *
+ * IN-HINT India: IFSC, 11 chars "AAAA0BBBBBB" — 4-char bank code, literal '0',
+ * 6-char branch code. Plus MICR (9 digits, cheque clearing) and ICR as
+ * secondary display fields.
+ *
+ * The market table is in ../README.md. Pick yours and implement validate().
+ */
+interface BankCodeSystem {
+    val codeName: String
+
+    /** KEEP: validate OFFLINE before any network call. */
+    fun validate(raw: String): CodeValidation
+
+    /** Normalize for storage/compare. IN-HINT: IFSC -> uppercase, strip spaces. */
+    fun normalize(raw: String): String
+}
+
+sealed interface CodeValidation {
+    data object Valid : CodeValidation
+    data class Invalid(val reasonRes: String) : CodeValidation
+}
+
+/**
+ * Example implementation — India. DELETE once yours exists.
+ *
+ * Note it does shape-only validation. Some systems have a real CHECKSUM and you
+ * should implement it: US ABA is a weighted mod-10, IBAN is mod-97. A checksum
+ * rejects typos that a shape check accepts, which is most of them.
+ */
+class IfscCodeSystem : BankCodeSystem {
+    override val codeName = "IFSC"
+    private val re = Regex("^[A-Z]{4}0[A-Z0-9]{6}$")
+
+    override fun normalize(raw: String) = raw.trim().uppercase().replace(" ", "")
+
+    override fun validate(raw: String): CodeValidation {
+        val n = normalize(raw)
+        return if (re.matches(n)) CodeValidation.Valid
+        else CodeValidation.Invalid("error_invalid_ifsc")
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+/**
+ * Drill-down levels.
+ *
+ * TODO(REGION): ** DELETE THE LEVELS YOUR MARKET DOESN'T HAVE, don't ship them
+ * empty. ** India needs STATE and CITY because the registry is huge and indexed
+ * geographically. A flat national registry is BANK -> BRANCH, and the two
+ * intermediate screens should be removed with their adapters and layouts.
+ * IN-HINT India: BANK -> STATE -> CITY -> BRANCH.
+ */
+enum class LookupLevel { BANK, STATE, CITY, BRANCH }
+
+data class BranchRecord(
+    val primaryCode: String,
+    val bankName: String,
+    val branchName: String,
+    val address: String?,
+    /**
+     * TODO(REGION): drop entirely if your market has no cheque-clearing codes.
+     * IN-HINT India: MICR (9 digits) and ICR. Don't render empty rows for a
+     * market that has no equivalent.
+     */
+    val secondaryCodes: Map<String, String> = emptyMap(),
+    val city: String? = null,
+    val subRegion: String? = null,
+)
+
+// -----------------------------------------------------------------------------
+
+class BankCodeRepository(
+    private val region: RegionFeatureProfile,
+    private val codes: BankCodeSystem,
+    private val api: BankCodeApi,
+    private val history: SearchHistoryStore,
+) {
+
+    /**
+     * KEEP THIS ORDER: validate offline -> then hit the network.
+     * India validates server-side only, so every typo costs a round-trip and
+     * shows a generic failure instead of "that's not a valid <code>".
+     */
+    suspend fun resolve(rawCode: String): LookupResult {
+        when (val v = codes.validate(rawCode)) {
+            is CodeValidation.Invalid -> return LookupResult.InvalidFormat(v.reasonRes)
+            CodeValidation.Valid -> Unit
+        }
+        val normalized = codes.normalize(rawCode)
+        return runCatching {
+            api.branchByCode(normalized)?.let {
+                history.record(normalized)
+                LookupResult.Found(it)
+            } ?: LookupResult.NotFound
+        }.getOrElse { LookupResult.NetworkError }
+    }
+
+    /** KEEP: levels come from config, so an unused level costs nothing at runtime. */
+    suspend fun options(level: LookupLevel, parent: Map<LookupLevel, String>): List<String> {
+        if (level.name !in region.bankCodes.lookupLevels) return emptyList()
+        return runCatching { api.optionsFor(level, parent) }.getOrElse { emptyList() }
+    }
+
+    sealed interface LookupResult {
+        data class Found(val branch: BranchRecord) : LookupResult
+        data class InvalidFormat(val reasonRes: String) : LookupResult
+        data object NotFound : LookupResult
+        data object NetworkError : LookupResult
+    }
+}
+
+interface BankCodeApi {
+    /** IN-HINT: India uses @POST("bank") / @POST("branch") on its own backend. */
+    suspend fun optionsFor(level: LookupLevel, parent: Map<LookupLevel, String>): List<String>
+    suspend fun branchByCode(normalizedCode: String): BranchRecord?
+}
+
+/** KEEP: recent searches. Region-neutral, and the most-used part of the screen. */
+interface SearchHistoryStore {
+    fun record(normalizedCode: String)
+    fun recent(limit: Int = 20): List<String>
+    fun clear()
+}

@@ -1,0 +1,124 @@
+package com.yourapp.smstxn.smsmodel
+
+import com.yourapp.smstxn.region.SenderScheme
+
+// =============================================================================
+// SenderResolver — sender ID -> bank name. FULL REWRITE PER REGION.
+//
+// This is the most India-specific file in the feature. India uses TRAI DLT
+// headers, a scheme no other country has. The STRATEGY below is reusable; the
+// FORMAT is not.
+//
+// Lookup, not learned — sender codes are fixed strings, so a table beats a model.
+//
+// RISK NOTE (why you can tune this freely): this resolver only sets the DISPLAYED
+// bank name and logo. It never touches amount or account — those have their own
+// regex guardrails in TransactionFilter. A rare collision costs a wrong LABEL,
+// not a wrong balance. Low stakes.
+//
+// India reference: ../../../src/smsmodel/BankSenderResolver.kt (113 roots)
+// =============================================================================
+
+/**
+ * TODO(REGION): pick your market's shape from this table, then implement below.
+ *
+ *  | Market          | Sender shape                      | What to build             |
+ *  |-----------------|-----------------------------------|---------------------------|
+ *  | India           | "XX-TICKER" DLT header            | prefix strip + root table |
+ *  | EU/UAE/SG/AU    | alphanumeric sender ID, no prefix | root table, NO strip      |
+ *  | US/CA           | numeric short codes (5-6 digits)  | short-code -> bank map    |
+ *  | BR/MX           | mixed short code + long number    | both paths                |
+ *
+ * ** THE US/CA TRAP: ** India rejects any bare numeric sender as "no bank
+ * signal". In a short-code market that rule silently blinds the whole feature —
+ * every bank message looks like it came from a personal number. If your market
+ * uses short codes, the bare-number reject must go or be narrowed to LONG
+ * numbers only.
+ */
+class RegionSenderResolver : SenderScheme {
+
+    // -------------------------------------------------------------------------
+    // TODO(REGION): your bank identity table.
+    //
+    // IN-HINT: 113 entries of (root ticker -> canonical name), grouped as
+    //   1. national & major private banks   ("HDFC" to "HDFC Bank")
+    //   2. public sector banks              ("SBI" to "State Bank of India")
+    //   3. small finance / payments banks
+    //   4. regional rural banks
+    //   5. co-operative banks
+    //
+    // KEEP THE ROOT-TICKER IDEA: match the bank's ROOT, not a full fixed code.
+    // One bank registers many sender IDs — HDFCBK (banking), HDFCCC (credit
+    // card), HDFCLN (loans), HDFCUB, HDFCMF... all start with "HDFC". Listing
+    // every product suffix is unmaintainable; matching the root once covers all
+    // of them, including ones the bank registers in FUTURE with zero table
+    // changes. That property is worth preserving in any market.
+    //
+    // CONSISTENCY RULE: every canonical name here must also exist in
+    // RegionProfile.banks, or the row gets a blank logo. Assert in a unit test.
+    // -------------------------------------------------------------------------
+    private val ROOTS: List<Pair<String, String>> = listOf(
+        // TODO(REGION): fill in.
+        // "ROOT" to "Canonical Bank Name",
+    )
+
+    /**
+     * TODO(REGION): does your market have a fixed sender-ID prefix to strip?
+     * IN-HINT: Regex("^[A-Z0-9]{2}-") for TRAI DLT ("VM-HDFCBK" -> "HDFCBK").
+     * Most markets have none — then drop this and the replaceFirst below.
+     */
+    private val PREFIX_RE: Regex? = null // TODO(REGION)
+
+    /**
+     * TODO(REGION): READ THE US/CA TRAP ABOVE BEFORE KEEPING THIS.
+     * IN-HINT: Regex("^\\+?\\d{6,}$") — India treats any 6+ digit numeric sender
+     * as a personal number with no bank signal. Correct for India, fatal for a
+     * short-code market.
+     */
+    private val BARE_NUMBER_RE: Regex? = null // TODO(REGION)
+
+    /** Canonical bank name, or null when this sender carries no bank signal. */
+    override fun resolve(address: String): String? {
+        if (address.isBlank()) return null
+        val cleaned = address.trim().uppercase()
+
+        BARE_NUMBER_RE?.let { if (it.matches(cleaned.removePrefix("+"))) return null }
+
+        val code = PREFIX_RE?.let { cleaned.replaceFirst(it, "") } ?: cleaned
+
+        // KEEP: longest matching root wins, so a short root can't shadow a
+        // longer, more specific one sharing the same first letters.
+        ROOTS.filter { code.startsWith(it.first) }
+            .maxByOrNull { it.first.length }
+            ?.let { return it.second }
+
+        // KEEP: fallback — root appears anywhere in the code, not just at the start.
+        return ROOTS.filter { code.contains(it.first) }
+            .maxByOrNull { it.first.length }?.second
+    }
+
+    /** Collapses any spelling or abbreviation of a bank to its canonical name. */
+    override fun canonicalName(name: String): String {
+        if (name.isBlank()) return ""
+        val cleaned = name.trim().uppercase()
+        PREFIX_RE?.let { if (it.containsMatchIn(cleaned)) resolve(cleaned)?.let { r -> return r } }
+        val norm = cleaned.filter(Char::isLetter)
+        ROOTS.firstOrNull { it.first == norm }?.let { return it.second }
+        ROOTS.firstOrNull { (_, canonical) ->
+            canonical.uppercase().filter(Char::isLetter) == norm
+        }?.let { return it.second }
+        return name
+    }
+}
+
+// =============================================================================
+// KNOWN GAP — state it plainly in your port too, don't pretend it's empty.
+//
+// IN-HINT: Indian local co-operative banks and many regional rural banks don't
+// follow a consistent DLT code; some send from a plain phone number with zero
+// bank hint. resolve() returns null for those and the caller falls back to the
+// model's body-derived BANK span.
+//
+// EVERY market has an unregulated tail like this. Plan the fallback path
+// explicitly — it is a normal case, not an error case.
+// =============================================================================

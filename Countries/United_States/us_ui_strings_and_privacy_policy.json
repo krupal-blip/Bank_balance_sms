@@ -1,0 +1,46 @@
+{
+  "locale": "en_US",
+  "app_name": "Bank Balance — Smart Passbook",
+  "privacy_disclaimer": "Bank Balance processes 100% of your financial alerts on your local device. We never ask for your online banking username, password, or SSN. No financial data ever leaves your phone.",
+  "onboarding_steps": [
+    {
+      "step": 1,
+      "title": "Enable Text Alerts at Your Bank",
+      "instruction": "Open your banking app (Chase, BofA, Wells Fargo, etc.) > Profile > Alerts & Notifications > Enable SMS/Text Alerts for Transactions.",
+      "help_tip": "This allows your bank to send you an instant text alert whenever a debit, credit, or ATM withdrawal occurs."
+    },
+    {
+      "step": 2,
+      "title": "Grant SMS / Notification Permission",
+      "instruction": "Allow Bank Balance to read incoming bank transaction alerts on your device.",
+      "privacy_badge": "100% On-Device Processing — Zero Bank Login Required"
+    },
+    {
+      "step": 3,
+      "title": "Enjoy Your Automatic Passbook",
+      "instruction": "Your ledger, multi-card balances, and retirement schemes are now tracked in real-time!"
+    }
+  ],
+  "ui_strings": {
+    "tab_passbook": "Passbook",
+    "tab_accounts": "Accounts",
+    "tab_cards": "Credit Cards",
+    "tab_schemes": "Retirement & Tax",
+    "tab_utilities": "Bank Tools",
+    
+    "lbl_available_balance": "Available Balance",
+    "lbl_current_balance": "Current Balance",
+    "lbl_credit_utilization": "Credit Card Utilization",
+    "lbl_utilization_warning": "Warning: Keeping utilization under 30% improves your FICO score.",
+    
+    "btn_add_account": "Add Bank Account",
+    "btn_add_card": "Add Credit / Debit Card",
+    "btn_export_pdf": "Export IRS Statement (PDF)",
+    "btn_routing_lookup": "Find ABA Routing Number",
+    
+    "scheme_401k_title": "401(k) Contribution & Growth",
+    "scheme_roth_title": "Roth IRA Tax-Free Wealth",
+    "scheme_hsa_title": "HSA Triple-Tax Advantage",
+    "scheme_529_title": "529 College Fund Planner"
+  }
+}

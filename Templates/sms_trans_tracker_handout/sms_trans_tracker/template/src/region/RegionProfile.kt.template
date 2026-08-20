@@ -1,0 +1,283 @@
+package com.yourapp.smstxn.region
+
+// =============================================================================
+// RegionProfile — THE SEAM. Implement this once per market.
+//
+// In the India codebase these values are scattered across SIX files:
+//   BankSenderResolver.kt, LocalSmsGet.kt (Bank_List), BankTransactionFilterMl.kt,
+//   utils/Extensions.kt, KpdoEngine.kt, constants/Constant.kt
+// Porting meant hunting all six. Don't scatter them again — everything a market
+// changes goes behind this interface, and the pipeline reads it from here.
+//
+// Worked example: RegionProfile.India.hint.kt.template (reference — then delete)
+// Knob-by-knob table with India's values: ../../REGION_CONFIG.md
+// =============================================================================
+
+interface RegionProfile {
+
+    /** Stable id, goes into PARSER_VERSION and analytics. e.g. "IN", "DE", "BR". */
+    val regionCode: String
+
+    val currency: CurrencyFormat
+    val senderScheme: SenderScheme
+    val accountMasking: AccountMasking
+    val vocabulary: Vocabulary
+
+    /**
+     * Canonical bank display names for this market, including the abbreviations
+     * that actually appear in SMS.
+     *
+     * TODO(REGION): your banks.
+     * IN-HINT: ~88 entries. Both "State Bank of India" AND "SBI" are listed —
+     *          separate entries, same logo, because bodies use both.
+     *
+     * CONSISTENCY RULE: every name SenderScheme.resolve() can return must exist
+     * here, or the row gets a blank logo. Assert it in a unit test.
+     */
+    val banks: List<BankIdentity>
+
+    /**
+     * KEEP: the model's is-transaction gate. Region-neutral mechanism, but the
+     * VALUE must be re-swept per region — a weaker model needs a lower gate plus
+     * stronger guardrails, and that trade has to be measured.
+     *
+     * TODO(REGION): sweep 0.5..0.95 on your corpus, take the knee.
+     * IN-HINT: 0.80f
+     */
+    val minConfidence: Float
+
+    /**
+     * Versions MODEL + GUARDRAILS together as one string. Bumping it makes
+     * ReparseMigration re-parse every stored row through the new logic.
+     *
+     * TODO(REGION): region-tagged, e.g. "de_model_v1+guards1"
+     * IN-HINT: "sms_model_v7+guards9"
+     */
+    val parserVersion: String
+
+    /**
+     * TODO(REGION): false is a legitimate ship state — see ../../MODEL_TRAINING.md
+     * ("If you have no ML capacity"). The regex+keyword layer runs either way;
+     * this only decides whether the model's opinion is consulted.
+     */
+    val useMlParser: Boolean
+
+    /** Asset filename of the weights, or null when useMlParser is false. */
+    val modelAssetName: String?
+}
+
+data class BankIdentity(
+    val canonicalName: String,
+    val logoKey: String,
+    /** Extra spellings/abbreviations that map to this same bank. */
+    val aliases: List<String> = emptyList(),
+)
+
+// -----------------------------------------------------------------------------
+// Money
+// -----------------------------------------------------------------------------
+
+/**
+ * TODO(REGION): fill every field. This is the highest-risk block in the whole
+ * port — a wrong decimal separator silently turns 1.234,50 into 1.23.
+ *
+ * See ../../REGION_CONFIG.md section 3 for the market-by-market table.
+ */
+data class CurrencyFormat(
+    /** IN-HINT: "₹"  (prefix). EU markets are usually suffix. */
+    val symbol: String,
+    val symbolPosition: SymbolPosition,
+
+    /** IN-HINT: '.' decimal, ',' grouping. Most of the EU is the reverse. */
+    val decimalSeparator: Char,
+    val groupingSeparator: Char,
+
+    /**
+     * IN-HINT: 2. JPY/KRW/VND = 0. KWD/BHD/OMR/JOD = 3.
+     * Also drives the balance-chain tolerance — see BatchEngine.
+     */
+    val decimalPlaces: Int,
+
+    /**
+     * IN-HINT: NON_UNIFORM. India groups in lakh/crore ("6,87,367.28"), not
+     * 3-digit groups. This is why MONEY_TOKEN_RE exists: the model could emit a
+     * single comma-group as the whole amount. Keep that guard even when uniform.
+     */
+    val grouping: Grouping,
+
+    /**
+     * Max integer digits a real amount can have in this market.
+     * TODO(REGION): derive from your currency's realistic maximum. Don't copy 10.
+     * IN-HINT: 10 — crore-scale balances are 8-9 digits.
+     */
+    val maxIntegerDigits: Int,
+
+    /**
+     * Every way this currency is written in message text, lowercase.
+     * TODO(REGION): include informal spellings your banks actually use.
+     * IN-HINT: listOf("rs.", "rs", "inr.", "inr", "re.", "₹", "$")
+     *          — "$" is in there because some Indian banks really do send it.
+     */
+    val currencyWords: List<String>,
+) {
+    /** KEEP: money is BigDecimal end to end. Never Double. Not region-negotiable. */
+    val amountRegex: Regex
+        get() = Regex("""\d{1,$maxIntegerDigits}(\.\d{1,$decimalPlaces})?""")
+}
+
+enum class SymbolPosition { PREFIX, SUFFIX }
+enum class Grouping { UNIFORM_3, NON_UNIFORM, NONE }
+
+// -----------------------------------------------------------------------------
+// Sender identity
+// -----------------------------------------------------------------------------
+
+/**
+ * Sender ID -> bank name. Independent of the model: a lookup, not learned.
+ * Full skeleton + India's approach: ../smsmodel/SenderResolver.kt.template
+ */
+interface SenderScheme {
+    /** Canonical bank name, or null when this sender carries no bank signal. */
+    fun resolve(address: String): String?
+
+    /** Collapse any spelling/abbreviation of a bank to its canonical name. */
+    fun canonicalName(name: String): String
+}
+
+// -----------------------------------------------------------------------------
+// Account / card masking
+// -----------------------------------------------------------------------------
+
+data class AccountMasking(
+    /**
+     * TODO(REGION): your banks' masking forms.
+     * IN-HINT: Regex("(x+\\d{3,}|\\.{2,}\\d{2,}|\\d{3,})", IGNORE_CASE)
+     *          covers XX5665, X5665, ...5665, bare 5665. Watch for • and #.
+     */
+    val accountRegex: Regex,
+
+    /**
+     * TODO(REGION): your wording, your language.
+     * IN-HINT: "(?:credit|debit)?\\s*card\\s*(?:no\\.?|number)?\\s*
+     *           (?:ending\\s*(?:with|in)?|x|\\*+)\\s*[Xx*]*(\\d{4,})"
+     */
+    val cardEndingRegex: Regex,
+
+    /**
+     * KEEP: minimum digits for a run to count as an account. Reducing a mask to
+     * its trailing digit run is what makes XX5665 and *5665 group as ONE
+     * account instead of several. Only the length is regional.
+     * IN-HINT: 3
+     */
+    val minAccountDigits: Int = 3,
+)
+
+// -----------------------------------------------------------------------------
+// Language
+// -----------------------------------------------------------------------------
+
+/**
+ * The keyword layer. In India every one of these is an English word list.
+ *
+ * TODO(REGION): translate ALL of it. Multilingual markets need every language a
+ * bank might send in — not just the official one.
+ *
+ * This layer is NOT optional garnish: it validates, repairs and VETOES the
+ * model's output, and it is the entire extractor when useMlParser is false.
+ * Per-list India values: ../../REGION_CONFIG.md section 5.
+ */
+data class Vocabulary(
+    val creditWords: List<String>,
+    val debitWords: List<String>,
+
+    /** Two tiers: qualified ("available balance") beats bare ("balance"). */
+    val qualifiedBalanceWords: List<String>,
+    val bareBalanceWords: List<String>,
+
+    /**
+     * Recurring-payment scheme words.
+     * IN-HINT: NACH — "mandate", "autopay", "e-mandate", "standing instruction".
+     *          EU = SEPA Direct Debit. US = ACH.
+     */
+    val mandateWords: List<String>,
+
+    /**
+     * CRITICAL DISTINCTION, and easy to get backwards: only mandate CREATION is
+     * a non-transaction. An EXECUTED autopay debit is real money movement —
+     * dropping those inflated India's computed balances.
+     */
+    val mandateCreationVerbs: List<String>,
+
+    /** Cancel notices quote the mandate amount, which then poisoned avlBal. */
+    val mandateCancelVerbs: List<String>,
+
+    val otpWords: List<String>,
+    val declinedWords: List<String>,
+    val reminderWords: List<String>,
+
+    /** Decides whether a body owns its own account. IN-HINT: "credit card", "card member" */
+    val creditCardBodyWords: List<String>,
+    val debitCardBodyWords: List<String>,
+
+    /**
+     * Fed to the MODEL as a synthetic prepended token, not just matched here.
+     * Must match the trainer's FUTURE_MARKERS byte for byte.
+     * IN-HINT: "will be", "shall be", "is scheduled to", "is due to",
+     *          "is going to", "is expected to", "will get", "shall get", "would be"
+     * See ../../MODEL_TRAINING.md, "The synthetic future-tense token".
+     */
+    val futureMarkers: List<String>,
+
+    /**
+     * Cross-message vocabulary for the batch engine.
+     * IN-HINT noticeMarkers: "umrn", "umn", "mandate", "payment alert"
+     *         — UMRN is an India-only NACH mandate id.
+     * IN-HINT referenceLabels: "refno", "reference no", "utr", "txn id"
+     *         — UTR is India-only. EU: E2E ref. US: trace number.
+     * IN-HINT limitNotBalanceWords: "available limit", "avl limit"
+     *         — a card ack reports available LIMIT, never an account balance.
+     */
+    val noticeMarkers: List<String>,
+    val referenceLabels: List<String>,
+    val limitNotBalanceWords: List<String>,
+)
+
+// -----------------------------------------------------------------------------
+// Transaction vocabulary — NOT part of RegionProfile, on purpose
+// -----------------------------------------------------------------------------
+
+/**
+ * These are DATABASE VALUES, not labels. They are written to
+ * TransactionRow.transactionType / .source and compared by every downstream
+ * query, filter and UI branch.
+ *
+ * KEEP them region-invariant and localize only at display time. Changing a
+ * dbValue is a DATA MIGRATION, not a rename.
+ *
+ * IN-HINT: India used bare strings — CREDIT = "Credited", DEBIT = "Debited",
+ *          OTHER = "Other", VIA_BANK = "BANK", VIA_CARD = "CARD". An enum with
+ *          an explicit stable dbValue is the better shape; you don't have to
+ *          inherit the raw strings.
+ */
+enum class TxnType(val dbValue: String) {
+    CREDIT("CREDIT"),
+    DEBIT("DEBIT"),
+
+    /**
+     * LOAD-BEARING: holds real transactions the parser couldn't confidently
+     * type. These must NOT be filtered out of transaction lists — callers drop
+     * blank/zero-amount rows instead, which is what actually excludes
+     * balance-only messages.
+     */
+    OTHER("OTHER"),
+}
+
+enum class TxnSource(val dbValue: String) {
+    /** Bank account. */
+    VIA_BANK("BANK"),
+
+    /** Credit/debit card — behaves differently in the ledger, hence separate. */
+    VIA_CARD("CARD"),
+
+    NONE("NONE"),
+}

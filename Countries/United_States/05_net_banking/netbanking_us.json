@@ -1,0 +1,67 @@
+{
+  "regionCode": "US",
+  "requireHttps": true,
+  "allowlistHostsOnly": true,
+  "portals": [
+    {
+      "bankId": "chase",
+      "displayName": "Chase Online Banking",
+      "loginUrl": "https://secure.chase.com/web/auth/view/login",
+      "allowedHosts": ["chase.com", "secure.chase.com", "auth.chase.com"]
+    },
+    {
+      "bankId": "bofa",
+      "displayName": "Bank of America Online Banking",
+      "loginUrl": "https://secure.bankofamerica.com/login/sign-in/signOnV2Screen.go",
+      "allowedHosts": ["bankofamerica.com", "secure.bankofamerica.com"]
+    },
+    {
+      "bankId": "wellsfargo",
+      "displayName": "Wells Fargo Online",
+      "loginUrl": "https://connect.secure.wellsfargo.com/auth/login/present",
+      "allowedHosts": ["wellsfargo.com", "connect.secure.wellsfargo.com"]
+    },
+    {
+      "bankId": "citibank",
+      "displayName": "Citi Online",
+      "loginUrl": "https://online.citi.com/US/login.do",
+      "allowedHosts": ["citi.com", "online.citi.com"]
+    },
+    {
+      "bankId": "capone",
+      "displayName": "Capital One Online Banking",
+      "loginUrl": "https://verified.capitalone.com/auth/signin",
+      "allowedHosts": ["capitalone.com", "verified.capitalone.com"]
+    },
+    {
+      "bankId": "usbank",
+      "displayName": "U.S. Bank Online Banking",
+      "loginUrl": "https://onlinebanking.usbank.com/auth/login",
+      "allowedHosts": ["usbank.com", "onlinebanking.usbank.com"]
+    },
+    {
+      "bankId": "pnc",
+      "displayName": "PNC Online Banking",
+      "loginUrl": "https://onlinebanking.pnc.com/alservlet/LoginServlet",
+      "allowedHosts": ["pnc.com", "onlinebanking.pnc.com"]
+    },
+    {
+      "bankId": "truist",
+      "displayName": "Truist Online Banking",
+      "loginUrl": "https://app.truist.com/auth",
+      "allowedHosts": ["truist.com", "app.truist.com"]
+    },
+    {
+      "bankId": "tdbank",
+      "displayName": "TD Bank Online Banking",
+      "loginUrl": "https://onlinebanking.tdbank.com",
+      "allowedHosts": ["tdbank.com", "onlinebanking.tdbank.com", "td.com"]
+    },
+    {
+      "bankId": "bmobank",
+      "displayName": "BMO Digital Banking",
+      "loginUrl": "https://us.bmo.com/digital",
+      "allowedHosts": ["bmo.com", "us.bmo.com"]
+    }
+  ]
+}

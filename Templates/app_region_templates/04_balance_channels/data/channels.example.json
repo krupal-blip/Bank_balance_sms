@@ -1,0 +1,52 @@
+{
+  "_comment": [
+    "FILE SHAPE ONLY. Fabricated placeholder region ('Examplia'). Delete before use.",
+    "Replaces India's THREE overlapping sources: assets/ussd.json (~90 banks),",
+    "bankbalance.db tbl_bank_info (48 rows), and utils/BankArray.kt (15 KB literal).",
+    "Keyed by stable 'id' - that is what fixes the naming drift between those three.",
+    "null channel = bank does not offer it -> UI hides the row, never a dead button.",
+    "READ ../README.md: USSD and missed-call mostly DO NOT EXIST outside India.",
+    "For a Western market the honest table is ivrNumber only - or drop the feature."
+  ],
+  "regionCode": "EX",
+  "banks": [
+    {
+      "id": "exb",
+      "displayName": "Examplia Bank",
+      "shortName": "EXB",
+      "logoKey": "exb",
+      "ussdCode": "*99*87#",
+      "missedCallNumber": "1800110011",
+      "ivrNumber": "1800110012",
+      "smsKeyword": "BAL",
+      "smsShortCode": "567676",
+      "miniStatementNumber": "1800110013"
+    },
+    {
+      "id": "northern_provincial",
+      "displayName": "Northern Provincial Bank",
+      "shortName": "NPB",
+      "logoKey": "npb",
+      "ussdCode": "*99*42#",
+      "missedCallNumber": null,
+      "ivrNumber": "1800220022",
+      "smsKeyword": null,
+      "smsShortCode": null,
+      "miniStatementNumber": null,
+      "_note": "partial coverage is normal - only IVR and USSD rows should render"
+    },
+    {
+      "id": "meridian_savings",
+      "displayName": "Meridian Savings Bank",
+      "shortName": "MSB",
+      "logoKey": "msb",
+      "ussdCode": null,
+      "missedCallNumber": null,
+      "ivrNumber": "1800330033",
+      "smsKeyword": null,
+      "smsShortCode": null,
+      "miniStatementNumber": null,
+      "_note": "IVR-only. This is what a typical EU/US/UK/AU bank row looks like."
+    }
+  ]
+}
