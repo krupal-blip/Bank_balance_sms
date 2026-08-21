@@ -1,0 +1,52 @@
+{
+  "country": "Australia",
+  "year": 2026,
+  "regionCode": "AU",
+  "holidays": [
+    {
+      "date": "2026-01-01",
+      "name": "New Year's Day",
+      "type": "National Public Holiday"
+    },
+    {
+      "date": "2026-01-26",
+      "name": "Australia Day",
+      "type": "National Public Holiday"
+    },
+    {
+      "date": "2026-04-03",
+      "name": "Good Friday",
+      "type": "National Public Holiday"
+    },
+    {
+      "date": "2026-04-04",
+      "name": "Easter Saturday",
+      "type": "National Public Holiday"
+    },
+    {
+      "date": "2026-04-06",
+      "name": "Easter Monday",
+      "type": "National Public Holiday"
+    },
+    {
+      "date": "2026-04-25",
+      "name": "Anzac Day",
+      "type": "National Public Holiday"
+    },
+    {
+      "date": "2026-06-08",
+      "name": "King's Birthday",
+      "type": "Public Holiday (Except WA/QLD)"
+    },
+    {
+      "date": "2026-12-25",
+      "name": "Christmas Day",
+      "type": "National Public Holiday"
+    },
+    {
+      "date": "2026-12-28",
+      "name": "Boxing Day (Substitute)",
+      "type": "National Public Holiday"
+    }
+  ]
+}

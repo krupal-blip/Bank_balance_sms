@@ -1,0 +1,59 @@
+{
+  "country": "India",
+  "regionCode": "IN",
+  "currency": "INR",
+  "symbol": "₹",
+  "taxYear": "2026-2027",
+  "schemes": [
+    {
+      "id": "ppf",
+      "name": "Public Provident Fund (PPF)",
+      "category": "Long-Term Retirement / Tax Savings",
+      "annualLimit": 150000,
+      "taxStatus": "EEE (Exempt-Exempt-Exempt)",
+      "interestRate": "7.1% p.a. (compounded annually)",
+      "lockInYears": 15,
+      "partialWithdrawalAllowed": true,
+      "eligibility": "Indian residents (1 account per individual)",
+      "section": "Section 80C (Old Regime)"
+    },
+    {
+      "id": "epf",
+      "name": "Employees' Provident Fund (EPF)",
+      "category": "Salaried Retirement Scheme",
+      "employeeContribution": "12% of basic salary + DA",
+      "employerContribution": "12% (3.67% EPF + 8.33% EPS)",
+      "interestRate": "8.25% p.a.",
+      "taxStatus": "EEE up to ₹2.5 Lakh annual employee contribution",
+      "eligibility": "Salaried employees in registered establishments"
+    },
+    {
+      "id": "nps",
+      "name": "National Pension System (NPS)",
+      "category": "Market-Linked Pension & Annuity",
+      "tier1LockIn": "Until age 60",
+      "tier2Liquidity": "Open liquidity / voluntary investment",
+      "taxDeduction": "Up to ₹50,000 extra under Sec 80CCD(1B); corporate NPS under Sec 80CCD(2)",
+      "annuityRequirement": "Min 40% of corpus at superannuation"
+    },
+    {
+      "id": "ssy",
+      "name": "Sukanya Samriddhi Yojana (SSY)",
+      "category": "Girl Child Welfare & Education",
+      "annualLimit": 150000,
+      "interestRate": "8.2% p.a.",
+      "taxStatus": "EEE",
+      "maturityYears": 21,
+      "eligibility": "Parents/guardians of girl child aged <10 years"
+    },
+    {
+      "id": "scss",
+      "name": "Senior Citizens Savings Scheme (SCSS)",
+      "category": "Retirement Regular Income",
+      "maximumDeposit": 3000000,
+      "interestRate": "8.2% p.a. (payable quarterly)",
+      "tenureYears": 5,
+      "eligibility": "Individuals aged 60+ years (55+ for voluntary retirees)"
+    }
+  ]
+}

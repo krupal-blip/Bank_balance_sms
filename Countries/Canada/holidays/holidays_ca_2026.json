@@ -1,0 +1,62 @@
+{
+  "country": "Canada",
+  "year": 2026,
+  "regionCode": "CA",
+  "holidays": [
+    {
+      "date": "2026-01-01",
+      "name": "New Year's Day",
+      "type": "Statutory Holiday"
+    },
+    {
+      "date": "2026-02-16",
+      "name": "Family Day / Louis Riel Day",
+      "type": "Provincial Holiday"
+    },
+    {
+      "date": "2026-04-03",
+      "name": "Good Friday",
+      "type": "Statutory Holiday"
+    },
+    {
+      "date": "2026-05-18",
+      "name": "Victoria Day",
+      "type": "Statutory Holiday"
+    },
+    {
+      "date": "2026-07-01",
+      "name": "Canada Day",
+      "type": "Statutory Holiday"
+    },
+    {
+      "date": "2026-09-07",
+      "name": "Labour Day",
+      "type": "Statutory Holiday"
+    },
+    {
+      "date": "2026-09-30",
+      "name": "National Day for Truth and Reconciliation",
+      "type": "Federal Statutory"
+    },
+    {
+      "date": "2026-10-12",
+      "name": "Thanksgiving Day",
+      "type": "Statutory Holiday"
+    },
+    {
+      "date": "2026-11-11",
+      "name": "Remembrance Day",
+      "type": "Statutory Holiday"
+    },
+    {
+      "date": "2026-12-25",
+      "name": "Christmas Day",
+      "type": "Statutory Holiday"
+    },
+    {
+      "date": "2026-12-26",
+      "name": "Boxing Day",
+      "type": "Federal Statutory"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "country": "Germany",
+  "year": 2026,
+  "regionCode": "DE",
+  "holidays": [
+    {
+      "date": "2026-01-01",
+      "name": "Neujahr (New Year's Day)",
+      "type": "Bundesweiter Feiertag"
+    },
+    {
+      "date": "2026-04-03",
+      "name": "Karfreitag (Good Friday)",
+      "type": "Bundesweiter Feiertag"
+    },
+    {
+      "date": "2026-04-06",
+      "name": "Ostermontag (Easter Monday)",
+      "type": "Bundesweiter Feiertag"
+    },
+    {
+      "date": "2026-05-01",
+      "name": "Tag der Arbeit (Labour Day)",
+      "type": "Bundesweiter Feiertag"
+    },
+    {
+      "date": "2026-05-14",
+      "name": "Christi Himmelfahrt (Ascension Day)",
+      "type": "Bundesweiter Feiertag"
+    },
+    {
+      "date": "2026-05-25",
+      "name": "Pfingstmontag (Whit Monday)",
+      "type": "Bundesweiter Feiertag"
+    },
+    {
+      "date": "2026-10-03",
+      "name": "Tag der Deutschen Einheit (German Unity Day)",
+      "type": "Bundesweiter Feiertag"
+    },
+    {
+      "date": "2026-12-25",
+      "name": "1. Weihnachtstag (Christmas Day)",
+      "type": "Bundesweiter Feiertag"
+    },
+    {
+      "date": "2026-12-26",
+      "name": "2. Weihnachtstag (Boxing Day)",
+      "type": "Bundesweiter Feiertag"
+    }
+  ]
+}
