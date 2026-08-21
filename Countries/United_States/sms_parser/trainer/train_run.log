@@ -1,0 +1,48 @@
+corpus: 900 unique rows (141 exact duplicates dropped)
+split: train 766 / val 134
+class weights  isbank [1.25 0.83]  ttype [3.04 0.7  0.81]  src [1.43 0.91 0.83]
+phase 1 — self-supervised trigram pretrain
+  pretrain epoch 1/4  loss/token 3.9940
+  pretrain epoch 2/4  loss/token 3.8695
+  pretrain epoch 3/4  loss/token 3.8113
+  pretrain epoch 4/4  loss/token 3.7781
+  (16.7s)
+phase 2 — supervised finetune (CRF + 3 heads)
+  ep  1 loss   0.801 | val isbank acc 0.993 f1 0.994 (fp 0 fn 1) | ttype 0.933 src 0.985 | tag 0.991 | 11s
+  ep  2 loss   0.156 | val isbank acc 0.993 f1 0.994 (fp 0 fn 1) | ttype 0.940 src 0.985 | tag 0.992 | 11s
+  ep  3 loss   0.059 | val isbank acc 1.000 f1 1.000 (fp 0 fn 0) | ttype 0.978 src 0.993 | tag 0.994 | 11s
+  ep  4 loss   0.036 | val isbank acc 0.985 f1 0.988 (fp 0 fn 2) | ttype 0.985 src 0.993 | tag 0.991 | 11s
+  ep  5 loss   0.012 | val isbank acc 0.985 f1 0.988 (fp 0 fn 2) | ttype 0.948 src 1.000 | tag 0.994 | 11s
+  ep  6 loss   0.007 | val isbank acc 0.978 f1 0.981 (fp 0 fn 3) | ttype 0.970 src 0.993 | tag 0.996 | 10s
+  ep  7 loss   0.004 | val isbank acc 1.000 f1 1.000 (fp 0 fn 0) | ttype 0.978 src 1.000 | tag 0.993 | 11s
+  ep  8 loss   0.002 | val isbank acc 0.978 f1 0.981 (fp 0 fn 3) | ttype 0.970 src 0.985 | tag 0.996 | 10s
+  ep  9 loss   0.001 | val isbank acc 0.978 f1 0.981 (fp 0 fn 3) | ttype 0.970 src 0.985 | tag 0.995 | 10s
+  ep 10 loss   0.002 | val isbank acc 0.978 f1 0.981 (fp 0 fn 3) | ttype 0.985 src 0.985 | tag 0.982 | 11s
+  ep 11 loss   0.002 | val isbank acc 0.978 f1 0.981 (fp 0 fn 3) | ttype 0.970 src 0.985 | tag 0.995 | 10s
+  ep 12 loss   0.001 | val isbank acc 0.978 f1 0.981 (fp 0 fn 3) | ttype 0.978 src 0.985 | tag 0.995 | 10s
+  ep 13 loss   0.000 | val isbank acc 0.985 f1 0.988 (fp 0 fn 2) | ttype 0.978 src 0.978 | tag 0.996 | 11s
+  ep 14 loss   0.000 | val isbank acc 0.978 f1 0.981 (fp 0 fn 3) | ttype 0.978 src 0.978 | tag 0.996 | 12s
+  ep 15 loss   0.000 | val isbank acc 0.993 f1 0.994 (fp 0 fn 1) | ttype 0.955 src 0.993 | tag 0.995 | 13s
+  ep 16 loss   0.000 | val isbank acc 0.993 f1 0.994 (fp 0 fn 1) | ttype 0.985 src 0.993 | tag 0.994 | 14s
+  ep 17 loss   0.004 | val isbank acc 0.978 f1 0.981 (fp 0 fn 3) | ttype 0.955 src 0.985 | tag 0.995 | 15s
+  ep 18 loss   0.002 | val isbank acc 0.985 f1 0.988 (fp 0 fn 2) | ttype 0.963 src 0.985 | tag 0.995 | 14s
+  ep 19 loss   0.000 | val isbank acc 0.993 f1 0.994 (fp 0 fn 1) | ttype 0.970 src 0.993 | tag 0.997 | 13s
+  ep 20 loss   0.000 | val isbank acc 0.993 f1 0.994 (fp 0 fn 1) | ttype 0.970 src 0.985 | tag 0.997 | 13s
+  ep 21 loss   0.000 | val isbank acc 0.985 f1 0.988 (fp 0 fn 2) | ttype 0.955 src 0.985 | tag 0.997 | 16s
+  ep 22 loss   0.000 | val isbank acc 0.985 f1 0.988 (fp 0 fn 2) | ttype 0.970 src 0.985 | tag 0.997 | 15s
+  ep 23 loss   0.000 | val isbank acc 0.985 f1 0.988 (fp 0 fn 2) | ttype 0.955 src 0.985 | tag 0.997 | 14s
+  ep 24 loss   0.000 | val isbank acc 0.985 f1 0.988 (fp 0 fn 2) | ttype 0.955 src 0.985 | tag 0.997 | 12s
+  ep 25 loss   0.000 | val isbank acc 0.985 f1 0.988 (fp 0 fn 2) | ttype 0.955 src 0.985 | tag 0.997 | 12s
+  ep 26 loss   0.000 | val isbank acc 0.985 f1 0.988 (fp 0 fn 2) | ttype 0.955 src 0.985 | tag 0.997 | 12s
+  ep 27 loss   0.000 | val isbank acc 0.985 f1 0.988 (fp 0 fn 2) | ttype 0.955 src 0.985 | tag 0.997 | 12s
+  ep 28 loss   0.000 | val isbank acc 0.985 f1 0.988 (fp 0 fn 2) | ttype 0.955 src 0.985 | tag 0.997 | 12s
+  ep 29 loss   0.000 | val isbank acc 0.985 f1 0.988 (fp 0 fn 2) | ttype 0.955 src 0.985 | tag 0.997 | 12s
+  ep 30 loss   0.000 | val isbank acc 0.985 f1 0.988 (fp 0 fn 2) | ttype 0.955 src 0.985 | tag 0.997 | 13s
+
+best checkpoint metrics:
+  val   isbank acc 1.000  P 1.000  R 1.000  F1 1.000 | ttype 0.978 | src 1.000 | tag 0.993
+        field exact-match: {'ACCOUNT': 0.981, 'AMOUNT': 0.972, 'BALANCE': 0.985, 'BANK': 1.0, 'MERCHANT': 0.878}
+  train isbank acc 1.000  P 1.000  R 1.000  F1 1.000 | ttype 1.000 | src 1.000 | tag 0.999
+        field exact-match: {'ACCOUNT': 0.987, 'AMOUNT': 1.0, 'BALANCE': 1.0, 'BANK': 1.0, 'MERCHANT': 0.973}
+
+saved weights.pkl

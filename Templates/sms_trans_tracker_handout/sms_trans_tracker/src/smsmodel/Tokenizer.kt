@@ -24,8 +24,14 @@ object Tokenizer {
     // Closed, deterministic future-tense phrase list — must match FUTURE_MARKERS
     // in the trainer. When present, one synthetic token is prepended: gives the
     // classifier an explicit future-vs-completed signal with no tensor changes.
+    // US model (sms_model_us.bin) added "scheduled for" / "scheduled on": US bank
+    // SMS phrase future-dated payments that way ("is scheduled for 05/28"), and
+    // without them the future token never fires on those. Trainer list in
+    // Countries/United_States/sms_parser/trainer/tok.py must stay identical --
+    // a marker on one side only shifts every embedding lookup by one position.
     private val FUTURE_MARKERS = listOf("will be", "shall be", "is scheduled to", "is due to",
-        "is going to", "is expected to", "will get", "shall get", "would be")
+        "is going to", "is expected to", "will get", "shall get", "would be",
+        "scheduled for", "scheduled on")
     private const val FUTURE_TOKEN = "futuremarkertoken"
 
     fun hasFutureMarker(text: String): Boolean {
